@@ -1,0 +1,952 @@
+{
+ "id": "pe-base",
+ "added": "2026-11-13",
+ "title": "Private equity — base",
+ "fiches": [
+  {
+   "id": "pe-structure",
+   "topic": "pe",
+   "title": "Private Equity Fund Structure and Life Cycle",
+   "fr": "Structure et cycle de vie d’un fonds de private equity",
+   "minutes": 12,
+   "blocks": [
+    {
+     "t": "p",
+     "text": "A typical PE fund is a **closed-end limited partnership** with a life of about **10–12 years** (plus possible extensions). LPs make a **commitment**; the GP **calls capital** as deals are found (drawdowns) and **distributes** proceeds as investments are exited."
+    },
+    {
+     "t": "list",
+     "ordered": true,
+     "items": [
+      "**Fundraising** and first/final close.",
+      "**Investment period** (≈ first 3–6 years): capital calls, new deals.",
+      "**Value creation / holding**: portfolio companies are improved.",
+      "**Harvesting**: exits and distributions; the fund is wound down."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "The J-curve"
+    },
+    {
+     "t": "p",
+     "text": "Early in a fund’s life, cumulative returns are **negative**: management fees and set-up costs are paid on committed capital, investments are held at cost, and poor deals are written down quickly while good ones take years to be marked up and exited. Returns turn positive later as value is realized — the curve looks like a **J**."
+    },
+    {
+     "t": "h",
+     "text": "Economics"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Management fee**: often ≈ 1.5–2% of **committed** capital during the investment period, then of **invested** capital (or NAV).",
+      "**Carried interest**: usually 20% of profits, after a **preferred return** (hurdle) of about 8%, often with a **GP catch-up**.",
+      "**GP commitment**: the GP invests its own money (often 1–3% of the fund) to align interests.",
+      "Transaction and monitoring fees charged to portfolio companies are often offset (partly or fully) against management fees."
+     ]
+    },
+    {
+     "t": "table",
+     "head": [
+      "Waterfall",
+      "How carry is paid",
+      "LP-friendliness"
+     ],
+     "rows": [
+      [
+       "**European (whole-of-fund)**",
+       "Only after LPs have received all contributed capital plus the preferred return on the whole fund",
+       "More LP-friendly"
+      ],
+      [
+       "**American (deal-by-deal)**",
+       "On each profitable deal as it is exited (with clawback for later losses)",
+       "More GP-friendly: carry is paid earlier"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Ways to access private equity"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Primary funds** (commitments to new funds).",
+      "**Secondaries**: buying existing LP interests (LP-led) or GP-led deals (continuation funds); often at a discount to NAV, shorter duration, mitigated J-curve, more visibility on assets.",
+      "**Co-investments** alongside a GP: low or no fees and carry, but require fast decisions and risk **adverse selection**.",
+      "**Funds of funds**: diversification and access, at the cost of an extra fee layer.",
+      "**Evergreen / semi-liquid vehicles** and listed PE."
+     ]
+    },
+    {
+     "t": "fr",
+     "text": "Courbe en **J** : rendements négatifs au début (frais, coûts, dépréciations rapides), positifs ensuite. **Cascade européenne** = carry seulement quand tout le capital + le preferred return sont rendus aux LP (favorable aux LP) ; **américaine** = deal par deal (favorable au GP)."
+    }
+   ]
+  },
+  {
+   "id": "pe-buyouts",
+   "topic": "pe",
+   "title": "Leveraged Buyouts",
+   "fr": "Les LBO (rachats avec effet de levier)",
+   "minutes": 10,
+   "blocks": [
+    {
+     "t": "p",
+     "text": "In a **leveraged buyout (LBO)**, a PE sponsor acquires a controlling stake in a mature company, financing a large share of the price with **debt** that is repaid from the company’s cash flows. Variants: management buyout (**MBO**), management buy-in (**MBI**), public-to-private (take-private), secondary buyout (sponsor to sponsor), buy-and-build (platform + add-ons)."
+    },
+    {
+     "t": "h",
+     "text": "Ideal LBO target"
+    },
+    {
+     "t": "list",
+     "items": [
+      "Stable, predictable cash flows and low capital expenditure needs.",
+      "Low existing leverage, assets usable as collateral.",
+      "Strong market position; scope for operational improvements or cost cuts.",
+      "Motivated management and clear exit options."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Sources of value creation"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Operational improvements**: revenue growth, margin expansion, working capital management.",
+      "**Financial engineering**: leverage magnifies equity returns; interest tax shields; deleveraging over time.",
+      "**Governance and agency benefits**: concentrated ownership, active boards, management equity stakes; debt disciplines managers by absorbing **free cash flow** (Jensen’s free cash flow hypothesis).",
+      "**Multiple expansion**: selling at a higher EV/EBITDA multiple than the purchase multiple (market timing or repositioning)."
+     ]
+    },
+    {
+     "t": "formula",
+     "label": "Equity value bridge",
+     "tex": "\\text{Equity}_{exit} = \\text{EBITDA}_{exit} \\times \\text{Multiple}_{exit} - \\text{Net debt}_{exit}"
+    },
+    {
+     "t": "h",
+     "text": "Exit routes"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Trade sale** to a strategic buyer (often the highest price thanks to synergies).",
+      "**IPO** (public listing; partial exits and lock-ups).",
+      "**Secondary buyout** (sale to another PE fund).",
+      "**Recapitalization** (dividend recap: new debt to pay a dividend to the sponsor — a partial liquidity event).",
+      "**Write-off** (failure)."
+     ]
+    },
+    {
+     "t": "trap",
+     "text": "Leverage increases expected equity returns **and** risk. A buyout’s higher return is not automatically alpha: part of it is compensation for higher financial risk."
+    },
+    {
+     "t": "fr",
+     "text": "Dans un LBO, la dette est remboursée par les flux de trésorerie de la cible. Les sources de création de valeur : **amélioration opérationnelle**, **levier**, **gouvernance**, **expansion du multiple**."
+    }
+   ]
+  },
+  {
+   "id": "pe-vc",
+   "topic": "pe",
+   "title": "Venture Capital and Growth Equity",
+   "fr": "Capital-risque et growth equity",
+   "minutes": 11,
+   "blocks": [
+    {
+     "t": "p",
+     "text": "**Venture capital** finances young, high-growth companies, usually with no profits and sometimes no revenues. Outcomes are extremely **positively skewed**: most investments fail or return little, while a few big winners generate most of a fund’s returns (power law)."
+    },
+    {
+     "t": "table",
+     "head": [
+      "Stage",
+      "Description"
+     ],
+     "rows": [
+      [
+       "Pre-seed / seed / angel",
+       "Idea or prototype; small amounts from founders, angels, seed funds."
+      ],
+      [
+       "Early stage (Series A/B)",
+       "Product launched, initial revenues; building the business."
+      ],
+      [
+       "Late stage / expansion",
+       "Scaling, growing revenues, sometimes profitable."
+      ],
+      [
+       "Mezzanine / pre-IPO",
+       "Bridge financing before an IPO or sale."
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Valuation and terms"
+    },
+    {
+     "t": "formula",
+     "tex": "V_{post} = V_{pre} + I, \\qquad \\text{ownership} = \\dfrac{I}{V_{post}}"
+    },
+    {
+     "t": "formula",
+     "label": "Venture capital method",
+     "tex": "V_{post} = \\dfrac{V_{exit}}{(1+r_{target})^{T}}",
+     "note": "Target rates of 30–60% reflect high failure risk, illiquidity and the value-added services of the VC. Future rounds dilute the stake: required initial ownership = required final ownership ÷ retention ratio."
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Convertible preferred stock** is the typical instrument: downside protection plus upside participation.",
+      "**Liquidation preference**: preferred holders are repaid (e.g., 1x their investment) before common shareholders in a sale or liquidation.",
+      "**Anti-dilution** provisions (full ratchet, weighted average) protect against down rounds.",
+      "**Staging** of capital: money is provided in rounds tied to milestones — an option to abandon.",
+      "Board seats, vesting of founder shares, drag-along and tag-along rights."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Growth equity"
+    },
+    {
+     "t": "p",
+     "text": "Minority or majority investments in established, growing (often profitable) companies seeking capital to expand, with **little or no leverage**. Risk/return sits between venture capital and buyouts."
+    },
+    {
+     "t": "fr",
+     "text": "Post-money = pré-money + montant investi. Part du VC = investissement / post-money. La **méthode VC** actualise la valeur de sortie au taux cible très élevé du VC."
+    }
+   ]
+  },
+  {
+   "id": "pe-perf",
+   "topic": "pe",
+   "title": "Measuring Private Equity Performance",
+   "fr": "Mesurer la performance du private equity",
+   "minutes": 10,
+   "blocks": [
+    {
+     "t": "table",
+     "head": [
+      "Metric",
+      "Formula",
+      "Meaning"
+     ],
+     "rows": [
+      [
+       "DPI",
+       "$\\dfrac{\\text{cumulative distributions}}{\\text{paid-in capital}}$",
+       "Realized multiple (cash back)"
+      ],
+      [
+       "RVPI",
+       "$\\dfrac{NAV}{\\text{paid-in capital}}$",
+       "Unrealized multiple"
+      ],
+      [
+       "TVPI (MOIC)",
+       "$DPI + RVPI$",
+       "Total value multiple"
+      ],
+      [
+       "IRR",
+       "Rate that sets NPV of contributions, distributions and NAV to zero",
+       "Time-sensitive return"
+      ],
+      [
+       "PME",
+       "$\\dfrac{PV(\\text{distributions} + NAV)}{PV(\\text{contributions})}$ discounted at index returns",
+       "> 1 means outperformance vs. public markets"
+      ]
+     ]
+    },
+    {
+     "t": "list",
+     "items": [
+      "Interim performance relies on **NAV estimates** set by the GP: stale, smoothed and possibly optimistic.",
+      "**Vintage year** comparisons are essential: funds from the same year face the same economic conditions.",
+      "Quartile rankings show very high **dispersion** between top and bottom managers — manager selection matters more than in public markets.",
+      "Performance **persistence** among GPs was historically strong (especially in VC) but appears weaker for buyout funds in recent decades.",
+      "IRR can be boosted by quick exits, subscription lines and dividend recaps; multiples cannot."
+     ]
+    },
+    {
+     "t": "trap",
+     "text": "A high TVPI with a low DPI means most of the value is still **unrealized** NAV, which may not be achieved at exit."
+    },
+    {
+     "t": "fr",
+     "text": "**DPI** = argent réellement rendu ; **RVPI** = valeur encore dans le fonds ; **TVPI** = total. Le **PME** compare le fonds à un indice coté en actualisant les flux avec les rendements de cet indice."
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "id": "multiples",
+   "topic": "pe",
+   "name": "DPI, RVPI, TVPI",
+   "tex": "DPI = \\dfrac{\\text{distrib.}}{\\text{paid-in}}, \\ RVPI = \\dfrac{NAV}{\\text{paid-in}}, \\ TVPI = DPI + RVPI"
+  },
+  {
+   "id": "moicirr",
+   "topic": "pe",
+   "name": "IRR from a multiple",
+   "tex": "IRR = MOIC^{1/T} - 1",
+   "note": "Seulement avec un flux d’entrée et un flux de sortie."
+  },
+  {
+   "id": "f-postmoney",
+   "topic": "pe",
+   "name": "Pre- and post-money valuation",
+   "tex": "V_{post} = V_{pre} + I, \\qquad \\text{ownership} = \\dfrac{I}{V_{post}}"
+  },
+  {
+   "id": "vc",
+   "topic": "pe",
+   "name": "Venture capital method",
+   "tex": "V_{post} = \\dfrac{V_{exit}}{(1+r)^T}"
+  },
+  {
+   "id": "f-retention",
+   "topic": "pe",
+   "name": "Ownership with future dilution",
+   "tex": "\\text{initial ownership} = \\dfrac{\\text{required final ownership}}{\\text{retention ratio}}",
+   "vars": "Retention ratio = part conservée après les tours futurs, ex. $1/(1+d)$ par tour."
+  },
+  {
+   "id": "waterfall",
+   "topic": "pe",
+   "name": "Carry with full catch-up (whole fund)",
+   "tex": "\\text{Carry} = \\min\\big(k \\times \\text{Profit},\\ \\max(0, \\text{Profit} - H)\\big)",
+   "vars": "$H$ = preferred return dû aux LP, $k$ = taux de carry."
+  },
+  {
+   "id": "f-lbo",
+   "topic": "pe",
+   "name": "LBO equity at exit",
+   "tex": "E_{exit} = \\text{EBITDA}_{exit}\\times \\text{EV/EBITDA}_{exit} - \\text{Net debt}_{exit}"
+  },
+  {
+   "id": "f-pme",
+   "topic": "pe",
+   "name": "Kaplan–Schoar PME",
+   "tex": "PME = \\dfrac{\\sum_t D_t / I_t + NAV_T/I_T}{\\sum_t C_t / I_t}",
+   "vars": "$I_t$ = niveau de l’indice coté, $D$ distributions, $C$ appels de fonds."
+  }
+ ],
+ "cards": [
+  {
+   "id": "c-pe-commit",
+   "topic": "pe",
+   "front": "Capital commitment",
+   "back": "The total amount an LP agrees to invest in a fund, drawn down over time through capital calls.",
+   "fr": "Engagement de capital."
+  },
+  {
+   "id": "c-pe-call",
+   "topic": "pe",
+   "front": "Capital call (drawdown)",
+   "back": "A request by the GP for LPs to transfer part of their committed capital to fund investments or fees.",
+   "fr": "Appel de fonds."
+  },
+  {
+   "id": "c-pe-jcurve",
+   "topic": "pe",
+   "front": "J-curve",
+   "back": "The pattern of negative early returns (fees, costs, write-downs) followed by positive returns as investments mature and are exited.",
+   "fr": "Courbe en J."
+  },
+  {
+   "id": "c-pe-vintage",
+   "topic": "pe",
+   "front": "Vintage year",
+   "back": "The year a fund makes its first investment (or first close); used to compare funds facing similar market conditions.",
+   "fr": "Millésime."
+  },
+  {
+   "id": "c-pe-pref",
+   "topic": "pe",
+   "front": "Preferred return",
+   "back": "The minimum return (often 8%) LPs must receive before the GP earns carried interest.",
+   "fr": "Rendement prioritaire (hurdle)."
+  },
+  {
+   "id": "c-pe-euro",
+   "topic": "pe",
+   "front": "European (whole-of-fund) waterfall",
+   "back": "Carry is paid only after LPs receive all contributed capital plus the preferred return across the whole fund.",
+   "fr": "Cascade européenne."
+  },
+  {
+   "id": "c-pe-amer",
+   "topic": "pe",
+   "front": "American (deal-by-deal) waterfall",
+   "back": "Carry is paid on each profitable deal as it is realized, usually with a clawback provision.",
+   "fr": "Cascade américaine."
+  },
+  {
+   "id": "c-pe-secondary",
+   "topic": "pe",
+   "front": "Secondary transaction",
+   "back": "The purchase of existing interests in PE funds or portfolios, often at a discount to NAV, reducing blind-pool risk and the J-curve.",
+   "fr": "Marché secondaire."
+  },
+  {
+   "id": "c-pe-coinv",
+   "topic": "pe",
+   "front": "Co-investment",
+   "back": "A direct minority investment alongside a GP in a specific deal, usually with reduced or no fees and carry.",
+   "fr": "Co-investissement."
+  },
+  {
+   "id": "c-pe-mbo",
+   "topic": "pe",
+   "front": "Management buyout (MBO)",
+   "back": "An LBO in which the existing management team acquires the company with a financial sponsor.",
+   "fr": "Rachat par les dirigeants."
+  },
+  {
+   "id": "c-pe-mbi",
+   "topic": "pe",
+   "front": "Management buy-in (MBI)",
+   "back": "An LBO in which an external management team buys into and takes over the company.",
+   "fr": "Rachat par une équipe externe."
+  },
+  {
+   "id": "c-pe-fcf",
+   "topic": "pe",
+   "front": "Free cash flow hypothesis",
+   "back": "Jensen’s argument that high debt forces managers to pay out excess cash rather than waste it on value-destroying projects.",
+   "fr": "Hypothèse du free cash flow."
+  },
+  {
+   "id": "c-pe-recap",
+   "topic": "pe",
+   "front": "Dividend recapitalization",
+   "back": "Raising new debt at a portfolio company to pay a dividend to the PE owner, returning capital before exit.",
+   "fr": "Recap avec dividende."
+  },
+  {
+   "id": "c-pe-postmoney",
+   "topic": "pe",
+   "front": "Post-money valuation",
+   "back": "The company’s value immediately after a financing round: pre-money valuation plus the new investment.",
+   "fr": "Valorisation post-money."
+  },
+  {
+   "id": "c-pe-liqpref",
+   "topic": "pe",
+   "front": "Liquidation preference",
+   "back": "The right of preferred shareholders to receive a set amount (e.g., 1x their investment) before common shareholders in an exit or liquidation.",
+   "fr": "Préférence de liquidation."
+  },
+  {
+   "id": "c-pe-ratchet",
+   "topic": "pe",
+   "front": "Full ratchet",
+   "back": "An anti-dilution provision that resets the conversion price of earlier preferred shares to the price of a lower subsequent round.",
+   "fr": "Clause anti-dilution intégrale."
+  },
+  {
+   "id": "c-pe-staging",
+   "topic": "pe",
+   "front": "Staged financing",
+   "back": "Providing venture capital in successive rounds tied to milestones, giving investors the option to abandon.",
+   "fr": "Financement par étapes."
+  },
+  {
+   "id": "c-pe-growth",
+   "topic": "pe",
+   "front": "Growth equity",
+   "back": "Investments, often minority, in established, growing companies needing capital to expand, typically with little leverage.",
+   "fr": "Capital développement."
+  },
+  {
+   "id": "c-pe-dpi",
+   "topic": "pe",
+   "front": "DPI",
+   "back": "Distributions to paid-in capital: the realized cash multiple returned to LPs.",
+   "fr": "Multiple réalisé."
+  },
+  {
+   "id": "c-pe-tvpi",
+   "topic": "pe",
+   "front": "TVPI",
+   "back": "Total value to paid-in: (distributions + remaining NAV) / paid-in capital = DPI + RVPI.",
+   "fr": "Multiple total."
+  },
+  {
+   "id": "c-pe-pme",
+   "topic": "pe",
+   "front": "Public market equivalent (PME)",
+   "back": "A method comparing PE cash flows to an equivalent investment in a public index; a Kaplan–Schoar PME above 1 indicates outperformance.",
+   "fr": "Équivalent marché coté."
+  }
+ ],
+ "questions": [
+  {
+   "id": "q-pe-01",
+   "topic": "pe",
+   "tag": "Fund structure",
+   "level": 1,
+   "q": "During the investment period of a PE fund, LPs transfer capital to the fund:",
+   "options": [
+    "As the GP issues capital calls against their commitments",
+    "In full at the first close",
+    "Only when the fund exits investments",
+    "Monthly, in equal installments"
+   ],
+   "answer": 0,
+   "explain": "Les LP **s’engagent** au départ, puis versent le capital au fil des **appels de fonds** du GP, quand des investissements sont trouvés."
+  },
+  {
+   "id": "q-pe-02",
+   "topic": "pe",
+   "tag": "J-curve",
+   "level": 1,
+   "q": "Which factor contributes most to the negative early returns that create the J-curve?",
+   "options": [
+    "Management fees charged on committed capital while investments are held at cost",
+    "Early exits at high multiples",
+    "High distributions in the first year",
+    "Low management fees during the investment period"
+   ],
+   "answer": 0,
+   "explain": "Au début, les **frais sur l’engagement** et les coûts sont payés alors que les participations sont à leur coût (et les échecs dépréciés vite) : rendements négatifs."
+  },
+  {
+   "id": "q-pe-03",
+   "topic": "pe",
+   "tag": "J-curve",
+   "level": 2,
+   "q": "Which investment approach most effectively mitigates the J-curve for a new PE investor?",
+   "options": [
+    "Buying LP interests on the secondary market",
+    "Committing to first-time venture funds",
+    "Investing only in greenfield buyout funds",
+    "Increasing commitments to primary funds in their first year"
+   ],
+   "answer": 0,
+   "explain": "Un **secondaire** achète des parts de fonds déjà investis, souvent avec décote : flux plus rapides, J-curve atténuée."
+  },
+  {
+   "id": "q-pe-04",
+   "topic": "pe",
+   "tag": "Waterfall",
+   "level": 2,
+   "q": "Compared with an American (deal-by-deal) waterfall, a European (whole-of-fund) waterfall:",
+   "options": [
+    "Delays carried interest until LPs have received their capital and preferred return on the whole fund",
+    "Pays carry earlier to the GP",
+    "Eliminates the preferred return",
+    "Requires no clawback because carry is paid upfront"
+   ],
+   "answer": 0,
+   "explain": "La cascade **européenne** verse le carry seulement quand tout le capital + le preferred return ont été rendus : plus favorable aux LP."
+  },
+  {
+   "id": "q-pe-05",
+   "topic": "pe",
+   "tag": "Waterfall",
+   "level": 3,
+   "calc": true,
+   "q": "A fund called USD 100 million and returned USD 180 million in total. With an 8% preferred return amounting to USD 30 million over the fund’s life, a 100% GP catch-up and 20% carry (whole-of-fund), the GP’s carried interest is:",
+   "options": [
+    "USD 16 million",
+    "USD 10 million",
+    "USD 36 million",
+    "USD 50 million"
+   ],
+   "answer": 0,
+   "explain": "Profit = 80 M. 20 % × 80 = **16 M** ; le surplus après le preferred return (80 − 30 = 50 M) suffit pour un rattrapage complet."
+  },
+  {
+   "id": "q-pe-06",
+   "topic": "pe",
+   "tag": "Fees",
+   "level": 1,
+   "q": "During the investment period, PE management fees are most commonly calculated on:",
+   "options": [
+    "Committed capital",
+    "NAV marked to market daily",
+    "Distributions",
+    "The GP’s commitment only"
+   ],
+   "answer": 0,
+   "explain": "Pendant la période d’investissement, les frais portent généralement sur le **capital engagé** ; ensuite souvent sur le capital investi ou la NAV."
+  },
+  {
+   "id": "q-pe-07",
+   "topic": "pe",
+   "tag": "Co-investments",
+   "level": 2,
+   "q": "What is a key risk of co-investments offered by GPs to their LPs?",
+   "options": [
+    "Adverse selection: GPs may offer the deals they least want to hold in size",
+    "Higher fees than in the main fund",
+    "Lack of exposure to the underlying company",
+    "Guaranteed dilution of the main fund"
+   ],
+   "answer": 0,
+   "explain": "Les co-investissements sont peu chers en frais, mais il existe un risque de **sélection adverse**, et il faut décider très vite avec une due diligence réduite."
+  },
+  {
+   "id": "q-pe-08",
+   "topic": "pe",
+   "tag": "Secondaries",
+   "level": 2,
+   "q": "Which is NOT a typical advantage of buying PE fund interests on the secondary market?",
+   "options": [
+    "Access to blind-pool exposure to future undrawn deals only",
+    "Purchase at a possible discount to NAV",
+    "Shorter time to distributions",
+    "Visibility on the underlying portfolio"
+   ],
+   "answer": 0,
+   "explain": "Un secondaire réduit au contraire le risque de **blind pool** : on voit déjà le portefeuille. Les autres réponses sont des avantages classiques."
+  },
+  {
+   "id": "q-pe-09",
+   "topic": "pe",
+   "tag": "LBO",
+   "level": 1,
+   "q": "Which company is the most suitable LBO target?",
+   "options": [
+    "A mature firm with stable cash flows, low capex and little existing debt",
+    "An early-stage biotech with no revenues",
+    "A cyclical firm with volatile cash flows and high debt",
+    "A start-up requiring heavy capital expenditure"
+   ],
+   "answer": 0,
+   "explain": "La dette d’un LBO est remboursée par les **flux de trésorerie stables** de la cible : il faut peu de capex et peu de dette existante."
+  },
+  {
+   "id": "q-pe-10",
+   "topic": "pe",
+   "tag": "LBO",
+   "level": 2,
+   "q": "According to Jensen’s free cash flow hypothesis, high leverage in buyouts creates value by:",
+   "options": [
+    "Forcing managers to distribute excess cash instead of wasting it on poor projects",
+    "Increasing the company’s tax payments",
+    "Allowing managers to retain more discretionary cash",
+    "Reducing the company’s cost of equity to zero"
+   ],
+   "answer": 0,
+   "explain": "La dette **discipline les dirigeants** : le cash excédentaire sert à payer les intérêts au lieu d’être gaspillé (coûts d’agence réduits)."
+  },
+  {
+   "id": "q-pe-11",
+   "topic": "pe",
+   "tag": "LBO",
+   "level": 2,
+   "calc": true,
+   "q": "A sponsor buys a company at 8x EBITDA of USD 50 million, with USD 250 million of debt. Five years later EBITDA is USD 70 million, the exit multiple is 9x and net debt is USD 150 million. The equity multiple is closest to:",
+   "options": [
+    "3.2x",
+    "2.3x",
+    "1.6x",
+    "4.0x"
+   ],
+   "answer": 0,
+   "explain": "Entrée : EV = 400 M, equity = 400 − 250 = 150 M. Sortie : EV = 630 M, equity = 630 − 150 = 480 M. Multiple = 480/150 = **3,2x**."
+  },
+  {
+   "id": "q-pe-12",
+   "topic": "pe",
+   "tag": "LBO",
+   "level": 2,
+   "q": "In LBO value-creation analysis, selling a company at a higher EV/EBITDA multiple than the entry multiple is called:",
+   "options": [
+    "Multiple expansion",
+    "Deleveraging",
+    "Operational improvement",
+    "Dividend recapitalization"
+   ],
+   "answer": 0,
+   "explain": "Revendre à un multiple plus élevé qu’à l’achat = **expansion du multiple** ; elle dépend souvent des conditions de marché plutôt que du travail du GP."
+  },
+  {
+   "id": "q-pe-13",
+   "topic": "pe",
+   "tag": "LBO",
+   "level": 1,
+   "q": "A buyout in which an external management team acquires control of a company with a PE sponsor is a:",
+   "options": [
+    "Management buy-in (MBI)",
+    "Management buyout (MBO)",
+    "Secondary buyout",
+    "Take-private"
+   ],
+   "answer": 0,
+   "explain": "**MBI** : équipe de direction **externe**. **MBO** : la direction en place rachète l’entreprise."
+  },
+  {
+   "id": "q-pe-14",
+   "topic": "pe",
+   "tag": "Exits",
+   "level": 2,
+   "q": "A PE-owned company issues new debt and uses the proceeds to pay a large dividend to its sponsor. This is a:",
+   "options": [
+    "Dividend recapitalization",
+    "Secondary buyout",
+    "Trade sale",
+    "Clawback"
+   ],
+   "answer": 0,
+   "explain": "La **dividend recap** rend du capital au sponsor avant la sortie (ce qui augmente l’IRR) mais accroît le levier de l’entreprise."
+  },
+  {
+   "id": "q-pe-15",
+   "topic": "pe",
+   "tag": "Exits",
+   "level": 1,
+   "q": "Which exit route typically achieves the highest price because the buyer can realize synergies?",
+   "options": [
+    "Trade sale to a strategic buyer",
+    "Write-off",
+    "IPO with a long lock-up",
+    "Liquidation"
+   ],
+   "answer": 0,
+   "explain": "Un acquéreur **stratégique** peut payer plus grâce aux synergies."
+  },
+  {
+   "id": "q-pe-16",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 1,
+   "q": "Venture capital fund returns are typically characterized by:",
+   "options": [
+    "Strong positive skewness, with a few large winners driving returns",
+    "Negative skewness and stable returns",
+    "Normally distributed deal outcomes",
+    "Returns mostly from leverage"
+   ],
+   "answer": 0,
+   "explain": "La plupart des start-up échouent ; quelques succès massifs font la performance : **asymétrie positive** (loi de puissance)."
+  },
+  {
+   "id": "q-pe-17",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 1,
+   "calc": true,
+   "q": "A VC invests USD 5 million in a start-up at a pre-money valuation of USD 15 million. The VC’s ownership stake is:",
+   "options": [
+    "25%",
+    "33%",
+    "20%",
+    "75%"
+   ],
+   "answer": 0,
+   "explain": "Post-money = 15 + 5 = 20 M. Part = 5/20 = **25 %**."
+  },
+  {
+   "id": "q-pe-18",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 2,
+   "calc": true,
+   "q": "A start-up is expected to be worth USD 100 million in 5 years. A VC with a 40% target return invests USD 4 million today. Assuming no further dilution, the VC requires an ownership stake closest to:",
+   "options": [
+    "21.5%",
+    "4.0%",
+    "10.8%",
+    "40.0%"
+   ],
+   "answer": 0,
+   "explain": "Post-money = $100/1{,}4^5 = 100/5{,}378 = 18{,}6$ M. Part = 4/18,6 ≈ **21,5 %**."
+  },
+  {
+   "id": "q-pe-19",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 2,
+   "q": "Why do VCs typically invest through convertible preferred stock?",
+   "options": [
+    "It offers downside protection (liquidation preference) and upside participation through conversion",
+    "It pays a guaranteed fixed coupon",
+    "It avoids any board representation",
+    "It ranks junior to common stock"
+   ],
+   "answer": 0,
+   "explain": "Les actions de **préférence convertibles** protègent à la baisse (préférence de liquidation) et participent à la hausse (conversion en ordinaires)."
+  },
+  {
+   "id": "q-pe-20",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 2,
+   "q": "Providing capital to a start-up in successive rounds tied to milestones mainly gives the VC:",
+   "options": [
+    "An option to abandon the investment if milestones are missed",
+    "A guaranteed return",
+    "Control over the company’s competitors",
+    "Exemption from dilution"
+   ],
+   "answer": 0,
+   "explain": "Le **financement par étapes** est une option réelle : le VC peut arrêter s’il n’y a pas de progrès, limitant ses pertes."
+  },
+  {
+   "id": "q-pe-21",
+   "topic": "pe",
+   "tag": "Venture capital",
+   "level": 3,
+   "q": "A company raises a new round at a lower price per share than the previous round (a “down round”). Which provision best protects earlier preferred investors?",
+   "options": [
+    "A full-ratchet anti-dilution clause",
+    "A drag-along right",
+    "A clawback",
+    "A high-water mark"
+   ],
+   "answer": 0,
+   "explain": "La clause anti-dilution **full ratchet** ramène le prix de conversion des anciens investisseurs au nouveau prix plus bas."
+  },
+  {
+   "id": "q-pe-22",
+   "topic": "pe",
+   "tag": "Growth equity",
+   "level": 1,
+   "q": "Growth equity investments typically differ from buyouts by:",
+   "options": [
+    "Using little or no leverage and often taking minority stakes",
+    "Targeting pre-revenue companies",
+    "Using more leverage than buyouts",
+    "Always delisting public companies"
+   ],
+   "answer": 0,
+   "explain": "La **growth equity** finance l’expansion d’entreprises établies, avec peu de dette et souvent en minoritaire."
+  },
+  {
+   "id": "q-pe-23",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 1,
+   "calc": true,
+   "q": "A fund has called USD 80 million, distributed USD 60 million and has a NAV of USD 72 million. Its TVPI is:",
+   "options": [
+    "1.65x",
+    "0.75x",
+    "0.90x",
+    "1.32x"
+   ],
+   "answer": 0,
+   "explain": "TVPI = (60 + 72)/80 = **1,65x** (DPI = 0,75x ; RVPI = 0,90x)."
+  },
+  {
+   "id": "q-pe-24",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 2,
+   "q": "A fund reports a TVPI of 2.0x but a DPI of only 0.3x. The most appropriate interpretation is that:",
+   "options": [
+    "Most of the reported value is unrealized and depends on GP valuations",
+    "The fund has returned twice its capital in cash",
+    "The IRR must be negative",
+    "The fund is in its liquidation phase"
+   ],
+   "answer": 0,
+   "explain": "La grande majorité de la valeur (RVPI = 1,7x) est **non réalisée** : elle repose sur la NAV estimée par le GP."
+  },
+  {
+   "id": "q-pe-25",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 2,
+   "calc": true,
+   "q": "A buyout investment returns 2.5x the invested capital after 6 years with no interim cash flows. Its IRR is closest to:",
+   "options": [
+    "16.5%",
+    "25.0%",
+    "41.7%",
+    "12.0%"
+   ],
+   "answer": 0,
+   "explain": "$2{,}5^{1/6} - 1 = 16{,}5\\%$."
+  },
+  {
+   "id": "q-pe-26",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 2,
+   "q": "A Kaplan–Schoar PME of 1.15 indicates that the fund:",
+   "options": [
+    "Outperformed the chosen public index by about 15% in present value terms",
+    "Underperformed the public index",
+    "Had an IRR of 15%",
+    "Returned 1.15 times its capital"
+   ],
+   "answer": 0,
+   "explain": "Un **PME > 1** signifie que le fonds a fait mieux que l’indice coté de référence (en valeur actualisée aux rendements de l’indice)."
+  },
+  {
+   "id": "q-pe-27",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 2,
+   "q": "Why are PE funds usually compared within the same vintage year?",
+   "options": [
+    "Funds of the same vintage invest and exit under similar economic and market conditions",
+    "Regulators require it",
+    "Funds of different vintages use different currencies",
+    "IRR cannot be computed across vintages"
+   ],
+   "answer": 0,
+   "explain": "Le **millésime** détermine l’environnement d’investissement (prix d’entrée, cycle) : comparer des fonds du même millésime neutralise cet effet."
+  },
+  {
+   "id": "q-pe-28",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 2,
+   "q": "Compared with public equity managers, the dispersion of returns between top- and bottom-quartile PE managers is:",
+   "options": [
+    "Much wider, making manager selection critical",
+    "Much narrower",
+    "About the same",
+    "Zero, since all funds hold similar assets"
+   ],
+   "answer": 0,
+   "explain": "L’écart entre premiers et derniers quartiles est **très large** en PE : la sélection des gérants est déterminante."
+  },
+  {
+   "id": "q-pe-29",
+   "topic": "pe",
+   "tag": "Performance",
+   "level": 3,
+   "q": "Which action by a GP would raise a fund’s IRR without increasing its TVPI?",
+   "options": [
+    "Using a subscription credit line to delay capital calls",
+    "Improving portfolio companies’ margins",
+    "Selling companies at higher multiples",
+    "Reducing management fees"
+   ],
+   "answer": 0,
+   "explain": "Retarder les appels de fonds raccourcit la durée d’investissement : **l’IRR monte**, le multiple non (il baisse même légèrement du fait des intérêts)."
+  },
+  {
+   "id": "q-pe-30",
+   "topic": "pe",
+   "tag": "Fund structure",
+   "level": 1,
+   "q": "Why do GPs typically commit their own capital (e.g., 1–3% of the fund)?",
+   "options": [
+    "To align their interests with those of LPs",
+    "Because regulations require 50% GP ownership",
+    "To avoid paying carried interest",
+    "To increase management fees"
+   ],
+   "answer": 0,
+   "explain": "L’engagement du GP (« skin in the game ») **aligne les intérêts** : il perd aussi de l’argent si le fonds sous-performe."
+  }
+ ]
+}

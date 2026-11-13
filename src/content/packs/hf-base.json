@@ -1,0 +1,248 @@
+{
+  "id": "hf-base",
+  "added": "2026-11-13",
+  "title": "Hedge funds — base",
+  "fiches": [
+    {
+      "id": "hf-industry",
+      "topic": "hf",
+      "title": "Hedge Fund Structure, Classification and Data Biases",
+      "fr": "Structure, classification et biais des données des hedge funds",
+      "minutes": 12,
+      "blocks": [
+        { "t": "p", "text": "Hedge funds are lightly regulated, privately offered pooled vehicles that can use **leverage, short selling and derivatives**, charge incentive fees, and impose liquidity restrictions. Their goal is usually absolute return rather than beating a benchmark." },
+        { "t": "h", "text": "Service providers" },
+        { "t": "table", "head": ["Provider", "Role"], "rows": [
+          ["**Prime broker**", "Financing (leverage), securities lending for shorts, clearing, custody of assets, reporting"],
+          ["**Administrator**", "Independent NAV calculation, investor subscriptions/redemptions, record keeping"],
+          ["**Custodian**", "Safekeeping of assets"],
+          ["**Auditor**", "Annual independent audit of financial statements"],
+          ["Legal counsel, compliance", "Fund documents (offering memorandum, LPA), regulation"]
+        ] },
+        { "t": "p", "text": "**Master–feeder** structure: an onshore feeder (e.g., a US limited partnership for taxable investors) and an offshore feeder (corporation for non-US and tax-exempt investors) both invest in a single **master fund** that holds the portfolio." },
+        { "t": "h", "text": "Strategy groups" },
+        { "t": "table", "head": ["Group", "Strategies"], "rows": [
+          ["Macro & managed futures", "Global macro (discretionary), CTAs / trend following (systematic)"],
+          ["Event-driven", "Merger arbitrage, activism, distressed securities, special situations"],
+          ["Relative value", "Convertible arbitrage, fixed income arbitrage, volatility arbitrage, equity market neutral"],
+          ["Equity hedge", "Equity long/short, short-biased, sector funds"],
+          ["Multi-manager", "Multistrategy funds, funds of hedge funds"]
+        ] },
+        { "t": "h", "text": "Biases in hedge fund databases" },
+        { "t": "list", "items": [
+          "**Survivorship bias**: dead (closed, liquidated) funds drop out of the database → average returns overstated, risk understated.",
+          "**Backfill (instant history) bias**: funds start reporting after a good incubation period and add their past returns → overstated returns.",
+          "**Self-selection bias**: reporting is voluntary; funds report when it helps marketing (poor performers and very successful closed funds may not report).",
+          "**Liquidation bias**: failing funds stop reporting before their final losses.",
+          "**Smoothing** of illiquid positions → understated volatility and correlations."
+        ] },
+        { "t": "tip", "text": "**Investable** indices (tracking funds that are open to investment) tend to underperform **non-investable** (broad database) indices, which are more affected by biases." },
+        { "t": "h", "text": "Operational due diligence" },
+        { "t": "p", "text": "Many hedge fund failures stem from **operational** problems (fraud, valuation, weak controls) rather than investment losses. Key checks: independent administrator and auditor, segregation of duties, valuation policy, cash controls, compliance, conflicts, key-person risk." },
+        { "t": "fr", "text": "Biais du **survivant** : les fonds morts disparaissent. Biais de **remplissage** : les fonds ajoutent leur historique flatteur en entrant dans la base. Tous deux **surestiment** les rendements des indices." }
+      ]
+    },
+    {
+      "id": "hf-macro",
+      "topic": "hf",
+      "title": "Global Macro and Managed Futures",
+      "fr": "Global macro et managed futures",
+      "minutes": 11,
+      "blocks": [
+        { "t": "h", "text": "Global macro" },
+        { "t": "list", "items": [
+          "Top-down bets on macroeconomic themes across currencies, rates, equity indices and commodities, mostly via liquid futures, forwards and options.",
+          "Usually **discretionary** (manager judgment); can be systematic.",
+          "Typical trades: currency **carry trade** (borrow low-yield, invest high-yield currencies), yield-curve trades, relative value between countries, event bets on central banks.",
+          "Returns are opportunistic and tend to have low correlation with equities; outcomes depend heavily on manager skill."
+        ] },
+        { "t": "h", "text": "Managed futures (CTAs)" },
+        { "t": "list", "items": [
+          "Commodity trading advisors trade futures and forwards across asset classes, mostly using **systematic** models.",
+          "**Trend following** (time-series momentum): long markets that have risen, short those that have fallen — e.g., moving-average crossovers, channel breakouts.",
+          "Other styles: **countertrend / mean reversion**, carry, relative value, discretionary.",
+          "Very liquid, transparent, mark-to-market positions; collateral earns T-bill interest."
+        ] },
+        { "t": "formula", "label": "Moving-average signal", "tex": "\\text{Long if } MA_{short} > MA_{long}, \\quad \\text{short if } MA_{short} < MA_{long}" },
+        { "t": "p", "text": "Trend-following returns resemble a **long (lookback) straddle**: many small losses in choppy, trendless markets (**whipsaws**) and large gains in strong trends in either direction. Hence **positive skewness** and good performance in prolonged crises (“crisis alpha”), e.g., 2008." },
+        { "t": "trap", "text": "Trend followers do **not** profit from sudden reversals or one-day crashes: they need a trend to persist long enough for the signal to react." },
+        { "t": "fr", "text": "Le **CTA tendanciel** a un profil d’**acheteur d’options** : petites pertes fréquentes, gros gains rares, asymétrie positive. Le carry trade a au contraire un profil de **vendeur d’options** (crashes de change)." }
+      ]
+    },
+    {
+      "id": "hf-event",
+      "topic": "hf",
+      "title": "Event-Driven Strategies",
+      "fr": "Les stratégies event-driven",
+      "minutes": 11,
+      "blocks": [
+        { "t": "h", "text": "Merger arbitrage" },
+        { "t": "list", "items": [
+          "**Cash deal**: buy the target’s shares, which trade below the offer price.",
+          "**Stock deal**: buy the target and **short** the acquirer according to the exchange ratio to lock in the spread.",
+          "The **spread** compensates for **deal risk** (regulatory/antitrust refusal, financing failure, shareholder vote, renegotiation) and the time value of money.",
+          "Payoff resembles **selling a put** on the deal (writing insurance): small, steady gains when deals close, large losses when they fail → **negative skewness**; deal failures cluster in market downturns."
+        ] },
+        { "t": "formula", "label": "Stock-for-stock spread", "tex": "\\text{Spread} = \\text{ratio} \\times P_{acquirer} - P_{target}" },
+        { "t": "h", "text": "Activist investing" },
+        { "t": "list", "items": [
+          "Buys significant stakes and pushes management for changes: strategy, capital allocation (buybacks, dividends), divestitures, sale of the company, governance and board seats.",
+          "Tools: private engagement, public letters, proxy contests. In the US, a **13D filing** is required within days of crossing **5%** ownership with activist intent.",
+          "Concentrated, long-biased portfolios; returns linked to equity markets plus event alpha."
+        ] },
+        { "t": "h", "text": "Distressed securities and special situations" },
+        { "t": "list", "items": [
+          "Distressed: buy debt or equity of troubled firms at deep discounts; see the private debt topic (fulcrum, Chapter 11).",
+          "Special situations: spin-offs, index additions/deletions, share-class arbitrage, recapitalizations, litigation outcomes."
+        ] },
+        { "t": "fr", "text": "L’arbitrage de fusion = **vendre une assurance** contre l’échec de l’opération : gains réguliers, pertes rares mais fortes. La prime (spread) rémunère le risque d’échec." }
+      ]
+    },
+    {
+      "id": "hf-rv",
+      "topic": "hf",
+      "title": "Relative Value Strategies",
+      "fr": "Les stratégies de valeur relative",
+      "minutes": 13,
+      "blocks": [
+        { "t": "p", "text": "Relative value funds buy an asset and short a related one to profit from a perceived mispricing while hedging common risks. Spreads are small, so these strategies often use **high leverage** and are exposed to liquidity and funding shocks." },
+        { "t": "h", "text": "Convertible bond arbitrage" },
+        { "t": "list", "items": [
+          "Long convertible bonds, short the issuer’s stock in proportion to the **delta** of the embedded option (delta hedge).",
+          "**Positive gamma**: as the stock moves, the hedge is rebalanced (sell shares after rises, buy after falls) — profits from **realized volatility**.",
+          "Income: bond coupon + **short rebate** on the cash from the short sale − dividends owed on borrowed shares.",
+          "Risks: credit risk of the issuer, liquidity and funding (crowded trades, forced deleveraging as in 2005 and 2008), stock borrow recalls, changes in implied volatility (vega)."
+        ] },
+        { "t": "formula", "tex": "CV = \\text{conversion ratio} \\times S, \\qquad \\text{premium} = \\dfrac{P_{CB} - CV}{CV}, \\qquad N_{short} = \\Delta \\times \\text{ratio} \\times N_{bonds}" },
+        { "t": "table", "head": ["Greek", "Measures sensitivity to"], "rows": [
+          ["Delta", "Stock price"],
+          ["Gamma", "Change in delta when the stock moves"],
+          ["Vega", "Implied volatility"],
+          ["Theta", "Passage of time"],
+          ["Rho", "Interest rates"]
+        ] },
+        { "t": "h", "text": "Fixed income arbitrage" },
+        { "t": "list", "items": [
+          "Trades on small mispricings between related fixed income instruments: yield-curve shape, on-the-run vs. off-the-run Treasuries, swap spreads, futures–cash basis, mortgage spreads.",
+          "Requires high leverage; negatively skewed returns; vulnerable to liquidity crises (e.g., LTCM in 1998, the 2020 Treasury basis unwind)."
+        ] },
+        { "t": "h", "text": "Volatility arbitrage" },
+        { "t": "p", "text": "Trades the difference between **implied** and expected **realized** volatility (options, variance swaps), or relative value across volatility surfaces. Implied volatility tends to exceed realized volatility on average (a volatility risk premium), which rewards systematic **short volatility** — with severe crash risk." },
+        { "t": "h", "text": "Equity market neutral" },
+        { "t": "list", "items": [
+          "Long and short equity positions sized so that net market exposure is near zero: **dollar neutral**, **beta neutral**, and often sector/factor neutral.",
+          "Includes statistical arbitrage and pairs trading (mean reversion of related stocks).",
+          "Returns come from stock selection (alpha) plus interest on short proceeds; risks: factor crowding (e.g., the August 2007 “quant quake”)."
+        ] },
+        { "t": "fr", "text": "Arbitrage de convertibles : long obligation convertible, short action selon le **delta**. Le **gamma positif** permet de gagner sur la volatilité réalisée en réajustant la couverture." }
+      ]
+    },
+    {
+      "id": "hf-equity",
+      "topic": "hf",
+      "title": "Equity Hedge, Multistrategy and Funds of Funds",
+      "fr": "Equity long/short, multistratégie et fonds de fonds",
+      "minutes": 10,
+      "blocks": [
+        { "t": "h", "text": "Equity long/short" },
+        { "t": "formula", "tex": "\\text{Gross exposure} = \\dfrac{L + S}{\\text{Capital}}, \\qquad \\text{Net exposure} = \\dfrac{L - S}{\\text{Capital}}" },
+        { "t": "list", "items": [
+          "Typically **net long** (e.g., 130% long / 70% short = 60% net, 200% gross); returns come from stock picking on both sides plus net market beta.",
+          "Short selling: borrow shares (fee), receive a **short rebate** on the proceeds, pay dividends; risks of **short squeezes** and recalls; unlimited theoretical loss.",
+          "**Short-biased** funds keep a net short exposure; they performed well in bear markets but poorly over long bull markets."
+        ] },
+        { "t": "h", "text": "Multistrategy funds" },
+        { "t": "list", "items": [
+          "One firm runs several strategies with a common risk management and capital allocation process (including multi-manager “pod” platforms).",
+          "Incentive fees are charged on **net** performance of the whole fund → losses in one strategy offset gains in another before fees.",
+          "Pod platforms often use **pass-through** expenses (investors pay compensation and costs directly), which can be high."
+        ] },
+        { "t": "h", "text": "Funds of hedge funds" },
+        { "t": "list", "items": [
+          "Benefits: diversification across managers, professional due diligence and monitoring, access to closed funds, lower minimums, possibly better liquidity terms.",
+          "Costs: a **second layer of fees** (e.g., 1% and 10% on top of the underlying 2% and 20%).",
+          "**Netting risk**: the investor pays incentive fees to winning underlying funds even when losing funds offset those gains, so total fees can be high relative to net performance.",
+          "Over-diversification may dilute alpha toward an expensive beta."
+        ] },
+        { "t": "fr", "text": "**Netting risk** : dans un fonds de fonds, chaque gérant gagnant touche sa commission même si l’ensemble ne gagne rien. Dans un fonds multistratégie, la commission porte sur le résultat **net** global." }
+      ]
+    }
+  ],
+  "formulas": [
+    { "id": "merger", "topic": "hf", "name": "Merger arbitrage spread (stock deal)", "tex": "\\text{Spread} = \\text{ratio}\\times P_{acq} - P_{target}, \\quad R = \\dfrac{\\text{Spread}}{P_{target}}" },
+    { "id": "convprem", "topic": "hf", "name": "Conversion value & premium", "tex": "CV = \\text{ratio}\\times S, \\qquad \\text{premium} = \\dfrac{P_{CB} - CV}{CV}" },
+    { "id": "deltahedge", "topic": "hf", "name": "Delta-neutral short", "tex": "N_{short} = \\Delta \\times \\text{ratio} \\times N_{bonds}" },
+    { "id": "f-exposure", "topic": "hf", "name": "Gross and net exposure", "tex": "\\text{Gross} = \\dfrac{L+S}{K}, \\qquad \\text{Net} = \\dfrac{L-S}{K}" },
+    { "id": "f-carry-cb", "topic": "hf", "name": "Convertible arbitrage carry", "tex": "\\text{Carry} = \\text{coupon} + \\text{short rebate} - \\text{dividends on short} - \\text{financing}" },
+    { "id": "fof", "topic": "hf", "name": "Two layers of fees", "tex": "R_1 = (R - m_1)(1-k_1), \\qquad R_{net} = (R_1 - m_2)(1-k_2)" }
+  ],
+  "cards": [
+    { "id": "c-hf-pb", "topic": "hf", "front": "Prime broker", "back": "A bank providing hedge funds with financing, securities lending, clearing, custody and reporting.", "fr": "Courtier principal." },
+    { "id": "c-hf-admin", "topic": "hf", "front": "Fund administrator", "back": "An independent firm that calculates the NAV, processes subscriptions and redemptions and keeps records.", "fr": "Administrateur de fonds." },
+    { "id": "c-hf-masterfeeder", "topic": "hf", "front": "Master–feeder structure", "back": "Onshore and offshore feeder funds invest in a single master fund that holds the portfolio, serving investors with different tax needs.", "fr": "Structure maître-nourricier." },
+    { "id": "c-hf-surv", "topic": "hf", "front": "Survivorship bias", "back": "Overstatement of average returns because funds that closed or failed are dropped from a database.", "fr": "Biais du survivant." },
+    { "id": "c-hf-backfill", "topic": "hf", "front": "Backfill (instant history) bias", "back": "Overstatement of returns because funds that join a database add their (usually good) past performance.", "fr": "Biais de remplissage." },
+    { "id": "c-hf-selfsel", "topic": "hf", "front": "Self-selection bias", "back": "Distortion arising because hedge funds choose whether and when to report to databases.", "fr": "Biais d’auto-sélection." },
+    { "id": "c-hf-liqbias", "topic": "hf", "front": "Liquidation bias", "back": "Failing funds stop reporting before their final losses, so the database misses those losses.", "fr": "Biais de liquidation." },
+    { "id": "c-hf-macro", "topic": "hf", "front": "Global macro", "back": "A strategy taking top-down positions on macroeconomic views across currencies, rates, equities and commodities, usually discretionary.", "fr": "Stratégie macro." },
+    { "id": "c-hf-carrytrade", "topic": "hf", "front": "Currency carry trade", "back": "Borrowing in low-interest-rate currencies to invest in high-interest-rate currencies; exposed to sudden currency crashes.", "fr": "Portage de devises." },
+    { "id": "c-hf-cta", "topic": "hf", "front": "CTA", "back": "Commodity trading advisor: a manager trading futures and forwards, usually with systematic models such as trend following.", "fr": "Gérant de managed futures." },
+    { "id": "c-hf-trend", "topic": "hf", "front": "Trend following", "back": "A systematic strategy that goes long assets with rising prices and short assets with falling prices; its payoff resembles a long straddle.", "fr": "Suivi de tendance." },
+    { "id": "c-hf-whipsaw", "topic": "hf", "front": "Whipsaw", "back": "Repeated small losses suffered by trend followers when markets reverse frequently without a sustained trend.", "fr": "Faux signaux répétés." },
+    { "id": "c-hf-mergerarb", "topic": "hf", "front": "Merger arbitrage", "back": "Buying the target (and shorting the acquirer in stock deals) to capture the spread between the offer value and the target’s price.", "fr": "Arbitrage de fusion." },
+    { "id": "c-hf-dealrisk", "topic": "hf", "front": "Deal risk", "back": "The risk that an announced merger fails or is renegotiated, causing the target’s price to fall.", "fr": "Risque d’échec de l’opération." },
+    { "id": "c-hf-activist", "topic": "hf", "front": "Activist hedge fund", "back": "A fund that takes significant stakes and pushes companies to change strategy, capital allocation or governance.", "fr": "Fonds activiste." },
+    { "id": "c-hf-13d", "topic": "hf", "front": "Schedule 13D", "back": "A US filing required when an investor acquires more than 5% of a company’s shares with intent to influence control.", "fr": "Déclaration de franchissement de seuil (US)." },
+    { "id": "c-hf-convarb", "topic": "hf", "front": "Convertible arbitrage", "back": "Buying convertible bonds and shorting the issuer’s stock according to delta, profiting from mispricing, carry and realized volatility.", "fr": "Arbitrage d’obligations convertibles." },
+    { "id": "c-hf-gamma", "topic": "hf", "front": "Gamma", "back": "The rate of change of an option’s delta with respect to the underlying price; long gamma benefits from large price moves.", "fr": "Convexité de l’option." },
+    { "id": "c-hf-vega", "topic": "hf", "front": "Vega", "back": "The sensitivity of an option’s value to changes in implied volatility.", "fr": "Sensibilité à la volatilité implicite." },
+    { "id": "c-hf-rebate", "topic": "hf", "front": "Short rebate", "back": "Interest earned on the cash proceeds of a short sale held as collateral, net of the borrowing fee.", "fr": "Rémunération du produit de la vente à découvert." },
+    { "id": "c-hf-fiarb", "topic": "hf", "front": "Fixed income arbitrage", "back": "Leveraged trades on small mispricings between related fixed income instruments, such as on-the-run vs. off-the-run bonds.", "fr": "Arbitrage de taux." },
+    { "id": "c-hf-vrp", "topic": "hf", "front": "Volatility risk premium", "back": "The tendency of implied volatility to exceed subsequently realized volatility, compensating sellers of options.", "fr": "Prime de risque de volatilité." },
+    { "id": "c-hf-emn", "topic": "hf", "front": "Equity market neutral", "back": "Long and short stock positions balanced to have near-zero market exposure (dollar, beta and often factor neutral).", "fr": "Actions neutre au marché." },
+    { "id": "c-hf-gross", "topic": "hf", "front": "Gross vs. net exposure", "back": "Gross = (longs + shorts)/capital measures leverage; net = (longs − shorts)/capital measures directional market exposure.", "fr": "Exposition brute / nette." },
+    { "id": "c-hf-squeeze", "topic": "hf", "front": "Short squeeze", "back": "A rapid price rise forcing short sellers to buy back shares, pushing the price even higher.", "fr": "Étranglement des vendeurs à découvert." },
+    { "id": "c-hf-netting", "topic": "hf", "front": "Netting risk", "back": "In a fund of funds, the risk of paying incentive fees to winning managers even when losses at other managers offset those gains.", "fr": "Risque de non-compensation des commissions." },
+    { "id": "c-hf-odd", "topic": "hf", "front": "Operational due diligence", "back": "Assessment of a fund’s non-investment risks: valuation, controls, service providers, compliance, fraud and key-person risk.", "fr": "Due diligence opérationnelle." }
+  ],
+  "questions": [
+    { "id": "q-hf-01", "topic": "hf", "tag": "Service providers", "level": 1, "q": "Which hedge fund service provider is primarily responsible for independently calculating the fund’s NAV?", "options": ["The administrator", "The prime broker", "The investment manager", "The auditor"], "answer": 0, "explain": "L’**administrateur** calcule la NAV de façon indépendante. Le prime broker finance et prête les titres ; l’auditeur vérifie les comptes annuels." },
+    { "id": "q-hf-02", "topic": "hf", "tag": "Service providers", "level": 1, "q": "A hedge fund’s securities lending for short sales and margin financing are usually provided by its:", "options": ["Prime broker", "Administrator", "Auditor", "Transfer agent"], "answer": 0, "explain": "Le **prime broker** fournit le levier (financement) et le prêt de titres pour la vente à découvert." },
+    { "id": "q-hf-03", "topic": "hf", "tag": "Structure", "level": 2, "q": "What is the main purpose of a master–feeder structure?", "options": ["To let investors with different tax and regulatory needs invest in a single pooled portfolio", "To charge two layers of incentive fees", "To separate long and short positions", "To avoid hiring an administrator"], "answer": 0, "explain": "Les feeders onshore (contribuables US) et offshore (étrangers, exonérés) investissent dans un **même fonds maître** : un seul portefeuille, des véhicules adaptés à chaque profil fiscal." },
+    { "id": "q-hf-04", "topic": "hf", "tag": "Data biases", "level": 1, "q": "Excluding funds that have closed or stopped reporting from a hedge fund index creates:", "options": ["Survivorship bias, which overstates average returns", "Backfill bias, which understates returns", "Look-ahead bias, which understates volatility", "Selection bias, which understates returns"], "answer": 0, "explain": "Le **biais du survivant** retire les fonds morts (souvent mauvais) : les rendements moyens sont **surestimés**." },
+    { "id": "q-hf-05", "topic": "hf", "tag": "Data biases", "level": 2, "q": "A fund starts reporting to a database after three successful years and adds those three years of returns to its record. This creates:", "options": ["Backfill (instant history) bias", "Survivorship bias", "Liquidation bias", "Netting risk"], "answer": 0, "explain": "Ajouter un historique flatteur lors de l’entrée dans la base = **backfill / instant history bias**." },
+    { "id": "q-hf-06", "topic": "hf", "tag": "Data biases", "level": 2, "q": "Compared with non-investable hedge fund indices, investable indices have historically tended to:", "options": ["Underperform", "Outperform significantly", "Have identical returns", "Have higher survivorship bias"], "answer": 0, "explain": "Les indices **investissables** (fonds ouverts, conditions réelles) ont souvent fait moins bien que les indices de bases de données, plus touchés par les biais." },
+    { "id": "q-hf-07", "topic": "hf", "tag": "Macro", "level": 1, "q": "Global macro funds typically:", "options": ["Take top-down positions on economic themes across asset classes using liquid instruments", "Focus on bottom-up stock picking in small caps", "Hold mainly illiquid private loans", "Maintain zero exposure to currencies"], "answer": 0, "explain": "La **macro** prend des positions directionnelles sur des thèmes macroéconomiques via des instruments liquides (futures, devises, options)." },
+    { "id": "q-hf-08", "topic": "hf", "tag": "Macro", "level": 2, "q": "A currency carry trade is most exposed to which risk?", "options": ["Sudden depreciation of high-yielding currencies in risk-off episodes", "Rising volatility benefiting the position", "Positive skewness", "Roll yield in contango"], "answer": 0, "explain": "Le carry trade gagne régulièrement l’écart de taux mais subit des **krachs** quand les devises à haut rendement chutent brutalement (profil de vendeur d’options, asymétrie négative)." },
+    { "id": "q-hf-09", "topic": "hf", "tag": "Managed futures", "level": 2, "q": "The return profile of trend-following CTAs is often compared to:", "options": ["A long straddle (or lookback straddle)", "A short put", "A covered call", "A risk-free bond"], "answer": 0, "explain": "Les tendanciels gagnent beaucoup dans les grandes tendances haussières **ou** baissières et perdent un peu sinon : profil de **long straddle** (asymétrie positive)." },
+    { "id": "q-hf-10", "topic": "hf", "tag": "Managed futures", "level": 2, "q": "In which environment do trend-following strategies typically perform worst?", "options": ["Range-bound markets with frequent reversals", "Prolonged bear markets", "Persistent commodity rallies", "Steady trends in interest rates"], "answer": 0, "explain": "Sans tendance, les signaux s’inversent sans cesse : pertes répétées (**whipsaws**)." },
+    { "id": "q-hf-11", "topic": "hf", "tag": "Managed futures", "level": 2, "q": "Why have managed futures been described as providing “crisis alpha”?", "options": ["They have often profited during prolonged equity bear markets by riding downtrends", "They always make money on the day of a crash", "They hold mostly cash during crises", "They are guaranteed by exchanges"], "answer": 0, "explain": "Lors de crises **prolongées** (2008), les CTAs vendent les marchés en baisse et profitent de la tendance. Ils ne gagnent pas forcément sur un krach soudain d’un jour." },
+    { "id": "q-hf-12", "topic": "hf", "tag": "Managed futures", "level": 1, "q": "A CTA goes long when the 50-day moving average of a futures price crosses above its 200-day moving average. This is an example of:", "options": ["A trend-following signal", "A mean-reversion signal", "Merger arbitrage", "Convertible arbitrage"], "answer": 0, "explain": "Le croisement d’une moyenne courte au-dessus d’une moyenne longue est un signal de **suivi de tendance**." },
+    { "id": "q-hf-13", "topic": "hf", "tag": "Merger arbitrage", "level": 1, "q": "In a stock-for-stock merger, a merger arbitrageur typically:", "options": ["Buys the target and shorts the acquirer", "Shorts the target and buys the acquirer", "Buys both companies", "Buys only the acquirer"], "answer": 0, "explain": "Long **cible**, short **acquéreur** selon le ratio d’échange, pour capter le spread sans risque de marché sur le prix de l’acquéreur." },
+    { "id": "q-hf-14", "topic": "hf", "tag": "Merger arbitrage", "level": 2, "calc": true, "q": "An acquirer trading at USD 50 offers 0.8 shares per target share. The target trades at USD 37. What is the gross merger arbitrage spread as a percentage of the target price?", "options": ["8.1%", "7.5%", "3.0%", "26.0%"], "answer": 0, "explain": "Valeur de l’offre = 0,8 × 50 = 40. Spread = 40 − 37 = 3. Rendement = 3/37 = **8,1 %**." },
+    { "id": "q-hf-15", "topic": "hf", "tag": "Merger arbitrage", "level": 2, "q": "The return distribution of merger arbitrage is best described as:", "options": ["Negatively skewed, similar to selling insurance (a short put)", "Positively skewed, similar to buying a call", "Symmetric and normal", "Unrelated to equity market conditions"], "answer": 0, "explain": "Petits gains réguliers quand les opérations aboutissent, grosses pertes en cas d’échec : **asymétrie négative**, profil de **vente de put**. Les échecs sont plus fréquents en marché baissier." },
+    { "id": "q-hf-16", "topic": "hf", "tag": "Merger arbitrage", "level": 2, "q": "The spread in a merger arbitrage trade primarily compensates the arbitrageur for:", "options": ["The risk that the deal fails or is delayed, plus the time value of money", "Expected dividend growth of the acquirer", "Currency risk only", "Inflation risk"], "answer": 0, "explain": "Le spread rémunère le **risque d’échec** (antitrust, financement, vote) et l’immobilisation du capital jusqu’à la clôture." },
+    { "id": "q-hf-17", "topic": "hf", "tag": "Activism", "level": 1, "q": "Which action is most characteristic of activist hedge funds?", "options": ["Seeking board seats and pushing for changes in strategy or capital allocation", "Maintaining a market-neutral book of hundreds of small positions", "Trading only currency futures", "Avoiding any communication with management"], "answer": 0, "explain": "Les **activistes** prennent des participations significatives et poussent au changement (stratégie, rachats d’actions, cessions, gouvernance, sièges au conseil)." },
+    { "id": "q-hf-18", "topic": "hf", "tag": "Activism", "level": 2, "q": "In the US, an activist investor acquiring more than 5% of a company’s shares with the intent to influence control must file:", "options": ["A Schedule 13D", "A Form 10-K", "A prospectus", "A Chapter 11 petition"], "answer": 0, "explain": "Le **13D** est obligatoire au-delà de 5 % avec intention d’influencer (le 13G concerne les investisseurs passifs)." },
+    { "id": "q-hf-19", "topic": "hf", "tag": "Convertible arbitrage", "level": 1, "q": "A classic convertible arbitrage position consists of:", "options": ["Long convertible bonds and short the issuer’s common stock", "Short convertible bonds and long the issuer’s stock", "Long convertible bonds and long the stock", "Long government bonds and short corporate bonds"], "answer": 0, "explain": "Long **convertible**, short **action** selon le delta : on isole la sous-valorisation de l’option et le portage." },
+    { "id": "q-hf-20", "topic": "hf", "tag": "Convertible arbitrage", "level": 2, "calc": true, "q": "A fund buys 500 convertible bonds, each convertible into 25 shares. The delta is 0.6. How many shares should it short to be delta-neutral?", "options": ["7,500", "12,500", "300", "20,833"], "answer": 0, "explain": "$0{,}6 \\times 25 \\times 500 = 7\\,500$ actions." },
+    { "id": "q-hf-21", "topic": "hf", "tag": "Convertible arbitrage", "level": 2, "calc": true, "q": "A convertible bond trades at USD 1,150 and converts into 20 shares of a stock trading at USD 50. The conversion premium is:", "options": ["15%", "13%", "50%", "5%"], "answer": 0, "explain": "Valeur de conversion = 20 × 50 = 1 000. Prime = (1 150 − 1 000)/1 000 = **15 %**." },
+    { "id": "q-hf-22", "topic": "hf", "tag": "Convertible arbitrage", "level": 3, "q": "A delta-hedged long convertible position benefits from large stock price moves in either direction mainly because of:", "options": ["Positive gamma, which allows profitable rebalancing of the hedge", "Negative vega", "The short rebate", "Negative theta"], "answer": 0, "explain": "Avec un **gamma positif**, le delta augmente quand l’action monte (on vend plus haut) et baisse quand elle chute (on rachète plus bas) : gain sur la volatilité réalisée." },
+    { "id": "q-hf-23", "topic": "hf", "tag": "Convertible arbitrage", "level": 2, "q": "Which event would be most damaging to a convertible arbitrage fund?", "options": ["A sharp widening of the issuer’s credit spread combined with forced deleveraging across the industry", "A large rise in the stock price", "An increase in implied volatility", "A higher short rebate"], "answer": 0, "explain": "Le **risque de crédit** et de **liquidité** (désendettement forcé, 2005 et 2008) sont les principaux dangers. Une hausse de la volatilité implicite profite à une position longue convertible (vega positif)." },
+    { "id": "q-hf-24", "topic": "hf", "tag": "Fixed income arbitrage", "level": 2, "q": "Why do fixed income arbitrage strategies typically use high leverage?", "options": ["The mispricings they exploit are very small", "Bonds cannot be shorted", "Leverage eliminates liquidity risk", "Regulators require it"], "answer": 0, "explain": "Les écarts exploités (quelques points de base) sont **minuscules** : le levier est nécessaire pour obtenir un rendement attractif, d’où une vulnérabilité aux crises de liquidité (LTCM 1998)." },
+    { "id": "q-hf-25", "topic": "hf", "tag": "Volatility", "level": 2, "q": "Because implied volatility has historically exceeded realized volatility on average, a strategy that systematically sells options tends to:", "options": ["Earn steady premiums but suffer large losses in market crashes", "Lose money steadily but gain in crashes", "Have positively skewed returns", "Have no exposure to market declines"], "answer": 0, "explain": "La **prime de risque de volatilité** rémunère les vendeurs d’options… au prix de pertes extrêmes lors des krachs (asymétrie négative)." },
+    { "id": "q-hf-26", "topic": "hf", "tag": "Market neutral", "level": 1, "q": "An equity market neutral fund aims primarily to:", "options": ["Earn returns from stock selection while keeping market exposure near zero", "Maximize beta to the equity market", "Profit from interest-rate changes", "Hold only cash"], "answer": 0, "explain": "Le **market neutral** équilibre longs et shorts (dollar/bêta/facteurs) : la performance provient de la sélection de titres." },
+    { "id": "q-hf-27", "topic": "hf", "tag": "Market neutral", "level": 3, "q": "A fund is long USD 100 million of stocks with an average beta of 1.2 and short USD 100 million of stocks with an average beta of 0.8. The fund is:", "options": ["Dollar neutral but net long beta", "Both dollar and beta neutral", "Beta neutral but net short dollars", "Net short beta"], "answer": 0, "explain": "Montants égaux → **dollar neutre** ; bêta net = 1,2 × 100 − 0,8 × 100 = +40 M d’exposition bêta → **net long bêta**." },
+    { "id": "q-hf-28", "topic": "hf", "tag": "Equity long/short", "level": 1, "calc": true, "q": "A long/short fund with USD 100 million of capital holds USD 140 million of long positions and USD 60 million of short positions. Its gross and net exposures are:", "options": ["200% gross, 80% net", "80% gross, 200% net", "140% gross, 60% net", "100% gross, 0% net"], "answer": 0, "explain": "Brute = (140 + 60)/100 = **200 %** ; nette = (140 − 60)/100 = **80 %**." },
+    { "id": "q-hf-29", "topic": "hf", "tag": "Equity long/short", "level": 2, "q": "Which risk is specific to short selling?", "options": ["Theoretically unlimited losses and the risk of a short squeeze or recall", "Losses limited to the amount invested", "No dividend obligations", "Guaranteed positive rebate"], "answer": 0, "explain": "Le vendeur à découvert peut perdre sans limite si le cours monte, subir un **short squeeze**, un rappel des titres et doit verser les dividendes." },
+    { "id": "q-hf-30", "topic": "hf", "tag": "Equity long/short", "level": 2, "q": "Over long bull markets, short-biased hedge funds have tended to:", "options": ["Produce poor returns because of their net short exposure", "Outperform all other strategies", "Have zero correlation with equities", "Earn the equity risk premium"], "answer": 0, "explain": "Avec une exposition **nette vendeuse**, ces fonds souffrent en marché haussier durable ; ils servent plutôt de couverture." },
+    { "id": "q-hf-31", "topic": "hf", "tag": "Funds of funds", "level": 1, "q": "Which is a key disadvantage of investing through a fund of hedge funds?", "options": ["An additional layer of management and incentive fees", "Lack of diversification", "No due diligence on underlying managers", "Higher minimum investments than single funds"], "answer": 0, "explain": "Le fonds de fonds ajoute une **seconde couche de frais**. En échange : diversification, due diligence, accès et minimums plus faibles." },
+    { "id": "q-hf-32", "topic": "hf", "tag": "Funds of funds", "level": 2, "q": "A fund of funds holds two managers: one gains 20% and the other loses 20%, with equal allocations. The investor most likely:", "options": ["Loses money after fees because the winning manager still charges an incentive fee", "Breaks even exactly", "Pays no incentive fees", "Receives a refund from the losing manager"], "answer": 0, "explain": "C’est le **netting risk** : le gérant gagnant prend sa commission de performance, le perdant ne rembourse rien ; avant frais l’ensemble est à 0, après frais il est négatif." },
+    { "id": "q-hf-33", "topic": "hf", "tag": "Funds of funds", "level": 2, "calc": true, "q": "Underlying hedge funds earn 15% gross and charge 2 and 20 (incentive on returns after the management fee). A fund of funds then charges 1 and 10 on the same basis. The investor’s net return is closest to:", "options": ["8.5%", "10.4%", "12.0%", "9.4%"], "answer": 0, "explain": "Niveau 1 : (15 % − 2 %) × 0,8 = 10,4 %. Niveau 2 : (10,4 % − 1 %) × 0,9 = **8,46 %**." },
+    { "id": "q-hf-34", "topic": "hf", "tag": "Multistrategy", "level": 2, "q": "Compared with a fund of funds, a multistrategy fund reduces netting risk because:", "options": ["Its incentive fee is charged on the net performance of all strategies combined", "It charges no management fee", "It holds only one strategy", "It never uses leverage"], "answer": 0, "explain": "Dans un **multistratégie**, la commission porte sur le résultat **global net** : les pertes d’une stratégie compensent les gains d’une autre avant frais." },
+    { "id": "q-hf-35", "topic": "hf", "tag": "Due diligence", "level": 2, "q": "Many hedge fund failures and frauds could have been detected primarily through:", "options": ["Operational due diligence on valuation, controls and independent service providers", "A longer track record of monthly returns", "Higher Sharpe ratios", "Lower leverage limits"], "answer": 0, "explain": "La **due diligence opérationnelle** (administrateur et auditeur indépendants, valorisation, contrôles) détecte les risques de fraude que l’analyse des rendements ne voit pas." },
+    { "id": "q-hf-36", "topic": "hf", "tag": "Classification", "level": 1, "q": "Convertible arbitrage, fixed income arbitrage and equity market neutral belong to which strategy group?", "options": ["Relative value", "Event-driven", "Macro and managed futures", "Equity hedge"], "answer": 0, "explain": "Ces trois stratégies achètent un actif et vendent un actif lié : **valeur relative**." },
+    { "id": "q-hf-37", "topic": "hf", "tag": "Classification", "level": 1, "q": "Merger arbitrage and activism belong to which strategy group?", "options": ["Event-driven", "Relative value", "Macro", "Managed futures"], "answer": 0, "explain": "Ces stratégies parient sur l’issue d’**événements** d’entreprise : event-driven." },
+    { "id": "q-hf-38", "topic": "hf", "tag": "Market neutral", "level": 2, "q": "The August 2007 “quant quake” losses in equity market neutral funds are mainly attributed to:", "options": ["Crowded positions being unwound simultaneously by many funds", "A sudden rise in interest rates", "Merger deal failures", "Commodity contango"], "answer": 0, "explain": "De nombreux fonds quantitatifs détenaient des positions **similaires** ; le désendettement de certains a fait chuter tous les autres (risque de foule / crowding)." }
+  ]
+}

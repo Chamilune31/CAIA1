@@ -1,0 +1,153 @@
+{
+  "id": "pd-base",
+  "added": "2026-11-13",
+  "title": "Dette privée — base",
+  "fiches": [
+    {
+      "id": "pd-landscape",
+      "topic": "pd",
+      "title": "Private Debt Strategies",
+      "fr": "Les stratégies de dette privée",
+      "minutes": 12,
+      "blocks": [
+        { "t": "p", "text": "Private debt consists of loans and debt securities that are not publicly traded, originated or bought by non-bank lenders. It grew strongly after 2008 as banks retreated from middle-market lending under tighter regulation." },
+        { "t": "h", "text": "Direct lending" },
+        { "t": "list", "items": [
+          "Loans made directly to (usually sponsor-backed) **middle-market** companies, mostly **senior secured** and **floating rate** (reference rate + spread).",
+          "**Unitranche**: a single loan combining senior and junior debt at a blended rate, simplifying the capital structure.",
+          "Returns come from the spread, upfront fees (OID) and an **illiquidity premium**; floating rates limit interest-rate risk.",
+          "**Covenants**: maintenance covenants (tested regularly, e.g., leverage ≤ 5x) give lenders early warning; incurrence covenants apply only when the borrower takes an action. **Covenant-lite** loans have few or no maintenance covenants."
+        ] },
+        { "t": "h", "text": "Mezzanine debt" },
+        { "t": "list", "items": [
+          "Subordinated debt ranking below senior loans but above equity, often unsecured.",
+          "Return from cash coupon + **PIK** (payment-in-kind) interest + **equity kickers** (warrants, conversion rights).",
+          "Used in LBOs and growth financings to fill the gap between senior debt and equity."
+        ] },
+        { "t": "h", "text": "Distressed debt" },
+        { "t": "list", "items": [
+          "Buying debt of companies in or near default at deep discounts (e.g., yields > 1,000 bp over Treasuries).",
+          "**Fulcrum security**: the most senior class that is not fully covered by the firm’s value — it will likely be converted into the reorganized company’s equity, giving control (**loan-to-own**).",
+          "**Chapter 11** (US): reorganization under court protection; the firm continues operating. **Chapter 7**: liquidation. **Prepackaged** bankruptcy: plan negotiated with creditors before filing → faster and cheaper.",
+          "**Absolute priority rule**: senior claims are paid in full before junior claims receive anything (deviations happen in practice).",
+          "**DIP financing** (debtor-in-possession): new money lent during Chapter 11 with super-priority status.",
+          "Strategies can be **active** (seeking influence or control) or **passive** (trading on mispricing)."
+        ] },
+        { "t": "h", "text": "Other segments" },
+        { "t": "p", "text": "Venture debt, asset-based lending, specialty finance (royalties, receivables, litigation finance), real estate and infrastructure debt." },
+        { "t": "fr", "text": "La **fulcrum security** est la tranche de dette « pivot » : celle qui sera convertie en actions lors de la restructuration. Le **DIP financing** est remboursé en priorité parce qu’il permet à l’entreprise de continuer à fonctionner." }
+      ]
+    },
+    {
+      "id": "pd-credit",
+      "topic": "pd",
+      "title": "Credit Risk and Credit Models",
+      "fr": "Le risque de crédit et ses modèles",
+      "minutes": 11,
+      "blocks": [
+        { "t": "formula", "label": "Expected loss", "tex": "EL = PD \\times LGD \\times EAD, \\qquad LGD = 1 - RR" },
+        { "t": "formula", "label": "Credit spread (approximation)", "tex": "s \\approx PD \\times (1 - RR) = \\lambda\\,(1 - RR)" },
+        { "t": "p", "text": "Observed spreads are usually **larger** than expected losses alone because they also include risk premia for default uncertainty, illiquidity and taxes." },
+        { "t": "h", "text": "Structural models (Merton)" },
+        { "t": "list", "items": [
+          "Default occurs when the value of the firm’s **assets** falls below the face value of its **debt** at maturity.",
+          "**Equity** = a **call option** on the firm’s assets with strike = face value of debt.",
+          "**Risky debt** = risk-free debt − a **put option** on the firm’s assets (the lenders are short a put).",
+          "Higher asset volatility → higher equity value and **lower** debt value (wider spreads)."
+        ] },
+        { "t": "formula", "tex": "E = \\text{Call}(V, F), \\qquad D = F e^{-rT} - \\text{Put}(V, F)" },
+        { "t": "h", "text": "Reduced-form models" },
+        { "t": "p", "text": "Default is modeled as a random event driven by a **hazard rate** (default intensity $\\lambda$), calibrated to market prices (spreads, CDS) rather than to the firm’s balance sheet." },
+        { "t": "h", "text": "Seniority and recovery" },
+        { "t": "p", "text": "Recovery rates decline with seniority: senior secured loans recover the most, then senior unsecured bonds, subordinated debt, and equity (usually little or nothing)." },
+        { "t": "table", "head": ["", "Leveraged loans", "High-yield bonds"], "rows": [
+          ["Rate", "Floating", "Usually fixed"],
+          ["Security", "Senior secured", "Often unsecured"],
+          ["Prepayment", "Generally prepayable at par", "Call protection"],
+          ["Recovery", "Higher", "Lower"]
+        ] },
+        { "t": "h", "text": "Credit default swaps" },
+        { "t": "p", "text": "The **protection buyer** pays a periodic premium (the CDS spread) and receives compensation (par − recovery) if a credit event occurs; the **protection seller** is long credit risk." },
+        { "t": "fr", "text": "Merton : l’action est un **call** sur les actifs ; le prêteur a **vendu un put**. Plus les actifs sont volatils, plus l’action vaut cher et plus la dette perd de la valeur." }
+      ]
+    },
+    {
+      "id": "pd-clo",
+      "topic": "pd",
+      "title": "CLOs and Structured Credit",
+      "fr": "CLO et crédit structuré",
+      "minutes": 9,
+      "blocks": [
+        { "t": "p", "text": "A **collateralized loan obligation (CLO)** is an actively managed special-purpose vehicle that buys a diversified pool of **leveraged loans** and finances it by issuing tranches of debt (AAA down to BB/B) and an **equity** tranche." },
+        { "t": "list", "items": [
+          "**Waterfall**: interest and principal are paid sequentially from the senior tranches down to equity; losses hit equity first.",
+          "**Coverage tests**: overcollateralization (OC) and interest coverage (IC) tests. If a test fails, cash flows are **diverted** from junior tranches and equity to pay down senior notes.",
+          "**Reinvestment period** (often several years) during which the manager reinvests principal; then the CLO amortizes.",
+          "**Equity tranche**: receives the residual excess spread — a leveraged exposure (≈ 8–12x) to loan spreads and defaults.",
+          "The CLO “arbitrage” is the difference between the yield on the loans and the cost of the liabilities."
+        ] },
+        { "t": "tip", "text": "Senior CLO tranches have historically shown very low default rates; the risk is concentrated in junior tranches and equity." },
+        { "t": "trap", "text": "Tranching does not remove risk from the pool; it **redistributes** it. Correlation of defaults matters: higher correlation hurts senior tranches (more extreme outcomes) and can benefit equity." },
+        { "t": "fr", "text": "Si les tests OC/IC échouent, la **trésorerie est détournée** vers le remboursement des tranches seniors : la tranche equity ne reçoit plus rien tant que le test n’est pas rétabli." }
+      ]
+    }
+  ],
+  "formulas": [
+    { "id": "el", "topic": "pd", "name": "Expected loss", "tex": "EL = PD \\times LGD \\times EAD, \\quad LGD = 1 - RR" },
+    { "id": "spread", "topic": "pd", "name": "Credit spread approximation", "tex": "s \\approx \\lambda \\times (1 - RR)", "vars": "$\\lambda$ intensité de défaut, $RR$ taux de recouvrement." },
+    { "id": "f-merton", "topic": "pd", "name": "Merton model", "tex": "E = \\text{Call}(V, F), \\qquad D = Fe^{-rT} - \\text{Put}(V,F)", "vars": "$V$ valeur des actifs, $F$ nominal de la dette." },
+    { "id": "f-survival", "topic": "pd", "name": "Survival probability (constant hazard rate)", "tex": "P(\\text{no default by } T) = e^{-\\lambda T}" },
+    { "id": "f-cds", "topic": "pd", "name": "CDS payoff to protection buyer", "tex": "\\text{Payoff} = \\text{Notional} \\times (1 - RR)" }
+  ],
+  "cards": [
+    { "id": "c-pd-direct", "topic": "pd", "front": "Direct lending", "back": "Non-bank origination of loans directly to companies, typically senior secured, floating-rate loans to middle-market firms.", "fr": "Prêt direct." },
+    { "id": "c-pd-unitranche", "topic": "pd", "front": "Unitranche loan", "back": "A single loan that combines senior and subordinated debt into one facility with one blended interest rate.", "fr": "Prêt unitranche." },
+    { "id": "c-pd-maint", "topic": "pd", "front": "Maintenance covenant", "back": "A covenant tested periodically (e.g., quarterly leverage test) whether or not the borrower takes any action.", "fr": "Covenant de maintien." },
+    { "id": "c-pd-covlite", "topic": "pd", "front": "Covenant-lite loan", "back": "A loan with few or no maintenance covenants, giving lenders less early warning and control.", "fr": "Prêt sans covenants de maintien." },
+    { "id": "c-pd-mezz", "topic": "pd", "front": "Mezzanine debt", "back": "Subordinated debt between senior debt and equity, often with PIK interest and equity kickers such as warrants.", "fr": "Dette mezzanine." },
+    { "id": "c-pd-pik", "topic": "pd", "front": "Payment-in-kind (PIK)", "back": "Interest paid by adding to the principal instead of in cash.", "fr": "Intérêts capitalisés." },
+    { "id": "c-pd-kicker", "topic": "pd", "front": "Equity kicker", "back": "An equity component (warrants or conversion rights) attached to debt to increase the lender’s potential return.", "fr": "Bonus en actions." },
+    { "id": "c-pd-fulcrum", "topic": "pd", "front": "Fulcrum security", "back": "The most senior debt class not fully covered by the firm’s value; it is most likely to be converted into equity in a reorganization.", "fr": "Titre pivot." },
+    { "id": "c-pd-ch11", "topic": "pd", "front": "Chapter 11 vs. Chapter 7", "back": "Chapter 11: reorganization under court protection while operating. Chapter 7: liquidation of the firm’s assets.", "fr": "Redressement / liquidation (droit US)." },
+    { "id": "c-pd-prepack", "topic": "pd", "front": "Prepackaged bankruptcy", "back": "A bankruptcy filing in which the reorganization plan has been negotiated and approved by creditors beforehand.", "fr": "Faillite pré-négociée." },
+    { "id": "c-pd-apr", "topic": "pd", "front": "Absolute priority rule", "back": "Senior creditors must be paid in full before junior creditors or equity holders receive anything.", "fr": "Règle de priorité absolue." },
+    { "id": "c-pd-dip", "topic": "pd", "front": "DIP financing", "back": "Debtor-in-possession financing: new loans to a firm in Chapter 11, granted super-priority over existing claims.", "fr": "Financement en cours de procédure." },
+    { "id": "c-pd-l2o", "topic": "pd", "front": "Loan-to-own", "back": "A distressed strategy of buying debt with the intention of converting it into a controlling equity stake through restructuring.", "fr": "Prêter pour posséder." },
+    { "id": "c-pd-lgd", "topic": "pd", "front": "Loss given default (LGD)", "back": "The share of the exposure lost if the borrower defaults: 1 minus the recovery rate.", "fr": "Perte en cas de défaut." },
+    { "id": "c-pd-merton", "topic": "pd", "front": "Merton structural model", "back": "Models equity as a call option on the firm’s assets and risky debt as risk-free debt minus a put option; default when assets fall below debt.", "fr": "Modèle structurel." },
+    { "id": "c-pd-reduced", "topic": "pd", "front": "Reduced-form credit model", "back": "Models default as a random event with a hazard rate (default intensity) calibrated to market prices.", "fr": "Modèle à intensité." },
+    { "id": "c-pd-cds", "topic": "pd", "front": "Credit default swap", "back": "A contract in which the protection buyer pays a periodic spread and receives par minus recovery if a credit event occurs.", "fr": "Dérivé de crédit." },
+    { "id": "c-pd-clo", "topic": "pd", "front": "CLO", "back": "Collateralized loan obligation: a managed vehicle holding leveraged loans, financed by tranches of debt and equity.", "fr": "Titrisation de prêts à effet de levier." },
+    { "id": "c-pd-octest", "topic": "pd", "front": "Overcollateralization (OC) test", "back": "A CLO test comparing collateral par value to the par value of the notes; if failed, cash is diverted to pay down senior notes.", "fr": "Test de surdimensionnement." }
+  ],
+  "questions": [
+    { "id": "q-pd-01", "topic": "pd", "tag": "Direct lending", "level": 1, "q": "Direct lending loans to middle-market companies are typically:", "options": ["Senior secured and floating rate", "Unsecured and fixed rate", "Publicly traded and rated AAA", "Perpetual and equity-like"], "answer": 0, "explain": "Le direct lending est majoritairement **senior sécurisé** et à **taux variable** (référence + spread)." },
+    { "id": "q-pd-02", "topic": "pd", "tag": "Direct lending", "level": 2, "q": "Why does a floating-rate direct lending portfolio carry relatively little interest-rate (duration) risk?", "options": ["Coupons reset with the reference rate, so prices are less sensitive to rate changes", "The loans are always hedged with swaps", "Borrowers cannot default", "The loans have no maturity"], "answer": 0, "explain": "Les coupons se **réajustent** avec le taux de référence : la duration est très courte. Le risque principal est le **crédit**." },
+    { "id": "q-pd-03", "topic": "pd", "tag": "Direct lending", "level": 1, "q": "A unitranche facility:", "options": ["Combines senior and junior debt into a single loan with one blended rate", "Is a loan split into many tranches sold to the public", "Is always subordinated to mezzanine debt", "Pays interest only in kind"], "answer": 0, "explain": "**Unitranche** = une seule ligne qui remplace dette senior + dette junior, à un taux mixte." },
+    { "id": "q-pd-04", "topic": "pd", "tag": "Covenants", "level": 2, "q": "The main disadvantage of covenant-lite loans for lenders is that:", "options": ["They provide less early warning and fewer opportunities to intervene before default", "They always pay lower spreads", "They cannot be secured", "They prohibit the borrower from refinancing"], "answer": 0, "explain": "Sans **covenants de maintien**, le prêteur ne peut pas intervenir tôt quand la situation se dégrade ; les recouvrements peuvent être plus faibles." },
+    { "id": "q-pd-05", "topic": "pd", "tag": "Covenants", "level": 2, "q": "A covenant that is tested only when the borrower takes a specific action, such as issuing new debt, is a(n):", "options": ["Incurrence covenant", "Maintenance covenant", "Affirmative financial covenant tested quarterly", "Cross-default clause"], "answer": 0, "explain": "Le covenant **d’incurrence** n’est vérifié qu’au moment d’une action (nouvelle dette, dividende, acquisition)." },
+    { "id": "q-pd-06", "topic": "pd", "tag": "Mezzanine", "level": 1, "q": "Mezzanine debt typically ranks:", "options": ["Below senior debt but above equity", "Above senior secured debt", "Pari passu with common equity", "Above DIP financing"], "answer": 0, "explain": "La **mezzanine** est subordonnée à la dette senior mais passe avant les actionnaires." },
+    { "id": "q-pd-07", "topic": "pd", "tag": "Mezzanine", "level": 2, "q": "Which return component is most characteristic of mezzanine financing compared with senior loans?", "options": ["Equity kickers such as warrants, plus PIK interest", "Lower coupons than senior debt", "Full collateral on all assets", "Daily liquidity"], "answer": 0, "explain": "La mezzanine compense sa subordination par des intérêts **PIK** et des **equity kickers** (bons de souscription)." },
+    { "id": "q-pd-08", "topic": "pd", "tag": "Distressed debt", "level": 2, "q": "In a restructuring, the “fulcrum security” is:", "options": ["The most senior class of claims that is not fully covered by the firm’s value", "The most junior equity class", "The DIP loan", "Any security trading above par"], "answer": 0, "explain": "La **fulcrum security** est la tranche où la valeur s’épuise : elle sera en général convertie en actions de l’entreprise restructurée." },
+    { "id": "q-pd-09", "topic": "pd", "tag": "Distressed debt", "level": 2, "calc": true, "q": "A bankrupt firm is worth USD 500 million. It has USD 300 million of senior secured debt, USD 400 million of senior unsecured bonds and USD 200 million of subordinated debt. Under absolute priority, which class is the fulcrum security?", "options": ["Senior unsecured bonds", "Senior secured debt", "Subordinated debt", "Common equity"], "answer": 0, "explain": "Senior sécurisé : 300 remboursés intégralement. Il reste 200 pour 400 de senior unsecured (50 % de recouvrement) → ce sont les **senior unsecured** qui deviennent propriétaires. Le subordonné et les actions ne reçoivent rien." },
+    { "id": "q-pd-10", "topic": "pd", "tag": "Bankruptcy", "level": 1, "q": "Under US law, a Chapter 11 filing generally leads to:", "options": ["Reorganization of the firm while it continues operating", "Immediate liquidation of all assets", "Automatic repayment of all creditors in full", "Conversion of the firm into a public entity"], "answer": 0, "explain": "**Chapter 11** = réorganisation sous protection du tribunal ; **Chapter 7** = liquidation." },
+    { "id": "q-pd-11", "topic": "pd", "tag": "Bankruptcy", "level": 2, "q": "What is the main advantage of a prepackaged bankruptcy?", "options": ["It shortens the process and reduces costs because creditors approved the plan before filing", "It eliminates the absolute priority rule", "It guarantees full recovery to equity holders", "It avoids any court involvement"], "answer": 0, "explain": "Le plan étant **négocié avant le dépôt**, la procédure est plus rapide et moins coûteuse (moins de destruction de valeur)." },
+    { "id": "q-pd-12", "topic": "pd", "tag": "Bankruptcy", "level": 2, "q": "Debtor-in-possession (DIP) financing is attractive to lenders mainly because:", "options": ["It receives super-priority status over existing claims", "It is unsecured and junior", "It converts automatically into equity", "It is guaranteed by the government"], "answer": 0, "explain": "Le **DIP** bénéficie d’une **super-priorité** accordée par le tribunal : risque faible pour un rendement souvent attractif." },
+    { "id": "q-pd-13", "topic": "pd", "tag": "Distressed debt", "level": 2, "q": "A hedge fund buys the fulcrum bonds of a distressed company intending to become its controlling shareholder after restructuring. This strategy is called:", "options": ["Loan-to-own", "Capital structure arbitrage", "Merger arbitrage", "Direct lending"], "answer": 0, "explain": "**Loan-to-own** : acheter la dette pivot pour en obtenir le contrôle via la conversion en actions." },
+    { "id": "q-pd-14", "topic": "pd", "tag": "Credit risk", "level": 1, "calc": true, "q": "A loan of USD 20 million has a 3% probability of default and a 40% recovery rate. Its expected loss is:", "options": ["USD 360,000", "USD 240,000", "USD 600,000", "USD 8,000,000"], "answer": 0, "explain": "$EL = 3\\% \\times (1 - 40\\%) \\times 20\\text{M} = 0{,}03 \\times 0{,}6 \\times 20\\text{M} = 360\\,000$ USD." },
+    { "id": "q-pd-15", "topic": "pd", "tag": "Credit risk", "level": 2, "calc": true, "q": "A bond’s default intensity is 2.5% per year and its expected recovery rate is 40%. Its approximate credit spread is:", "options": ["150 bp", "250 bp", "100 bp", "40 bp"], "answer": 0, "explain": "$s \\approx 2{,}5\\% \\times (1 - 0{,}4) = 1{,}5\\% = 150$ bp." },
+    { "id": "q-pd-16", "topic": "pd", "tag": "Credit risk", "level": 2, "q": "Observed credit spreads are generally larger than the expected loss rate because they also include:", "options": ["Risk premia for default uncertainty and illiquidity", "The risk-free rate", "The equity risk premium of the lender", "Inflation only"], "answer": 0, "explain": "Le spread rémunère la perte attendue **plus** des primes de risque (incertitude des défauts, illiquidité, fiscalité)." },
+    { "id": "q-pd-17", "topic": "pd", "tag": "Merton model", "level": 2, "q": "In the Merton model, the equity of a levered firm is equivalent to:", "options": ["A call option on the firm’s assets with a strike equal to the face value of debt", "A put option on the firm’s assets", "A risk-free bond", "A short call on the firm’s debt"], "answer": 0, "explain": "Les actionnaires reçoivent max(V − F, 0) à l’échéance : c’est un **call** sur les actifs de strike F." },
+    { "id": "q-pd-18", "topic": "pd", "tag": "Merton model", "level": 3, "q": "According to the Merton model, an increase in the volatility of a firm’s assets, all else equal, will:", "options": ["Increase equity value and decrease the value of risky debt", "Decrease both equity and debt values", "Increase debt value and decrease equity value", "Leave both values unchanged"], "answer": 0, "explain": "La volatilité augmente la valeur du **call** (actions) et du **put** vendu par les prêteurs : la dette perd de la valeur, les spreads s’élargissent." },
+    { "id": "q-pd-19", "topic": "pd", "tag": "Credit models", "level": 2, "q": "Reduced-form credit models differ from structural models in that they:", "options": ["Model default as a random event with an intensity calibrated to market prices", "Require the firm’s asset value and volatility", "Assume default only at debt maturity", "Treat equity as a call option"], "answer": 0, "explain": "Les modèles **à forme réduite** modélisent le défaut par une **intensité (hazard rate)** calibrée sur les spreads, sans modéliser le bilan." },
+    { "id": "q-pd-20", "topic": "pd", "tag": "Recovery", "level": 1, "q": "Which class of claims typically has the highest recovery rate in default?", "options": ["Senior secured loans", "Senior unsecured bonds", "Subordinated bonds", "Preferred equity"], "answer": 0, "explain": "Les **prêts seniors sécurisés** récupèrent le plus (garanties + rang). Les recouvrements baissent avec la subordination." },
+    { "id": "q-pd-21", "topic": "pd", "tag": "Loans vs bonds", "level": 2, "q": "Compared with high-yield bonds, leveraged loans typically:", "options": ["Pay floating rates and are secured, with higher recoveries", "Pay fixed rates and offer call protection", "Rank junior to unsecured bonds", "Cannot be prepaid"], "answer": 0, "explain": "Les **leveraged loans** : taux variable, sûretés, rang senior, remboursables au pair. Les obligations high yield : taux fixe, souvent non sécurisées, protection contre le remboursement anticipé." },
+    { "id": "q-pd-22", "topic": "pd", "tag": "CDS", "level": 1, "q": "In a credit default swap, the protection seller:", "options": ["Receives periodic premiums and pays par minus recovery if a credit event occurs", "Pays periodic premiums and receives par if a credit event occurs", "Owns the reference bond", "Has a short credit exposure"], "answer": 0, "explain": "Le **vendeur de protection** encaisse la prime et paie (pair − recouvrement) en cas d’événement de crédit : il est **long risque de crédit**." },
+    { "id": "q-pd-23", "topic": "pd", "tag": "CLO", "level": 1, "q": "The collateral of a typical CLO consists mainly of:", "options": ["Senior secured leveraged loans", "Residential mortgages", "Government bonds", "Equity of private companies"], "answer": 0, "explain": "Un **CLO** détient un portefeuille diversifié de **leveraged loans** seniors sécurisés." },
+    { "id": "q-pd-24", "topic": "pd", "tag": "CLO", "level": 2, "q": "If a CLO fails its overcollateralization test:", "options": ["Cash flows are diverted from junior tranches and equity to pay down senior notes", "The equity tranche receives a bonus payment", "The CLO is immediately liquidated", "Senior noteholders lose their priority"], "answer": 0, "explain": "L’échec d’un test **OC** détourne la trésorerie vers le remboursement des tranches seniors jusqu’au rétablissement du ratio." },
+    { "id": "q-pd-25", "topic": "pd", "tag": "CLO", "level": 2, "q": "The equity tranche of a CLO is best described as:", "options": ["A leveraged exposure to the excess spread of the loan pool that absorbs losses first", "The safest tranche, rated AAA", "A fixed-rate claim with no default exposure", "A tranche paid before the senior notes"], "answer": 0, "explain": "La tranche **equity** touche le résiduel (excess spread) avec un fort effet de levier, et subit les pertes en premier." },
+    { "id": "q-pd-26", "topic": "pd", "tag": "Structured credit", "level": 3, "q": "In a tranched credit structure, an increase in default correlation among the underlying loans, holding expected losses constant, tends to:", "options": ["Hurt senior tranches and benefit the equity tranche", "Benefit senior tranches and hurt the equity tranche", "Affect all tranches equally", "Have no effect on any tranche"], "answer": 0, "explain": "Une corrélation plus forte rend les scénarios extrêmes plus probables : plus de chances que les pertes atteignent les **seniors**, mais aussi plus de scénarios sans pertes pour l’**equity**." },
+    { "id": "q-pd-27", "topic": "pd", "tag": "Market growth", "level": 1, "q": "Which factor contributed most to the growth of private direct lending after 2008?", "options": ["Banks reduced middle-market lending under stricter regulation", "Interest rates on loans were capped by law", "Public bond markets closed permanently", "Companies stopped using leverage"], "answer": 0, "explain": "Après 2008, la **régulation bancaire** (capital, Bâle III) a réduit les prêts des banques aux PME/ETI, laissant la place aux prêteurs non bancaires." },
+    { "id": "q-pd-28", "topic": "pd", "tag": "Credit risk", "level": 2, "calc": true, "q": "With a constant default intensity of 4% per year, the probability that a borrower survives 5 years without defaulting is closest to:", "options": ["81.9%", "80.0%", "96.0%", "20.0%"], "answer": 0, "explain": "$e^{-0{,}04 \\times 5} = e^{-0{,}2} = 81{,}9\\%$." }
+  ]
+}

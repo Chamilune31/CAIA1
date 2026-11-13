@@ -1,0 +1,213 @@
+{
+  "id": "real-base",
+  "added": "2026-11-13",
+  "title": "Actifs réels — base",
+  "fiches": [
+    {
+      "id": "rea-equity",
+      "topic": "real",
+      "title": "Real Estate Equity",
+      "fr": "L’immobilier en fonds propres",
+      "minutes": 12,
+      "blocks": [
+        { "t": "p", "text": "Real estate is the largest real asset class. Properties are heterogeneous, illiquid, costly to trade and valued by appraisal. Main property types: **residential**, **office**, **retail**, **industrial/logistics**, **hotels**, plus niches (data centers, student housing, self-storage)." },
+        { "t": "h", "text": "Investment styles" },
+        { "t": "table", "head": ["", "Core", "Value-added", "Opportunistic"], "rows": [
+          ["Assets", "Stabilized, high-occupancy, prime properties", "Need repositioning, re-leasing or renovation", "Development, distressed, emerging markets"],
+          ["Leverage", "Low (≈ 0–30%)", "Moderate (≈ 30–70%)", "High (≈ 70%+)"],
+          ["Return source", "Mostly **income**", "Income + appreciation", "Mostly **appreciation**"],
+          ["Risk/return", "Bond-like, lowest", "Medium", "Equity-like, highest"]
+        ] },
+        { "t": "h", "text": "Valuation" },
+        { "t": "formula", "label": "Net operating income", "tex": "NOI = \\text{gross rental income} - \\text{vacancy} - \\text{operating expenses}", "note": "NOI excludes debt service (financing), income taxes and depreciation." },
+        { "t": "formula", "label": "Direct capitalization", "tex": "V = \\dfrac{NOI_1}{\\text{cap rate}}, \\qquad \\text{cap rate} \\approx r - g" },
+        { "t": "formula", "label": "Discounted cash flow", "tex": "V_0 = \\sum_{t=1}^{T} \\dfrac{NOI_t}{(1+r)^t} + \\dfrac{V_T}{(1+r)^T}" },
+        { "t": "tip", "text": "A **lower cap rate** means a **higher value** for the same NOI. Cap rates rise when interest rates or required returns rise, or when expected NOI growth falls." },
+        { "t": "h", "text": "Ways to invest and their return series" },
+        { "t": "list", "items": [
+          "**Direct / private** (core funds, separate accounts): measured by appraisal-based indices such as the NCREIF Property Index (NPI) — unlevered, **smoothed**, low volatility, low correlation with equities.",
+          "**Open-end funds** (core, periodic liquidity) vs. **closed-end funds** (value-added/opportunistic, fixed life).",
+          "**REITs** (listed): liquid and transparent, priced daily; they behave partly like equities in the short run but track private real estate over longer horizons."
+        ] },
+        { "t": "trap", "text": "The low volatility of appraisal-based indices is partly an illusion caused by **smoothing** and lagged valuations. After unsmoothing, private real estate volatility is much closer to REIT volatility (adjusted for leverage)." },
+        { "t": "h", "text": "Effects of leverage" },
+        { "t": "formula", "tex": "R_{equity} = R_{asset} + \\dfrac{D}{E}(R_{asset} - r_{debt})", "note": "Leverage magnifies returns and losses; it increases volatility of equity returns." },
+        { "t": "fr", "text": "Core = revenus locatifs stables, peu de levier ; opportuniste = plus-values, beaucoup de levier. Le **NOI** ne déduit jamais les intérêts ni l’amortissement comptable." }
+      ]
+    },
+    {
+      "id": "rea-debt",
+      "topic": "real",
+      "title": "Real Estate Debt and Mortgages",
+      "fr": "Dette immobilière et prêts hypothécaires",
+      "minutes": 10,
+      "blocks": [
+        { "t": "h", "text": "Mortgage types" },
+        { "t": "list", "items": [
+          "**Fixed-rate, fully amortizing**: constant payment; interest share falls and principal share rises over time.",
+          "**Adjustable-rate (ARM)**: rate = reference index + margin, reset periodically, often with periodic and lifetime **caps**; shifts interest-rate risk to the borrower.",
+          "**Interest-only** and **balloon** loans: little or no amortization; large final repayment (refinancing risk).",
+          "Other: graduated-payment, tiered-payment, participating mortgages."
+        ] },
+        { "t": "formula", "label": "Level mortgage payment", "tex": "PMT = \\dfrac{P\\,i}{1-(1+i)^{-n}}" },
+        { "t": "h", "text": "Key credit ratios" },
+        { "t": "formula", "tex": "LTV = \\dfrac{\\text{loan amount}}{\\text{property value}}, \\qquad DSCR = \\dfrac{NOI}{\\text{debt service}}" },
+        { "t": "h", "text": "Risks for the lender" },
+        { "t": "list", "items": [
+          "**Default risk**: borrower stops paying; the loss depends on the collateral value (LTV).",
+          "**Prepayment risk**: the borrower holds a call option to repay early, usually when rates fall → the lender is reinvested at lower rates; mortgages exhibit **negative convexity**.",
+          "**Interest rate risk** (fixed-rate loans) and **extension risk** (slower prepayments when rates rise)."
+        ] },
+        { "t": "h", "text": "Securitization" },
+        { "t": "list", "items": [
+          "**RMBS**: pools of residential mortgages; prepayment risk is central (borrowers refinance freely).",
+          "**CMBS**: pools of commercial mortgages; prepayment is restricted (lockouts, prepayment penalties, defeasance, yield maintenance), so **default risk** dominates.",
+          "**Tranching** redistributes credit risk: senior tranches are paid first; the subordinated/equity (**first-loss**) tranche absorbs losses first."
+        ] },
+        { "t": "trap", "text": "Falling interest rates are not good news for every mortgage investor: they accelerate prepayments, which caps the price gain (negative convexity)." },
+        { "t": "fr", "text": "L’emprunteur détient une **option de remboursement anticipé** : le prêteur est « vendeur d’option ». C’est pourquoi un prêt hypothécaire monte moins qu’une obligation classique quand les taux baissent." }
+      ]
+    },
+    {
+      "id": "rea-commodities",
+      "topic": "real",
+      "title": "Commodities and Commodity Futures",
+      "fr": "Matières premières et contrats à terme",
+      "minutes": 13,
+      "blocks": [
+        { "t": "p", "text": "Most institutional commodity exposure is obtained through **collateralized futures** rather than physical holdings. Sectors: energy, industrial metals, precious metals, agriculture, livestock." },
+        { "t": "h", "text": "Cost-of-carry model" },
+        { "t": "formula", "tex": "F_{0,T} = S_0\\, e^{(r + c - y)\\,T}", "note": "$r$ = financing rate, $c$ = storage cost, $y$ = convenience yield (benefit of holding the physical good)." },
+        { "t": "table", "head": ["Term structure", "Shape", "Roll yield (long)"], "rows": [
+          ["**Contango**", "Futures prices above spot / rising with maturity", "Negative: sell expiring contract cheap, buy next one dear"],
+          ["**Backwardation**", "Futures prices below spot / falling with maturity", "Positive"]
+        ] },
+        { "t": "list", "items": [
+          "**Theory of storage**: low inventories → high convenience yield → backwardation; abundant inventories → contango.",
+          "**Normal backwardation (Keynes)**: producers hedge by selling futures and pay speculators a risk premium, so futures prices are set **below the expected future spot price**. Long futures earn this premium over time.",
+          "**Normal contango**: the opposite case, when hedging demand comes mainly from buyers (consumers)."
+        ] },
+        { "t": "trap", "text": "Do not confuse **backwardation** (futures < current spot) with **normal backwardation** (futures < expected future spot). They are different comparisons." },
+        { "t": "h", "text": "Return of a collateralized futures position" },
+        { "t": "formula", "tex": "R_{total} = \\underbrace{R_{spot}}_{\\text{spot price change}} + \\underbrace{R_{roll}}_{\\text{roll yield}} + \\underbrace{R_{collateral}}_{\\text{T-bill yield}}" },
+        { "t": "h", "text": "Commodity indices" },
+        { "t": "list", "items": [
+          "**S&P GSCI**: weights by world production → heavily concentrated in **energy**.",
+          "**Bloomberg Commodity Index (BCOM)**: liquidity and production weights with sector and single-commodity **caps** → more diversified.",
+          "Index returns depend strongly on roll yields and on the collateral return."
+        ] },
+        { "t": "h", "text": "Role in a portfolio" },
+        { "t": "list", "items": [
+          "Hedge against **unexpected inflation** (commodity prices are inputs to inflation).",
+          "Low long-run correlation with stocks and bonds; positive exposure to the business cycle and to supply shocks.",
+          "Energy prices tend to spike on supply disruptions → some positive skew in crises driven by supply shocks."
+        ] },
+        { "t": "fr", "text": "Le rendement d’un indice de futures = variation du spot + **roll yield** (positif en backwardation, négatif en contango) + rendement du **collatéral** (taux sans risque sur la marge)." }
+      ]
+    },
+    {
+      "id": "rea-infra",
+      "topic": "real",
+      "title": "Infrastructure, Natural Resources and Intellectual Property",
+      "fr": "Infrastructures, ressources naturelles et propriété intellectuelle",
+      "minutes": 10,
+      "blocks": [
+        { "t": "h", "text": "Infrastructure" },
+        { "t": "list", "items": [
+          "Long-lived physical assets providing essential services: **economic** infrastructure (toll roads, airports, ports, pipelines, utilities, telecom towers, energy transition) and **social** infrastructure (hospitals, schools, prisons, often via PPPs).",
+          "Features: high barriers to entry, quasi-monopoly positions, inelastic demand, regulated or contracted revenues, often **inflation-linked** cash flows, long duration.",
+          "**Greenfield** (new construction: construction, demand and ramp-up risk; higher expected return) vs. **brownfield** (existing operating assets: stable cash flows).",
+          "Risks: regulatory and political risk, construction risk, interest-rate sensitivity, demand risk for user-pay assets."
+        ] },
+        { "t": "h", "text": "Farmland and timberland" },
+        { "t": "list", "items": [
+          "**Farmland**: returns from crop income (or rents) plus land appreciation; linked to food demand and inflation.",
+          "**Timberland**: returns from biological growth, timber prices and land value. Biological growth is independent of financial markets, and the owner can **delay harvest** when prices are low — a valuable real option (trees keep growing).",
+          "Both are illiquid and appraisal-based (smoothed returns), with low correlation to financial assets."
+        ] },
+        { "t": "h", "text": "Land" },
+        { "t": "p", "text": "Undeveloped land can be viewed as a **call option** on future development: its value rises with uncertainty about the best future use." },
+        { "t": "h", "text": "Intellectual property (IP)" },
+        { "t": "list", "items": [
+          "Film libraries and production, music royalties, patents, trademarks, art.",
+          "Cash flows from royalties and licensing; returns are largely **idiosyncratic** and uncorrelated with markets.",
+          "Valuation is difficult (unique assets, few comparables, long-tailed outcomes); options-based approaches can be used for patents and R&D."
+        ] },
+        { "t": "fr", "text": "L’infrastructure **brownfield** ressemble à de l’obligataire indexé sur l’inflation ; la **greenfield** à du private equity. Pour le bois : la croissance biologique ne dépend pas des marchés et on peut reporter la coupe." }
+      ]
+    }
+  ],
+  "formulas": [
+    { "id": "f-noi", "topic": "real", "name": "Net operating income", "tex": "NOI = \\text{revenus locatifs} - \\text{vacance} - \\text{charges d’exploitation}", "note": "Ni intérêts, ni impôts, ni amortissement comptable." },
+    { "id": "caprate", "topic": "real", "name": "Cap rate valuation", "tex": "V = \\dfrac{NOI}{\\text{cap rate}}, \\qquad \\text{cap rate} \\approx r - g" },
+    { "id": "f-dcf", "topic": "real", "name": "Property DCF", "tex": "V_0 = \\sum_{t=1}^{T}\\dfrac{NOI_t}{(1+r)^t} + \\dfrac{V_T}{(1+r)^T}" },
+    { "id": "f-lev", "topic": "real", "name": "Levered equity return", "tex": "R_E = R_A + \\dfrac{D}{E}(R_A - r_D)" },
+    { "id": "f-ltv", "topic": "real", "name": "Loan-to-value", "tex": "LTV = \\dfrac{\\text{loan}}{\\text{property value}}" },
+    { "id": "dscr", "topic": "real", "name": "Debt service coverage ratio", "tex": "DSCR = \\dfrac{NOI}{\\text{debt service}}" },
+    { "id": "mortgage", "topic": "real", "name": "Mortgage payment", "tex": "PMT = \\dfrac{P\\, i}{1 - (1+i)^{-n}}", "vars": "$i$ taux par période (annuel/12), $n$ nombre de paiements." },
+    { "id": "carry", "topic": "real", "name": "Cost of carry", "tex": "F = S\\,e^{(r + c - y)T}", "vars": "$c$ coût de stockage, $y$ convenience yield." },
+    { "id": "cmdret", "topic": "real", "name": "Futures return decomposition", "tex": "R_{total} = R_{spot} + R_{roll} + R_{collateral}" }
+  ],
+  "cards": [
+    { "id": "c-rea-core", "topic": "real", "front": "Core real estate", "back": "Stabilized, high-quality, well-leased properties with low leverage; returns come mostly from income.", "fr": "Immobilier « core »." },
+    { "id": "c-rea-va", "topic": "real", "front": "Value-added real estate", "back": "Properties requiring repositioning, renovation or re-leasing, with moderate leverage; returns from income and appreciation.", "fr": "Immobilier à valeur ajoutée." },
+    { "id": "c-rea-opp", "topic": "real", "front": "Opportunistic real estate", "back": "Development, distressed or high-risk properties with high leverage; returns come mostly from appreciation.", "fr": "Immobilier opportuniste." },
+    { "id": "c-rea-noi", "topic": "real", "front": "Net operating income (NOI)", "back": "Property income after vacancy and operating expenses, before debt service, income taxes and depreciation.", "fr": "Résultat net d’exploitation." },
+    { "id": "c-rea-cap", "topic": "real", "front": "Capitalization rate", "back": "NOI divided by property value; roughly the required return minus the expected growth rate of NOI.", "fr": "Taux de capitalisation." },
+    { "id": "c-rea-npi", "topic": "real", "front": "NCREIF Property Index (NPI)", "back": "An unlevered, appraisal-based index of US institutional commercial properties; its returns are smoothed.", "fr": "Indice immobilier privé américain (évaluations)." },
+    { "id": "c-rea-reit", "topic": "real", "front": "REIT", "back": "Real estate investment trust: a listed, tax-advantaged company that owns income-producing real estate and distributes most of its income.", "fr": "Foncière cotée." },
+    { "id": "c-rea-arm", "topic": "real", "front": "Adjustable-rate mortgage (ARM)", "back": "A mortgage whose rate resets periodically to a reference index plus a margin, usually subject to periodic and lifetime caps.", "fr": "Prêt à taux variable." },
+    { "id": "c-rea-balloon", "topic": "real", "front": "Balloon mortgage", "back": "A loan that does not fully amortize, leaving a large principal payment at maturity.", "fr": "Prêt in fine (partiel)." },
+    { "id": "c-rea-ltv", "topic": "real", "front": "Loan-to-value ratio", "back": "Loan amount divided by the property’s value; a key measure of collateral cushion.", "fr": "Ratio prêt/valeur." },
+    { "id": "c-rea-dscr", "topic": "real", "front": "Debt service coverage ratio", "back": "NOI divided by annual debt service (interest + principal).", "fr": "Couverture du service de la dette." },
+    { "id": "c-rea-prepay", "topic": "real", "front": "Prepayment risk", "back": "The risk that borrowers repay early (usually when rates fall), forcing reinvestment at lower rates; creates negative convexity.", "fr": "Risque de remboursement anticipé." },
+    { "id": "c-rea-cmbs", "topic": "real", "front": "CMBS", "back": "Commercial mortgage-backed securities: tranched securities backed by pools of commercial mortgages, with limited prepayment risk.", "fr": "Titrisation de prêts immobiliers commerciaux." },
+    { "id": "c-rea-contango", "topic": "real", "front": "Contango", "back": "A futures term structure in which futures prices exceed the spot price (rising with maturity); long rolling positions earn negative roll yield.", "fr": "Courbe ascendante." },
+    { "id": "c-rea-backw", "topic": "real", "front": "Backwardation", "back": "A futures term structure in which futures prices are below the spot price; long rolling positions earn positive roll yield.", "fr": "Courbe descendante (déport)." },
+    { "id": "c-rea-normback", "topic": "real", "front": "Normal backwardation (Keynes)", "back": "The hypothesis that futures prices are below expected future spot prices because hedgers pay speculators a risk premium.", "fr": "Prime de risque payée par les producteurs." },
+    { "id": "c-rea-conv", "topic": "real", "front": "Convenience yield", "back": "The non-monetary benefit of holding the physical commodity (e.g., avoiding production disruptions); high when inventories are low.", "fr": "Rendement d’opportunité." },
+    { "id": "c-rea-roll", "topic": "real", "front": "Roll yield", "back": "The return from rolling futures positions as contracts converge to spot; positive in backwardation, negative in contango.", "fr": "Rendement de roulement." },
+    { "id": "c-rea-collat", "topic": "real", "front": "Collateral yield", "back": "Interest earned on the cash or T-bills posted to back a fully collateralized futures position.", "fr": "Rendement du collatéral." },
+    { "id": "c-rea-gsci", "topic": "real", "front": "S&P GSCI", "back": "A production-weighted commodity futures index, heavily weighted toward energy.", "fr": "Indice matières premières dominé par l’énergie." },
+    { "id": "c-rea-green", "topic": "real", "front": "Greenfield vs. brownfield", "back": "Greenfield: new infrastructure to be built (construction and demand risk). Brownfield: existing, operating assets with established cash flows.", "fr": "Projet neuf / actif existant." },
+    { "id": "c-rea-ppp", "topic": "real", "front": "Public–private partnership (PPP)", "back": "A long-term contract in which a private party finances, builds and/or operates public infrastructure in exchange for payments or user fees.", "fr": "Partenariat public-privé." },
+    { "id": "c-rea-timber", "topic": "real", "front": "Timberland return drivers", "back": "Biological growth, changes in timber prices and changes in land value; harvest timing flexibility is a real option.", "fr": "Moteurs de rendement de la forêt." },
+    { "id": "c-rea-ip", "topic": "real", "front": "Intellectual property as an asset", "back": "Rights such as patents, music royalties and film libraries generating licensing or royalty income; returns are largely idiosyncratic.", "fr": "Propriété intellectuelle." }
+  ],
+  "questions": [
+    { "id": "q-rea-01", "topic": "real", "tag": "Real estate styles", "level": 1, "q": "Which real estate style typically uses the least leverage and derives most of its return from income?", "options": ["Core", "Value-added", "Opportunistic", "Development"], "answer": 0, "explain": "Le **core** : biens stabilisés, peu de levier, rendement surtout locatif. L’opportuniste mise sur les plus-values avec beaucoup de levier." },
+    { "id": "q-rea-02", "topic": "real", "tag": "Real estate styles", "level": 2, "q": "A fund buys half-empty office buildings, renovates them and re-leases them at market rents using about 50% leverage. This strategy is best classified as:", "options": ["Value-added", "Core", "Opportunistic", "Core-plus REIT"], "answer": 0, "explain": "Repositionnement + relocation + levier modéré = **value-added**." },
+    { "id": "q-rea-03", "topic": "real", "tag": "Valuation", "level": 1, "q": "Which item is deducted when computing net operating income (NOI)?", "options": ["Property operating expenses", "Mortgage interest payments", "Depreciation", "Income taxes of the owner"], "answer": 0, "explain": "Le **NOI** déduit la vacance et les charges d’exploitation, mais pas le service de la dette, l’amortissement comptable ni l’impôt." },
+    { "id": "q-rea-04", "topic": "real", "tag": "Valuation", "level": 1, "calc": true, "q": "A warehouse generates NOI of USD 1.2 million. Comparable properties trade at a 6% cap rate. Its estimated value is:", "options": ["USD 20 million", "USD 7.2 million", "USD 12 million", "USD 72 million"], "answer": 0, "explain": "$V = NOI / \\text{cap rate} = 1{,}2 / 0{,}06 = 20$ M USD." },
+    { "id": "q-rea-05", "topic": "real", "tag": "Valuation", "level": 2, "q": "Holding NOI constant, an increase in market cap rates from 5% to 6% will cause property values to:", "options": ["Fall by about 17%", "Rise by about 20%", "Fall by about 20%", "Remain unchanged"], "answer": 0, "explain": "$V$ passe de $NOI/0{,}05$ à $NOI/0{,}06$ : facteur $5/6$, soit une baisse d’environ **16,7 %**." },
+    { "id": "q-rea-06", "topic": "real", "tag": "Valuation", "level": 2, "q": "The cap rate can be approximated as:", "options": ["The required return minus the expected growth rate of NOI", "The required return plus the expected growth rate of NOI", "The mortgage rate minus inflation", "NOI divided by debt service"], "answer": 0, "explain": "Par analogie avec le modèle de Gordon : $V = NOI_1/(r - g)$, donc **cap rate ≈ r − g**." },
+    { "id": "q-rea-07", "topic": "real", "tag": "Indices", "level": 2, "q": "Compared with REIT index returns, returns on the NCREIF Property Index typically show:", "options": ["Lower volatility and higher autocorrelation due to appraisal smoothing", "Higher volatility because they are unlevered", "Higher correlation with daily equity returns", "No autocorrelation"], "answer": 0, "explain": "Le NPI repose sur des **évaluations** : rendements lissés, volatilité faible et autocorrélation élevée. Les REITs, cotées, sont plus volatiles et plus corrélées aux actions à court terme." },
+    { "id": "q-rea-08", "topic": "real", "tag": "Indices", "level": 2, "q": "Over long horizons, REIT returns and private real estate returns tend to:", "options": ["Converge, after adjusting for leverage and smoothing", "Diverge permanently", "Be perfectly negatively correlated", "Depend only on stock market returns"], "answer": 0, "explain": "À court terme, les REITs suivent en partie les actions ; à long terme elles **reflètent l’immobilier sous-jacent**, une fois corrigés le levier et le lissage." },
+    { "id": "q-rea-09", "topic": "real", "tag": "Leverage", "level": 2, "calc": true, "q": "A property returns 7% unlevered. It is financed with 60% debt at 5%. What is the return on equity (ignoring taxes)?", "options": ["10.0%", "8.2%", "12.0%", "4.2%"], "answer": 0, "explain": "$D/E = 60/40 = 1{,}5$. $R_E = 7\\% + 1{,}5 \\times (7\\% - 5\\%) = 10\\%$." },
+    { "id": "q-rea-10", "topic": "real", "tag": "Mortgages", "level": 1, "q": "In a fixed-rate, fully amortizing mortgage, over time the:", "options": ["Interest portion of each payment decreases and the principal portion increases", "Total payment increases", "Principal portion decreases", "Interest portion stays constant"], "answer": 0, "explain": "Le paiement est constant ; comme le capital restant dû baisse, la part d’**intérêts diminue** et la part de **capital augmente**." },
+    { "id": "q-rea-11", "topic": "real", "tag": "Mortgages", "level": 2, "q": "Compared with a fixed-rate mortgage, an adjustable-rate mortgage primarily shifts which risk from the lender to the borrower?", "options": ["Interest rate risk", "Default risk", "Prepayment risk", "Liquidity risk of the property"], "answer": 0, "explain": "Avec un **taux variable**, c’est l’emprunteur qui supporte la hausse des taux ; en contrepartie le risque de défaut peut augmenter." },
+    { "id": "q-rea-12", "topic": "real", "tag": "Mortgages", "level": 2, "calc": true, "q": "A property worth USD 10 million has a USD 6.5 million mortgage and generates NOI of USD 800,000. Annual debt service is USD 600,000. What are the LTV and DSCR?", "options": ["65% and 1.33x", "65% and 0.75x", "54% and 1.33x", "80% and 1.25x"], "answer": 0, "explain": "LTV = 6,5/10 = **65 %** ; DSCR = 800 000/600 000 = **1,33x**." },
+    { "id": "q-rea-13", "topic": "real", "tag": "Prepayment", "level": 2, "q": "Why do residential mortgages exhibit negative convexity from the lender’s perspective?", "options": ["Borrowers tend to prepay when interest rates fall, limiting price gains", "Borrowers default when rates fall", "Mortgage payments rise when rates fall", "Prepayment penalties are always charged"], "answer": 0, "explain": "L’emprunteur a une **option de remboursement anticipé** qu’il exerce quand les taux baissent : le prix du prêt monte peu en cas de baisse des taux → convexité négative." },
+    { "id": "q-rea-14", "topic": "real", "tag": "Securitization", "level": 2, "q": "Compared with RMBS, CMBS are generally:", "options": ["Less exposed to prepayment risk and more exposed to default risk", "More exposed to prepayment risk", "Free of credit risk", "Backed by single-family homes"], "answer": 0, "explain": "Les prêts commerciaux limitent les remboursements anticipés (lockout, pénalités, defeasance) : le risque principal des **CMBS** est le **défaut**." },
+    { "id": "q-rea-15", "topic": "real", "tag": "Securitization", "level": 1, "q": "In a tranched mortgage securitization, which tranche absorbs losses first?", "options": ["The equity (first-loss) tranche", "The senior tranche", "The mezzanine tranche", "All tranches equally"], "answer": 0, "explain": "La tranche **equity / first-loss** subit les pertes en premier ; la tranche senior en dernier." },
+    { "id": "q-rea-16", "topic": "real", "tag": "Futures pricing", "level": 2, "q": "According to the cost-of-carry model, which change would increase the futures price of a storable commodity, holding spot constant?", "options": ["An increase in storage costs", "An increase in the convenience yield", "A decrease in interest rates", "A shorter time to delivery when carry costs are positive"], "answer": 0, "explain": "$F = S e^{(r + c - y)T}$ : une hausse du **coût de stockage c** (ou de r) augmente F ; une hausse du convenience yield le baisse." },
+    { "id": "q-rea-17", "topic": "real", "tag": "Futures pricing", "level": 2, "calc": true, "q": "Gold trades at USD 2,000. The risk-free rate is 4% and storage costs are 0.5% (continuous, per year); the convenience yield is zero. The one-year futures price is closest to:", "options": ["USD 2,092", "USD 2,080", "USD 2,010", "USD 1,910"], "answer": 0, "explain": "$2000 \\times e^{0{,}045} = 2000 \\times 1{,}0460 = 2092$ USD." },
+    { "id": "q-rea-18", "topic": "real", "tag": "Term structure", "level": 1, "q": "A commodity market in which futures prices are above the spot price is said to be in:", "options": ["Contango", "Backwardation", "Normal backwardation", "Convergence"], "answer": 0, "explain": "Futures > spot = **contango** (souvent quand les stocks sont abondants)." },
+    { "id": "q-rea-19", "topic": "real", "tag": "Term structure", "level": 2, "q": "According to the theory of storage, a commodity with very low inventories is most likely to have:", "options": ["A high convenience yield and a backwardated curve", "A low convenience yield and a contango curve", "No relationship between inventories and futures prices", "Negative storage costs"], "answer": 0, "explain": "Stocks faibles → détenir le physique est précieux → **convenience yield élevé** → **backwardation**." },
+    { "id": "q-rea-20", "topic": "real", "tag": "Term structure", "level": 3, "q": "Keynes’s theory of normal backwardation states that:", "options": ["Futures prices are below the expected future spot price because hedgers pay speculators a risk premium", "Futures prices are always below the current spot price", "Futures prices equal expected future spot prices", "Speculators pay hedgers to take long positions"], "answer": 0, "explain": "**Normal backwardation** compare le futures au **spot futur attendu** (pas au spot actuel) : les producteurs qui se couvrent payent une prime aux spéculateurs acheteurs." },
+    { "id": "q-rea-21", "topic": "real", "tag": "Roll yield", "level": 2, "q": "An investor holds a long position in front-month crude oil futures and rolls it monthly. The curve is in steep contango and spot prices are unchanged over the year. The investor most likely earns:", "options": ["A negative return before collateral income, due to negative roll yield", "A positive return equal to the contango", "Exactly the collateral yield", "The spot return"], "answer": 0, "explain": "En **contango**, on revend le contrat échéant moins cher que le suivant qu’on achète : roll yield **négatif**. Seul le rendement du collatéral compense partiellement." },
+    { "id": "q-rea-22", "topic": "real", "tag": "Index returns", "level": 2, "calc": true, "q": "Over a year, spot prices in a commodity index rose 6%, the roll yield was −4% and T-bills returned 3%. The approximate total return of the fully collateralized index is:", "options": ["5%", "9%", "2%", "13%"], "answer": 0, "explain": "$6\\% - 4\\% + 3\\% = 5\\%$." },
+    { "id": "q-rea-23", "topic": "real", "tag": "Indices", "level": 1, "q": "Which commodity index is most concentrated in energy because of its production-based weighting?", "options": ["S&P GSCI", "Bloomberg Commodity Index", "An equally weighted commodity index", "A gold-only index"], "answer": 0, "explain": "Le **S&P GSCI** pondère selon la production mondiale : l’énergie y domine. Le BCOM plafonne les poids des secteurs." },
+    { "id": "q-rea-24", "topic": "real", "tag": "Portfolio role", "level": 1, "q": "Commodities are most commonly included in institutional portfolios to:", "options": ["Hedge against unexpected inflation and diversify equity and bond risk", "Provide stable income", "Reduce exposure to the business cycle", "Earn a guaranteed roll yield"], "answer": 0, "explain": "Les matières premières protègent contre l’**inflation inattendue** et sont peu corrélées aux actions et aux obligations sur longue période. Elles ne versent pas de revenu." },
+    { "id": "q-rea-25", "topic": "real", "tag": "Infrastructure", "level": 1, "q": "Which feature is most characteristic of brownfield infrastructure investments?", "options": ["Existing, operating assets with established cash flows", "High construction risk", "No regulatory oversight", "Returns mainly from capital appreciation"], "answer": 0, "explain": "**Brownfield** = actif déjà en exploitation, flux établis. Le risque de construction concerne le **greenfield**." },
+    { "id": "q-rea-26", "topic": "real", "tag": "Infrastructure", "level": 2, "q": "Why is infrastructure often considered a partial hedge against inflation?", "options": ["Many assets have regulated or contractual revenues linked to inflation", "Infrastructure assets have no operating costs", "Infrastructure prices are fixed by law", "Infrastructure debt is always floating rate"], "answer": 0, "explain": "Péages, tarifs régulés et contrats sont souvent **indexés sur l’inflation**, et la demande est peu élastique." },
+    { "id": "q-rea-27", "topic": "real", "tag": "Infrastructure", "level": 2, "q": "Which is the most significant risk specific to infrastructure investments in regulated utilities?", "options": ["Regulatory and political risk, such as changes in allowed returns", "Prepayment risk", "Roll yield risk", "Biological risk"], "answer": 0, "explain": "Pour une utility régulée, le **régulateur fixe les rendements autorisés** : un changement politique ou réglementaire peut réduire les flux." },
+    { "id": "q-rea-28", "topic": "real", "tag": "Natural resources", "level": 2, "q": "Which feature gives timberland a return source largely independent of financial markets?", "options": ["Biological growth of the trees", "Leverage", "Daily liquidity", "Exposure to equity momentum"], "answer": 0, "explain": "La **croissance biologique** des arbres crée de la valeur indépendamment des marchés, et le propriétaire peut reporter la coupe si les prix sont bas." },
+    { "id": "q-rea-29", "topic": "real", "tag": "Natural resources", "level": 2, "q": "The ability of a timberland owner to postpone harvesting when timber prices are low is best described as:", "options": ["A real option that adds value", "A source of negative convexity", "A gate provision", "A form of contango"], "answer": 0, "explain": "Reporter la coupe est une **option réelle** : l’arbre continue de pousser et on vend quand les prix sont meilleurs." },
+    { "id": "q-rea-30", "topic": "real", "tag": "Land", "level": 3, "q": "Undeveloped land can be modeled as a call option. All else equal, greater uncertainty about the land’s best future use should:", "options": ["Increase the land’s value", "Decrease the land’s value", "Have no effect on the land’s value", "Convert the option into a put"], "answer": 0, "explain": "Comme pour une option, plus d’**incertitude** augmente la valeur de l’option de développement : on garde le choix de construire au meilleur moment." },
+    { "id": "q-rea-31", "topic": "real", "tag": "Intellectual property", "level": 2, "q": "Returns on investments in intellectual property such as music royalties are best described as:", "options": ["Largely idiosyncratic and weakly correlated with financial markets", "Highly correlated with equity indices", "Guaranteed by copyright law", "Determined mainly by interest rates"], "answer": 0, "explain": "Les revenus de redevances dépendent du succès de chaque œuvre : rendements surtout **idiosyncratiques**, peu corrélés aux marchés, mais difficiles à évaluer." },
+    { "id": "q-rea-32", "topic": "real", "tag": "Real estate", "level": 2, "q": "Which real estate vehicle offers daily liquidity and market pricing?", "options": ["Publicly traded REITs", "Closed-end opportunistic funds", "Open-end core funds", "Direct property ownership"], "answer": 0, "explain": "Les **REITs** cotées se négocient en continu. Les fonds ouverts core offrent une liquidité périodique (souvent trimestrielle) et limitée." },
+    { "id": "q-rea-33", "topic": "real", "tag": "Mortgages", "level": 2, "calc": true, "q": "A USD 300,000, 30-year fixed-rate mortgage carries a 6% annual rate with monthly payments. The monthly payment is closest to:", "options": ["USD 1,799", "USD 1,500", "USD 2,531", "USD 1,250"], "answer": 0, "explain": "$i = 0{,}5\\%$, $n = 360$ : $PMT = 300\\,000 \\times 0{,}005 / (1 - 1{,}005^{-360}) \\approx 1799$ USD." },
+    { "id": "q-rea-34", "topic": "real", "tag": "Portfolio role", "level": 3, "q": "An investor compares the Sharpe ratio of an appraisal-based private real estate index with that of a REIT index. The most important adjustment before concluding that private real estate offers superior risk-adjusted returns is to:", "options": ["Unsmooth the private index returns and adjust for leverage differences", "Add the REIT dividend yield to the private index", "Use arithmetic instead of geometric returns", "Exclude the last five years of data"], "answer": 0, "explain": "Le Sharpe de l’indice d’évaluation est gonflé par le **lissage** ; les REITs sont aussi **plus endettées**. Il faut désaisonnaliser et ajuster le levier avant de comparer." }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+ "id": "digital-base",
+ "added": "2026-11-13",
+ "title": "Actifs numériques — base",
+ "fiches": [
+  {
+   "id": "dig-dlt",
+   "topic": "digital",
+   "title": "Distributed Ledger Technology and Blockchains",
+   "fr": "Registres distribués et blockchains",
+   "minutes": 10,
+   "blocks": [
+    {
+     "t": "p",
+     "text": "A **distributed ledger** is a database replicated across many participants (nodes) with no central administrator. A **blockchain** is a type of distributed ledger in which transactions are grouped into **blocks**, each containing the cryptographic **hash** of the previous block — making past records practically immutable."
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Cryptographic hash**: a fixed-length fingerprint of data; any change in the data changes the hash.",
+      "**Public/private keys**: the private key signs transactions and proves ownership; whoever holds it controls the assets.",
+      "**Double-spending problem**: preventing the same digital unit from being spent twice without a trusted intermediary — solved by consensus.",
+      "**Smart contracts**: self-executing code stored on a blockchain (e.g., Ethereum); **oracles** feed them external data."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Consensus mechanisms"
+    },
+    {
+     "t": "table",
+     "head": [
+      "",
+      "Proof of work (PoW)",
+      "Proof of stake (PoS)"
+     ],
+     "rows": [
+      [
+       "Who validates",
+       "Miners solving computational puzzles",
+       "Validators who lock up (stake) tokens"
+      ],
+      [
+       "Security",
+       "Cost of computing power; a 51% attack requires majority of hash power",
+       "Value at stake; misbehavior is punished by **slashing**"
+      ],
+      [
+       "Energy use",
+       "Very high",
+       "Low"
+      ],
+      [
+       "Examples",
+       "Bitcoin",
+       "Ethereum (since 2022)"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Types of networks"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Permissionless** (public): anyone can join and validate (Bitcoin, Ethereum).",
+      "**Permissioned** (private/consortium): only approved participants validate — faster, more control, less decentralization.",
+      "**Layer 1** (base blockchain) vs. **layer 2** (scaling solutions built on top, e.g., rollups, Lightning).",
+      "**Forks**: protocol changes — a hard fork is not backward compatible and can split the chain."
+     ]
+    },
+    {
+     "t": "fr",
+     "text": "Le **consensus** remplace le tiers de confiance. PoW = sécurité par la puissance de calcul (énergivore) ; PoS = sécurité par les jetons mis en jeu, avec **slashing** en cas de fraude."
+    }
+   ]
+  },
+  {
+   "id": "dig-tokens",
+   "topic": "digital",
+   "title": "Cryptocurrencies, Tokens and DeFi",
+   "fr": "Cryptomonnaies, tokens et DeFi",
+   "minutes": 10,
+   "blocks": [
+    {
+     "t": "list",
+     "items": [
+      "**Bitcoin**: first cryptocurrency (2009); PoW; supply capped at 21 million coins, with issuance halving roughly every four years → positioned as “digital gold” / store of value.",
+      "**Ether**: native asset of Ethereum, a programmable smart-contract platform; used to pay transaction fees (gas).",
+      "**Native tokens (coins)** run on their own blockchain; **non-native tokens** are issued on an existing blockchain via smart contracts (e.g., ERC-20 tokens).",
+      "**Fungible** tokens are interchangeable; **non-fungible tokens (NFTs)** represent unique items.",
+      "**Utility** tokens give access to a service; **security** tokens represent financial claims (and fall under securities law).",
+      "**Tokenization** of real-world assets (funds, bonds, real estate) on blockchains."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Stablecoins"
+    },
+    {
+     "t": "table",
+     "head": [
+      "Type",
+      "Backing",
+      "Main risk"
+     ],
+     "rows": [
+      [
+       "Fiat-collateralized",
+       "Cash and short-term securities held by the issuer",
+       "Reserve quality and transparency, issuer risk"
+      ],
+      [
+       "Crypto-collateralized",
+       "Over-collateralized crypto locked in smart contracts",
+       "Collateral crashes, liquidation cascades"
+      ],
+      [
+       "Algorithmic",
+       "Supply adjusted by algorithms, little or no collateral",
+       "Loss of peg / death spiral (e.g., TerraUSD in 2022)"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Decentralized finance (DeFi)"
+    },
+    {
+     "t": "list",
+     "items": [
+      "Financial services run by smart contracts without intermediaries: decentralized exchanges using **automated market makers** (liquidity pools), lending protocols, derivatives.",
+      "Risks: smart-contract bugs and hacks, oracle manipulation, governance attacks, regulatory uncertainty, impermanent loss for liquidity providers."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Custody"
+    },
+    {
+     "t": "p",
+     "text": "Losing a private key means losing the assets. **Cold storage** (offline) is safer than **hot wallets** (online). Holding assets on an exchange creates counterparty risk (e.g., the FTX collapse in 2022); institutions use qualified custodians and segregated accounts."
+    },
+    {
+     "t": "fr",
+     "text": "Stablecoin **adossé à la monnaie** = risque sur la qualité des réserves ; **algorithmique** = risque de spirale (TerraUSD). Natif = sa propre blockchain ; non natif = émis sur une autre blockchain."
+    }
+   ]
+  },
+  {
+   "id": "dig-alloc",
+   "topic": "digital",
+   "title": "Allocating to Cryptocurrencies",
+   "fr": "Allouer une part aux cryptomonnaies",
+   "minutes": 9,
+   "blocks": [
+    {
+     "t": "h",
+     "text": "Risk and return characteristics"
+    },
+    {
+     "t": "list",
+     "items": [
+      "Very high volatility (often 50–80% per year for bitcoin, more for smaller tokens) and repeated drawdowns above 70%.",
+      "Fat tails and regime changes; correlation with equities (especially technology stocks) has **risen** since about 2020 and tends to increase in sell-offs.",
+      "Returns are driven by adoption, liquidity conditions, regulation and sentiment rather than cash flows."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Valuation approaches"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Equation of exchange**: $MV = PQ$ — value derived from the size of the economy the token serves and its velocity.",
+      "**Network value / Metcalfe’s law**: network value proportional to the square of the number of users.",
+      "**NVT ratio**: network value divided by on-chain transaction volume (a P/E-like metric).",
+      "**Cost of production** (PoW): mining cost as a floor-like reference.",
+      "**Store-of-value** comparison: share of the gold market capitalization."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Portfolio construction"
+    },
+    {
+     "t": "list",
+     "items": [
+      "Because volatility is so high, even small weights (1–5%) contribute a large share of portfolio risk → size positions by **risk contribution**, not by capital.",
+      "**Rebalancing** a small allocation systematically sells after rallies and buys after crashes.",
+      "Access: direct holdings with custodians, **spot ETFs/ETPs** (US spot bitcoin ETFs launched in January 2024), futures, trusts, crypto-related equities.",
+      "Risks beyond price: custody, exchange/counterparty, regulatory and tax, operational and fraud, liquidity in stress."
+     ]
+    },
+    {
+     "t": "formula",
+     "label": "Risk contribution of asset i",
+     "tex": "RC_i = w_i \\dfrac{\\text{Cov}(R_i, R_p)}{\\sigma_p}, \\qquad \\sum_i RC_i = \\sigma_p"
+    },
+    {
+     "t": "trap",
+     "text": "A 2% allocation is not “2% of the risk”: with 70% volatility versus 10% for the rest of the portfolio, bitcoin can account for 10–20% of total portfolio volatility."
+    },
+    {
+     "t": "fr",
+     "text": "On dimensionne une poche crypto selon sa **contribution au risque** : une petite pondération très volatile pèse lourd dans la volatilité totale."
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "id": "f-mvpq",
+   "topic": "digital",
+   "name": "Equation of exchange",
+   "tex": "M \\times V = P \\times Q",
+   "vars": "$M$ masse monétaire (valeur du réseau), $V$ vélocité, $PQ$ valeur de l’activité économique."
+  },
+  {
+   "id": "f-nvt",
+   "topic": "digital",
+   "name": "NVT ratio",
+   "tex": "NVT = \\dfrac{\\text{network value}}{\\text{daily on-chain transaction volume}}"
+  },
+  {
+   "id": "f-metcalfe",
+   "topic": "digital",
+   "name": "Metcalfe’s law",
+   "tex": "\\text{Network value} \\propto n^2"
+  },
+  {
+   "id": "f-rc",
+   "topic": "digital",
+   "name": "Risk contribution",
+   "tex": "RC_i = w_i\\dfrac{\\text{Cov}(R_i,R_p)}{\\sigma_p}"
+  }
+ ],
+ "cards": [
+  {
+   "id": "c-dig-dlt",
+   "topic": "digital",
+   "front": "Distributed ledger",
+   "back": "A database replicated and synchronized across many participants without a central administrator.",
+   "fr": "Registre distribué."
+  },
+  {
+   "id": "c-dig-hash",
+   "topic": "digital",
+   "front": "Cryptographic hash",
+   "back": "A fixed-length output that uniquely fingerprints data; any change to the input produces a different hash.",
+   "fr": "Empreinte cryptographique."
+  },
+  {
+   "id": "c-dig-double",
+   "topic": "digital",
+   "front": "Double-spending problem",
+   "back": "The risk that a digital token is spent more than once; blockchains solve it through consensus rather than a trusted intermediary.",
+   "fr": "Double dépense."
+  },
+  {
+   "id": "c-dig-pow",
+   "topic": "digital",
+   "front": "Proof of work",
+   "back": "A consensus mechanism in which miners compete to solve computational puzzles to add blocks; secure but energy-intensive.",
+   "fr": "Preuve de travail."
+  },
+  {
+   "id": "c-dig-pos",
+   "topic": "digital",
+   "front": "Proof of stake",
+   "back": "A consensus mechanism in which validators lock up tokens as collateral to propose and validate blocks; misbehavior is penalized by slashing.",
+   "fr": "Preuve d’enjeu."
+  },
+  {
+   "id": "c-dig-51",
+   "topic": "digital",
+   "front": "51% attack",
+   "back": "An attack in which an entity controlling the majority of mining power or stake can rewrite recent transactions or double-spend.",
+   "fr": "Attaque des 51 %."
+  },
+  {
+   "id": "c-dig-perm",
+   "topic": "digital",
+   "front": "Permissionless vs. permissioned blockchain",
+   "back": "Permissionless: anyone can participate and validate. Permissioned: only approved entities can validate transactions.",
+   "fr": "Blockchain ouverte / à permission."
+  },
+  {
+   "id": "c-dig-smart",
+   "topic": "digital",
+   "front": "Smart contract",
+   "back": "Self-executing code on a blockchain that automatically enforces the terms of an agreement.",
+   "fr": "Contrat intelligent."
+  },
+  {
+   "id": "c-dig-oracle",
+   "topic": "digital",
+   "front": "Oracle",
+   "back": "A service that supplies external, off-chain data (e.g., prices) to smart contracts.",
+   "fr": "Oracle (source de données externes)."
+  },
+  {
+   "id": "c-dig-native",
+   "topic": "digital",
+   "front": "Native vs. non-native token",
+   "back": "A native token (coin) is the base asset of its own blockchain; a non-native token is issued on an existing blockchain through a smart contract.",
+   "fr": "Jeton natif / non natif."
+  },
+  {
+   "id": "c-dig-nft",
+   "topic": "digital",
+   "front": "Non-fungible token (NFT)",
+   "back": "A unique, non-interchangeable token representing ownership of a specific digital or physical item.",
+   "fr": "Jeton non fongible."
+  },
+  {
+   "id": "c-dig-stable",
+   "topic": "digital",
+   "front": "Stablecoin",
+   "back": "A token designed to maintain a stable value relative to a reference asset (usually the US dollar), via fiat reserves, crypto collateral or algorithms.",
+   "fr": "Cryptomonnaie stable."
+  },
+  {
+   "id": "c-dig-defi",
+   "topic": "digital",
+   "front": "DeFi",
+   "back": "Decentralized finance: financial services such as trading and lending provided by smart contracts without traditional intermediaries.",
+   "fr": "Finance décentralisée."
+  },
+  {
+   "id": "c-dig-amm",
+   "topic": "digital",
+   "front": "Automated market maker (AMM)",
+   "back": "A DEX mechanism that prices trades using a formula and liquidity pools rather than an order book.",
+   "fr": "Teneur de marché automatisé."
+  },
+  {
+   "id": "c-dig-cold",
+   "topic": "digital",
+   "front": "Cold storage",
+   "back": "Keeping private keys offline to protect crypto assets from online hacking.",
+   "fr": "Stockage hors ligne."
+  },
+  {
+   "id": "c-dig-halving",
+   "topic": "digital",
+   "front": "Bitcoin halving",
+   "back": "The roughly four-yearly 50% cut in the block reward paid to miners, slowing new supply toward the 21 million cap.",
+   "fr": "Division par deux de la récompense."
+  },
+  {
+   "id": "c-dig-nvt",
+   "topic": "digital",
+   "front": "NVT ratio",
+   "back": "Network value divided by on-chain transaction volume; a valuation metric compared to a price-to-earnings ratio.",
+   "fr": "Ratio valeur du réseau / transactions."
+  }
+ ],
+ "questions": [
+  {
+   "id": "q-dig-01",
+   "topic": "digital",
+   "tag": "Blockchain",
+   "level": 1,
+   "q": "What makes past transactions on a blockchain practically immutable?",
+   "options": [
+    "Each block contains the hash of the previous block, so altering one block changes all later hashes",
+    "A central administrator approves every change",
+    "Transactions are stored on a single secure server",
+    "Blocks are encrypted with the user’s password"
+   ],
+   "answer": 0,
+   "explain": "Chaque bloc contient le **hash du précédent** : modifier un ancien bloc casserait toute la chaîne et serait rejeté par le consensus."
+  },
+  {
+   "id": "q-dig-02",
+   "topic": "digital",
+   "tag": "Consensus",
+   "level": 1,
+   "q": "Which consensus mechanism secures the network through validators who lock up tokens as collateral?",
+   "options": [
+    "Proof of stake",
+    "Proof of work",
+    "Proof of authority by a central bank",
+    "Delegated mining"
+   ],
+   "answer": 0,
+   "explain": "La **preuve d’enjeu** : les validateurs immobilisent des jetons, perdus en partie (**slashing**) en cas de fraude."
+  },
+  {
+   "id": "q-dig-03",
+   "topic": "digital",
+   "tag": "Consensus",
+   "level": 2,
+   "q": "Compared with proof of work, proof of stake mainly:",
+   "options": [
+    "Uses far less energy",
+    "Requires more computing power",
+    "Eliminates the need for consensus",
+    "Prevents all forms of attack"
+   ],
+   "answer": 0,
+   "explain": "Le PoS ne repose pas sur la puissance de calcul : sa consommation d’**énergie** est bien plus faible. Il n’élimine pas tous les risques d’attaque."
+  },
+  {
+   "id": "q-dig-04",
+   "topic": "digital",
+   "tag": "Blockchain",
+   "level": 2,
+   "q": "The main problem that blockchain consensus solves without a trusted intermediary is:",
+   "options": [
+    "Double spending",
+    "Inflation",
+    "Price volatility",
+    "Taxation"
+   ],
+   "answer": 0,
+   "explain": "Le consensus garantit qu’un même jeton n’est pas dépensé **deux fois**, sans banque ni chambre de compensation."
+  },
+  {
+   "id": "q-dig-05",
+   "topic": "digital",
+   "tag": "Networks",
+   "level": 1,
+   "q": "A blockchain on which only pre-approved institutions can validate transactions is:",
+   "options": [
+    "Permissioned",
+    "Permissionless",
+    "Proof of work by definition",
+    "A layer-2 rollup"
+   ],
+   "answer": 0,
+   "explain": "Validation réservée à des participants approuvés = **blockchain à permission** (privée ou de consortium)."
+  },
+  {
+   "id": "q-dig-06",
+   "topic": "digital",
+   "tag": "Tokens",
+   "level": 1,
+   "q": "An ERC-20 token issued through a smart contract on Ethereum is best described as:",
+   "options": [
+    "A non-native token",
+    "A native coin of its own blockchain",
+    "A non-fungible token by definition",
+    "A central bank digital currency"
+   ],
+   "answer": 0,
+   "explain": "Émis sur une blockchain existante par un smart contract = **jeton non natif**. L’ether est le jeton natif d’Ethereum."
+  },
+  {
+   "id": "q-dig-07",
+   "topic": "digital",
+   "tag": "Tokens",
+   "level": 1,
+   "q": "Which feature distinguishes an NFT from a cryptocurrency such as bitcoin?",
+   "options": [
+    "Each NFT is unique and not interchangeable",
+    "NFTs cannot be traded",
+    "NFTs are always backed by fiat currency",
+    "NFTs do not use blockchains"
+   ],
+   "answer": 0,
+   "explain": "Un **NFT** est unique (non fongible) ; un bitcoin est interchangeable avec un autre (fongible)."
+  },
+  {
+   "id": "q-dig-08",
+   "topic": "digital",
+   "tag": "Bitcoin",
+   "level": 1,
+   "q": "Bitcoin’s maximum supply is:",
+   "options": [
+    "Capped at 21 million coins",
+    "Unlimited but decided by miners each year",
+    "Fixed at 100 million coins",
+    "Adjusted by central banks"
+   ],
+   "answer": 0,
+   "explain": "L’offre de bitcoin est plafonnée à **21 millions** ; l’émission est divisée par deux environ tous les quatre ans (halving)."
+  },
+  {
+   "id": "q-dig-09",
+   "topic": "digital",
+   "tag": "Stablecoins",
+   "level": 2,
+   "q": "Which type of stablecoin is most exposed to a “death spiral” in which loss of confidence breaks the peg?",
+   "options": [
+    "Algorithmic stablecoins with little or no collateral",
+    "Fiat-backed stablecoins fully reserved in T-bills",
+    "Gold-backed tokens held in vaults",
+    "Central bank digital currencies"
+   ],
+   "answer": 0,
+   "explain": "Sans collatéral, un stablecoin **algorithmique** dépend de la confiance : TerraUSD s’est effondré en 2022."
+  },
+  {
+   "id": "q-dig-10",
+   "topic": "digital",
+   "tag": "Stablecoins",
+   "level": 2,
+   "q": "For a fiat-collateralized stablecoin, the primary risk to holders is:",
+   "options": [
+    "The quality, liquidity and transparency of the issuer’s reserves",
+    "Mining difficulty adjustments",
+    "Smart-contract liquidation cascades of crypto collateral",
+    "Bitcoin halving"
+   ],
+   "answer": 0,
+   "explain": "La stabilité dépend des **réserves** de l’émetteur : leur qualité, leur liquidité et leur transparence (audit)."
+  },
+  {
+   "id": "q-dig-11",
+   "topic": "digital",
+   "tag": "DeFi",
+   "level": 2,
+   "q": "Which is a risk specific to decentralized finance (DeFi) protocols?",
+   "options": [
+    "Bugs or exploits in smart-contract code",
+    "Central bank intervention in the order book",
+    "Deposit insurance limits",
+    "Mandatory bank capital requirements"
+   ],
+   "answer": 0,
+   "explain": "En DeFi, le code fait office d’intermédiaire : un **bug ou une faille** de smart contract peut vider un protocole."
+  },
+  {
+   "id": "q-dig-12",
+   "topic": "digital",
+   "tag": "Custody",
+   "level": 1,
+   "q": "Storing private keys offline to protect crypto assets from hacking is called:",
+   "options": [
+    "Cold storage",
+    "Hot wallet",
+    "Staking",
+    "Slashing"
+   ],
+   "answer": 0,
+   "explain": "**Cold storage** = clés privées hors ligne. Un hot wallet est connecté à Internet, donc plus exposé."
+  },
+  {
+   "id": "q-dig-13",
+   "topic": "digital",
+   "tag": "Custody",
+   "level": 2,
+   "q": "The collapse of a large crypto exchange in 2022 mainly highlighted which risk for investors who left assets on the platform?",
+   "options": [
+    "Counterparty and custody risk",
+    "Proof-of-work energy risk",
+    "Interest-rate duration risk",
+    "Roll yield risk"
+   ],
+   "answer": 0,
+   "explain": "Laisser ses actifs sur une plateforme crée un **risque de contrepartie** : en cas de faillite ou de détournement, les clients perdent leurs avoirs."
+  },
+  {
+   "id": "q-dig-14",
+   "topic": "digital",
+   "tag": "Allocation",
+   "level": 2,
+   "q": "Why should an allocation to bitcoin be sized by risk contribution rather than by capital weight?",
+   "options": [
+    "Its very high volatility means a small weight can account for a large share of portfolio risk",
+    "Its volatility is lower than that of bonds",
+    "Its correlation with equities is always −1",
+    "Regulations require equal risk weights"
+   ],
+   "answer": 0,
+   "explain": "Avec une volatilité 5 à 8 fois supérieure, une petite pondération génère une **grande part du risque** total."
+  },
+  {
+   "id": "q-dig-15",
+   "topic": "digital",
+   "tag": "Allocation",
+   "level": 2,
+   "q": "Since around 2020, the correlation of bitcoin with equities (especially technology stocks) has generally:",
+   "options": [
+    "Increased, particularly during market sell-offs",
+    "Become strongly negative",
+    "Remained exactly zero",
+    "Become irrelevant because bitcoin stopped trading"
+   ],
+   "answer": 0,
+   "explain": "La corrélation avec les actions (tech) a **augmenté** depuis l’entrée des investisseurs institutionnels, surtout en phase de baisse, ce qui réduit l’effet diversifiant."
+  },
+  {
+   "id": "q-dig-16",
+   "topic": "digital",
+   "tag": "Valuation",
+   "level": 2,
+   "q": "Which valuation approach for cryptocurrencies relies on the equation of exchange $MV = PQ$?",
+   "options": [
+    "Estimating token value from the economic activity it supports and its velocity",
+    "Discounting dividends",
+    "Comparing book value to market value",
+    "Measuring mining energy only"
+   ],
+   "answer": 0,
+   "explain": "L’**équation des échanges** relie la valeur du réseau (M) à l’activité économique servie (PQ) et à la vélocité (V)."
+  },
+  {
+   "id": "q-dig-17",
+   "topic": "digital",
+   "tag": "Valuation",
+   "level": 2,
+   "q": "Metcalfe’s law, used to value networks, states that a network’s value is proportional to:",
+   "options": [
+    "The square of the number of users",
+    "The number of miners",
+    "The inverse of transaction volume",
+    "The square root of the token supply"
+   ],
+   "answer": 0,
+   "explain": "La loi de **Metcalfe** : valeur ∝ n² (nombre de connexions possibles entre utilisateurs)."
+  },
+  {
+   "id": "q-dig-18",
+   "topic": "digital",
+   "tag": "Allocation",
+   "level": 2,
+   "calc": true,
+   "q": "A portfolio with 10% volatility adds a 3% allocation to bitcoin (volatility 70%, correlation 0.3) by reducing the rest proportionally. The new portfolio volatility is closest to:",
+   "options": [
+    "10.5%",
+    "12.1%",
+    "9.7%",
+    "13.0%"
+   ],
+   "answer": 0,
+   "explain": "$\\sigma^2 = 0{,}97^2 \\times 0{,}01 + 0{,}03^2 \\times 0{,}49 + 2 \\times 0{,}97 \\times 0{,}03 \\times 0{,}3 \\times 0{,}1 \\times 0{,}7 = 0{,}009409 + 0{,}000441 + 0{,}001222 = 0{,}011072$, donc $\\sigma \\approx 10{,}5\\%$. Avec seulement 3 % du capital, le bitcoin fait monter la volatilité d’un demi-point."
+  }
+ ]
+}
