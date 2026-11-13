@@ -1,0 +1,383 @@
+{
+  "id": "2026-11-13-mixed-review",
+  "added": "2026-11-13",
+  "title": "Mixed review: fees, carry, merger spreads and AMMs",
+  "questions": [
+    {
+      "id": "q-20261113-01",
+      "topic": "intro",
+      "tag": "Returns",
+      "level": 2,
+      "q": "A strategy has an arithmetic mean annual return of 10% and an annual volatility of 20%. Using the usual approximation, its geometric (compound) mean return is closest to:",
+      "options": [
+        "8%",
+        "10%",
+        "6%",
+        "12%"
+      ],
+      "answer": 0,
+      "explain": "Geometric mean ≈ arithmetic mean − $\\sigma^2/2$ = 10% − 0.20²/2 = 10% − 2% = **8%**. The gap is volatility drag. Answering 10% ignores that volatility always lowers compound growth.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-02",
+      "topic": "intro",
+      "tag": "Fees",
+      "level": 2,
+      "q": "A hedge fund unit has a high-water mark of USD 110. It starts the year at USD 100 and ends at USD 121 before fees. The incentive fee is 20%, with no hurdle. What is the incentive fee per unit?",
+      "options": [
+        "USD 2.20",
+        "USD 4.20",
+        "USD 0",
+        "USD 2.00"
+      ],
+      "answer": 0,
+      "explain": "The fee applies only to gains above the high-water mark: 20% × (121 − 110) = **USD 2.20**, leaving a net NAV of USD 118.80. USD 4.20 (20% × 21) wrongly charges the fee on the recovery from 100 to 110, which the HWM protects.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-03",
+      "topic": "intro",
+      "tag": "Liquidity terms",
+      "level": 2,
+      "q": "A fund offers quarterly redemptions (end of March, June, September, December) with a 60-day notice period. An investor decides on 15 March to redeem. The earliest redemption date is:",
+      "options": [
+        "30 June",
+        "31 March",
+        "15 May",
+        "30 September"
+      ],
+      "answer": 0,
+      "explain": "Notice must be given at least 60 days before the redemption date. 31 March is only 16 days away, so it is missed; the next date, **30 June**, is more than 60 days away. 31 March is the trap: the notice period, not the decision date, sets eligibility."
+    },
+    {
+      "id": "q-20261113-04",
+      "topic": "intro",
+      "tag": "Hypothesis testing",
+      "level": 2,
+      "q": "A manager’s estimated alpha has a p-value of 0.03. At a 5% significance level, the correct interpretation is:",
+      "options": [
+        "Reject the null of zero alpha; if true alpha were zero, a result this extreme would occur about 3% of the time",
+        "There is a 97% probability that the manager has positive skill",
+        "There is a 3% probability that alpha is zero",
+        "Fail to reject the null because 0.03 is below 0.05"
+      ],
+      "answer": 0,
+      "explain": "The p-value is the probability of observing a result at least this extreme **if the null is true**; 0.03 < 0.05, so the null is rejected. It is not the probability that the null (or the alternative) is true — that confusion is the classic trap."
+    },
+    {
+      "id": "q-20261113-05",
+      "topic": "intro",
+      "tag": "Fees",
+      "level": 3,
+      "q": "Why can a standard incentive fee encourage a manager to increase risk, especially when the fund is below its high-water mark?",
+      "options": [
+        "The fee works like a call option on fund performance, and option value rises with volatility",
+        "Management fees fall when volatility rises",
+        "The high-water mark is reset to the current NAV after a loss",
+        "Investors pay a larger share of losses when volatility is high"
+      ],
+      "answer": 0,
+      "explain": "The incentive fee pays a share of gains but never a share of losses, so it is a **call option** held by the manager; higher volatility raises its value, and the option is out of the money below the HWM. The HWM is not reset after losses — that is exactly why the option is out of the money."
+    },
+    {
+      "id": "q-20261113-06",
+      "topic": "intro",
+      "tag": "Performance ratios",
+      "level": 2,
+      "q": "A fund expects a return of 9% and has a 95% one-year VaR of 15% of its value. Its return on VaR is:",
+      "options": [
+        "0.60",
+        "1.67",
+        "0.09",
+        "0.15"
+      ],
+      "answer": 0,
+      "explain": "Return on VaR = expected return ÷ VaR = 9% ÷ 15% = **0.60**. 1.67 inverts the ratio.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-07",
+      "topic": "real",
+      "tag": "Valuation",
+      "level": 2,
+      "q": "A property generates stable NOI of USD 3 million. Market cap rates rise from 5% to 6%. Using direct capitalization, the property’s value changes by about:",
+      "options": [
+        "−16.7%",
+        "−1.0%",
+        "−20.0%",
+        "+20.0%"
+      ],
+      "answer": 0,
+      "explain": "Value = NOI ÷ cap rate: USD 3 million / 0.05 = USD 60 million; USD 3 million / 0.06 = USD 50 million. Change = 50/60 − 1 = **−16.7%**. −20% is the change measured from the new value (10/50), not from the starting value.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-08",
+      "topic": "real",
+      "tag": "Futures pricing",
+      "level": 3,
+      "q": "A commodity trades at USD 80. The risk-free rate is 4%, storage costs are 1% and the convenience yield is 7% (all continuous, per year). The one-year futures price, and the shape of the curve, are:",
+      "options": [
+        "About USD 78.42, backwardation",
+        "About USD 83.27, contango",
+        "About USD 80.00, flat",
+        "About USD 84.93, contango"
+      ],
+      "answer": 0,
+      "explain": "$F = S e^{(r + c - y)T} = 80 e^{(0.04 + 0.01 - 0.07)} = 80 e^{-0.02} \\approx$ **USD 78.42**. The futures price is below spot because the convenience yield exceeds the cost of carry: backwardation. USD 84.93 ignores the convenience yield.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-09",
+      "topic": "real",
+      "tag": "Natural resources",
+      "level": 2,
+      "q": "Which feature gives timberland investors flexibility that most farmland crops do not offer?",
+      "options": [
+        "Trees can be left standing to keep growing when timber prices are low",
+        "Timber output is fully hedged by government price supports",
+        "Timberland has no exposure to physical risks such as fire",
+        "Timber income is fixed by long-term leases"
+      ],
+      "answer": 0,
+      "explain": "Timber keeps growing biologically, so owners can **delay harvest** (“store on the stump”) and sell when prices recover. Annual crops must be harvested on schedule. Timber still faces physical risks such as fire, pests and storms."
+    },
+    {
+      "id": "q-20261113-10",
+      "topic": "real",
+      "tag": "Indices",
+      "level": 2,
+      "q": "Compared with an appraisal-based private real estate index, a REIT index typically:",
+      "options": [
+        "Moves first, reflecting market information months before appraisals catch up",
+        "Has lower measured volatility because REITs are long-term holdings",
+        "Shows stronger positive autocorrelation in returns",
+        "Is unaffected by stock market movements"
+      ],
+      "answer": 0,
+      "explain": "REIT prices are set daily in a liquid market, so they **lead** appraisal-based indices, which lag and smooth. Smoothing gives the appraisal index lower measured volatility and higher autocorrelation — not the REIT index."
+    },
+    {
+      "id": "q-20261113-11",
+      "topic": "hf",
+      "tag": "Merger arbitrage",
+      "level": 2,
+      "q": "An acquirer offers 1.8 of its shares for each target share. The acquirer trades at USD 30 and the target at USD 48. What is the gross spread, and how is the trade set up?",
+      "options": [
+        "12.5%; buy the target and short 1.8 acquirer shares per target share",
+        "12.5%; short the target and buy the acquirer",
+        "6.0%; buy the target and short one acquirer share",
+        "11.1%; buy the target only"
+      ],
+      "answer": 0,
+      "explain": "Deal value = 1.8 × USD 30 = USD 54; spread = 54 − 48 = USD 6, or 6/48 = **12.5%**. In a stock-for-stock deal the arbitrageur buys the target and shorts the acquirer in the exchange ratio to lock in the spread. 11.1% divides by the deal value instead of the target price.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-12",
+      "topic": "hf",
+      "tag": "Managed futures",
+      "level": 3,
+      "q": "Trend-following CTA returns are often compared with a long straddle. This mainly reflects that trend followers tend to:",
+      "options": [
+        "Profit from large, sustained moves in either direction while losing small amounts in trendless markets",
+        "Collect a steady premium in calm markets and lose in crises",
+        "Earn returns that are uncorrelated with the size of price moves",
+        "Hold only long positions in equity index futures"
+      ],
+      "answer": 0,
+      "explain": "Trend followers go long rising markets and short falling ones, so large moves up or down are profitable (positive skew, “crisis alpha”), while choppy markets cause repeated small losses (whipsaw) — like the premium paid on a straddle. Collecting premium in calm markets describes a short-volatility strategy, the opposite profile."
+    },
+    {
+      "id": "q-20261113-13",
+      "topic": "hf",
+      "tag": "Market neutral",
+      "level": 2,
+      "q": "A manager is long USD 100 million of stocks with a beta of 1.2 and short USD 100 million of stocks with a beta of 0.8. The portfolio is:",
+      "options": [
+        "Dollar neutral but with a net beta-weighted long exposure of USD 40 million",
+        "Both dollar neutral and beta neutral",
+        "Beta neutral but net short USD 40 million",
+        "Net long USD 200 million"
+      ],
+      "answer": 0,
+      "explain": "Dollar exposure: 100 − 100 = 0. Beta-weighted exposure: 100 × 1.2 − 100 × 0.8 = **USD 40 million** net long the market. Equal dollar amounts do not mean zero market risk when betas differ.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-14",
+      "topic": "pd",
+      "tag": "Direct lending",
+      "level": 2,
+      "q": "A unitranche loan is split into a first-out piece (60% of the loan) paying SOFR + 4% and a last-out piece (40%) paying SOFR + 8%. The borrower’s blended spread is:",
+      "options": [
+        "SOFR + 5.6%",
+        "SOFR + 6.0%",
+        "SOFR + 4.0%",
+        "SOFR + 12.0%"
+      ],
+      "answer": 0,
+      "explain": "The borrower pays one blended rate: 0.6 × 4% + 0.4 × 8% = **5.6%** over SOFR. SOFR + 6% is the simple average and ignores the weights.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-15",
+      "topic": "pd",
+      "tag": "Covenants",
+      "level": 2,
+      "q": "Compared with a loan carrying maintenance covenants, a covenant-lite loan most likely:",
+      "options": [
+        "Lets problems build longer before lenders can intervene, which can lower recoveries",
+        "Gives lenders more frequent rights to renegotiate",
+        "Requires the borrower to meet financial ratio tests every quarter",
+        "Removes all default risk for senior lenders"
+      ],
+      "answer": 0,
+      "explain": "Covenant-lite loans keep only incurrence covenants, so lenders lose the early-warning trigger of quarterly ratio tests. Default tends to come later, when the business has deteriorated further, which can reduce recoveries. Quarterly ratio tests are the defining feature of maintenance covenants, not cov-lite."
+    },
+    {
+      "id": "q-20261113-16",
+      "topic": "pe",
+      "tag": "Secondaries",
+      "level": 2,
+      "q": "A buyer acquires an LP interest with a reported NAV of USD 40 million at 88% of NAV and assumes USD 10 million of unfunded commitments. The buyer’s total capital exposure is:",
+      "options": [
+        "USD 45.2 million",
+        "USD 35.2 million",
+        "USD 50.0 million",
+        "USD 54.0 million"
+      ],
+      "answer": 0,
+      "explain": "Purchase price = 0.88 × 40 = USD 35.2 million, plus USD 10 million of future capital calls = **USD 45.2 million**. USD 35.2 million forgets the unfunded commitments, which the buyer must still fund.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-17",
+      "topic": "pe",
+      "tag": "Venture capital",
+      "level": 3,
+      "q": "A VC expects a start-up to be worth USD 200 million in 5 years and requires a 40% annual return. It invests USD 10 million today. Using the VC method, the implied pre-money valuation is closest to:",
+      "options": [
+        "USD 27.2 million",
+        "USD 37.2 million",
+        "USD 190.0 million",
+        "USD 26.9 million"
+      ],
+      "answer": 0,
+      "explain": "Post-money = 200 / 1.40⁵ = 200 / 5.378 ≈ USD 37.2 million; pre-money = post-money − investment ≈ **USD 27.2 million**. The VC needs 10 / 37.2 ≈ 26.9% ownership. USD 37.2 million is the post-money value, the main trap.",
+      "calc": true
+    },
+    {
+      "id": "q-20261113-18",
+      "topic": "ethics",
+      "tag": "Conflicts of interest",
+      "level": 2,
+      "q": "A GP has a limited co-investment opportunity and offers it only to its largest LP, which holds a side letter, without having disclosed any allocation policy to other LPs. Under the CAIA principles, the best course is to:",
+      "options": [
+        "Adopt and disclose a clear co-investment allocation policy and apply it consistently",
+        "Keep the allocation confidential to protect the largest LP’s side letter",
+        "Cancel all side letters with every LP",
+        "Allocate co-investments randomly without telling investors"
+      ],
+      "answer": 0,
+      "explain": "The issue is a conflict between investors that must be **identified, disclosed and managed**. A written, disclosed allocation policy applied consistently addresses it. Keeping it confidential worsens the transparency problem; cancelling all side letters is neither required nor proportionate."
+    },
+    {
+      "id": "q-20261113-19",
+      "topic": "ethics",
+      "tag": "Fiduciary duty",
+      "level": 2,
+      "q": "A pension fund trustee must balance the interests of current retirees, who want stable income, and young members, who need long-term growth. This balancing reflects mainly the duty of:",
+      "options": [
+        "Impartiality",
+        "Loyalty",
+        "Confidentiality",
+        "Prudence"
+      ],
+      "answer": 0,
+      "explain": "The duty of **impartiality** requires fairly balancing different beneficiary groups. Loyalty is about putting beneficiaries ahead of oneself, not about weighing beneficiaries against one another."
+    },
+    {
+      "id": "q-20261113-20",
+      "topic": "digital",
+      "tag": "DeFi",
+      "level": 3,
+      "q": "An investor provides equal values of token X and a stablecoin to a constant-product AMM pool. Token X then doubles in price relative to the stablecoin. Ignoring fees, the investor’s pool position versus simply holding the two assets is about:",
+      "options": [
+        "5.7% lower (impermanent loss)",
+        "Equal, since the pool is rebalanced",
+        "5.7% higher thanks to rebalancing",
+        "50% lower"
+      ],
+      "answer": 0,
+      "explain": "For a constant-product pool, value relative to holding = $2\\sqrt{r}/(1+r)$ with $r = 2$: $2\\sqrt{2}/3 \\approx 0.943$, so about **5.7% lower**. The pool sells the rising token as its price climbs, which causes impermanent loss; fees must compensate for it.",
+      "calc": true
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-20261113-01",
+      "topic": "digital",
+      "front": "Impermanent loss",
+      "back": "Shortfall of a liquidity provider’s AMM position versus simply holding the deposited tokens, caused by the pool selling the asset that rises in price.",
+      "hint": "It is “impermanent” only if prices return to where they started."
+    },
+    {
+      "id": "c-20261113-02",
+      "topic": "intro",
+      "front": "Notice period",
+      "back": "Minimum time an investor must give before a redemption date; missing it pushes the redemption to the next date."
+    },
+    {
+      "id": "c-20261113-03",
+      "topic": "intro",
+      "front": "Incentive fee as a call option",
+      "back": "The manager shares in gains but not losses, so the fee behaves like a call option on fund value, whose value rises with volatility.",
+      "hint": "Option value up with volatility → incentive to take risk."
+    },
+    {
+      "id": "c-20261113-04",
+      "topic": "real",
+      "front": "Store on the stump",
+      "back": "Timberland flexibility to postpone harvest when prices are low, because trees keep growing and gaining value."
+    },
+    {
+      "id": "c-20261113-05",
+      "topic": "real",
+      "front": "Appraisal lag",
+      "back": "Delay with which appraisal-based real estate indices reflect market changes, causing smoothed, lagging and autocorrelated returns."
+    },
+    {
+      "id": "c-20261113-06",
+      "topic": "hf",
+      "front": "Exchange ratio",
+      "back": "Number of acquirer shares offered for each target share in a stock-for-stock merger; sets the hedge ratio for merger arbitrage."
+    },
+    {
+      "id": "c-20261113-07",
+      "topic": "hf",
+      "front": "Dollar neutral vs. beta neutral",
+      "back": "Dollar neutral: long and short market values are equal. Beta neutral: beta-weighted long and short exposures are equal, so market risk is close to zero.",
+      "hint": "Equal dollars ≠ zero market risk."
+    },
+    {
+      "id": "c-20261113-08",
+      "topic": "pd",
+      "front": "First-out / last-out",
+      "back": "Split of a unitranche loan between lenders: the first-out piece is repaid first and earns less; the last-out piece bears more risk for a higher spread."
+    },
+    {
+      "id": "c-20261113-09",
+      "topic": "pe",
+      "front": "Pre-money valuation",
+      "back": "Value of a company before a new investment; pre-money + new money = post-money."
+    },
+    {
+      "id": "c-20261113-10",
+      "topic": "pe",
+      "front": "Secondary discount to NAV",
+      "back": "Price paid in a secondary sale expressed as a percentage below the fund’s reported NAV; the buyer also takes on unfunded commitments."
+    }
+  ]
+}
