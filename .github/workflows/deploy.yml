@@ -1,9 +1,9 @@
-name: Déploiement GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-    # la synchro de progression et les dépôts de cours ne changent pas le site
+    # progress sync and course uploads do not change the site
     paths-ignore:
       - 'progres/**'
       - 'cours/**'
