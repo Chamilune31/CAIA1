@@ -2,11 +2,13 @@
 
 Plateforme personnelle pour préparer le CAIA Level I (programme 2027) : fiches, formulaire, flashcards en répétition espacée, QCM corrigés, exercices de calcul générés à l’infini, examens blancs chronométrés et suivi par topic.
 
-## Mettre en ligne (Vercel, gratuit)
+## Mettre en ligne
 
-1. vercel.com → *Add New… → Project* → importer `Chamilune31/CAIA1`.
-2. Vercel détecte Vite : laisser les réglages par défaut (build `npm run build`, dossier `dist`) → *Deploy*.
-3. Chaque push sur `main` redéploie automatiquement le site.
+**GitHub Pages (recommandé, gratuit)** : une fois dans *Settings → Pages → Build and deployment → Source : GitHub Actions*, le workflow `.github/workflows/deploy.yml` construit et publie le site à chaque push sur `main` (sauf les commits de progression et de cours). Adresse : https://chamilune31.github.io/CAIA1/
+
+**Vercel (alternative)** : importer le dépôt sur vercel.com, réglages par défaut.
+
+Utiliser toujours la même adresse : la progression locale est propre à chaque adresse.
 
 ## Synchroniser entre appareils
 
