@@ -6,13 +6,13 @@ import { Rich } from './Rich'
 import { Bar, TopicTag } from './ui'
 
 const GRADES = [
-  { g: 0, label: 'À revoir', key: '1' },
-  { g: 1, label: 'Difficile', key: '2' },
-  { g: 2, label: 'Bien', key: '3' },
-  { g: 3, label: 'Facile', key: '4' },
+  { g: 0, label: 'Again', key: '1' },
+  { g: 1, label: 'Hard', key: '2' },
+  { g: 2, label: 'Good', key: '3' },
+  { g: 3, label: 'Easy', key: '4' },
 ] as const
 
-const fmtInterval = (d: number) => (d === 0 ? '5 min' : d === 1 ? '1 j' : d < 30 ? `${d} j` : `${Math.round(d / 30)} mois`)
+const fmtInterval = (d: number) => (d === 0 ? '5 min' : d === 1 ? '1 day' : d < 30 ? `${d} days` : `${Math.round(d / 30)} mo`)
 
 export function Deck({ cards, onDone, reverse = false }: { cards: Card[]; onDone?: () => void; reverse?: boolean }) {
   const p = useProgress()
@@ -26,7 +26,7 @@ export function Deck({ cards, onDone, reverse = false }: { cards: Card[]; onDone
     recordCard(c.id, g)
     setCount((n) => n + 1)
     setFlipped(false)
-    // une carte « à revoir » repasse en fin de paquet
+    // an "again" card goes back to the end of the deck
     setQueue((q) => (g === 0 ? [...q.slice(1), c] : q.slice(1)))
   }
 
@@ -48,15 +48,15 @@ export function Deck({ cards, onDone, reverse = false }: { cards: Card[]; onDone
   if (!c)
     return (
       <div className="card result">
-        <p className="kicker">Paquet terminé</p>
+        <h2>Deck complete</h2>
         <div className="big-score">
           {count}
-          <span> cartes</span>
+          <span> {count === 1 ? 'card' : 'cards'} reviewed</span>
         </div>
-        <p className="muted">Les prochaines révisions sont planifiées automatiquement.</p>
+        <p className="muted">Each card is scheduled to come back just before you are likely to forget it.</p>
         {onDone && (
           <button className="btn primary" onClick={onDone}>
-            Continuer
+            Continue
           </button>
         )}
       </div>
@@ -67,38 +67,38 @@ export function Deck({ cards, onDone, reverse = false }: { cards: Card[]; onDone
   return (
     <div className="deck">
       <div className="quiz-top">
-        <span className="muted">{queue.length} restante{queue.length > 1 ? 's' : ''}</span>
-        <Bar value={count / (count + queue.length)} />
+        <span>{queue.length} left</span>
+        <Bar value={count / (count + queue.length)} label="Progress through the deck" />
       </div>
       <button
         className={`flash ${flipped ? 'flipped' : ''}`}
         style={{ ['--tc' as string]: TOPIC[c.topic].color }}
         onClick={() => setFlipped(true)}
-        aria-label="Retourner la carte"
+        aria-label={flipped ? 'Card' : 'Reveal the answer'}
       >
         <span className="flash-meta">
-          <TopicTag id={c.topic} />
+          <TopicTag id={c.topic} long />
         </span>
-        <span className={`flash-front ${reverse ? 'def' : ''}`} lang="en">
+        <span className={`flash-front ${reverse ? 'def' : ''}`}>
           <Rich text={front} />
         </span>
         {flipped ? (
           <span className="flash-back">
-            <span lang="en" className={reverse ? 'term' : ''}>
+            <span className={reverse ? 'term' : ''}>
               <Rich text={back} />
             </span>
-            {c.fr && (
-              <span className="flash-fr">
-                <Rich text={c.fr} />
+            {c.hint && (
+              <span className="flash-hint">
+                <Rich text={c.hint} />
               </span>
             )}
           </span>
         ) : (
-          <span className="muted small">Toucher ou Espace pour voir la réponse</span>
+          <span className="muted small">Tap or press Space to reveal</span>
         )}
       </button>
       {flipped && (
-        <div className="grades">
+        <div className="grades" role="group" aria-label="How well did you know it?">
           {GRADES.map(({ g, label, key }) => (
             <button key={g} className={`grade g${g}`} onClick={() => grade(g)}>
               {label}

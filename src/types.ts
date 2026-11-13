@@ -3,22 +3,22 @@ export type TopicId = 'ethics' | 'intro' | 'real' | 'pe' | 'pd' | 'hf' | 'digita
 export interface Topic {
   id: TopicId
   code: string
-  name: string // nom officiel (anglais)
-  fr: string // nom français
-  weight: [number, number] // fourchette de poids 2027, en %
+  name: string // official topic name
+  short: string // short label
+  weight: [number, number] // 2027 exam weight range, in %
   color: string
-  summary: string // une phrase en français
+  summary: string // one-line description
 }
 
-/* ---------- Fiches de cours ---------- */
+/* ---------- Study notes ---------- */
 export type Block =
   | { t: 'h'; text: string }
   | { t: 'p'; text: string }
   | { t: 'list'; items: string[]; ordered?: boolean }
   | { t: 'formula'; tex: string; label?: string; note?: string }
-  | { t: 'tip'; text: string } // à retenir
-  | { t: 'trap'; text: string } // piège d'examen
-  | { t: 'fr'; text: string } // explication en français
+  | { t: 'tip'; text: string } // key point
+  | { t: 'trap'; text: string } // exam trap
+  | { t: 'recap'; text: string } // plain-language summary
   | { t: 'table'; head: string[]; rows: string[][] }
   | { t: 'example'; title?: string; lines: string[] }
 
@@ -26,7 +26,7 @@ export interface Fiche {
   id: string
   topic: TopicId
   title: string
-  fr: string // titre français
+  subtitle: string // one-line description
   minutes: number
   blocks: Block[]
 }
@@ -35,22 +35,22 @@ export interface Fiche {
 export interface Question {
   id: string
   topic: TopicId
-  tag: string // sous-thème, ex. "Sharpe ratio"
+  tag: string // subtopic, e.g. "Sharpe ratio"
   q: string
-  options: string[] // 4 options, en anglais
-  answer: number // index de la bonne réponse
-  explain: string // explication en français
+  options: string[] // 4 options, shuffled on display
+  answer: number // index of the correct option
+  explain: string // why the answer is right
   level: 1 | 2 | 3
-  calc?: boolean // question de calcul
+  calc?: boolean // calculation question
 }
 
 /* ---------- Flashcards ---------- */
 export interface Card {
   id: string
   topic: TopicId
-  front: string // terme (anglais)
-  back: string // définition (anglais)
-  fr?: string // traduction / astuce en français
+  front: string // term
+  back: string // definition
+  hint?: string // optional memory aid
 }
 
 /* ---------- Formules ---------- */
@@ -59,14 +59,14 @@ export interface Formula {
   topic: TopicId
   name: string
   tex: string
-  vars?: string // légende des variables (français)
+  vars?: string // what the symbols mean
   note?: string
 }
 
-/* ---------- Packs (fichiers JSON de contenu) ---------- */
+/* ---------- Packs (content JSON files) ---------- */
 export interface Pack {
   id: string
-  added: string // AAAA-MM-JJ
+  added: string // YYYY-MM-DD
   title: string
   fiches?: Fiche[]
   questions?: Question[]
@@ -74,31 +74,31 @@ export interface Pack {
   formulas?: Formula[]
 }
 
-/* ---------- Leçons tirées des cours de l'utilisatrice ---------- */
+/* ---------- Lessons built from the learner's own course material ---------- */
 export interface Lesson {
   id: string
   topic: TopicId
   title: string
-  source: string // ex. "cours/notes-hedge-funds.pdf"
+  source: string // e.g. "cours/notes-hedge-funds.pdf"
   added: string
   blocks: Block[]
-  fixes?: string[] // erreurs relevées dans les notes
+  fixes?: string[] // errors found in the source notes
   questions?: Question[]
 }
 
-/* ---------- Progression ---------- */
+/* ---------- Progress ---------- */
 export interface ItemStat {
   seen: number
   ok: number
-  last: number // horodatage ms
-  streak: number // bonnes réponses d'affilée (négatif = erreurs d'affilée)
-  due: number // prochaine révision (ms)
+  last: number // timestamp (ms)
+  streak: number // consecutive correct answers (negative = consecutive misses)
+  due: number // next review (ms)
 }
 
 export interface CardStat {
   reps: number
   ease: number
-  interval: number // jours
+  interval: number // days
   due: number
   last: number
   lapses: number
@@ -122,7 +122,7 @@ export interface Progress {
   cards: Record<string, CardStat>
   read: Record<string, number>
   exams: ExamRecord[]
-  days: Record<string, number> // AAAA-MM-JJ -> nb d'exercices
+  days: Record<string, number> // YYYY-MM-DD -> items practised
 }
 
 export interface Settings {
@@ -132,4 +132,5 @@ export interface Settings {
   repo: string // owner/name
   theme: 'auto' | 'light' | 'dark'
   autoSync: boolean
+  onboarded: boolean
 }

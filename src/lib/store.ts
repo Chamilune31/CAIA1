@@ -11,6 +11,7 @@ export const DEFAULT_SETTINGS: Settings = {
   repo: 'Chamilune31/CAIA1',
   theme: 'auto',
   autoSync: true,
+  onboarded: false,
 }
 
 export const emptyProgress = (): Progress => ({
@@ -50,7 +51,7 @@ const persist = () => {
   try {
     localStorage.setItem(PKEY, JSON.stringify(progress))
   } catch {
-    /* stockage plein ou indisponible */
+    /* storage full or unavailable */
   }
 }
 
@@ -59,7 +60,7 @@ export const useSettings = () => useSyncExternalStore(subscribe, () => settings)
 export const getProgress = () => progress
 export const getSettings = () => settings
 
-/** Appelé après chaque modification locale (sert à la synchro GitHub). */
+/** Called after every local change (used by GitHub sync). */
 export const onLocalChange = (fn: () => void) => {
   changeHooks.add(fn)
   return () => {
@@ -103,16 +104,16 @@ const bumpDay = (p: Progress) => {
   p.days[k] = (p.days[k] ?? 0) + 1
 }
 
-/* ---------- Enregistrement des réponses ---------- */
+/* ---------- Recording answers ---------- */
 const DAY = 864e5
-// Intervalles de révision des questions (en jours) selon la série de bonnes réponses.
+// Review intervals for questions (days) by streak of correct answers.
 const Q_STEPS = [0, 1, 3, 7, 16, 35]
 
 export const nextItem = (s: ItemStat | undefined, ok: boolean, now = Date.now()): ItemStat => {
   const prev = s ?? { seen: 0, ok: 0, last: 0, streak: 0, due: 0 }
   const streak = ok ? Math.max(prev.streak, 0) + 1 : Math.min(prev.streak, 0) - 1
   const step = ok ? Q_STEPS[Math.min(streak, Q_STEPS.length - 1)] : 0
-  // Une erreur revient dans 10 minutes, puis le lendemain si elle persiste.
+  // A miss comes back in 10 minutes, then the next day if it persists.
   const due = ok ? now + step * DAY : now + (streak <= -2 ? DAY : 10 * 6e4)
   return { seen: prev.seen + 1, ok: prev.ok + (ok ? 1 : 0), last: now, streak, due }
 }
@@ -129,7 +130,7 @@ export const recordCalc = (genId: string, ok: boolean) =>
     bumpDay(p)
   })
 
-/** Répétition espacée type SM-2 simplifiée. grade : 0 = à revoir, 1 = difficile, 2 = bien, 3 = facile */
+/** Simplified SM-2 spaced repetition. grade: 0 = again, 1 = hard, 2 = good, 3 = easy */
 export const nextCard = (s: CardStat | undefined, grade: 0 | 1 | 2 | 3, now = Date.now()): CardStat => {
   const prev = s ?? { reps: 0, ease: 2.5, interval: 0, due: 0, last: 0, lapses: 0 }
   let { reps, ease, interval, lapses } = prev
@@ -165,7 +166,7 @@ export const recordExam = (e: ExamRecord) =>
     p.exams = [...p.exams.filter((x) => x.id !== e.id), e]
   })
 
-/* ---------- Fusion sans perte (deux appareils) ---------- */
+/* ---------- Lossless merge (two devices) ---------- */
 const mergeMap = <T extends { last: number }>(a: Record<string, T>, b: Record<string, T>) => {
   const out: Record<string, T> = { ...a }
   for (const [k, v] of Object.entries(b)) if (!out[k] || v.last > out[k].last) out[k] = v

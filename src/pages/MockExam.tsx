@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { Exam } from '../components/Quiz'
-import { PageHead, TopicTag } from '../components/ui'
+import { fmtDate, PageHead, TopicTag } from '../components/ui'
 import { QUESTIONS } from '../content'
 import { examQuestions } from '../lib/plan'
 import { useProgress } from '../lib/store'
 import { TOPICS } from '../topics'
 import type { Question, TopicId } from '../types'
 
-// Rythme réel : 200 questions en 4 heures = 72 secondes par question.
+// Real pace: 200 questions in 4 hours = 72 seconds per question.
 const FORMATS = [
-  { n: 25, label: 'Sprint', desc: '25 questions · 30 min' },
-  { n: 50, label: 'Demi-session', desc: '50 questions · 1 h' },
-  { n: 100, label: 'Session complète', desc: '100 questions · 2 h (comme une demi-journée d’examen)' },
+  { n: 25, label: 'Sprint', time: '30 minutes' },
+  { n: 50, label: 'Half session', time: '1 hour' },
+  { n: 100, label: 'Full session', time: '2 hours, like one half of exam day' },
 ]
 
-export default function Examen() {
+export default function MockExam() {
   const p = useProgress()
   const [run, setRun] = useState<{ qs: Question[]; limit: number } | null>(null)
 
@@ -23,24 +23,22 @@ export default function Examen() {
   const past = [...p.exams].reverse()
   return (
     <div className="stack">
-      <PageHead kicker="Pratiquer" title="Examen blanc">
-        Questions tirées selon le poids de chaque topic, au rythme réel de l’examen (72 secondes par question). Correction à la fin seulement.
-      </PageHead>
+      <PageHead title="Mock exam">Questions drawn in proportion to the 2027 topic weights, at real exam pace (72 seconds per question). Marked at the end, with a full review.</PageHead>
       <div className="grid-3">
         {FORMATS.map((f) => {
           const n = Math.min(f.n, QUESTIONS.length)
           return (
-            <button key={f.n} className="card tile action" onClick={() => setRun({ qs: examQuestions(n), limit: n * 72 })}>
-              <p className="kicker">{f.label}</p>
-              <h3>{f.desc}</h3>
-              {n < f.n && <p className="muted small">{n} questions disponibles pour l’instant</p>}
+            <button key={f.n} className="card tile" onClick={() => setRun({ qs: examQuestions(n), limit: n * 72 })}>
+              <span className="label">{f.label}</span>
+              <span className="big">{n} questions</span>
+              <span className="muted small">{f.time}</span>
             </button>
           )
         })}
       </div>
       <section className="card">
-        <h2>Historique</h2>
-        {!past.length && <p className="muted">Aucun examen blanc pour l’instant.</p>}
+        <h2 style={{ marginBottom: 10 }}>Past attempts</h2>
+        {!past.length && <p className="muted">Your results will appear here, broken down by topic.</p>}
         {past.length > 0 && (
           <div className="table-wrap">
             <table>
@@ -48,7 +46,7 @@ export default function Examen() {
                 <tr>
                   <th>Date</th>
                   <th>Score</th>
-                  <th>Temps</th>
+                  <th>Time</th>
                   {TOPICS.map((t) => (
                     <th key={t.id}>
                       <TopicTag id={t.id} />
@@ -59,9 +57,9 @@ export default function Examen() {
               <tbody>
                 {past.map((e) => (
                   <tr key={e.id}>
-                    <td>{new Date(e.date).toLocaleDateString('fr-FR')}</td>
+                    <td>{fmtDate(e.date)}</td>
                     <td>
-                      <b className={e.correct / e.total >= 0.7 ? 'ok-text' : 'bad-text'}>{Math.round((e.correct / e.total) * 100)} %</b>{' '}
+                      <b className={e.correct / e.total >= 0.7 ? 'ok-text' : 'bad-text'}>{Math.round((e.correct / e.total) * 100)}%</b>{' '}
                       <span className="muted small">
                         ({e.correct}/{e.total})
                       </span>
@@ -69,7 +67,7 @@ export default function Examen() {
                     <td>{Math.round(e.seconds / 60)} min</td>
                     {TOPICS.map((t) => {
                       const v = e.byTopic[t.id as TopicId]
-                      return <td key={t.id}>{v ? `${Math.round((v[0] / v[1]) * 100)} %` : '—'}</td>
+                      return <td key={t.id}>{v ? `${Math.round((v[0] / v[1]) * 100)}%` : '—'}</td>
                     })}
                   </tr>
                 ))}

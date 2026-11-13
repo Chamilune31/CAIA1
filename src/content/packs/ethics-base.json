@@ -1,116 +1,612 @@
 {
-  "id": "ethics-base",
-  "added": "2026-11-13",
-  "title": "Principes éthiques — base",
-  "fiches": [
+ "id": "ethics-base",
+ "added": "2026-11-13",
+ "title": "Ethics — core",
+ "fiches": [
+  {
+   "id": "eth-principles",
+   "topic": "ethics",
+   "title": "The Eight CAIA Ethical Principles",
+   "subtitle": "Doing the right things and doing things right",
+   "minutes": 10,
+   "blocks": [
     {
-      "id": "eth-principles",
-      "topic": "ethics",
-      "title": "The Eight CAIA Ethical Principles",
-      "fr": "Les huit principes éthiques du CAIA",
-      "minutes": 10,
-      "blocks": [
-        { "t": "p", "text": "Since 2025, CAIA has replaced a rules-based code with a **principles-based** framework of eight Ethical Principles. They are split into two groups of four: **doing the right things** (intent, values, orientation) and **doing things right** (execution, practice)." },
-        { "t": "fr", "text": "Une approche *fondée sur des principes* demande d’exercer son jugement et de respecter l’esprit de la règle, pas seulement la lettre. Elle s’adapte aux situations nouvelles, mais elle est moins prescriptive : c’est au professionnel de raisonner." },
-        { "t": "h", "text": "Doing the right things (intent)" },
-        { "t": "list", "ordered": true, "items": [
-          "**Ethics and professionalism at the core** — act with integrity, take personal responsibility, voice concerns, and consider the well-being of clients and wider stakeholders (sustainability, human capital, society) while keeping client interests first.",
-          "**Partnership over superiority** — treat clients as partners: use specialist knowledge to create mutual success, not to dominate or exploit an information advantage; resolve issues through honest dialogue.",
-          "**Client-centric decision making (client-first mindset)** — understand each client’s specific needs, goals and constraints; put them ahead of the firm’s or one’s own interests; build long-term trust.",
-          "**Transparent and authentic communication (high standards of conduct)** — be clear, accurate and honest with clients, employees, investee companies and regulators; disclose costs, conflicts and errors; take accountability so that actions match words."
-        ] },
-        { "t": "h", "text": "Doing things right (execution)" },
-        { "t": "list", "ordered": true, "items": [
-          "**Evidence-based practices** — ground methods in rigorous analysis and current best practice, not intuition or marketing narratives.",
-          "**Comprehensive risk management** — perform thorough research and due diligence, understand the client’s circumstances, and identify and mitigate risks holistically (investment, operational, reputational, ESG).",
-          "**Adaptability and continuous improvement** — embrace change in the industry, keep learning and maintain competence.",
-          "**Collaborative excellence** — use peer review, diverse perspectives and collaboration (inside and outside the firm) to improve the quality of advice and decisions."
-        ] },
-        { "t": "tip", "text": "Principles 1–4 = **values / intent** (the *why*). Principles 5–8 = **practice / execution** (the *how*). An exam question that describes poor process (no due diligence, no review, outdated methods) points to principles 5–8; a question about putting the firm first or hiding information points to 1–4." },
-        { "t": "h", "text": "Why principles rather than rules?" },
-        { "t": "list", "items": [
-          "Rules can be gamed (“it’s not explicitly forbidden”) and become outdated as products evolve — especially in alternatives, where structures change fast.",
-          "Principles require **professional judgment** and focus on the **intent** and the **spirit** of ethical conduct.",
-          "Rules still have a role: they support and operationalize principles (e.g., a compliance policy on personal trading)."
-        ] },
-        { "t": "trap", "text": "Being legal is not the same as being ethical. An action allowed by law or by the fund documents can still violate the principles if it harms clients or relies on hidden information." }
-      ]
+     "t": "p",
+     "text": "Since 2026 the CAIA curriculum is built on a **principles-based** framework of eight Ethical Principles, replacing the older rules-based code. They are split into two groups of four: **doing the right things** (intent, values, orientation) and **doing things right** (execution, practice)."
     },
     {
-      "id": "eth-fiduciary",
-      "topic": "ethics",
-      "title": "Fiduciary Duty and Conflicts of Interest",
-      "fr": "Devoir fiduciaire et conflits d’intérêts",
-      "minutes": 9,
-      "blocks": [
-        { "t": "p", "text": "A **fiduciary** manages assets or makes decisions on behalf of another party (the principal) and must act in that party’s best interest. In institutional investing there is often a chain: beneficiaries → **asset owner** (pension fund, endowment, insurer, sovereign fund) → **allocator / investment staff** → external **asset managers** (GPs, hedge fund managers)." },
-        { "t": "fr", "text": "Chaque maillon est un *agent* qui agit pour un *principal* : c’est la source des conflits d’intérêts (problème principal-agent). Plus la chaîne est longue, plus les intérêts peuvent diverger." },
-        { "t": "h", "text": "Core fiduciary duties" },
-        { "t": "table", "head": ["Duty", "Meaning"], "rows": [
-          ["**Loyalty**", "Act solely in the beneficiaries’ interest; avoid or manage conflicts; no self-dealing."],
-          ["**Prudence / care**", "Act with the skill, diligence and care of a prudent expert; do proper due diligence and monitoring."],
-          ["**Diversification**", "Avoid undue concentration of risk unless clearly justified."],
-          ["**Impartiality**", "Treat different beneficiaries (e.g., current vs. future retirees) fairly."]
-        ] },
-        { "t": "h", "text": "Handling conflicts of interest" },
-        { "t": "list", "ordered": true, "items": [
-          "**Avoid** the conflict whenever possible.",
-          "If it cannot be avoided, **disclose** it fully and clearly to the affected parties.",
-          "**Manage** it fairly (policies, independent review, consent) so that clients are not disadvantaged."
-        ] },
-        { "t": "h", "text": "Typical conflicts in alternative investments" },
-        { "t": "list", "items": [
-          "**Valuation** of illiquid assets: managers paid on NAV (management and incentive fees) may be tempted to overstate or smooth values.",
-          "**Allocation** of attractive deals or co-investments between funds and clients; allocation of shared expenses between the fund and the manager.",
-          "**Side letters** granting some LPs better terms (fees, liquidity, transparency) without disclosure to others.",
-          "**GP-led secondaries / continuation funds**: the GP sits on both sides of the transaction (seller for the old fund, buyer for the new one).",
-          "**Personal trading**, gifts and entertainment, and use of **material non-public information (MNPI)**.",
-          "**Fee structures** that reward asset gathering or excessive risk-taking (option-like incentive fees)."
-        ] },
-        { "t": "trap", "text": "Disclosure alone does not cure a conflict if the action still harms clients. The fiduciary must also act fairly — disclosure is necessary, not sufficient." },
-        { "t": "tip", "text": "When two answers both seem acceptable on an ethics question, prefer the one that (1) puts clients first, (2) is transparent, and (3) follows a documented, prudent process." }
-      ]
+     "t": "recap",
+     "text": "A principles-based approach asks you to use judgment and respect the spirit of ethical conduct, not just the letter of a rule. It adapts to new situations but is less prescriptive: the professional has to reason it through."
+    },
+    {
+     "t": "h",
+     "text": "Doing the right things (intent)"
+    },
+    {
+     "t": "list",
+     "ordered": true,
+     "items": [
+      "**Ethical and professional behavior** — act with integrity, take personal responsibility, voice concerns, and care about the well-being of clients and wider stakeholders while keeping client interests first.",
+      "**Partnership** — treat clients as partners: use specialist knowledge to create mutual success, not to dominate or exploit an information advantage; resolve issues through honest dialogue.",
+      "**Client-first mindset** — understand each client’s needs, goals and constraints and put them ahead of the firm’s or your own interests; avoid or manage conflicts of interest.",
+      "**High standards of conduct** — transparency, integrity and accountability: communicate clearly and accurately, disclose costs, exposures, conflicts and errors, and own your mistakes."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Doing things right (execution)"
+    },
+    {
+     "t": "list",
+     "ordered": true,
+     "items": [
+      "**High standards of practice** — rigorous, evidence-based methods aligned with industry best practice, a clear ethics policy, defined competencies and fair incentive systems.",
+      "**Professional work** — high-quality research and due diligence, holistic understanding of risks and of the client’s circumstances, documented and transparent work, sound judgment under stress.",
+      "**Continued learning** — ongoing personal and professional development; adapting to new information and changing markets.",
+      "**Collaboration** — peer review and diverse perspectives, within the firm and across the profession, to improve the quality of decisions and advice."
+     ]
+    },
+    {
+     "t": "tip",
+     "text": "Principles 1–4 are about **values and intent** (the *why*). Principles 5–8 are about **practice and execution** (the *how*). A question describing poor process — no due diligence, no review, outdated methods — points to 5–8; putting the firm first or hiding information points to 1–4."
+    },
+    {
+     "t": "p",
+     "text": "CAIA’s public website words the same eight principles slightly differently (e.g., “Partnership over superiority”, “Evidence-based practices”, “Comprehensive risk management”, “Collaborative excellence”). The ideas are identical."
+    },
+    {
+     "t": "h",
+     "text": "Why principles rather than rules?"
+    },
+    {
+     "t": "list",
+     "items": [
+      "Rules can be gamed (“it’s not explicitly forbidden”) and go out of date as products evolve — especially in alternatives, where structures change fast.",
+      "Principles require **professional judgment** and focus on the **intent** and **spirit** of ethical conduct.",
+      "Rules still have a role: they support and put principles into practice (e.g., a personal-trading policy)."
+     ]
+    },
+    {
+     "t": "trap",
+     "text": "Legal is not the same as ethical. An action allowed by law or by the fund documents can still breach the principles if it harms clients or relies on hidden information."
     }
-  ],
-  "cards": [
-    { "id": "c-eth-principles-based", "topic": "ethics", "front": "Principles-based ethics", "back": "An approach that relies on broad principles and professional judgment, focusing on intent and the spirit of the rules rather than a detailed list of prohibitions.", "fr": "Éthique fondée sur des principes (vs. rules-based)." },
-    { "id": "c-eth-two-groups", "topic": "ethics", "front": "The two groups of CAIA Ethical Principles", "back": "Doing the right things (principles 1–4: intent and values) and doing things right (principles 5–8: execution and practice).", "fr": "« Faire les bonnes choses » / « bien faire les choses »." },
-    { "id": "c-eth-fiduciary", "topic": "ethics", "front": "Fiduciary", "back": "A person or entity that manages assets or makes decisions on behalf of a principal and is bound to act in the principal’s best interest.", "fr": "Fiduciaire." },
-    { "id": "c-eth-loyalty", "topic": "ethics", "front": "Duty of loyalty", "back": "The obligation to act solely in the interest of beneficiaries, avoiding self-dealing and managing conflicts of interest.", "fr": "Devoir de loyauté." },
-    { "id": "c-eth-prudence", "topic": "ethics", "front": "Duty of prudence (care)", "back": "The obligation to act with the skill, care and diligence that a prudent expert would use, including proper due diligence and monitoring.", "fr": "Devoir de prudence / diligence." },
-    { "id": "c-eth-impartiality", "topic": "ethics", "front": "Duty of impartiality", "back": "The obligation to treat different groups of beneficiaries fairly, e.g., current and future pensioners.", "fr": "Devoir d’impartialité." },
-    { "id": "c-eth-principal-agent", "topic": "ethics", "front": "Principal–agent problem", "back": "The conflict that arises when an agent acting on behalf of a principal has incentives that differ from the principal’s interests.", "fr": "Problème d’agence." },
-    { "id": "c-eth-asset-owner", "topic": "ethics", "front": "Asset owner vs. allocator", "back": "The asset owner (e.g., pension plan) holds assets for beneficiaries; the allocator is the agent, acting in a fiduciary capacity, who selects investments or managers.", "fr": "Propriétaire des actifs vs. allocataire." },
-    { "id": "c-eth-conflict-steps", "topic": "ethics", "front": "Three steps to handle a conflict of interest", "back": "Avoid it if possible; if unavoidable, disclose it; and manage it fairly so clients are not harmed.", "fr": "Éviter, divulguer, gérer équitablement." },
-    { "id": "c-eth-mnpi", "topic": "ethics", "front": "MNPI", "back": "Material non-public information: information not available to the public that a reasonable investor would consider important. Trading on it or passing it on is prohibited.", "fr": "Information privilégiée." },
-    { "id": "c-eth-side-letter", "topic": "ethics", "front": "Side letter", "back": "An agreement between a fund manager and a specific investor granting terms that differ from the main fund documents (fees, liquidity, reporting).", "fr": "Lettre d’accompagnement : conditions particulières pour un LP." },
-    { "id": "c-eth-continuation", "topic": "ethics", "front": "Continuation fund (GP-led secondary)", "back": "A vehicle created by a GP to buy assets from one of its existing funds, giving LPs the choice to sell or roll over; it creates a conflict because the GP is on both sides.", "fr": "Fonds de continuation." },
-    { "id": "c-eth-partnership", "topic": "ethics", "front": "Partnership over superiority", "back": "Ethical principle: use expertise to build mutually beneficial relationships with clients, not to exploit an information or skill advantage.", "fr": "Partenariat plutôt que supériorité." },
-    { "id": "c-eth-evidence", "topic": "ethics", "front": "Evidence-based practices", "back": "Ethical principle: base investment methods on rigorous analysis, data and current best practices rather than intuition or marketing.", "fr": "Pratiques fondées sur des preuves." },
-    { "id": "c-eth-collab", "topic": "ethics", "front": "Collaborative excellence", "back": "Ethical principle: use peer review and diverse perspectives to improve the accuracy and quality of investment advice.", "fr": "Excellence collaborative." }
-  ],
-  "questions": [
-    { "id": "q-eth-01", "topic": "ethics", "tag": "Principles framework", "level": 1, "q": "The CAIA Ethical Principles are best described as:", "options": ["A principles-based framework that emphasizes intent and professional judgment", "A detailed rule book listing every prohibited activity", "A set of legal requirements enforced by securities regulators", "Voluntary marketing guidelines for fund distributors"], "answer": 0, "explain": "Le cadre CAIA est **fondé sur des principes** : il met l’accent sur l’intention et le jugement professionnel plutôt que sur une liste exhaustive d’interdits. Ce n’est ni une loi ni un guide marketing." },
-    { "id": "q-eth-02", "topic": "ethics", "tag": "Principles framework", "level": 1, "q": "How are the eight CAIA Ethical Principles organized?", "options": ["Into “doing the right things” and “doing things right”", "Into duties to clients, employers and regulators", "Into mandatory and recommended standards", "Into pre-investment and post-investment principles"], "answer": 0, "explain": "Les principes 1 à 4 relèvent de l’intention (**doing the right things**), les principes 5 à 8 de l’exécution (**doing things right**)." },
-    { "id": "q-eth-03", "topic": "ethics", "tag": "Principles framework", "level": 2, "q": "A manager skips peer review of a new valuation model because “the team is too busy” and relies on an outdated methodology. Which group of principles is most directly at stake?", "options": ["Doing things right (execution and practice)", "Doing the right things (intent and values)", "Neither, because no client was harmed yet", "Only the duty of impartiality"], "answer": 0, "explain": "L’absence de revue par les pairs et une méthode dépassée sont des défauts d’**exécution** : principes 5 à 8 (evidence-based practices, collaborative excellence, continuous improvement). Le fait qu’aucun client n’ait encore subi de perte ne rend pas la pratique acceptable." },
-    { "id": "q-eth-04", "topic": "ethics", "tag": "Principles framework", "level": 2, "q": "Which is the main advantage of a principles-based ethical framework over a rules-based one?", "options": ["It adapts to new products and situations and encourages judgment", "It removes any need for compliance policies", "It guarantees identical decisions by all professionals", "It is easier to enforce mechanically"], "answer": 0, "explain": "Les principes s’adaptent aux situations nouvelles (fréquentes dans les alternatifs) et poussent à exercer son jugement. En contrepartie, ils sont moins faciles à appliquer mécaniquement ; les règles internes restent utiles pour les mettre en œuvre." },
-    { "id": "q-eth-05", "topic": "ethics", "tag": "Principles framework", "level": 2, "q": "An allocator recommends a fund because it pays the allocator’s firm a placement fee, even though a cheaper fund better matches the client’s goals. Which principle is most clearly violated?", "options": ["Client-centric decision making", "Adaptability and continuous improvement", "Collaborative excellence", "Evidence-based practices"], "answer": 0, "explain": "Recommander un produit pour la commission plutôt que pour les besoins du client viole d’abord le principe **client-centric / client-first**. Il faudrait aussi au minimum divulguer la commission." },
-    { "id": "q-eth-06", "topic": "ethics", "tag": "Transparency", "level": 1, "q": "A manager discovers a calculation error that overstated a fund’s NAV last quarter. The most appropriate action is to:", "options": ["Disclose and correct the error promptly and take accountability", "Offset the error gradually over the next quarters", "Correct it silently since the amount is small", "Wait to see if investors notice"], "answer": 0, "explain": "Le principe de **communication transparente et authentique** implique de divulguer les erreurs et d’en assumer la responsabilité. Lisser la correction ou la cacher trompe les investisseurs (notamment ceux qui souscrivent ou rachètent entre-temps)." },
-    { "id": "q-eth-07", "topic": "ethics", "tag": "Transparency", "level": 2, "q": "A GP markets a fund using gross returns while omitting that net returns after fees and carry are much lower. This most directly conflicts with:", "options": ["Transparent and authentic communication", "Comprehensive risk management", "Adaptability", "The duty of impartiality"], "answer": 0, "explain": "Présenter des chiffres bruts sans les rendements nets crée une impression trompeuse : c’est un manque de **transparence** (divulgation des coûts)." },
-    { "id": "q-eth-08", "topic": "ethics", "tag": "Partnership", "level": 2, "q": "A sophisticated manager uses complex terminology to push an inexperienced client toward a structure that mainly benefits the manager. Which principle is violated?", "options": ["Partnership over superiority", "Evidence-based practices", "Collaborative excellence", "Adaptability and continuous improvement"], "answer": 0, "explain": "Exploiter son avance d’expertise pour dominer le client contredit **partnership over superiority** : la compétence doit servir une réussite mutuelle." },
-    { "id": "q-eth-09", "topic": "ethics", "tag": "Fiduciary duty", "level": 1, "q": "Which of the following is NOT one of the core fiduciary duties usually attributed to institutional investors?", "options": ["Maximizing the manager’s assets under management", "Loyalty", "Prudence", "Impartiality"], "answer": 0, "explain": "Les devoirs fiduciaires classiques sont la **loyauté**, la **prudence**, la **diversification** et l’**impartialité**. Faire grossir les encours du gérant est justement une source de conflit." },
-    { "id": "q-eth-10", "topic": "ethics", "tag": "Fiduciary duty", "level": 2, "q": "A pension fund’s investment committee decides to sharply raise risk to boost short-term funding status, which benefits current retirees at the expense of younger members. Which duty is most at risk?", "options": ["Impartiality", "Loyalty to the sponsor", "Confidentiality", "Diversification only"], "answer": 0, "explain": "Favoriser un groupe de bénéficiaires (retraités actuels) au détriment d’un autre (jeunes affiliés) touche au devoir d’**impartialité**." },
-    { "id": "q-eth-11", "topic": "ethics", "tag": "Fiduciary duty", "level": 2, "q": "An allocator invests 40% of a foundation’s assets in a single private real estate fund run by a friend, without documented due diligence. Which duties are most clearly breached?", "options": ["Prudence and diversification", "Impartiality and confidentiality", "Only the duty to report", "None, if the fund performs well"], "answer": 0, "explain": "Absence de due diligence = manquement à la **prudence** ; 40 % sur un seul fonds = manquement à la **diversification** (et conflit d’intérêts). Une bonne performance ex post ne justifie pas un mauvais processus." },
-    { "id": "q-eth-12", "topic": "ethics", "tag": "Principal–agent", "level": 1, "q": "In the institutional investment chain, the investment staff of a pension fund who select external managers act primarily as:", "options": ["Agents acting in a fiduciary capacity for the beneficiaries", "Principals who own the assets", "Regulators of the managers", "Counterparties to the beneficiaries"], "answer": 0, "explain": "Les équipes d’investissement sont des **agents** (allocators) qui agissent pour le compte des bénéficiaires et du propriétaire des actifs : elles ont un devoir fiduciaire." },
-    { "id": "q-eth-13", "topic": "ethics", "tag": "Conflicts of interest", "level": 1, "q": "What is the preferred order for dealing with a conflict of interest?", "options": ["Avoid it; if not possible, disclose it and manage it fairly", "Disclose it; avoidance is never required", "Manage it internally without disclosure", "Ask the client to accept all conflicts in the contract"], "answer": 0, "explain": "On **évite** d’abord ; si c’est impossible, on **divulgue** et on **gère équitablement**. Une clause générale d’acceptation de tous les conflits ne suffit pas." },
-    { "id": "q-eth-14", "topic": "ethics", "tag": "Conflicts of interest", "level": 2, "q": "A manager fully discloses that it will allocate the best co-investment opportunities to its own proprietary account first. From an ethical standpoint, this practice is:", "options": ["Still problematic, because disclosure does not make unfair treatment of clients acceptable", "Acceptable, because it was disclosed", "Acceptable if the proprietary account is small", "Required to align interests"], "answer": 0, "explain": "La divulgation est **nécessaire mais pas suffisante** : servir systématiquement son propre compte en premier désavantage les clients et viole la loyauté." },
-    { "id": "q-eth-15", "topic": "ethics", "tag": "Conflicts of interest", "level": 2, "q": "Why does the valuation of illiquid assets create a conflict of interest for fund managers?", "options": ["Fees are often based on NAV, so managers benefit from higher reported values", "Illiquid assets cannot legally be valued", "Valuations are always performed by investors", "Higher valuations reduce management fees"], "answer": 0, "explain": "Les frais de gestion et de performance dépendent souvent de la NAV : le gérant a intérêt à surévaluer ou lisser les actifs illiquides. D’où l’intérêt d’évaluateurs indépendants." },
-    { "id": "q-eth-16", "topic": "ethics", "tag": "Conflicts of interest", "level": 3, "q": "In a GP-led continuation fund transaction, the main ethical concern is that:", "options": ["The GP acts as both seller (old fund) and buyer (new vehicle), so the transfer price may not be fair to selling LPs", "LPs are forced to sell at a premium", "The new fund cannot charge any fees", "Secondary buyers have no access to information"], "answer": 0, "explain": "Le GP est des **deux côtés** de la transaction : il fixe (ou influence) le prix de transfert. Les bonnes pratiques : fairness opinion, processus d’enchères, information complète et option réelle de vendre ou de rester." },
-    { "id": "q-eth-17", "topic": "ethics", "tag": "Conflicts of interest", "level": 2, "q": "A hedge fund grants one large investor monthly liquidity and full position transparency through an undisclosed side letter, while other investors have quarterly liquidity. The main concern is that:", "options": ["Other investors may be disadvantaged, e.g., if the favored investor redeems first in a crisis", "Side letters are illegal in all jurisdictions", "The large investor will pay higher fees", "It reduces the manager’s incentive fee"], "answer": 0, "explain": "Une side letter non divulguée qui donne plus de liquidité et d’information permet à un investisseur de sortir avant les autres en cas de crise : les autres porteurs supportent les coûts. Il faut au moins la divulguer et traiter équitablement." },
-    { "id": "q-eth-18", "topic": "ethics", "tag": "MNPI", "level": 1, "q": "During due diligence on a private loan, an analyst learns that a listed company in the same group will announce a large loss next week. The analyst should:", "options": ["Not trade or recommend trades in the listed securities and inform compliance", "Sell the listed shares before the announcement", "Share the information with key clients only", "Trade only if the position is small"], "answer": 0, "explain": "C’est une **information privilégiée (MNPI)** : interdiction de trader ou de la transmettre. Le bon réflexe est de prévenir la conformité (qui peut placer le titre sur une liste restreinte)." },
-    { "id": "q-eth-19", "topic": "ethics", "tag": "Risk management", "level": 2, "q": "An allocator selects a hedge fund based only on its track record, without checking its administrator, auditor or custody arrangements. This mainly violates:", "options": ["Comprehensive risk management", "Partnership over superiority", "Transparent communication", "The duty of impartiality"], "answer": 0, "explain": "Ignorer la due diligence opérationnelle (administrateur, auditeur, dépositaire) est un défaut de **gestion globale des risques** et de prudence. De nombreuses fraudes (ex. Madoff) auraient été repérées ainsi." },
-    { "id": "q-eth-20", "topic": "ethics", "tag": "Principles framework", "level": 2, "q": "A manager argues that a practice is ethical because it is not prohibited by any law or by the fund’s limited partnership agreement. Under the CAIA principles, this argument is:", "options": ["Insufficient, because ethical conduct goes beyond legal compliance", "Sufficient, because the LPA is the binding contract", "Sufficient, if regulators have been informed", "Irrelevant, because ethics only apply to individuals"], "answer": 0, "explain": "Légal ≠ éthique. Une approche fondée sur des principes demande de respecter l’esprit de l’éthique, pas seulement de ne pas enfreindre la loi ou le contrat." },
-    { "id": "q-eth-21", "topic": "ethics", "tag": "Ethics & stakeholders", "level": 2, "q": "Principle 1 (“ethics and professionalism at the core”) asks investment professionals to:", "options": ["Keep client interests first while also considering wider stakeholders such as employees, communities and the environment", "Maximize short-term returns regardless of external effects", "Defer all ethical questions to the compliance department", "Prioritize the firm’s reputation over client outcomes"], "answer": 0, "explain": "Le premier principe combine **intérêt du client en priorité** et attention portée aux parties prenantes plus larges (durabilité, capital humain, société)." },
-    { "id": "q-eth-22", "topic": "ethics", "tag": "Continuous improvement", "level": 1, "q": "A portfolio manager has not updated her knowledge of digital asset custody risks in five years but continues to advise clients on crypto allocations. Which principle is she neglecting?", "options": ["Adaptability and continuous improvement", "Partnership over superiority", "Duty of impartiality", "Collaborative excellence"], "answer": 0, "explain": "Conseiller sur un domaine en évolution rapide sans mettre à jour ses compétences contredit **adaptability and continuous improvement** (maintien de la compétence)." }
-  ]
+   ]
+  },
+  {
+   "id": "eth-fiduciary",
+   "topic": "ethics",
+   "title": "Fiduciary Duty and Conflicts of Interest",
+   "subtitle": "Who owes what to whom, and how to handle conflicts",
+   "minutes": 9,
+   "blocks": [
+    {
+     "t": "p",
+     "text": "A **fiduciary** manages assets or makes decisions on behalf of another party (the principal) and must act in that party’s best interest. In institutional investing there is often a chain: beneficiaries → **asset owner** (pension fund, endowment, insurer, sovereign fund) → **allocator / investment staff** → external **asset managers** (GPs, hedge fund managers)."
+    },
+    {
+     "t": "recap",
+     "text": "Every link in the chain is an *agent* acting for a *principal*, which is where conflicts of interest come from. The longer the chain, the more interests can diverge."
+    },
+    {
+     "t": "h",
+     "text": "Core fiduciary duties"
+    },
+    {
+     "t": "table",
+     "head": [
+      "Duty",
+      "Meaning"
+     ],
+     "rows": [
+      [
+       "**Loyalty**",
+       "Act solely in the beneficiaries’ interest; avoid or manage conflicts; no self-dealing."
+      ],
+      [
+       "**Prudence / care**",
+       "Act with the skill, diligence and care of a prudent expert; do proper due diligence and monitoring."
+      ],
+      [
+       "**Diversification**",
+       "Avoid undue concentration of risk unless clearly justified."
+      ],
+      [
+       "**Impartiality**",
+       "Treat different beneficiaries (e.g., current vs. future retirees) fairly."
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Handling conflicts of interest"
+    },
+    {
+     "t": "list",
+     "ordered": true,
+     "items": [
+      "**Avoid** the conflict whenever possible.",
+      "If it cannot be avoided, **disclose** it fully and clearly to the affected parties.",
+      "**Manage** it fairly (policies, independent review, consent) so that clients are not disadvantaged."
+     ]
+    },
+    {
+     "t": "h",
+     "text": "Typical conflicts in alternative investments"
+    },
+    {
+     "t": "list",
+     "items": [
+      "**Valuation** of illiquid assets: managers paid on NAV (management and incentive fees) may be tempted to overstate or smooth values.",
+      "**Allocation** of attractive deals or co-investments between funds and clients; allocation of shared expenses between the fund and the manager.",
+      "**Side letters** granting some LPs better terms (fees, liquidity, transparency) without disclosure to others.",
+      "**GP-led secondaries / continuation funds**: the GP sits on both sides of the transaction (seller for the old fund, buyer for the new one).",
+      "**Personal trading**, gifts and entertainment, and use of **material non-public information (MNPI)**.",
+      "**Fee structures** that reward asset gathering or excessive risk-taking (option-like incentive fees)."
+     ]
+    },
+    {
+     "t": "trap",
+     "text": "Disclosure alone does not cure a conflict if the action still harms clients. The fiduciary must also act fairly — disclosure is necessary, not sufficient."
+    },
+    {
+     "t": "tip",
+     "text": "When two answers both seem acceptable on an ethics question, prefer the one that (1) puts clients first, (2) is transparent, and (3) follows a documented, prudent process."
+    }
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "id": "c-eth-principles-based",
+   "topic": "ethics",
+   "front": "Principles-based ethics",
+   "back": "An approach that relies on broad principles and professional judgment, focusing on intent and the spirit of the rules rather than a detailed list of prohibitions."
+  },
+  {
+   "id": "c-eth-two-groups",
+   "topic": "ethics",
+   "front": "The two groups of CAIA Ethical Principles",
+   "back": "Doing the right things (principles 1–4: intent and values) and doing things right (principles 5–8: execution and practice)."
+  },
+  {
+   "id": "c-eth-fiduciary",
+   "topic": "ethics",
+   "front": "Fiduciary",
+   "back": "A person or entity that manages assets or makes decisions on behalf of a principal and is bound to act in the principal’s best interest."
+  },
+  {
+   "id": "c-eth-loyalty",
+   "topic": "ethics",
+   "front": "Duty of loyalty",
+   "back": "The obligation to act solely in the interest of beneficiaries, avoiding self-dealing and managing conflicts of interest."
+  },
+  {
+   "id": "c-eth-prudence",
+   "topic": "ethics",
+   "front": "Duty of prudence (care)",
+   "back": "The obligation to act with the skill, care and diligence that a prudent expert would use, including proper due diligence and monitoring."
+  },
+  {
+   "id": "c-eth-impartiality",
+   "topic": "ethics",
+   "front": "Duty of impartiality",
+   "back": "The obligation to treat different groups of beneficiaries fairly, e.g., current and future pensioners."
+  },
+  {
+   "id": "c-eth-principal-agent",
+   "topic": "ethics",
+   "front": "Principal–agent problem",
+   "back": "The conflict that arises when an agent acting on behalf of a principal has incentives that differ from the principal’s interests."
+  },
+  {
+   "id": "c-eth-asset-owner",
+   "topic": "ethics",
+   "front": "Asset owner vs. allocator",
+   "back": "The asset owner (e.g., pension plan) holds assets for beneficiaries; the allocator is the agent, acting in a fiduciary capacity, who selects investments or managers."
+  },
+  {
+   "id": "c-eth-conflict-steps",
+   "topic": "ethics",
+   "front": "Three steps to handle a conflict of interest",
+   "back": "Avoid it if possible; if unavoidable, disclose it; and manage it fairly so clients are not harmed."
+  },
+  {
+   "id": "c-eth-mnpi",
+   "topic": "ethics",
+   "front": "MNPI",
+   "back": "Material non-public information: information not available to the public that a reasonable investor would consider important. Trading on it or passing it on is prohibited."
+  },
+  {
+   "id": "c-eth-side-letter",
+   "topic": "ethics",
+   "front": "Side letter",
+   "back": "An agreement between a fund manager and a specific investor granting terms that differ from the main fund documents (fees, liquidity, reporting)."
+  },
+  {
+   "id": "c-eth-continuation",
+   "topic": "ethics",
+   "front": "Continuation fund (GP-led secondary)",
+   "back": "A vehicle created by a GP to buy assets from one of its existing funds, giving LPs the choice to sell or roll over; it creates a conflict because the GP is on both sides."
+  },
+  {
+   "id": "c-eth-partnership",
+   "topic": "ethics",
+   "front": "Partnership (Principle 2)",
+   "back": "Use expertise to build mutually beneficial relationships with clients, not to exploit an information or skill advantage."
+  },
+  {
+   "id": "c-eth-evidence",
+   "topic": "ethics",
+   "front": "High standards of practice (Principle 5)",
+   "back": "Rigorous, evidence-based methods aligned with industry best practice, with clear standards and fair incentives."
+  },
+  {
+   "id": "c-eth-collab",
+   "topic": "ethics",
+   "front": "Collaboration (Principle 8)",
+   "back": "Peer review and diverse perspectives, inside and outside the firm, to improve the quality of investment advice."
+  },
+  {
+   "id": "c-eth-p1",
+   "topic": "ethics",
+   "front": "Ethical and professional behavior (Principle 1)",
+   "back": "Act with integrity and personal responsibility, voice concerns and consider wider stakeholders while keeping client interests first."
+  },
+  {
+   "id": "c-eth-p3",
+   "topic": "ethics",
+   "front": "Client-first mindset (Principle 3)",
+   "back": "Understand each client’s needs and goals and place them ahead of the firm’s or your own interests."
+  },
+  {
+   "id": "c-eth-p4",
+   "topic": "ethics",
+   "front": "High standards of conduct (Principle 4)",
+   "back": "Transparency, integrity and accountability: accurate communication, disclosure of costs, conflicts and errors."
+  },
+  {
+   "id": "c-eth-p6",
+   "topic": "ethics",
+   "front": "Professional work (Principle 6)",
+   "back": "High-quality research and due diligence, holistic risk understanding and well-documented work."
+  },
+  {
+   "id": "c-eth-p7",
+   "topic": "ethics",
+   "front": "Continued learning (Principle 7)",
+   "back": "Ongoing professional development and adaptation to new information and market conditions."
+  }
+ ],
+ "questions": [
+  {
+   "id": "q-eth-01",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 1,
+   "q": "The CAIA Ethical Principles are best described as:",
+   "options": [
+    "A principles-based framework that emphasizes intent and professional judgment",
+    "A detailed rule book listing every prohibited activity",
+    "A set of legal requirements enforced by securities regulators",
+    "Voluntary marketing guidelines for fund distributors"
+   ],
+   "answer": 0,
+   "explain": "The CAIA framework is **principles-based**: it stresses intent and professional judgment rather than an exhaustive list of prohibitions. It is not a law and not a marketing guide."
+  },
+  {
+   "id": "q-eth-02",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 1,
+   "q": "How are the eight CAIA Ethical Principles organized?",
+   "options": [
+    "Into “doing the right things” and “doing things right”",
+    "Into duties to clients, employers and regulators",
+    "Into mandatory and recommended standards",
+    "Into pre-investment and post-investment principles"
+   ],
+   "answer": 0,
+   "explain": "Principles 1–4 cover intent (**doing the right things**); principles 5–8 cover execution (**doing things right**)."
+  },
+  {
+   "id": "q-eth-03",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 2,
+   "q": "A manager skips peer review of a new valuation model because “the team is too busy” and relies on an outdated methodology. Which group of principles is most directly at stake?",
+   "options": [
+    "Doing things right (execution and practice)",
+    "Doing the right things (intent and values)",
+    "Neither, because no client was harmed yet",
+    "Only the duty of impartiality"
+   ],
+   "answer": 0,
+   "explain": "Skipping peer review and using an outdated method are failures of **execution** — principles 5–8 (high standards of practice, professional work, continued learning, collaboration). The fact that no client has lost money yet does not make the practice acceptable."
+  },
+  {
+   "id": "q-eth-04",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 2,
+   "q": "Which is the main advantage of a principles-based ethical framework over a rules-based one?",
+   "options": [
+    "It adapts to new products and situations and encourages judgment",
+    "It removes any need for compliance policies",
+    "It guarantees identical decisions by all professionals",
+    "It is easier to enforce mechanically"
+   ],
+   "answer": 0,
+   "explain": "Principles adapt to new situations (common in alternatives) and push professionals to use judgment. The trade-off is that they are harder to apply mechanically; internal rules remain useful to implement them."
+  },
+  {
+   "id": "q-eth-05",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 2,
+   "q": "An allocator recommends a fund because it pays the allocator’s firm a placement fee, even though a cheaper fund better matches the client’s goals. Which principle is most clearly violated?",
+   "options": [
+    "Client-first mindset",
+    "Continued learning",
+    "Collaboration",
+    "High standards of practice"
+   ],
+   "answer": 0,
+   "explain": "Recommending a product for the fee rather than for the client’s needs breaches the **client-first mindset**. At a minimum, the placement fee would also have to be disclosed."
+  },
+  {
+   "id": "q-eth-06",
+   "topic": "ethics",
+   "tag": "Transparency",
+   "level": 1,
+   "q": "A manager discovers a calculation error that overstated a fund’s NAV last quarter. The most appropriate action is to:",
+   "options": [
+    "Disclose and correct the error promptly and take accountability",
+    "Offset the error gradually over the next quarters",
+    "Correct it silently since the amount is small",
+    "Wait to see if investors notice"
+   ],
+   "answer": 0,
+   "explain": "**High standards of conduct** (transparency, accountability) require disclosing and correcting errors promptly. Spreading the correction over time or hiding it misleads investors — especially those subscribing or redeeming in the meantime."
+  },
+  {
+   "id": "q-eth-07",
+   "topic": "ethics",
+   "tag": "Transparency",
+   "level": 2,
+   "q": "A GP markets a fund using gross returns while omitting that net returns after fees and carry are much lower. This most directly conflicts with:",
+   "options": [
+    "High standards of conduct (transparency)",
+    "Professional work",
+    "Continued learning",
+    "Partnership"
+   ],
+   "answer": 0,
+   "explain": "Showing gross figures without net returns creates a misleading impression: it fails the transparency required by **high standards of conduct**, which include disclosing costs."
+  },
+  {
+   "id": "q-eth-08",
+   "topic": "ethics",
+   "tag": "Partnership",
+   "level": 2,
+   "q": "A sophisticated manager uses complex terminology to push an inexperienced client toward a structure that mainly benefits the manager. Which principle is violated?",
+   "options": [
+    "Partnership",
+    "High standards of practice",
+    "Collaboration",
+    "Continued learning"
+   ],
+   "answer": 0,
+   "explain": "Using an expertise advantage to dominate a client contradicts **partnership**: specialist knowledge should create mutual success."
+  },
+  {
+   "id": "q-eth-09",
+   "topic": "ethics",
+   "tag": "Fiduciary duty",
+   "level": 1,
+   "q": "Which of the following is NOT one of the core fiduciary duties usually attributed to institutional investors?",
+   "options": [
+    "Maximizing the manager’s assets under management",
+    "Loyalty",
+    "Prudence",
+    "Impartiality"
+   ],
+   "answer": 0,
+   "explain": "The classic fiduciary duties are **loyalty**, **prudence**, **diversification** and **impartiality**. Growing the manager’s assets is a source of conflict, not a duty."
+  },
+  {
+   "id": "q-eth-10",
+   "topic": "ethics",
+   "tag": "Fiduciary duty",
+   "level": 2,
+   "q": "A pension fund’s investment committee decides to sharply raise risk to boost short-term funding status, which benefits current retirees at the expense of younger members. Which duty is most at risk?",
+   "options": [
+    "Impartiality",
+    "Loyalty to the sponsor",
+    "Confidentiality",
+    "Diversification only"
+   ],
+   "answer": 0,
+   "explain": "Favoring one group of beneficiaries (current retirees) at the expense of another (younger members) breaches the duty of **impartiality**."
+  },
+  {
+   "id": "q-eth-11",
+   "topic": "ethics",
+   "tag": "Fiduciary duty",
+   "level": 2,
+   "q": "An allocator invests 40% of a foundation’s assets in a single private real estate fund run by a friend, without documented due diligence. Which duties are most clearly breached?",
+   "options": [
+    "Prudence and diversification",
+    "Impartiality and confidentiality",
+    "Only the duty to report",
+    "None, if the fund performs well"
+   ],
+   "answer": 0,
+   "explain": "No due diligence breaches **prudence**; 40% in one fund breaches **diversification** (and there is a conflict of interest). Good ex post performance never justifies a poor process."
+  },
+  {
+   "id": "q-eth-12",
+   "topic": "ethics",
+   "tag": "Principal–agent",
+   "level": 1,
+   "q": "In the institutional investment chain, the investment staff of a pension fund who select external managers act primarily as:",
+   "options": [
+    "Agents acting in a fiduciary capacity for the beneficiaries",
+    "Principals who own the assets",
+    "Regulators of the managers",
+    "Counterparties to the beneficiaries"
+   ],
+   "answer": 0,
+   "explain": "Investment staff are **agents** (allocators) acting for the beneficiaries and the asset owner, so they owe a fiduciary duty."
+  },
+  {
+   "id": "q-eth-13",
+   "topic": "ethics",
+   "tag": "Conflicts of interest",
+   "level": 1,
+   "q": "What is the preferred order for dealing with a conflict of interest?",
+   "options": [
+    "Avoid it; if not possible, disclose it and manage it fairly",
+    "Disclose it; avoidance is never required",
+    "Manage it internally without disclosure",
+    "Ask the client to accept all conflicts in the contract"
+   ],
+   "answer": 0,
+   "explain": "First **avoid** the conflict; if that is impossible, **disclose** it and **manage it fairly**. A blanket clause asking clients to accept every conflict is not enough."
+  },
+  {
+   "id": "q-eth-14",
+   "topic": "ethics",
+   "tag": "Conflicts of interest",
+   "level": 2,
+   "q": "A manager fully discloses that it will allocate the best co-investment opportunities to its own proprietary account first. From an ethical standpoint, this practice is:",
+   "options": [
+    "Still problematic, because disclosure does not make unfair treatment of clients acceptable",
+    "Acceptable, because it was disclosed",
+    "Acceptable if the proprietary account is small",
+    "Required to align interests"
+   ],
+   "answer": 0,
+   "explain": "Disclosure is **necessary but not sufficient**: systematically serving the firm’s own account first disadvantages clients and breaches loyalty."
+  },
+  {
+   "id": "q-eth-15",
+   "topic": "ethics",
+   "tag": "Conflicts of interest",
+   "level": 2,
+   "q": "Why does the valuation of illiquid assets create a conflict of interest for fund managers?",
+   "options": [
+    "Fees are often based on NAV, so managers benefit from higher reported values",
+    "Illiquid assets cannot legally be valued",
+    "Valuations are always performed by investors",
+    "Higher valuations reduce management fees"
+   ],
+   "answer": 0,
+   "explain": "Management and incentive fees often depend on NAV, so the manager benefits from overstating or smoothing illiquid values. Independent valuation reduces this conflict."
+  },
+  {
+   "id": "q-eth-16",
+   "topic": "ethics",
+   "tag": "Conflicts of interest",
+   "level": 3,
+   "q": "In a GP-led continuation fund transaction, the main ethical concern is that:",
+   "options": [
+    "The GP acts as both seller (old fund) and buyer (new vehicle), so the transfer price may not be fair to selling LPs",
+    "LPs are forced to sell at a premium",
+    "The new fund cannot charge any fees",
+    "Secondary buyers have no access to information"
+   ],
+   "answer": 0,
+   "explain": "The GP is on **both sides** of the transaction and sets or influences the transfer price. Good practice: a fairness opinion, a competitive bidding process, full information and a genuine choice to sell or roll over."
+  },
+  {
+   "id": "q-eth-17",
+   "topic": "ethics",
+   "tag": "Conflicts of interest",
+   "level": 2,
+   "q": "A hedge fund grants one large investor monthly liquidity and full position transparency through an undisclosed side letter, while other investors have quarterly liquidity. The main concern is that:",
+   "options": [
+    "Other investors may be disadvantaged, e.g., if the favored investor redeems first in a crisis",
+    "Side letters are illegal in all jurisdictions",
+    "The large investor will pay higher fees",
+    "It reduces the manager’s incentive fee"
+   ],
+   "answer": 0,
+   "explain": "An undisclosed side letter with better liquidity and information lets one investor exit before others in a crisis, leaving the remaining investors to bear the costs. It should at least be disclosed, and investors treated fairly."
+  },
+  {
+   "id": "q-eth-18",
+   "topic": "ethics",
+   "tag": "MNPI",
+   "level": 1,
+   "q": "During due diligence on a private loan, an analyst learns that a listed company in the same group will announce a large loss next week. The analyst should:",
+   "options": [
+    "Not trade or recommend trades in the listed securities and inform compliance",
+    "Sell the listed shares before the announcement",
+    "Share the information with key clients only",
+    "Trade only if the position is small"
+   ],
+   "answer": 0,
+   "explain": "This is **material non-public information**: the analyst must not trade or pass it on. The right step is to inform compliance, which may put the security on a restricted list."
+  },
+  {
+   "id": "q-eth-19",
+   "topic": "ethics",
+   "tag": "Risk management",
+   "level": 2,
+   "q": "An allocator selects a hedge fund based only on its track record, without checking its administrator, auditor or custody arrangements. This mainly violates:",
+   "options": [
+    "Professional work (research and due diligence)",
+    "Partnership",
+    "High standards of conduct",
+    "The duty of impartiality"
+   ],
+   "answer": 0,
+   "explain": "Ignoring operational due diligence (administrator, auditor, custody) is a failure of **professional work** — thorough research, due diligence and holistic risk understanding. Many frauds (e.g., Madoff) would have been flagged this way."
+  },
+  {
+   "id": "q-eth-20",
+   "topic": "ethics",
+   "tag": "Principles framework",
+   "level": 2,
+   "q": "A manager argues that a practice is ethical because it is not prohibited by any law or by the fund’s limited partnership agreement. Under the CAIA principles, this argument is:",
+   "options": [
+    "Insufficient, because ethical conduct goes beyond legal compliance",
+    "Sufficient, because the LPA is the binding contract",
+    "Sufficient, if regulators have been informed",
+    "Irrelevant, because ethics only apply to individuals"
+   ],
+   "answer": 0,
+   "explain": "Legal is not the same as ethical. A principles-based approach asks you to respect the spirit of ethical conduct, not merely to avoid breaking the law or the contract."
+  },
+  {
+   "id": "q-eth-21",
+   "topic": "ethics",
+   "tag": "Ethics & stakeholders",
+   "level": 2,
+   "q": "Principle 1 (ethical and professional behavior) asks investment professionals to:",
+   "options": [
+    "Keep client interests first while also considering wider stakeholders such as employees, communities and the environment",
+    "Maximize short-term returns regardless of external effects",
+    "Defer all ethical questions to the compliance department",
+    "Prioritize the firm’s reputation over client outcomes"
+   ],
+   "answer": 0,
+   "explain": "The first principle combines **client interests first** with care for wider stakeholders (sustainability, human capital, society)."
+  },
+  {
+   "id": "q-eth-22",
+   "topic": "ethics",
+   "tag": "Continuous improvement",
+   "level": 1,
+   "q": "A portfolio manager has not updated her knowledge of digital asset custody risks in five years but continues to advise clients on crypto allocations. Which principle is she neglecting?",
+   "options": [
+    "Continued learning",
+    "Partnership",
+    "The duty of impartiality",
+    "Collaboration"
+   ],
+   "answer": 0,
+   "explain": "Advising on a fast-changing area without updating one’s knowledge contradicts **continued learning** (maintaining competence)."
+  }
+ ]
 }

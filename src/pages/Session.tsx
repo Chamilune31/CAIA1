@@ -11,9 +11,9 @@ import { getProgress, getSettings } from '../lib/store'
 import { TOPICS } from '../topics'
 import type { Question, TopicId } from '../types'
 
-const STEPS = ['Flashcards', 'QCM', 'Calculs'] as const
+const STEPS = ['Flashcards', 'Questions', 'Calculations'] as const
 
-/** Construit la séance : erreurs à reprendre, topic du moment, et topics faibles (< 70 %). */
+/** Builds the session: mistakes to retry, the current focus topic, and weak topics (< 70%). */
 function buildSession() {
   const p = getProgress()
   const plan = studyPlan(getSettings().examDate)
@@ -37,41 +37,41 @@ function buildSession() {
   return { qs, cards, gens }
 }
 
-export default function Seance() {
+export default function Session() {
   const session = useMemo(buildSession, [])
   const [step, setStep] = useState(session.cards.length ? 0 : 1)
   const [calcIdx, setCalcIdx] = useState(0)
 
   return (
     <div className="stack narrow">
-      <PageHead kicker="Séance du jour" title={step < 3 ? STEPS[step] : 'Séance terminée'} />
-      <ol className="stepper">
+      <PageHead back={{ to: '/', label: 'Today' }} title={step < 3 ? `Today’s session: ${STEPS[step].toLowerCase()}` : 'Session complete'} />
+      <ol className="stepper" aria-label="Session steps">
         {STEPS.map((s, i) => (
-          <li key={s} className={i < step ? 'done' : i === step ? 'cur' : ''}>
-            {s}
+          <li key={s} className={i < step ? 'done' : i === step ? 'cur' : ''} aria-current={i === step ? 'step' : undefined}>
+            {i + 1}. {s}
           </li>
         ))}
       </ol>
       {step === 0 && <Deck cards={session.cards} onDone={() => setStep(1)} />}
-      {step === 1 && <Practice questions={session.qs} onDone={() => setStep(2)} title="QCM du jour" />}
+      {step === 1 && <Practice questions={session.qs} onDone={() => setStep(2)} title="Today’s questions" />}
       {step === 2 && (
         <CalcBox
           key={calcIdx}
           gen={session.gens[calcIdx]}
-          nextLabel={calcIdx + 1 < session.gens.length ? 'Calcul suivant' : 'Terminer'}
+          nextLabel={calcIdx + 1 < session.gens.length ? 'Next calculation' : 'Finish session'}
           onNext={() => (calcIdx + 1 < session.gens.length ? setCalcIdx(calcIdx + 1) : setStep(3))}
         />
       )}
       {step === 3 && (
         <div className="card result">
-          <div className="big-score">✓</div>
-          <p>Bravo, séance terminée. Tu peux continuer avec un examen blanc ou une fiche.</p>
-          <div className="row">
+          <h2>Done for today</h2>
+          <p>Your answers are saved and your reviews are scheduled. Keep going with a mock exam, or read a note.</p>
+          <div className="row wrap">
             <button className="btn primary" onClick={() => go('/')}>
-              Accueil
+              Back to today
             </button>
-            <button className="btn" onClick={() => go('/examen')}>
-              Examen blanc
+            <button className="btn" onClick={() => go('/exam')}>
+              Take a mock exam
             </button>
           </div>
         </div>

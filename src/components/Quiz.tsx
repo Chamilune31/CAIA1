@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { recordExam, recordQuestion } from '../lib/store'
+import { nextNote } from '../lib/plan'
+import { href } from '../lib/router'
+import { getProgress, recordExam, recordQuestion } from '../lib/store'
 import { TOPIC } from '../topics'
 import type { ExamRecord, Question, TopicId } from '../types'
 import { Rich } from './Rich'
-import { Bar, TopicTag } from './ui'
+import { Bar, Modal, TopicTag } from './ui'
 
 const L = ['A', 'B', 'C', 'D', 'E']
 
@@ -16,7 +18,22 @@ const shuffleIdx = (n: number) => {
   return a
 }
 
-/* ================= Mode entraînement : correction immédiate ================= */
+function TopicScores({ byTopic }: { byTopic: Partial<Record<TopicId, [number, number]>> }) {
+  return (
+    <ul className="topic-results">
+      {Object.entries(byTopic).map(([t, v]) => (
+        <li key={t}>
+          <TopicTag id={t as TopicId} long link />
+          <b className={v![0] / v![1] >= 0.7 ? '' : 'bad-text'}>
+            {v![0]}/{v![1]}
+          </b>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+/* ================= Practice: instant feedback ================= */
 export function Practice({ questions, onDone, title }: { questions: Question[]; onDone?: () => void; title?: string }) {
   const orders = useMemo(() => questions.map((q) => shuffleIdx(q.options.length)), [questions])
   const [i, setI] = useState(0)
@@ -35,15 +52,16 @@ export function Practice({ questions, onDone, title }: { questions: Question[]; 
   const next = () => {
     setPicked(null)
     setI((x) => x + 1)
+    window.scrollTo({ top: 0 })
   }
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (done || (e.target as HTMLElement)?.tagName === 'INPUT') return
+      if (done || ['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) return
       const k = e.key.toUpperCase()
-      const idx = ['1', '2', '3', '4'].indexOf(k) >= 0 ? +k - 1 : L.indexOf(k)
+      const idx = ['1', '2', '3', '4'].includes(k) ? +k - 1 : L.indexOf(k)
       if (picked === null && idx >= 0 && idx < (q?.options.length ?? 0)) choose(orders[i][idx])
-      else if (picked !== null && (e.key === 'Enter' || e.key === ' ')) {
+      else if (picked !== null && e.key === 'Enter') {
         e.preventDefault()
         next()
       }
@@ -52,7 +70,7 @@ export function Practice({ questions, onDone, title }: { questions: Question[]; 
     return () => window.removeEventListener('keydown', onKey)
   })
 
-  if (!questions.length) return <div className="empty">Aucune question disponible pour ce choix.</div>
+  if (!questions.length) return <div className="empty">No questions match this selection yet.</div>
 
   if (done) {
     const ok = results.filter(Boolean).length
@@ -64,23 +82,17 @@ export function Practice({ questions, onDone, title }: { questions: Question[]; 
     })
     return (
       <div className="card result">
-        <p className="kicker">{title ?? 'Série terminée'}</p>
+        <h2>{title ?? 'Set complete'}</h2>
         <div className="big-score">
           {ok}
-          <span>/ {questions.length}</span>
+          <span> / {questions.length} correct</span>
         </div>
-        <Bar value={ok / questions.length} color={ok / questions.length >= 0.7 ? 'var(--ok)' : 'var(--bad)'} />
-        <ul className="topic-results">
-          {Object.entries(byTopic).map(([t, [a, b]]) => (
-            <li key={t}>
-              <TopicTag id={t as TopicId} /> {TOPIC[t as TopicId].fr} <b>{a}/{b}</b>
-            </li>
-          ))}
-        </ul>
-        <p className="muted small">Les questions ratées reviennent automatiquement dans 10 minutes, puis dans tes séances suivantes.</p>
+        <Bar value={ok / questions.length} color={ok / questions.length >= 0.7 ? 'var(--ok)' : 'var(--bad)'} label="Score" />
+        <TopicScores byTopic={byTopic} />
+        <p className="muted small">Missed questions come back in 10 minutes, then in your next sessions until you get them right.</p>
         {onDone && (
           <button className="btn primary" onClick={onDone}>
-            Continuer
+            Continue
           </button>
         )}
       </div>
@@ -90,18 +102,24 @@ export function Practice({ questions, onDone, title }: { questions: Question[]; 
   return (
     <div className="quiz">
       <div className="quiz-top">
-        <span className="muted">
-          Question {i + 1} / {questions.length}
+        <span>
+          Question {i + 1} of {questions.length}
         </span>
-        <Bar value={i / questions.length} />
+        <Bar value={i / questions.length} label="Progress through the set" />
       </div>
       <QuestionCard q={q} order={orders[i]} picked={picked} reveal={picked !== null} onPick={choose} />
-      {picked !== null && (
-        <div className="quiz-actions">
-          <button className="btn primary" onClick={next} autoFocus>
-            {i + 1 < questions.length ? 'Question suivante →' : 'Voir le résultat'}
+      {picked === null ? (
+        <p className="kbd">
+          Answer with <kbd>A</kbd>–<kbd>D</kbd> or <kbd>1</kbd>–<kbd>4</kbd>
+        </p>
+      ) : (
+        <div className="quiz-actions sticky">
+          <button className="btn primary big" onClick={next} autoFocus>
+            {i + 1 < questions.length ? 'Next question' : 'See results'}
           </button>
-          <span className="muted small kbd-hint">Entrée</span>
+          <span className="kbd">
+            <kbd>Enter</kbd>
+          </span>
         </div>
       )}
     </div>
@@ -121,26 +139,28 @@ export function QuestionCard({
   reveal: boolean
   onPick: (opt: number) => void
 }) {
+  const note = reveal && picked !== q.answer ? nextNote(getProgress(), q.topic) : null
   return (
     <article className="card qcard" style={{ ['--tc' as string]: TOPIC[q.topic].color }}>
       <div className="qmeta">
-        <TopicTag id={q.topic} />
-        <span className="muted small">{q.tag}</span>
-        {q.calc && <span className="pill">calcul</span>}
-        <span className="lvl" title="Difficulté">
-          {'●'.repeat(q.level)}
-          {'○'.repeat(3 - q.level)}
+        <TopicTag id={q.topic} long />
+        <span>{q.tag}</span>
+        {q.calc && <span className="pill">Calculation</span>}
+        <span className="lvl" title={`Difficulty ${q.level} of 3`} aria-label={`Difficulty ${q.level} of 3`}>
+          {[1, 2, 3].map((n) => (
+            <i key={n} className={n <= q.level ? 'on' : ''} />
+          ))}
         </span>
       </div>
-      <p className="qtext" lang="en">
+      <p className="qtext">
         <Rich text={q.q} />
       </p>
-      <ol className="options" lang="en">
+      <ol className="options">
         {order.map((o, k) => {
           const cls = reveal ? (o === q.answer ? 'right' : o === picked ? 'wrong' : 'dim') : picked === o ? 'sel' : ''
           return (
             <li key={o}>
-              <button className={`opt ${cls}`} onClick={() => onPick(o)} disabled={reveal}>
+              <button className={`opt ${cls}`} onClick={() => onPick(o)} disabled={reveal} aria-pressed={picked === o}>
                 <span className="letter">{L[k]}</span>
                 <span>
                   <Rich text={q.options[o]} />
@@ -151,22 +171,28 @@ export function QuestionCard({
         })}
       </ol>
       {reveal && (
-        <div className={`explain ${picked === q.answer ? 'ok' : picked === null ? '' : 'ko'}`}>
-          <b>{picked === null ? 'Non répondu' : picked === q.answer ? 'Bonne réponse' : 'Raté'}</b>
+        <div className={`explain ${picked === q.answer ? 'ok' : picked === null ? '' : 'ko'}`} role="status">
+          <b>{picked === null ? 'Not answered' : picked === q.answer ? 'Correct' : `Not quite — the answer is ${L[order.indexOf(q.answer)]}`}</b>
           <p>
             <Rich text={q.explain} />
           </p>
+          {note && (
+            <a className="link" href={href(`/note/${note.id}`)}>
+              Review: {note.title}
+            </a>
+          )}
         </div>
       )}
     </article>
   )
 }
 
-/* ================= Mode examen : chronométré, correction à la fin ================= */
+/* ================= Mock exam: timed, marked at the end ================= */
 const fmtTime = (s: number) => {
-  const m = Math.floor(Math.max(0, s) / 60)
+  const h = Math.floor(Math.max(0, s) / 3600)
+  const m = Math.floor((Math.max(0, s) % 3600) / 60)
   const ss = Math.floor(Math.max(0, s) % 60)
-  return `${m}:${String(ss).padStart(2, '0')}`
+  return `${h ? h + ':' + String(m).padStart(2, '0') : m}:${String(ss).padStart(2, '0')}`
 }
 
 export function Exam({ questions, limit, onExit }: { questions: Question[]; limit: number; onExit: () => void }) {
@@ -176,7 +202,8 @@ export function Exam({ questions, limit, onExit }: { questions: Question[]; limi
   const [i, setI] = useState(0)
   const [left, setLeft] = useState(limit)
   const [finished, setFinished] = useState<ExamRecord | null>(null)
-  const [reviewFilter, setReviewFilter] = useState<'all' | 'wrong'>('wrong')
+  const [confirm, setConfirm] = useState(false)
+  const [filter, setFilter] = useState<'wrong' | 'flagged' | 'all'>('wrong')
   const startRef = useRef(Date.now())
 
   useEffect(() => {
@@ -186,6 +213,7 @@ export function Exam({ questions, limit, onExit }: { questions: Question[]; limi
   }, [finished, limit])
 
   const submit = () => {
+    setConfirm(false)
     const byTopic: Partial<Record<TopicId, [number, number]>> = {}
     let correct = 0
     questions.forEach((q, k) => {
@@ -216,119 +244,109 @@ export function Exam({ questions, limit, onExit }: { questions: Question[]; limi
   }, [left, finished])
 
   if (finished) {
-    const pctScore = finished.correct / finished.total
-    const shown = questions.map((q, k) => ({ q, k })).filter(({ q, k }) => reviewFilter === 'all' || answers[k] !== q.answer)
+    const score = finished.correct / finished.total
+    const shown = questions
+      .map((q, k) => ({ q, k }))
+      .filter(({ q, k }) => filter === 'all' || (filter === 'wrong' ? answers[k] !== q.answer : flags[k]))
     return (
       <div className="stack">
         <div className="card result">
-          <p className="kicker">Examen blanc terminé</p>
+          <h2>Mock exam complete</h2>
           <div className="big-score">
-            {Math.round(pctScore * 100)}
+            {Math.round(score * 100)}
             <span>%</span>
           </div>
           <p className="muted">
-            {finished.correct} / {finished.total} bonnes réponses en {fmtTime(finished.seconds)} (limite {fmtTime(limit)})
+            {finished.correct} of {finished.total} correct in {fmtTime(finished.seconds)} (time allowed {fmtTime(limit)})
           </p>
-          <Bar value={pctScore} color={pctScore >= 0.7 ? 'var(--ok)' : 'var(--bad)'} />
-          <p className="small muted">
-            Repère : le CAIA ne publie pas de note de passage. Vise au moins 70 % en entraînement pour avoir de la marge.
-          </p>
-          <ul className="topic-results">
-            {Object.entries(finished.byTopic).map(([t, v]) => (
-              <li key={t}>
-                <TopicTag id={t as TopicId} /> {TOPIC[t as TopicId].fr}{' '}
-                <b>
-                  {v![0]}/{v![1]}
-                </b>
-              </li>
-            ))}
-          </ul>
+          <Bar value={score} color={score >= 0.7 ? 'var(--ok)' : 'var(--bad)'} label="Score" />
+          <p className="small muted">CAIA does not publish a pass mark. Aim for 70% or more in practice to give yourself a margin.</p>
+          <TopicScores byTopic={finished.byTopic} />
           <button className="btn" onClick={onExit}>
-            Retour
+            Back to mock exams
           </button>
         </div>
-        <div className="row between">
-          <h2>Correction</h2>
-          <div className="seg">
-            <button className={reviewFilter === 'wrong' ? 'on' : ''} onClick={() => setReviewFilter('wrong')}>
-              Erreurs
+        <div className="row between wrap">
+          <h2>Review</h2>
+          <div className="seg" role="group" aria-label="Filter the review">
+            <button className={filter === 'wrong' ? 'on' : ''} onClick={() => setFilter('wrong')}>
+              Mistakes
             </button>
-            <button className={reviewFilter === 'all' ? 'on' : ''} onClick={() => setReviewFilter('all')}>
-              Tout
+            <button className={filter === 'flagged' ? 'on' : ''} onClick={() => setFilter('flagged')}>
+              Flagged
+            </button>
+            <button className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')}>
+              All
             </button>
           </div>
         </div>
         {shown.map(({ q, k }) => (
-          <div key={q.id}>
+          <div key={q.id} className="stack tight">
             <p className="muted small">Question {k + 1}</p>
             <QuestionCard q={q} order={orders[k]} picked={answers[k]} reveal onPick={() => {}} />
           </div>
         ))}
-        {!shown.length && <div className="empty">Aucune erreur. Impressionnant.</div>}
+        {!shown.length && <div className="empty">{filter === 'wrong' ? 'No mistakes. Well done.' : 'Nothing to show for this filter.'}</div>}
       </div>
     )
   }
 
   const q = questions[i]
   const answered = answers.filter((a) => a !== null).length
+  const blank = questions.length - answered
   return (
     <div className="quiz exam">
       <div className="exam-bar">
-        <span className={`timer ${left < 300 ? 'late' : ''}`}>{fmtTime(left)}</span>
-        <span className="muted small">
-          {answered}/{questions.length} répondues
+        <span className={`timer ${left < 300 ? 'late' : ''}`} aria-label="Time left">
+          {fmtTime(left)}
         </span>
-        <button className="btn small" onClick={() => confirmSubmit(answers, submit)}>
-          Terminer
+        <span className="muted small">
+          {answered} of {questions.length} answered
+        </span>
+        <button className="btn small" onClick={() => (blank ? setConfirm(true) : submit())}>
+          Finish
         </button>
       </div>
-      <QuestionCard
-        q={q}
-        order={orders[i]}
-        picked={answers[i]}
-        reveal={false}
-        onPick={(o) => setAnswers((a) => a.map((x, k) => (k === i ? o : x)))}
-      />
+      <QuestionCard q={q} order={orders[i]} picked={answers[i]} reveal={false} onPick={(o) => setAnswers((a) => a.map((x, k) => (k === i ? o : x)))} />
       <div className="row between">
         <button className="btn" disabled={i === 0} onClick={() => setI(i - 1)}>
-          ← Précédente
+          Previous
         </button>
-        <button className={`btn ${flags[i] ? 'flagged' : ''}`} onClick={() => setFlags((f) => f.map((x, k) => (k === i ? !x : x)))}>
-          {flags[i] ? '⚑ Marquée' : '⚐ Marquer'}
+        <button className={`btn ${flags[i] ? 'flagged' : ''}`} aria-pressed={flags[i]} onClick={() => setFlags((f) => f.map((x, k) => (k === i ? !x : x)))}>
+          {flags[i] ? 'Flagged' : 'Flag for review'}
         </button>
         <button className="btn primary" disabled={i === questions.length - 1} onClick={() => setI(i + 1)}>
-          Suivante →
+          Next
         </button>
       </div>
-      <div className="grid-nav">
+      <div className="grid-nav" aria-label="Jump to question">
         {questions.map((_, k) => (
           <button
             key={k}
             className={`${k === i ? 'cur' : ''} ${answers[k] !== null ? 'done' : ''} ${flags[k] ? 'flag' : ''}`}
             onClick={() => setI(k)}
+            aria-label={`Question ${k + 1}${answers[k] !== null ? ', answered' : ''}${flags[k] ? ', flagged' : ''}`}
           >
             {k + 1}
           </button>
         ))}
       </div>
+      {confirm && (
+        <Modal label="Finish the exam?" onClose={() => setConfirm(false)}>
+          <h2>Finish the exam?</h2>
+          <p>
+            {blank} question{blank > 1 ? 's are' : ' is'} still unanswered. Unanswered questions count as wrong.
+          </p>
+          <div className="row">
+            <button className="btn primary" onClick={submit}>
+              Finish and mark
+            </button>
+            <button className="btn" onClick={() => setConfirm(false)} autoFocus>
+              Keep going
+            </button>
+          </div>
+        </Modal>
+      )}
     </div>
   )
-}
-
-function confirmSubmit(answers: (number | null)[], submit: () => void) {
-  const blank = answers.filter((a) => a === null).length
-  // Pas de window.confirm bloquant : un second clic confirme.
-  const btn = document.activeElement as HTMLButtonElement | null
-  if (blank && btn && btn.dataset.armed !== '1') {
-    btn.dataset.armed = '1'
-    btn.textContent = `${blank} sans réponse — confirmer ?`
-    setTimeout(() => {
-      if (btn) {
-        btn.dataset.armed = ''
-        btn.textContent = 'Terminer'
-      }
-    }, 4000)
-    return
-  }
-  submit()
 }

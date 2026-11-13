@@ -1,29 +1,29 @@
 import type { TopicId } from '../types'
 
-/* Exercices de calcul générés : chaque appel produit de nouveaux chiffres.
-   Convention de saisie : les pourcentages se tapent en % (ex. 7.25 pour 7,25 %). */
+/* Generated calculation drills: every call produces new numbers.
+   Input convention: percentages are typed in % (e.g. 7.25 for 7.25%). */
 
 export type Unit = '%' | '$' | 'x' | ''
 
 export interface CalcExercise {
-  prompt: string // énoncé en anglais
+  prompt: string
   answer: number
   unit: Unit
-  decimals: number // décimales affichées dans la correction
-  tol: number // tolérance absolue acceptée
-  steps: string[] // correction pas à pas (français)
+  decimals: number // decimals shown in the solution
+  tol: number // accepted absolute tolerance
+  steps: string[] // worked solution
 }
 
 export interface Generator {
   id: string
   topic: TopicId
-  title: string // nom anglais
-  fr: string
-  tex: string // formule clé
+  title: string
+  subtitle: string
+  tex: string // key formula
   make: (r: Rng) => CalcExercise
 }
 
-/* ---------- Hasard reproductible ---------- */
+/* ---------- Seeded randomness ---------- */
 export class Rng {
   private s: number
   constructor(seed = Math.floor(Math.random() * 2 ** 31)) {
@@ -35,7 +35,7 @@ export class Rng {
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296
   }
-  /** nombre entre a et b arrondi au pas */
+  /** number between a and b rounded to step */
   num(a: number, b: number, step = 1) {
     const n = Math.round((a + this.next() * (b - a)) / step) * step
     return +n.toFixed(6)
@@ -45,7 +45,7 @@ export class Rng {
   }
 }
 
-/* ---------- Mise en forme ---------- */
+/* ---------- Formatting ---------- */
 export const f = (x: number, d = 2) =>
   x.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d })
 const pct = (x: number, d = 2) => `${f(x * 100, d)}%`
@@ -67,12 +67,12 @@ const ex = (
   steps,
 })
 
-/** Vérifie une réponse saisie (accepte virgule, espaces, signe %). */
+/** Checks a typed answer (accepts commas, spaces, % and $ signs). */
 export const parseNumber = (raw: string) => {
   let s = raw.replace(/[\s$%x×  ']/gi, '').replace('−', '-')
   if (s.includes(',') && s.includes('.')) s = s.replace(/,/g, '')
   else if (/^-?[1-9]\d{0,2}(,\d{3})+$/.test(s)) s = s.replace(/,/g, '') // 1,234,567
-  else s = s.replace(',', '.') // 7,25 (virgule décimale)
+  else s = s.replace(',', '.') // 7,25 (decimal comma)
   const v = Number(s)
   return s === '' || !Number.isFinite(v) ? null : v
 }
@@ -83,14 +83,14 @@ export const checkAnswer = (e: CalcExercise, raw: string) => {
   return Math.abs(v - e.answer) <= e.tol + 1e-9
 }
 
-/* ---------- Générateurs ---------- */
+/* ---------- Generators ---------- */
 export const GENERATORS: Generator[] = [
   /* ===== Introduction ===== */
   {
     id: 'hpr',
     topic: 'intro',
     title: 'Holding period return',
-    fr: 'Rendement sur la période de détention',
+    subtitle: 'Return over the holding period, including income',
     tex: 'R = \\dfrac{P_1 - P_0 + D}{P_0}',
     make: (r) => {
       const p0 = r.num(40, 120, 0.5)
@@ -101,7 +101,7 @@ export const GENERATORS: Generator[] = [
         `An asset is bought at ${usd(p0, 2)}, pays an income of ${usd(d, 2)} during the year and is sold at ${usd(p1, 2)}. What is the holding period return (in %)?`,
         R * 100,
         '%',
-        [`Gain en capital : ${f(p1)} − ${f(p0)} = ${f(p1 - p0)}`, `Ajouter le revenu : ${f(p1 - p0)} + ${f(d)} = ${f(p1 - p0 + d)}`, `Diviser par le prix initial : ${f(p1 - p0 + d)} / ${f(p0)} = ${pct(R)}`],
+        [`Capital gain: ${f(p1)} − ${f(p0)} = ${f(p1 - p0)}`, `Add the income: ${f(p1 - p0)} + ${f(d)} = ${f(p1 - p0 + d)}`, `Divide by the starting price: ${f(p1 - p0 + d)} / ${f(p0)} = ${pct(R)}`],
       )
     },
   },
@@ -109,7 +109,7 @@ export const GENERATORS: Generator[] = [
     id: 'logret',
     topic: 'intro',
     title: 'Continuously compounded return',
-    fr: 'Rendement logarithmique (composé en continu)',
+    subtitle: 'Convert a simple return to a log return',
     tex: 'r = \\ln\\left(\\dfrac{P_1}{P_0}\\right) = \\ln(1+R)',
     make: (r) => {
       const R = r.num(-0.25, 0.4, 0.005)
@@ -118,7 +118,7 @@ export const GENERATORS: Generator[] = [
         `An asset has a simple (discrete) return of ${pct(R, 1)} over one period. What is its continuously compounded return (in %)?`,
         lr * 100,
         '%',
-        [`r = ln(1 + R) = ln(${f(1 + R, 3)})`, `r = ${pct(lr)}`, R > 0 ? 'Le rendement log est toujours inférieur au rendement simple quand R > 0.' : 'Pour R < 0, le rendement log est plus négatif que le rendement simple.'],
+        [`r = ln(1 + R) = ln(${f(1 + R, 3)})`, `r = ${pct(lr)}`, R > 0 ? 'When R > 0, the log return is always smaller than the simple return.' : 'When R < 0, the log return is more negative than the simple return.'],
       )
     },
   },
@@ -126,7 +126,7 @@ export const GENERATORS: Generator[] = [
     id: 'annualize',
     topic: 'intro',
     title: 'Annualized return',
-    fr: 'Rendement annualisé à partir d’un rendement cumulé',
+    subtitle: 'Geometric annual return from a cumulative return',
     tex: 'R_{ann} = (1 + R_{tot})^{1/T} - 1',
     make: (r) => {
       const T = r.pick([3, 4, 5, 6, 7, 8, 10])
@@ -136,7 +136,7 @@ export const GENERATORS: Generator[] = [
         `A fund returned a cumulative ${pct(tot, 0)} over ${T} years. What is its annualized (geometric) return (in %)?`,
         a * 100,
         '%',
-        [`(1 + ${f(tot)})^(1/${T}) − 1`, `= ${f(1 + tot, 2)}^(${f(1 / T, 4)}) − 1 = ${pct(a)}`, 'Piège : diviser par T (moyenne arithmétique) surestime le rendement.'],
+        [`(1 + ${f(tot)})^(1/${T}) − 1`, `= ${f(1 + tot, 2)}^(${f(1 / T, 4)}) − 1 = ${pct(a)}`, 'Trap: dividing the total by T (arithmetic average) overstates the annual return.'],
       )
     },
   },
@@ -144,7 +144,7 @@ export const GENERATORS: Generator[] = [
     id: 'sharpe',
     topic: 'intro',
     title: 'Sharpe ratio',
-    fr: 'Ratio de Sharpe',
+    subtitle: 'Excess return per unit of total risk',
     tex: 'S = \\dfrac{R_p - R_f}{\\sigma_p}',
     make: (r) => {
       const rp = r.num(0.04, 0.16, 0.001)
@@ -155,7 +155,7 @@ export const GENERATORS: Generator[] = [
         `A hedge fund earned an annual return of ${pct(rp, 1)} with a volatility of ${pct(s, 1)}. The risk-free rate is ${pct(rf, 2)}. Compute the Sharpe ratio.`,
         v,
         '',
-        [`Prime de risque : ${pct(rp, 1)} − ${pct(rf, 2)} = ${pct(rp - rf)}`, `Diviser par la volatilité totale : ${f((rp - rf) * 100)} / ${f(s * 100, 1)} = ${f(v, 3)}`],
+        [`Excess return: ${pct(rp, 1)} − ${pct(rf, 2)} = ${pct(rp - rf)}`, `Divide by total volatility: ${f((rp - rf) * 100)} / ${f(s * 100, 1)} = ${f(v, 3)}`],
         3,
         0.005,
       )
@@ -165,7 +165,7 @@ export const GENERATORS: Generator[] = [
     id: 'sortino',
     topic: 'intro',
     title: 'Sortino ratio',
-    fr: 'Ratio de Sortino',
+    subtitle: 'Excess return per unit of downside risk',
     tex: '\\text{Sortino} = \\dfrac{R_p - R_{target}}{TSV^{1/2}}',
     make: (r) => {
       const rp = r.num(0.05, 0.15, 0.001)
@@ -176,7 +176,7 @@ export const GENERATORS: Generator[] = [
         `A fund has an average annual return of ${pct(rp, 1)}. The target (minimum acceptable) return is ${pct(tgt, 1)} and the downside deviation (square root of target semivariance) is ${pct(dd, 2)}. Compute the Sortino ratio.`,
         v,
         '',
-        [`Rendement excédentaire sur la cible : ${pct(rp, 1)} − ${pct(tgt, 1)} = ${pct(rp - tgt)}`, `Diviser par l’écart à la baisse : ${f((rp - tgt) * 100)} / ${f(dd * 100)} = ${f(v, 3)}`, 'Le Sortino ne pénalise que la volatilité sous la cible.'],
+        [`Return above target: ${pct(rp, 1)} − ${pct(tgt, 1)} = ${pct(rp - tgt)}`, `Divide by downside deviation: ${f((rp - tgt) * 100)} / ${f(dd * 100)} = ${f(v, 3)}`, 'Sortino only penalizes volatility below the target.'],
         3,
         0.005,
       )
@@ -186,7 +186,7 @@ export const GENERATORS: Generator[] = [
     id: 'treynor',
     topic: 'intro',
     title: 'Treynor ratio',
-    fr: 'Ratio de Treynor',
+    subtitle: 'Excess return per unit of beta',
     tex: 'T = \\dfrac{R_p - R_f}{\\beta_p}',
     make: (r) => {
       const rp = r.num(0.05, 0.15, 0.001)
@@ -197,7 +197,7 @@ export const GENERATORS: Generator[] = [
         `A portfolio returned ${pct(rp, 1)} with a beta of ${f(b)}. The risk-free rate is ${pct(rf, 2)}. What is the Treynor ratio (in %)?`,
         v * 100,
         '%',
-        [`(${pct(rp, 1)} − ${pct(rf, 2)}) / ${f(b)}`, `= ${pct(rp - rf)} / ${f(b)} = ${pct(v)}`, 'Treynor divise par le bêta (risque systématique), pas par la volatilité.'],
+        [`(${pct(rp, 1)} − ${pct(rf, 2)}) / ${f(b)}`, `= ${pct(rp - rf)} / ${f(b)} = ${pct(v)}`, 'Treynor divides by beta (systematic risk), not by volatility.'],
       )
     },
   },
@@ -205,7 +205,7 @@ export const GENERATORS: Generator[] = [
     id: 'jensen',
     topic: 'intro',
     title: 'Jensen’s alpha (CAPM)',
-    fr: 'Alpha de Jensen',
+    subtitle: 'Return above the CAPM requirement',
     tex: '\\alpha = R_p - [R_f + \\beta (R_m - R_f)]',
     make: (r) => {
       const rp = r.num(0.04, 0.16, 0.001)
@@ -218,7 +218,7 @@ export const GENERATORS: Generator[] = [
         `A manager's portfolio returned ${pct(rp, 1)} over the year. Its beta to the market is ${f(b)}, the market returned ${pct(rm, 2)} and the risk-free rate was ${pct(rf, 2)}. What is Jensen's alpha (in %)?`,
         a * 100,
         '%',
-        [`Rendement exigé (CAPM) : ${pct(rf, 2)} + ${f(b)} × (${pct(rm, 2)} − ${pct(rf, 2)}) = ${pct(req)}`, `Alpha : ${pct(rp, 1)} − ${pct(req)} = ${pct(a)}`],
+        [`Required return (CAPM): ${pct(rf, 2)} + ${f(b)} × (${pct(rm, 2)} − ${pct(rf, 2)}) = ${pct(req)}`, `Alpha: ${pct(rp, 1)} − ${pct(req)} = ${pct(a)}`],
       )
     },
   },
@@ -226,7 +226,7 @@ export const GENERATORS: Generator[] = [
     id: 'ir',
     topic: 'intro',
     title: 'Information ratio',
-    fr: 'Ratio d’information',
+    subtitle: 'Active return per unit of tracking error',
     tex: 'IR = \\dfrac{R_p - R_b}{TE}',
     make: (r) => {
       const rp = r.num(0.04, 0.14, 0.001)
@@ -237,7 +237,7 @@ export const GENERATORS: Generator[] = [
         `A fund returned ${pct(rp, 1)} while its benchmark returned ${pct(rb, 1)}. The tracking error is ${pct(te, 2)}. Compute the information ratio.`,
         v,
         '',
-        [`Rendement actif : ${pct(rp, 1)} − ${pct(rb, 1)} = ${pct(rp - rb)}`, `Diviser par la tracking error : ${f((rp - rb) * 100)} / ${f(te * 100)} = ${f(v, 3)}`],
+        [`Active return: ${pct(rp, 1)} − ${pct(rb, 1)} = ${pct(rp - rb)}`, `Divide by tracking error: ${f((rp - rb) * 100)} / ${f(te * 100)} = ${f(v, 3)}`],
         3,
         0.005,
       )
@@ -247,7 +247,7 @@ export const GENERATORS: Generator[] = [
     id: 'var',
     topic: 'intro',
     title: 'Parametric Value at Risk',
-    fr: 'VaR paramétrique (loi normale)',
+    subtitle: 'Normal-distribution VaR with time scaling',
     tex: '\\text{VaR} = (z\\,\\sigma\\sqrt{T} - \\mu T)\\times V',
     make: (r) => {
       const conf = r.pick([
@@ -257,9 +257,9 @@ export const GENERATORS: Generator[] = [
       const V = r.num(5, 200, 5) * 1e6
       const sigA = r.num(0.1, 0.35, 0.01)
       const horizon = r.pick([
-        ['one day', 1 / 250, 'σ quotidienne = σ annuelle / √250'],
-        ['one week', 1 / 52, 'σ hebdo = σ annuelle / √52'],
-        ['one month', 1 / 12, 'σ mensuelle = σ annuelle / √12'],
+        ['one day', 1 / 250, 'Daily σ = annual σ / √250'],
+        ['one week', 1 / 52, 'Weekly σ = annual σ / √52'],
+        ['one month', 1 / 12, 'Monthly σ = annual σ / √12'],
       ] as const)
       const s = sigA * Math.sqrt(horizon[1])
       const v = conf[1] * s * V
@@ -267,7 +267,7 @@ export const GENERATORS: Generator[] = [
         `A portfolio worth ${usd(V)} has an annual volatility of ${pct(sigA, 0)}. Assuming normally distributed returns with a zero expected return, what is the ${conf[0]}% ${horizon[0]} VaR (in $, z = ${conf[1]})?`,
         v,
         '$',
-        [`${horizon[2]} : ${pct(sigA, 0)} × √${f(horizon[1], 5)} = ${pct(s, 3)}`, `VaR = ${conf[1]} × ${pct(s, 3)} × ${usd(V)} = ${usd(v)}`, 'Règle de la racine du temps : σ croît avec √T (rendements i.i.d.).'],
+        [`${horizon[2]} : ${pct(sigA, 0)} × √${f(horizon[1], 5)} = ${pct(s, 3)}`, `VaR = ${conf[1]} × ${pct(s, 3)} × ${usd(V)} = ${usd(v)}`, 'Square-root-of-time rule: σ grows with √T if returns are i.i.d.'],
         0,
         Math.max(1, v * 0.006),
       )
@@ -277,7 +277,7 @@ export const GENERATORS: Generator[] = [
     id: 'beta',
     topic: 'intro',
     title: 'Beta from correlation',
-    fr: 'Bêta à partir de la corrélation',
+    subtitle: 'Beta from correlation and volatilities',
     tex: '\\beta = \\dfrac{\\text{Cov}(R_i, R_m)}{\\sigma_m^2} = \\rho_{i,m}\\dfrac{\\sigma_i}{\\sigma_m}',
     make: (r) => {
       const rho = r.num(0.2, 0.9, 0.05)
@@ -298,7 +298,7 @@ export const GENERATORS: Generator[] = [
     id: 'unsmooth',
     topic: 'intro',
     title: 'Unsmoothing reported returns',
-    fr: 'Désaisonnalisation (unsmoothing) des rendements lissés',
+    subtitle: 'Recover true returns from smoothed ones',
     tex: 'R_{t,true} = \\dfrac{R_{t,rep} - \\rho\\, R_{t-1,rep}}{1 - \\rho}',
     make: (r) => {
       const rho = r.num(0.3, 0.7, 0.05)
@@ -309,7 +309,7 @@ export const GENERATORS: Generator[] = [
         `An appraisal-based real estate index reports ${pct(rt, 1)} this quarter and ${pct(r1, 1)} last quarter. The first-order autocorrelation is ${f(rho)}. Estimate this quarter's unsmoothed (true) return (in %).`,
         v * 100,
         '%',
-        [`Numérateur : ${pct(rt, 1)} − ${f(rho)} × ${pct(r1, 1)} = ${pct(rt - rho * r1)}`, `Diviser par (1 − ${f(rho)}) = ${f(1 - rho)} → ${pct(v)}`, 'Le rendement désaisonnalisé est plus volatil que le rendement publié.'],
+        [`Numerator: ${pct(rt, 1)} − ${f(rho)} × ${pct(r1, 1)} = ${pct(rt - rho * r1)}`, `Divide by (1 − ${f(rho)}) = ${f(1 - rho)} → ${pct(v)}`, 'Unsmoothed returns are more volatile than reported returns.'],
       )
     },
   },
@@ -317,7 +317,7 @@ export const GENERATORS: Generator[] = [
     id: 'pvol',
     topic: 'intro',
     title: 'Two-asset portfolio volatility',
-    fr: 'Volatilité d’un portefeuille à deux actifs',
+    subtitle: 'Adding a volatile alternative to a portfolio',
     tex: '\\sigma_p = \\sqrt{w_1^2\\sigma_1^2 + w_2^2\\sigma_2^2 + 2w_1w_2\\rho\\,\\sigma_1\\sigma_2}',
     make: (r) => {
       const w2 = r.num(0.02, 0.3, 0.01)
@@ -331,7 +331,7 @@ export const GENERATORS: Generator[] = [
         `A portfolio holds ${pct(w1, 0)} in a 60/40 portfolio (volatility ${pct(s1, 0)}) and ${pct(w2, 0)} in ${alt} (volatility ${pct(s2, 0)}). The correlation is ${f(rho)}. What is the portfolio volatility (in %)?`,
         v * 100,
         '%',
-        [`w1²σ1² = ${f(w1 ** 2 * s1 ** 2, 5)} ; w2²σ2² = ${f(w2 ** 2 * s2 ** 2, 5)}`, `2·w1·w2·ρ·σ1·σ2 = ${f(2 * w1 * w2 * rho * s1 * s2, 5)}`, `Variance = ${f(v * v, 5)} → σp = ${pct(v)}`],
+        [`w1²σ1² = ${f(w1 ** 2 * s1 ** 2, 5)} ; w2²σ2² = ${f(w2 ** 2 * s2 ** 2, 5)}`, `2·w1·w2·ρ·σ1·σ2 = ${f(2 * w1 * w2 * rho * s1 * s2, 5)}`, `Variance = ${f(v * v, 5)}, so σp = ${pct(v)}`],
       )
     },
   },
@@ -339,7 +339,7 @@ export const GENERATORS: Generator[] = [
     id: 'hfee',
     topic: 'intro',
     title: 'Incentive fee with high-water mark',
-    fr: 'Commission de performance avec high-water mark',
+    subtitle: 'Fees after management fee, HWM and hurdle',
     tex: '\\text{Incentive} = k \\times \\max(0,\\ NAV_{\\text{after mgmt fee}} - \\max(HWM, \\text{hurdle level}))',
     make: (r) => {
       const nav0 = r.num(80, 120, 1) * 1e6
@@ -357,10 +357,10 @@ export const GENERATORS: Generator[] = [
         fee,
         '$',
         [
-          `NAV brute : ${usd(nav0)} × ${f(1 + gross, 3)} = ${usd(navG)}`,
-          `Après frais de gestion (${usd(mf * nav0)}) : ${usd(navM)}`,
-          `Seuil : ${hurdle ? `max(HWM ${usd(hwm)}, hurdle ${usd(nav0 * (1 + hurdle))}) = ` : 'HWM = '}${usd(base)}`,
-          fee > 0 ? `Commission : ${pct(k, 0)} × (${usd(navM)} − ${usd(base)}) = ${usd(fee)}` : 'NAV sous le seuil → aucune commission de performance.',
+          `Gross NAV: ${usd(nav0)} × ${f(1 + gross, 3)} = ${usd(navG)}`,
+          `After the management fee (${usd(mf * nav0)}): ${usd(navM)}`,
+          `Threshold: ${hurdle ? `max(HWM ${usd(hwm)}, hurdle ${usd(nav0 * (1 + hurdle))}) = ` : 'HWM = '}${usd(base)}`,
+          fee > 0 ? `Incentive fee: ${pct(k, 0)} × (${usd(navM)} − ${usd(base)}) = ${usd(fee)}` : 'NAV is below the threshold, so no incentive fee is earned.',
         ],
         0,
         Math.max(1000, fee * 0.003),
@@ -373,7 +373,7 @@ export const GENERATORS: Generator[] = [
     id: 'caprate',
     topic: 'real',
     title: 'Property value from cap rate',
-    fr: 'Valeur d’un immeuble par le taux de capitalisation',
+    subtitle: 'Direct capitalization of NOI',
     tex: 'V = \\dfrac{NOI}{\\text{cap rate}}, \\quad NOI = \\text{revenus} - \\text{charges d’exploitation}',
     make: (r) => {
       const rent = r.num(2, 12, 0.1) * 1e6
@@ -385,7 +385,7 @@ export const GENERATORS: Generator[] = [
         `An office building generates gross rental income of ${usd(rent)} per year and operating expenses of ${usd(opex)} (excluding debt service and depreciation). The market cap rate is ${pct(cap, 2)}. Estimate the property value (in $).`,
         V,
         '$',
-        [`NOI = ${usd(rent)} − ${usd(opex)} = ${usd(noi)}`, `V = ${usd(noi)} / ${pct(cap, 2)} = ${usd(V)}`, 'Le service de la dette et l’amortissement ne sont pas déduits du NOI.'],
+        [`NOI = ${usd(rent)} − ${usd(opex)} = ${usd(noi)}`, `V = ${usd(noi)} / ${pct(cap, 2)} = ${usd(V)}`, 'Debt service and depreciation are not deducted from NOI.'],
         0,
         Math.max(500, V * 0.003),
       )
@@ -395,7 +395,7 @@ export const GENERATORS: Generator[] = [
     id: 'dscr',
     topic: 'real',
     title: 'Debt service coverage ratio',
-    fr: 'Ratio de couverture du service de la dette',
+    subtitle: 'NOI relative to mortgage payments',
     tex: 'DSCR = \\dfrac{NOI}{\\text{annual debt service}}',
     make: (r) => {
       const noi = r.num(0.8, 6, 0.05) * 1e6
@@ -405,7 +405,7 @@ export const GENERATORS: Generator[] = [
         `A property produces a NOI of ${usd(noi)}. Annual mortgage payments (interest + principal) are ${usd(ds)}. What is the DSCR?`,
         v,
         'x',
-        [`DSCR = ${usd(noi)} / ${usd(ds)} = ${f(v, 2)}x`, 'Les prêteurs exigent en général un DSCR supérieur à 1,2–1,3x.'],
+        [`DSCR = ${usd(noi)} / ${usd(ds)} = ${f(v, 2)}x`, 'Lenders typically require a DSCR of at least 1.2–1.3x.'],
         2,
         0.01,
       )
@@ -415,7 +415,7 @@ export const GENERATORS: Generator[] = [
     id: 'mortgage',
     topic: 'real',
     title: 'Fixed-rate mortgage payment',
-    fr: 'Mensualité d’un prêt hypothécaire à taux fixe',
+    subtitle: 'Monthly payment on a fully amortizing loan',
     tex: 'PMT = \\dfrac{P\\, i}{1 - (1+i)^{-n}}',
     make: (r) => {
       const P = r.num(200, 900, 10) * 1e3
@@ -428,7 +428,7 @@ export const GENERATORS: Generator[] = [
         `A borrower takes a ${years}-year fully amortizing fixed-rate mortgage of ${usd(P)} at an annual rate of ${pct(rate, 2)}, with monthly payments. What is the monthly payment (in $)?`,
         pmt,
         '$',
-        [`i = ${pct(rate, 2)} / 12 = ${pct(i, 4)} ; n = ${n} mois`, `PMT = ${usd(P)} × ${f(i, 6)} / (1 − (1 + ${f(i, 6)})^−${n})`, `PMT = ${usd(pmt, 2)}`, 'Calculatrice : N, I/Y, PV, puis CPT PMT.'],
+        [`i = ${pct(rate, 2)} / 12 = ${pct(i, 4)}; n = ${n} months`, `PMT = ${usd(P)} × ${f(i, 6)} / (1 − (1 + ${f(i, 6)})^−${n})`, `PMT = ${usd(pmt, 2)}`, 'Calculator: enter N, I/Y, PV, then CPT PMT.'],
         2,
         Math.max(1, pmt * 0.002),
       )
@@ -438,7 +438,7 @@ export const GENERATORS: Generator[] = [
     id: 'carry',
     topic: 'real',
     title: 'Futures price (cost of carry)',
-    fr: 'Prix à terme d’une matière première (coût de portage)',
+    subtitle: 'Arbitrage-free futures price with storage and convenience yield',
     tex: 'F = S\\, e^{(r + c - y)T}',
     make: (r) => {
       const S = r.num(40, 120, 0.5)
@@ -451,7 +451,7 @@ export const GENERATORS: Generator[] = [
         `A commodity trades at a spot price of ${usd(S, 2)}. The risk-free rate is ${pct(rf, 2)}, storage costs are ${pct(c, 2)} and the convenience yield is ${pct(y, 1)} (all continuously compounded, per year). What is the arbitrage-free futures price for delivery in ${T * 12} months (in $)?`,
         F,
         '$',
-        [`Coût net de portage : ${pct(rf, 2)} + ${pct(c, 2)} − ${pct(y, 1)} = ${pct(rf + c - y)}`, `F = ${f(S)} × e^(${f(rf + c - y, 4)} × ${T}) = ${usd(F, 2)}`, F > S ? 'F > S : marché en contango.' : 'F < S : marché en backwardation (convenience yield élevé).'],
+        [`Net cost of carry: ${pct(rf, 2)} + ${pct(c, 2)} − ${pct(y, 1)} = ${pct(rf + c - y)}`, `F = ${f(S)} × e^(${f(rf + c - y, 4)} × ${T}) = ${usd(F, 2)}`, F > S ? 'F > S: the market is in contango.' : 'F < S: the market is in backwardation (high convenience yield).'],
         2,
         0.02,
       )
@@ -461,7 +461,7 @@ export const GENERATORS: Generator[] = [
     id: 'cmdret',
     topic: 'real',
     title: 'Collateralized futures return',
-    fr: 'Décomposition du rendement d’un indice de matières premières',
+    subtitle: 'Spot + roll + collateral',
     tex: 'R_{total} = R_{spot} + R_{roll} + R_{collateral}',
     make: (r) => {
       const spot = r.num(-0.1, 0.15, 0.005)
@@ -472,7 +472,7 @@ export const GENERATORS: Generator[] = [
         `Over a year, the spot prices in a fully collateralized commodity futures index changed by ${pct(spot, 1)}. The index experienced a roll yield of ${pct(roll, 1)}, and the collateral earned ${pct(coll, 2)}. What is the approximate total return of the index (in %)?`,
         tot * 100,
         '%',
-        [`${pct(spot, 1)} + ${pct(roll, 1)} + ${pct(coll, 2)} = ${pct(tot)}`, roll < 0 ? 'Roll yield négatif : courbe en contango.' : 'Roll yield positif : courbe en backwardation.'],
+        [`${pct(spot, 1)} + ${pct(roll, 1)} + ${pct(coll, 2)} = ${pct(tot)}`, roll < 0 ? 'Negative roll yield: the curve is in contango.' : 'Positive roll yield: the curve is in backwardation.'],
       )
     },
   },
@@ -482,7 +482,7 @@ export const GENERATORS: Generator[] = [
     id: 'vc',
     topic: 'pe',
     title: 'Venture capital method',
-    fr: 'Méthode du capital-risque (valorisation post-money)',
+    subtitle: 'Required ownership from exit value and target return',
     tex: 'V_{post} = \\dfrac{V_{exit}}{(1+r)^T}, \\quad \\text{ownership} = \\dfrac{I}{V_{post}}',
     make: (r) => {
       const exit = r.num(50, 400, 10) * 1e6
@@ -495,7 +495,7 @@ export const GENERATORS: Generator[] = [
         `A VC fund invests ${usd(I)} in a start-up expected to be worth ${usd(exit)} at exit in ${T} years. The VC's target rate of return is ${pct(tr, 0)}. Assuming no further dilution, what ownership stake (in %) must the VC receive?`,
         own * 100,
         '%',
-        [`Post-money = ${usd(exit)} / ${f(1 + tr)}^${T} = ${usd(post)}`, `Part = ${usd(I)} / ${usd(post)} = ${pct(own)}`, `Pré-money = post − investissement = ${usd(post - I)}`],
+        [`Post-money = ${usd(exit)} / ${f(1 + tr)}^${T} = ${usd(post)}`, `Ownership = ${usd(I)} / ${usd(post)} = ${pct(own)}`, `Pre-money = post-money − investment = ${usd(post - I)}`],
       )
     },
   },
@@ -503,7 +503,7 @@ export const GENERATORS: Generator[] = [
     id: 'multiples',
     topic: 'pe',
     title: 'TVPI, DPI and RVPI',
-    fr: 'Multiples TVPI, DPI et RVPI',
+    subtitle: 'Realized, unrealized and total multiples',
     tex: 'TVPI = DPI + RVPI = \\dfrac{\\text{distributions} + NAV}{\\text{paid-in capital}}',
     make: (r) => {
       const paid = r.num(60, 100, 1) * 1e6
@@ -515,7 +515,7 @@ export const GENERATORS: Generator[] = [
         `A private equity fund has called ${usd(paid)} of capital from LPs. It has distributed ${usd(dist)} so far and its remaining NAV is ${usd(nav)}. What is the fund's ${which}?`,
         v,
         'x',
-        [`DPI = ${usd(dist)} / ${usd(paid)} = ${f(dist / paid)}x`, `RVPI = ${usd(nav)} / ${usd(paid)} = ${f(nav / paid)}x`, `TVPI = DPI + RVPI = ${f((dist + nav) / paid)}x`, `Réponse : ${which} = ${f(v)}x`],
+        [`DPI = ${usd(dist)} / ${usd(paid)} = ${f(dist / paid)}x`, `RVPI = ${usd(nav)} / ${usd(paid)} = ${f(nav / paid)}x`, `TVPI = DPI + RVPI = ${f((dist + nav) / paid)}x`, `Answer: ${which} = ${f(v)}x`],
         2,
         0.01,
       )
@@ -525,7 +525,7 @@ export const GENERATORS: Generator[] = [
     id: 'moicirr',
     topic: 'pe',
     title: 'IRR from a multiple (single cash flows)',
-    fr: 'TRI à partir d’un multiple (un seul flux d’entrée et de sortie)',
+    subtitle: 'IRR when there is one entry and one exit cash flow',
     tex: 'IRR = MOIC^{1/T} - 1',
     make: (r) => {
       const m = r.num(1.3, 4, 0.1)
@@ -535,7 +535,7 @@ export const GENERATORS: Generator[] = [
         `A buyout fund invests in a company and exits after ${T} years with a gross multiple of ${f(m, 1)}x. There are no interim cash flows. What is the gross IRR (in %)?`,
         irr * 100,
         '%',
-        [`IRR = ${f(m, 1)}^(1/${T}) − 1 = ${pct(irr)}`, 'Même multiple sur une durée plus longue → TRI plus faible.'],
+        [`IRR = ${f(m, 1)}^(1/${T}) − 1 = ${pct(irr)}`, 'The same multiple over a longer period gives a lower IRR.'],
       )
     },
   },
@@ -543,7 +543,7 @@ export const GENERATORS: Generator[] = [
     id: 'waterfall',
     topic: 'pe',
     title: 'European waterfall with catch-up',
-    fr: 'Cascade européenne (whole-of-fund) avec rattrapage intégral',
+    subtitle: 'GP carry after an 8% preferred return and full catch-up',
     tex: '\\text{Carry} = \\min\\big(k \\cdot \\text{Profit},\\ \\max(0, \\text{Profit} - H)\\big)',
     make: (r) => {
       const C = r.num(50, 200, 5) * 1e6
@@ -560,12 +560,12 @@ export const GENERATORS: Generator[] = [
         carry,
         '$',
         [
-          `Profit total = ${usd(D)} − ${usd(C)} = ${usd(P)}`,
-          `Preferred return aux LP = ${usd(C)} × (1,08^${T} − 1) = ${usd(H)}`,
-          `Carry « plein » = 20 % × profit = ${usd(k * P)}`,
-          `Disponible après le preferred return = ${usd(Math.max(0, P - H))}`,
+          `Total profit = ${usd(D)} − ${usd(C)} = ${usd(P)}`,
+          `Preferred return to LPs = ${usd(C)} × (1.08^${T} − 1) = ${usd(H)}`,
+          `Full carry = 20% × profit = ${usd(k * P)}`,
+          `Profit left after the preferred return = ${usd(Math.max(0, P - H))}`,
           `Carry = min(${usd(k * P)} ; ${usd(Math.max(0, P - H))}) = ${usd(carry)}`,
-          carry < k * P ? 'Le rattrapage n’est pas complet : le GP reçoit tout le surplus au-delà du hurdle.' : 'Le rattrapage est complet : le GP touche 20 % de tout le profit.',
+          carry < k * P ? 'The catch-up is not complete: the GP receives everything above the hurdle.' : 'The catch-up is complete: the GP earns 20% of the total profit.',
         ],
         0,
         Math.max(1000, carry * 0.003),
@@ -578,7 +578,7 @@ export const GENERATORS: Generator[] = [
     id: 'el',
     topic: 'pd',
     title: 'Expected credit loss',
-    fr: 'Perte attendue',
+    subtitle: 'PD × LGD × exposure',
     tex: 'EL = PD \\times LGD \\times EAD, \\quad LGD = 1 - RR',
     make: (r) => {
       const ead = r.num(5, 80, 1) * 1e6
@@ -599,7 +599,7 @@ export const GENERATORS: Generator[] = [
     id: 'spread',
     topic: 'pd',
     title: 'Credit spread from default intensity',
-    fr: 'Spread de crédit (approximation)',
+    subtitle: 'Spread from hazard rate and recovery',
     tex: 's \\approx \\lambda \\times (1 - RR)',
     make: (r) => {
       const lam = r.num(0.005, 0.06, 0.0025)
@@ -609,7 +609,7 @@ export const GENERATORS: Generator[] = [
         `In a reduced-form model, a bond's annual default intensity (hazard rate) is ${pct(lam, 2)} and the recovery rate is ${pct(rr, 0)}. What is the approximate credit spread (in %)?`,
         s * 100,
         '%',
-        [`s ≈ ${pct(lam, 2)} × (1 − ${pct(rr, 0)}) = ${pct(s, 3)}`, `Soit environ ${f(s * 1e4, 0)} points de base.`],
+        [`s ≈ ${pct(lam, 2)} × (1 − ${pct(rr, 0)}) = ${pct(s, 3)}`, `That is about ${f(s * 1e4, 0)} basis points.`],
         3,
         0.01,
       )
@@ -619,7 +619,7 @@ export const GENERATORS: Generator[] = [
     id: 'merger',
     topic: 'hf',
     title: 'Merger arbitrage spread',
-    fr: 'Spread d’arbitrage de fusion (offre en actions)',
+    subtitle: 'Return if a stock-for-stock deal closes',
     tex: '\\text{spread} = \\text{ratio} \\times P_{acq} - P_{target}',
     make: (r) => {
       const pa = r.num(30, 120, 0.5)
@@ -632,7 +632,7 @@ export const GENERATORS: Generator[] = [
         `An acquirer trading at ${usd(pa, 2)} offers ${f(ratio)} of its shares for each target share. The target trades at ${usd(pt, 2)}. A merger arbitrageur buys 1 target share and shorts ${f(ratio)} acquirer shares. If the deal closes, what is the return on the target position (in %, ignoring dividends and short rebate)?`,
         ret * 100,
         '%',
-        [`Valeur de l’offre : ${f(ratio)} × ${f(pa)} = ${usd(offer, 2)}`, `Spread : ${f(offer)} − ${f(pt)} = ${usd(sp, 2)}`, `Rendement : ${f(sp)} / ${f(pt)} = ${pct(ret)}`, 'Le profil ressemble à une vente de put : gain limité si l’opération réussit, perte forte si elle échoue.'],
+        [`Offer value: ${f(ratio)} × ${f(pa)} = ${usd(offer, 2)}`, `Spread: ${f(offer)} − ${f(pt)} = ${usd(sp, 2)}`, `Return: ${f(sp)} / ${f(pt)} = ${pct(ret)}`, 'The payoff is like selling a put: a capped gain if the deal closes, a large loss if it breaks.'],
       )
     },
   },
@@ -642,7 +642,7 @@ export const GENERATORS: Generator[] = [
     id: 'convprem',
     topic: 'hf',
     title: 'Conversion premium',
-    fr: 'Prime de conversion d’une obligation convertible',
+    subtitle: 'Bond price above its conversion value',
     tex: '\\text{CV} = \\text{conv. ratio} \\times S, \\quad \\text{premium} = \\dfrac{P_{CB} - CV}{CV}',
     make: (r) => {
       const ratio = r.num(10, 40, 1)
@@ -654,7 +654,7 @@ export const GENERATORS: Generator[] = [
         `A convertible bond (par $1,000) trades at ${usd(pcb, 2)}. It converts into ${ratio} shares; the stock trades at ${usd(S, 2)}. What is the conversion premium (in %)?`,
         prem * 100,
         '%',
-        [`Valeur de conversion = ${ratio} × ${f(S)} = ${usd(cv, 2)}`, `Prime = (${f(pcb)} − ${f(cv)}) / ${f(cv)} = ${pct(prem)}`],
+        [`Conversion value = ${ratio} × ${f(S)} = ${usd(cv, 2)}`, `Premium = (${f(pcb)} − ${f(cv)}) / ${f(cv)} = ${pct(prem)}`],
       )
     },
   },
@@ -662,7 +662,7 @@ export const GENERATORS: Generator[] = [
     id: 'deltahedge',
     topic: 'hf',
     title: 'Convertible arbitrage hedge ratio',
-    fr: 'Nombre d’actions à vendre à découvert (delta-hedge)',
+    subtitle: 'Shares to short for a delta-neutral position',
     tex: 'N_{short} = \\Delta \\times \\text{conv. ratio} \\times N_{bonds}',
     make: (r) => {
       const n = r.num(100, 2000, 50)
@@ -673,7 +673,7 @@ export const GENERATORS: Generator[] = [
         `A convertible arbitrage fund buys ${n} convertible bonds, each convertible into ${ratio} shares. The delta of the conversion option is ${f(delta)}. How many shares should it short to be delta-neutral?`,
         v,
         '',
-        [`${f(delta)} × ${ratio} × ${n} = ${f(v, 0)} actions`, 'Si l’action monte, le delta augmente (gamma positif) : il faut vendre davantage d’actions.'],
+        [`${f(delta)} × ${ratio} × ${n} = ${f(v, 0)} shares`, 'If the stock rises, delta increases (positive gamma), so more shares must be shorted.'],
         0,
         1,
       )
@@ -683,7 +683,7 @@ export const GENERATORS: Generator[] = [
     id: 'fof',
     topic: 'hf',
     title: 'Fund of funds: double layer of fees',
-    fr: 'Fonds de fonds : double couche de frais',
+    subtitle: 'Net return after two layers of fees',
     tex: 'R_{net} = (R - m)(1-k) \\text{ si } R - m > 0',
     make: (r) => {
       const R = r.num(0.08, 0.25, 0.005)
@@ -697,7 +697,7 @@ export const GENERATORS: Generator[] = [
         `The underlying hedge funds of a fund of funds earn a gross return of ${pct(R, 1)}. They charge 2% management and 20% incentive fees (incentive on returns net of the management fee). The FoF charges ${pct(m2, 1)} management and ${pct(k2, 0)} incentive on the same basis. What is the investor's net return (in %)?`,
         n2 * 100,
         '%',
-        [`Niveau 1 : (${pct(R, 1)} − 2 %) × 80 % = ${pct(n1)}`, `Niveau 2 : (${pct(n1)} − ${pct(m2, 1)}) × ${pct(1 - k2, 0)} = ${pct(n2)}`, `Frais totaux : ${pct(R - n2)} sur ${pct(R, 1)} de performance brute`],
+        [`Layer 1: (${pct(R, 1)} − 2%) × 80% = ${pct(n1)}`, `Layer 2: (${pct(n1)} − ${pct(m2, 1)}) × ${pct(1 - k2, 0)} = ${pct(n2)}`, `Total fees: ${pct(R - n2)} out of ${pct(R, 1)} gross`],
       )
     },
   },

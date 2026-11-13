@@ -1,13 +1,13 @@
 {
  "id": "intro-base",
  "added": "2026-11-13",
- "title": "Introduction aux alternatifs — base",
+ "title": "Introduction to alternatives — core",
  "fiches": [
   {
    "id": "int-what",
    "topic": "intro",
    "title": "What Is an Alternative Investment?",
-   "fr": "Qu’est-ce qu’un investissement alternatif ?",
+   "subtitle": "Characteristics, categories, alpha vs. beta",
    "minutes": 8,
    "blocks": [
     {
@@ -82,8 +82,8 @@
      "text": "On the exam, “alternative” is rarely about the asset alone: it is about **how** it is held (illiquid, levered, private, actively managed) and **how returns behave** (non-normal, smoothed)."
     },
     {
-     "t": "fr",
-     "text": "Retiens la distinction **alpha** (compétence, rendement anormal) / **bêta** (rémunération d’un risque systématique). Les bêtas « alternatifs » (prime d’illiquidité, de crédit, de volatilité) sont souvent vendus comme de l’alpha."
+     "t": "recap",
+     "text": "Keep the distinction clear: **alpha** comes from skill (abnormal return); **beta** is payment for bearing systematic risk. “Alternative betas” — illiquidity, credit or volatility premia — are often marketed as alpha."
     }
    ]
   },
@@ -91,7 +91,7 @@
    "id": "int-returns",
    "topic": "intro",
    "title": "Measuring Returns",
-   "fr": "Mesurer les rendements",
+   "subtitle": "Holding period, log, annualized, TWR vs. IRR",
    "minutes": 12,
    "blocks": [
     {
@@ -179,8 +179,8 @@
      "text": "A fund with a higher IRR does not necessarily have a higher multiple: quick exits boost IRR while long holds boost the multiple. Always look at both."
     },
     {
-     "t": "fr",
-     "text": "**TWR** = performance du gérant indépendamment des flux. **IRR (TRI)** = rendement « vécu » par l’investisseur, sensible au calendrier des flux : c’est la mesure standard en private equity, où le GP décide des appels et des distributions."
+     "t": "recap",
+     "text": "**TWR** measures the manager independently of cash flows. **IRR** measures the return the investor actually experienced and is sensitive to timing — it is the standard measure in private equity, where the GP decides calls and distributions."
     }
    ]
   },
@@ -188,7 +188,7 @@
    "id": "int-stats",
    "topic": "intro",
    "title": "Statistical Properties of Returns",
-   "fr": "Propriétés statistiques des rendements",
+   "subtitle": "Moments, fat tails, autocorrelation and smoothing",
    "minutes": 11,
    "blocks": [
     {
@@ -268,8 +268,8 @@
      "text": "Correlations of alternatives with equities tend to **rise in crises** (correlation breakdown / contagion), so diversification benefits measured in calm periods may disappear when they are most needed."
     },
     {
-     "t": "fr",
-     "text": "Le **lissage** (rendements d’évaluation) donne une volatilité trop faible, une corrélation trop faible et un Sharpe trop élevé. Si une question évoque des prix « d’expert » ou « stale », pense autocorrélation positive."
+     "t": "recap",
+     "text": "**Smoothing** (appraisal-based returns) produces volatility that is too low, correlation that is too low and a Sharpe ratio that is too high. If a question mentions appraisals or stale prices, think positive autocorrelation."
     }
    ]
   },
@@ -277,7 +277,7 @@
    "id": "int-risk",
    "topic": "intro",
    "title": "Measuring Risk",
-   "fr": "Mesurer le risque",
+   "subtitle": "Downside measures, drawdown, VaR and CVaR",
    "minutes": 11,
    "blocks": [
     {
@@ -356,8 +356,8 @@
      ]
     },
     {
-     "t": "fr",
-     "text": "VaR à 95 % sur 1 jour de 2 M : on s’attend à perdre **plus** de 2 M un jour sur vingt en moyenne. La CVaR répond à : « et quand ça arrive, combien perd-on en moyenne ? »"
+     "t": "recap",
+     "text": "A one-day 95% VaR of 2 million means you expect to lose **more** than 2 million on about one day in twenty. CVaR answers the follow-up: when that happens, how much do you lose on average?"
     }
    ]
   },
@@ -365,7 +365,7 @@
    "id": "int-perf",
    "topic": "intro",
    "title": "Risk-Adjusted Performance Measures",
-   "fr": "Mesures de performance ajustées du risque",
+   "subtitle": "Sharpe, Treynor, Sortino, IR, Jensen’s alpha",
    "minutes": 9,
    "blocks": [
     {
@@ -426,8 +426,8 @@
      "text": "Leverage financed at the risk-free rate leaves the **Sharpe** and **Treynor** ratios unchanged, because excess return, volatility and beta all scale by the same factor. It does change **Jensen’s alpha** in absolute terms."
     },
     {
-     "t": "fr",
-     "text": "Sharpe → risque total ; Treynor → bêta ; Sortino → risque à la baisse ; IR → tracking error. Choisis selon le contexte : portefeuille entier ou poche d’un portefeuille diversifié."
+     "t": "recap",
+     "text": "Sharpe uses total risk, Treynor uses beta, Sortino uses downside risk and the information ratio uses tracking error. Pick the ratio that fits the context: whole portfolio, or one sleeve of a diversified portfolio."
     }
    ]
   },
@@ -435,7 +435,7 @@
    "id": "int-alpha",
    "topic": "intro",
    "title": "Alpha, Beta and Hypothesis Testing",
-   "fr": "Alpha, bêta et tests d’hypothèse",
+   "subtitle": "Factor models, t-tests, Type I and II errors",
    "minutes": 12,
    "blocks": [
     {
@@ -513,8 +513,8 @@
      ]
     },
     {
-     "t": "fr",
-     "text": "Erreur de **type I** = conclure à tort qu’un gérant a de l’alpha (faux positif). Erreur de **type II** = passer à côté d’un vrai talent. R² élevé = le modèle explique bien les rendements, ce qui laisse peu de place à l’alpha."
+     "t": "recap",
+     "text": "A **Type I** error means wrongly concluding a manager has alpha (false positive). A **Type II** error means missing real skill. A high R² means the factors explain most of the returns, leaving little room for alpha."
     }
    ]
   },
@@ -522,7 +522,7 @@
    "id": "int-fees",
    "topic": "intro",
    "title": "Structures, Fees and Liquidity Terms",
-   "fr": "Structures, frais et conditions de liquidité",
+   "subtitle": "Hurdles, high-water marks, catch-up, gates",
    "minutes": 11,
    "blocks": [
     {
@@ -591,8 +591,8 @@
      "text": "With a high-water mark, a fund that lost 20% last year must gain 25% just to get back to the HWM before charging incentive fees. Managers far below the HWM may close the fund and restart rather than work for free."
     },
     {
-     "t": "fr",
-     "text": "La commission de performance est une **option d’achat** détenue par le gérant : asymétrique (il partage les gains mais pas les pertes), elle peut l’inciter à augmenter le risque. Le high-water mark et le co-investissement du gérant limitent ce problème."
+     "t": "recap",
+     "text": "The incentive fee is a **call option** held by the manager: it is asymmetric (the manager shares gains but not losses) and can encourage risk-taking. High-water marks and the manager’s own co-investment limit the problem."
     }
    ]
   }
@@ -603,14 +603,14 @@
    "topic": "intro",
    "name": "Holding period return",
    "tex": "R = \\dfrac{P_1 - P_0 + D}{P_0}",
-   "vars": "$P_0$ prix initial, $P_1$ prix final, $D$ revenus perçus."
+   "vars": "$P_0$ starting price, $P_1$ ending price, $D$ income received."
   },
   {
    "id": "logret",
    "topic": "intro",
    "name": "Log return",
    "tex": "r = \\ln(1+R), \\qquad R = e^{r} - 1",
-   "note": "Additif dans le temps."
+   "note": "Log returns add up over time."
   },
   {
    "id": "annualize",
@@ -665,21 +665,21 @@
    "topic": "intro",
    "name": "Unsmoothing",
    "tex": "R_{t,true} = \\dfrac{R_{t,rep} - \\rho R_{t-1,rep}}{1-\\rho}",
-   "vars": "$\\rho$ = autocorrélation d’ordre 1 des rendements publiés."
+   "vars": "$\\rho$ = first-order autocorrelation of reported returns."
   },
   {
    "id": "f-sqrt",
    "topic": "intro",
    "name": "Square-root-of-time rule",
    "tex": "\\sigma_T = \\sigma_1 \\sqrt{T}, \\qquad \\text{VaR}_T = \\text{VaR}_1\\sqrt{T}",
-   "note": "Valable si les rendements sont indépendants (i.i.d.)."
+   "note": "Valid only if returns are independent (i.i.d.)."
   },
   {
    "id": "var",
    "topic": "intro",
    "name": "Parametric VaR",
    "tex": "\\text{VaR} = (z\\,\\sigma - \\mu)\\times V",
-   "vars": "$z$ = 1,645 (95 %) ou 2,33 (99 %)."
+   "vars": "$z$ = 1.645 at 95%, 2.33 at 99% (one-tailed)."
   },
   {
    "id": "sharpe",
@@ -722,7 +722,7 @@
    "topic": "intro",
    "name": "t-statistic",
    "tex": "t = \\dfrac{\\hat{\\beta} - \\beta_0}{SE(\\hat{\\beta})}",
-   "note": "Rejeter $H_0$ si $|t| > 1{,}96$ (test bilatéral à 5 %, grand échantillon)."
+   "note": "Reject $H_0$ if $|t| > 1.96$ (two-tailed 5% test, large sample)."
   },
   {
    "id": "hfee",
@@ -736,218 +736,187 @@
    "id": "c-int-alpha",
    "topic": "intro",
    "front": "Alpha",
-   "back": "Return in excess of the return required for the systematic risks borne; attributed to skill, information or mispricing.",
-   "fr": "Rendement anormal."
+   "back": "Return in excess of the return required for the systematic risks borne; attributed to skill, information or mispricing."
   },
   {
    "id": "c-int-alt-beta",
    "topic": "intro",
    "front": "Alternative beta",
-   "back": "Systematic exposure to risk premia other than the equity market (illiquidity, credit, volatility, carry, momentum) that can be mistaken for alpha.",
-   "fr": "Bêta alternatif."
+   "back": "Systematic exposure to risk premia other than the equity market (illiquidity, credit, volatility, carry, momentum) that can be mistaken for alpha."
   },
   {
    "id": "c-int-exante",
    "topic": "intro",
    "front": "Ex ante alpha vs. ex post alpha",
-   "back": "Ex ante: expected excess return from skill or mispricing. Ex post: realized excess return, which includes luck and model error.",
-   "fr": "Alpha attendu vs. alpha réalisé."
+   "back": "Ex ante: expected excess return from skill or mispricing. Ex post: realized excess return, which includes luck and model error."
   },
   {
    "id": "c-int-twr",
    "topic": "intro",
    "front": "Time-weighted return",
-   "back": "Geometric linking of sub-period returns; not affected by the size or timing of external cash flows.",
-   "fr": "Rendement pondéré par le temps."
+   "back": "Geometric linking of sub-period returns; not affected by the size or timing of external cash flows."
   },
   {
    "id": "c-int-irr",
    "topic": "intro",
    "front": "Internal rate of return (IRR)",
-   "back": "Dollar-weighted return: the discount rate that makes the NPV of all cash flows equal to zero; sensitive to cash-flow timing.",
-   "fr": "TRI (taux de rendement interne)."
+   "back": "Dollar-weighted return: the discount rate that makes the NPV of all cash flows equal to zero; sensitive to cash-flow timing."
   },
   {
    "id": "c-int-geo",
    "topic": "intro",
    "front": "Volatility drag",
-   "back": "The gap between arithmetic and geometric mean returns, approximately half the variance; it grows with volatility.",
-   "fr": "Freinage dû à la volatilité."
+   "back": "The gap between arithmetic and geometric mean returns, approximately half the variance; it grows with volatility."
   },
   {
    "id": "c-int-skew",
    "topic": "intro",
    "front": "Negative skewness",
-   "back": "A distribution with a long left tail: frequent small gains and occasional large losses.",
-   "fr": "Asymétrie négative."
+   "back": "A distribution with a long left tail: frequent small gains and occasional large losses."
   },
   {
    "id": "c-int-kurt",
    "topic": "intro",
    "front": "Leptokurtosis",
-   "back": "Positive excess kurtosis: fatter tails and a more peaked center than the normal distribution.",
-   "fr": "Queues épaisses."
+   "back": "Positive excess kurtosis: fatter tails and a more peaked center than the normal distribution."
   },
   {
    "id": "c-int-autocorr",
    "topic": "intro",
    "front": "Autocorrelation",
-   "back": "Correlation between a return series and its own past values; positive autocorrelation often signals smoothing.",
-   "fr": "Autocorrélation."
+   "back": "Correlation between a return series and its own past values; positive autocorrelation often signals smoothing."
   },
   {
    "id": "c-int-smoothing",
    "topic": "intro",
    "front": "Return smoothing",
-   "back": "Reported returns that adjust slowly to true value changes (stale or appraisal prices), understating volatility and correlation.",
-   "fr": "Lissage des rendements."
+   "back": "Reported returns that adjust slowly to true value changes (stale or appraisal prices), understating volatility and correlation."
   },
   {
    "id": "c-int-semivar",
    "topic": "intro",
    "front": "Semivariance",
-   "back": "The average squared deviation of returns below the mean; target semivariance uses a chosen target instead of the mean.",
-   "fr": "Semi-variance."
+   "back": "The average squared deviation of returns below the mean; target semivariance uses a chosen target instead of the mean."
   },
   {
    "id": "c-int-shortfall",
    "topic": "intro",
    "front": "Shortfall risk",
-   "back": "The probability that a return falls below a specified target level.",
-   "fr": "Risque de rendement insuffisant."
+   "back": "The probability that a return falls below a specified target level."
   },
   {
    "id": "c-int-te",
    "topic": "intro",
    "front": "Tracking error",
-   "back": "The standard deviation of the difference between portfolio and benchmark returns.",
-   "fr": "Écart de suivi."
+   "back": "The standard deviation of the difference between portfolio and benchmark returns."
   },
   {
    "id": "c-int-mdd",
    "topic": "intro",
    "front": "Maximum drawdown",
-   "back": "The largest peak-to-trough percentage decline in value over a period.",
-   "fr": "Perte maximale depuis un sommet."
+   "back": "The largest peak-to-trough percentage decline in value over a period."
   },
   {
    "id": "c-int-var",
    "topic": "intro",
    "front": "Value at Risk (VaR)",
-   "back": "The loss that will not be exceeded with a given confidence level over a given horizon.",
-   "fr": "Valeur à risque."
+   "back": "The loss that will not be exceeded with a given confidence level over a given horizon."
   },
   {
    "id": "c-int-cvar",
    "topic": "intro",
    "front": "Conditional VaR (expected shortfall)",
-   "back": "The expected loss given that the loss exceeds the VaR threshold.",
-   "fr": "Perte moyenne au-delà de la VaR."
+   "back": "The expected loss given that the loss exceeds the VaR threshold."
   },
   {
    "id": "c-int-sharpe",
    "topic": "intro",
    "front": "Sharpe ratio",
-   "back": "Excess return over the risk-free rate divided by total volatility.",
-   "fr": "Ratio de Sharpe."
+   "back": "Excess return over the risk-free rate divided by total volatility."
   },
   {
    "id": "c-int-treynor",
    "topic": "intro",
    "front": "Treynor ratio",
-   "back": "Excess return over the risk-free rate divided by beta; appropriate for a diversified portfolio component.",
-   "fr": "Ratio de Treynor."
+   "back": "Excess return over the risk-free rate divided by beta; appropriate for a diversified portfolio component."
   },
   {
    "id": "c-int-sortino",
    "topic": "intro",
    "front": "Sortino ratio",
-   "back": "Return in excess of a target divided by the downside deviation (square root of target semivariance).",
-   "fr": "Ratio de Sortino."
+   "back": "Return in excess of a target divided by the downside deviation (square root of target semivariance)."
   },
   {
    "id": "c-int-ir",
    "topic": "intro",
    "front": "Information ratio",
-   "back": "Active return (portfolio minus benchmark) divided by tracking error.",
-   "fr": "Ratio d’information."
+   "back": "Active return (portfolio minus benchmark) divided by tracking error."
   },
   {
    "id": "c-int-type1",
    "topic": "intro",
    "front": "Type I error",
-   "back": "Rejecting a true null hypothesis — e.g., concluding a manager has skill when they do not (false positive).",
-   "fr": "Faux positif."
+   "back": "Rejecting a true null hypothesis — e.g., concluding a manager has skill when they do not (false positive)."
   },
   {
    "id": "c-int-type2",
    "topic": "intro",
    "front": "Type II error",
-   "back": "Failing to reject a false null hypothesis — e.g., missing a manager who truly has skill (false negative).",
-   "fr": "Faux négatif."
+   "back": "Failing to reject a false null hypothesis — e.g., missing a manager who truly has skill (false negative)."
   },
   {
    "id": "c-int-datamining",
    "topic": "intro",
    "front": "Backtest overfitting (data mining)",
-   "back": "Finding apparently significant results by testing many models or parameters on the same data; results fail out of sample.",
-   "fr": "Surapprentissage."
+   "back": "Finding apparently significant results by testing many models or parameters on the same data; results fail out of sample."
   },
   {
    "id": "c-int-gp-lp",
    "topic": "intro",
    "front": "General partner vs. limited partner",
-   "back": "The GP manages the partnership and has unlimited liability; LPs provide capital and have liability limited to their investment.",
-   "fr": "Commandité / commanditaire."
+   "back": "The GP manages the partnership and has unlimited liability; LPs provide capital and have liability limited to their investment."
   },
   {
    "id": "c-int-hwm",
    "topic": "intro",
    "front": "High-water mark",
-   "back": "The highest previous NAV; incentive fees are only charged on gains above it.",
-   "fr": "Plus haut historique de la VL."
+   "back": "The highest previous NAV; incentive fees are only charged on gains above it."
   },
   {
    "id": "c-int-hurdle",
    "topic": "intro",
    "front": "Soft vs. hard hurdle",
-   "back": "Soft: once the hurdle is exceeded, the incentive fee applies to all profits. Hard: the fee applies only to profits above the hurdle.",
-   "fr": "Hurdle souple / dur."
+   "back": "Soft: once the hurdle is exceeded, the incentive fee applies to all profits. Hard: the fee applies only to profits above the hurdle."
   },
   {
    "id": "c-int-catchup",
    "topic": "intro",
    "front": "Catch-up provision",
-   "back": "After investors receive the hurdle return, the manager receives most or all of the next profits until reaching its full share of carry.",
-   "fr": "Rattrapage du GP."
+   "back": "After investors receive the hurdle return, the manager receives most or all of the next profits until reaching its full share of carry."
   },
   {
    "id": "c-int-clawback",
    "topic": "intro",
    "front": "Clawback",
-   "back": "A provision requiring the GP to return previously received carried interest if, at the end of the fund, it has received more than its agreed share.",
-   "fr": "Restitution du carry."
+   "back": "A provision requiring the GP to return previously received carried interest if, at the end of the fund, it has received more than its agreed share."
   },
   {
    "id": "c-int-gate",
    "topic": "intro",
    "front": "Gate",
-   "back": "A limit on the percentage of a fund’s assets that may be redeemed in a single redemption period.",
-   "fr": "Limite de rachats."
+   "back": "A limit on the percentage of a fund’s assets that may be redeemed in a single redemption period."
   },
   {
    "id": "c-int-sidepocket",
    "topic": "intro",
    "front": "Side pocket",
-   "back": "A separate account within a fund holding illiquid assets; investors receive value only when those assets are realized.",
-   "fr": "Compartiment d’actifs illiquides."
+   "back": "A separate account within a fund holding illiquid assets; investors receive value only when those assets are realized."
   },
   {
    "id": "c-int-lockup",
    "topic": "intro",
    "front": "Lockup period",
-   "back": "An initial period during which investors cannot redeem (hard) or can redeem only with a penalty (soft).",
-   "fr": "Période de blocage."
+   "back": "An initial period during which investors cannot redeem (hard) or can redeem only with a penalty (soft)."
   }
  ],
  "questions": [
@@ -964,7 +933,7 @@
     "Complex fee structures"
    ],
    "answer": 0,
-   "explain": "La liquidité quotidienne à des prix de marché transparents caractérise les actifs **traditionnels**. Les alternatifs sont typiquement illiquides, avec des rendements non normaux et des frais complexes."
+   "explain": "Daily liquidity at transparent market prices is a feature of **traditional** assets. Alternatives are typically illiquid, with non-normal returns and complex fees."
   },
   {
    "id": "q-int-02",
@@ -979,7 +948,7 @@
     "Negative convexity"
    ],
    "answer": 0,
-   "explain": "Être rémunéré pour porter de l’**illiquidité** est un bêta alternatif (prime de risque systématique), pas forcément de l’alpha issu du talent."
+   "explain": "Being paid for holding **illiquid** loans is an alternative beta — compensation for a systematic risk premium — not necessarily alpha from skill."
   },
   {
    "id": "q-int-03",
@@ -994,7 +963,7 @@
     "Cannot be negative"
    ],
    "answer": 0,
-   "explain": "L’alpha **ex post** est réalisé : il mélange talent, chance et erreurs de modèle. L’alpha **ex ante** est l’espérance de rendement anormal."
+   "explain": "**Ex post** alpha is realized: it mixes skill, luck and model error. **Ex ante** alpha is the expected abnormal return."
   },
   {
    "id": "q-int-04",
@@ -1010,7 +979,7 @@
     "+12.5%"
    ],
    "answer": 0,
-   "explain": "$(1{,}5 \\times 0{,}5)^{1/2} - 1 = \\sqrt{0{,}75} - 1 = -13{,}4\\%$. La moyenne arithmétique (0 %) surestime : 100 devient 75."
+   "explain": "$(1.5 \\times 0.5)^{1/2} - 1 = \\sqrt{0.75} - 1 = -13.4\\%$. The arithmetic mean (0%) is misleading: 100 has become 75."
   },
   {
    "id": "q-int-05",
@@ -1025,7 +994,7 @@
     "They must be multiplied across periods"
    ],
    "answer": 0,
-   "explain": "Les rendements log sont **additifs dans le temps**. Ils sont inférieurs aux rendements simples quand R > 0, et peuvent être négatifs."
+   "explain": "Log returns are **additive over time**. They are smaller than simple returns when R > 0 and can be negative."
   },
   {
    "id": "q-int-06",
@@ -1040,7 +1009,7 @@
     "Log return of the NAV"
    ],
    "answer": 0,
-   "explain": "Quand le gérant **contrôle les flux**, le rendement pondéré par les capitaux (**IRR**) mesure correctement sa décision. Le TWR convient aux gérants qui subissent les flux (fonds ouverts, hedge funds)."
+   "explain": "When the manager **controls the cash flows**, the dollar-weighted return (**IRR**) correctly reflects those decisions. TWR suits managers who do not control flows (open-end funds, hedge funds)."
   },
   {
    "id": "q-int-07",
@@ -1055,7 +1024,7 @@
     "It always equals the time-weighted return"
    ],
    "answer": 0,
-   "explain": "Avec plusieurs changements de signe des flux, l’IRR peut avoir **plusieurs solutions** (ou aucune). Il suppose aussi un réinvestissement au taux de l’IRR et ignore l’échelle."
+   "explain": "With more than one sign change in the cash flows, the IRR equation can have **several solutions** (or none). IRR also assumes reinvestment at the IRR and ignores scale."
   },
   {
    "id": "q-int-08",
@@ -1070,7 +1039,7 @@
     "A lower multiple and a lower IRR"
    ],
    "answer": 0,
-   "explain": "Retarder les appels de fonds raccourcit la durée pendant laquelle le capital des LP est investi : l’**IRR augmente**, alors que le multiple change peu (il baisse même un peu à cause des intérêts de la ligne)."
+   "explain": "Delaying capital calls shortens the time LP capital is invested, so the **IRR rises**, while the multiple barely changes (it falls slightly because of the interest on the credit line)."
   },
   {
    "id": "q-int-09",
@@ -1085,7 +1054,7 @@
     "Negative autocorrelation"
    ],
    "answer": 0,
-   "explain": "Petits gains fréquents + grosses pertes rares = longue queue à gauche = **asymétrie négative** (ex. arbitrage de fusion, vente d’options)."
+   "explain": "Frequent small gains plus rare large losses means a long left tail: **negative skewness** (e.g., merger arbitrage, option selling)."
   },
   {
    "id": "q-int-10",
@@ -1100,7 +1069,7 @@
     "−3"
    ],
    "answer": 0,
-   "explain": "La kurtosis d’une loi normale vaut 3, donc la kurtosis **excédentaire** (kurtosis − 3) vaut 0."
+   "explain": "The kurtosis of a normal distribution is 3, so its **excess** kurtosis (kurtosis − 3) is 0."
   },
   {
    "id": "q-int-11",
@@ -1115,7 +1084,7 @@
     "Convertible bond arbitrage"
    ],
    "answer": 0,
-   "explain": "Le **suivi de tendance** ressemble à une position longue en options (straddle) : petites pertes fréquentes, gros gains rares → asymétrie **positive**. Les trois autres ont une asymétrie négative."
+   "explain": "**Trend following** behaves like a long option position (straddle): frequent small losses and occasional large gains, i.e., **positive** skew. The other three strategies are negatively skewed."
   },
   {
    "id": "q-int-12",
@@ -1130,7 +1099,7 @@
     "Has a lower Sharpe ratio"
    ],
    "answer": 0,
-   "explain": "Le **lissage** (évaluations d’experts) sous-estime la volatilité et la corrélation, et **surestime** donc le ratio de Sharpe."
+   "explain": "**Smoothing** from appraisals understates volatility and correlation, and therefore **overstates** the Sharpe ratio."
   },
   {
    "id": "q-int-13",
@@ -1146,7 +1115,7 @@
     "8.0%"
    ],
    "answer": 0,
-   "explain": "$(4\\% - 0{,}5 \\times 2\\%)/(1 - 0{,}5) = 3\\%/0{,}5 = 6\\%$."
+   "explain": "$(4\\% - 0.5 \\times 2\\%)/(1 - 0.5) = 3\\%/0.5 = 6\\%$."
   },
   {
    "id": "q-int-14",
@@ -1161,7 +1130,7 @@
     "Have no effect because autocorrelation only affects the mean"
    ],
    "answer": 0,
-   "explain": "La règle de la racine du temps suppose l’indépendance. Avec une **autocorrélation positive**, les mouvements se cumulent : la volatilité annuelle réelle est **plus élevée** que σ√12."
+   "explain": "The square-root-of-time rule assumes independence. With **positive autocorrelation**, moves accumulate, so true annual volatility is **higher** than $\\sigma\\sqrt{12}$."
   },
   {
    "id": "q-int-15",
@@ -1177,7 +1146,7 @@
     "1.25"
    ],
    "answer": 0,
-   "explain": "$\\beta = \\rho\\,\\sigma_i/\\sigma_m = 0{,}6 \\times 12/16 = 0{,}45$."
+   "explain": "$\\beta = \\rho\\,\\sigma_i/\\sigma_m = 0.6 \\times 12/16 = 0.45$."
   },
   {
    "id": "q-int-16",
@@ -1192,7 +1161,7 @@
     "Correlation does not affect portfolio risk"
    ],
    "answer": 0,
-   "explain": "Les corrélations **augmentent en période de crise** (contagion, liquidations forcées), justement quand la diversification serait la plus utile."
+   "explain": "Correlations **rise during crises** (contagion, forced selling) — exactly when diversification would be most valuable."
   },
   {
    "id": "q-int-17",
@@ -1207,7 +1176,7 @@
     "Beta"
    ],
    "answer": 0,
-   "explain": "La **semi-variance cible** ne retient que les écarts au-dessous de la cible. L’écart-type traite hausses et baisses de la même façon."
+   "explain": "**Target semivariance** only uses deviations below the target. Standard deviation treats upside and downside the same way."
   },
   {
    "id": "q-int-18",
@@ -1222,7 +1191,7 @@
     "14%"
    ],
    "answer": 0,
-   "explain": "Du sommet 140 au creux 98 : $(140 - 98)/140 = 30\\%$."
+   "explain": "From the 140 peak to the 98 trough: $(140 - 98)/140 = 30\\%$."
   },
   {
    "id": "q-int-19",
@@ -1238,7 +1207,7 @@
     "USD 2.330 million"
    ],
    "answer": 0,
-   "explain": "$2{,}33 \\times 1\\% \\times 50 = 1{,}165$ M USD. (À 95 % : $1{,}645 \\times 0{,}5 = 0{,}823$ M.)"
+   "explain": "$2.33 \\times 1\\% \\times 50 = 1.165$ million. (At 95%: $1.645 \\times 0.5 = 0.823$ million.)"
   },
   {
    "id": "q-int-20",
@@ -1254,7 +1223,7 @@
     "USD 4 million"
    ],
    "answer": 0,
-   "explain": "$2 \\times \\sqrt{25} = 2 \\times 5 = 10$ M USD (règle de la racine du temps)."
+   "explain": "$2 \\times \\sqrt{25} = 2 \\times 5 = 10$ million (square-root-of-time rule)."
   },
   {
    "id": "q-int-21",
@@ -1269,7 +1238,7 @@
     "It equals the conditional VaR"
    ],
    "answer": 0,
-   "explain": "Avec des **queues épaisses**, les pertes extrêmes sont plus fréquentes que ce que prévoit la loi normale : la VaR paramétrique **sous-estime** le risque de queue."
+   "explain": "With **fat tails**, extreme losses happen more often than the normal distribution predicts, so parametric VaR **underestimates** tail risk."
   },
   {
    "id": "q-int-22",
@@ -1284,7 +1253,7 @@
     "Is always lower than VaR"
    ],
    "answer": 0,
-   "explain": "La **CVaR** est la perte moyenne au-delà du seuil de VaR. Elle est toujours supérieure ou égale à la VaR au même niveau de confiance."
+   "explain": "**CVaR** is the average loss beyond the VaR threshold. It is always greater than or equal to VaR at the same confidence level."
   },
   {
    "id": "q-int-23",
@@ -1299,7 +1268,7 @@
     "Delta-normal"
    ],
    "answer": 0,
-   "explain": "La **simulation historique** utilise directement les rendements passés : pas d’hypothèse de distribution, mais forte dépendance à la période d’observation."
+   "explain": "**Historical simulation** uses past returns directly: no distributional assumption, but strong dependence on the sample period."
   },
   {
    "id": "q-int-24",
@@ -1315,7 +1284,7 @@
     "1.67"
    ],
    "answer": 0,
-   "explain": "$(11\\% - 2\\%)/15\\% = 0{,}60$."
+   "explain": "$(11\\% - 2\\%)/15\\% = 0.60$."
   },
   {
    "id": "q-int-25",
@@ -1330,7 +1299,7 @@
     "Maximum drawdown"
    ],
    "answer": 0,
-   "explain": "Dans un portefeuille bien diversifié, seul le risque **systématique** compte : le **Treynor** (ou l’alpha de Jensen) est adapté. Le Sharpe convient quand le portefeuille représente toute la richesse."
+   "explain": "In a well-diversified portfolio only **systematic** risk matters, so the **Treynor** ratio (or Jensen’s alpha) fits. Sharpe fits when the portfolio is the investor’s whole wealth."
   },
   {
    "id": "q-int-26",
@@ -1346,7 +1315,7 @@
     "−0.6%"
    ],
    "answer": 0,
-   "explain": "Rendement exigé = $2\\% + 0{,}8 \\times (10\\% - 2\\%) = 8{,}4\\%$. Alpha = $9\\% - 8{,}4\\% = +0{,}6\\%$."
+   "explain": "Required return $= 2\\% + 0.8 \\times (10\\% - 2\\%) = 8.4\\%$. Alpha $= 9\\% - 8.4\\% = +0.6\\%$."
   },
   {
    "id": "q-int-27",
@@ -1362,7 +1331,7 @@
     "1.50"
    ],
    "answer": 0,
-   "explain": "$(8{,}5\\% - 7\\%)/3\\% = 0{,}50$."
+   "explain": "$(8.5\\% - 7\\%)/3\\% = 0.50$."
   },
   {
    "id": "q-int-28",
@@ -1377,7 +1346,7 @@
     "The Sharpe ratio penalizes upside volatility too little"
    ],
    "answer": 0,
-   "explain": "Vendre des options procure des gains réguliers et une faible volatilité mesurée… jusqu’au krach. Le Sharpe ignore l’**asymétrie négative** et les queues épaisses : il est surestimé."
+   "explain": "Selling options produces steady gains and low measured volatility — until a crash. Sharpe ignores **negative skewness** and fat tails, so it is overstated."
   },
   {
    "id": "q-int-29",
@@ -1392,7 +1361,7 @@
     "Comparing a manager to a benchmark"
    ],
    "answer": 0,
-   "explain": "Le **Sortino** ne pénalise que la volatilité sous la cible : utile pour des rendements asymétriques et des investisseurs sensibles aux pertes."
+   "explain": "**Sortino** only penalizes volatility below the target: useful for skewed returns and for investors who care about losses."
   },
   {
    "id": "q-int-30",
@@ -1407,7 +1376,7 @@
     "Correct decision"
    ],
    "answer": 0,
-   "explain": "Rejeter à tort l’hypothèse nulle (« pas d’alpha ») = **erreur de type I** (faux positif)."
+   "explain": "Wrongly rejecting the null hypothesis (“no alpha”) is a **Type I error** (false positive)."
   },
   {
    "id": "q-int-31",
@@ -1423,7 +1392,7 @@
     "Conclude that beta is zero"
    ],
    "answer": 0,
-   "explain": "$t = 0{,}40/0{,}25 = 1{,}6 < 1{,}96$ : on **ne rejette pas** $H_0$. L’alpha n’est pas statistiquement significatif."
+   "explain": "$t = 0.40/0.25 = 1.6 < 1.96$, so we **fail to reject** $H_0$: the alpha is not statistically significant."
   },
   {
    "id": "q-int-32",
@@ -1438,7 +1407,7 @@
     "Look-ahead bias in the risk-free rate"
    ],
    "answer": 0,
-   "explain": "En testant 500 règles, certaines paraîtront significatives **par hasard** : c’est le surapprentissage / data mining. Il faut un test hors échantillon ou des seuils plus exigeants."
+   "explain": "Test 500 rules and some will look significant **by chance**: that is backtest overfitting. It needs out-of-sample testing or much stricter significance thresholds."
   },
   {
    "id": "q-int-33",
@@ -1453,7 +1422,7 @@
     "Negative autocorrelation"
    ],
    "answer": 0,
-   "explain": "L’alpha CAPM provenait de facteurs **omis** (taille, value). Une fois ces bêtas pris en compte, il disparaît : c’était un faux alpha."
+   "explain": "The CAPM alpha came from **omitted** factors (size, value). Once those betas are included it disappears — it was false alpha."
   },
   {
    "id": "q-int-34",
@@ -1468,7 +1437,7 @@
     "The fund’s returns are smoothed"
    ],
    "answer": 0,
-   "explain": "Le **R²** mesure la part de la variance expliquée par les facteurs. Un R² élevé signifie un fonds proche de ses bêtas (peu de risque spécifique)."
+   "explain": "**R²** measures the share of return variance explained by the factors. A high R² means the fund mostly delivers its factor betas (little specific risk)."
   },
   {
    "id": "q-int-35",
@@ -1483,7 +1452,7 @@
     "Equal zero"
    ],
    "answer": 0,
-   "explain": "Bêta **asymétrique** : la moyenne (≈ 0,6) sous-estime l’exposition en marché baissier (0,9). Les modèles linéaires captent mal les profils optionnels."
+   "explain": "With an **asymmetric** beta, the average (≈ 0.6) understates the exposure in falling markets (0.9). Linear models capture option-like payoffs poorly."
   },
   {
    "id": "q-int-36",
@@ -1498,7 +1467,7 @@
     "The manager earns a fee on every positive month"
    ],
    "answer": 0,
-   "explain": "Avec un **high-water mark**, le gérant doit d’abord récupérer les pertes passées avant de toucher une commission de performance."
+   "explain": "Under a **high-water mark**, the manager must first recover past losses before earning an incentive fee again."
   },
   {
    "id": "q-int-37",
@@ -1513,7 +1482,7 @@
     "0.0%"
    ],
    "answer": 0,
-   "explain": "**Hard hurdle** : 20 % × (12 % − 8 %) = 0,8 %. **Soft hurdle** : une fois le seuil dépassé, 20 % × 12 % = 2,4 %."
+   "explain": "**Hard hurdle**: 20% × (12% − 8%) = 0.8%. **Soft hurdle** with full catch-up: once the hurdle is cleared, 20% × 12% = 2.4%."
   },
   {
    "id": "q-int-38",
@@ -1528,7 +1497,7 @@
     "It converts the option into a put"
    ],
    "answer": 0,
-   "explain": "Comme toute option, la commission de performance **vaut plus** si la volatilité augmente : incitation potentielle à prendre plus de risques."
+   "explain": "Like any option, the incentive fee is **worth more** when volatility rises — a potential incentive to take more risk."
   },
   {
    "id": "q-int-39",
@@ -1543,7 +1512,7 @@
     "Raising the hurdle rate"
    ],
    "answer": 0,
-   "explain": "L’option est très **hors de la monnaie** : le gérant peut être tenté d’augmenter le risque, ou de fermer le fonds pour repartir sans high-water mark."
+   "explain": "The option is deep **out of the money**: the manager may be tempted to raise risk, or to close the fund and restart without a high-water mark."
   },
   {
    "id": "q-int-40",
@@ -1559,7 +1528,7 @@
     "16%"
    ],
    "answer": 0,
-   "explain": "$0{,}8 \\times (1+R) = 1 \\Rightarrow R = 25\\%$."
+   "explain": "$0.8 \\times (1+R) = 1 \\Rightarrow R = 25\\%$."
   },
   {
    "id": "q-int-41",
@@ -1574,7 +1543,7 @@
     "Management fees are refunded if the fund loses money"
    ],
    "answer": 0,
-   "explain": "Le **clawback** oblige le GP à restituer le carry trop perçu (par exemple après des pertes sur des investissements tardifs)."
+   "explain": "A **clawback** forces the GP to return carry it was overpaid, for example after losses on later investments."
   },
   {
    "id": "q-int-42",
@@ -1589,7 +1558,7 @@
     "Clawback"
    ],
    "answer": 0,
-   "explain": "La **gate** plafonne les rachats par période. Le lockup interdit les rachats pendant une période initiale ; le side pocket isole des actifs illiquides."
+   "explain": "A **gate** caps redemptions per period. A lockup blocks redemptions for an initial period; a side pocket isolates illiquid assets."
   },
   {
    "id": "q-int-43",
@@ -1604,7 +1573,7 @@
     "To pay incentive fees in advance"
    ],
    "answer": 0,
-   "explain": "Le **side pocket** sépare les actifs illiquides : les investisseurs sortants ne sont pas payés à une valeur incertaine, et les nouveaux n’achètent pas ces actifs à un prix arbitraire."
+   "explain": "A **side pocket** separates illiquid assets so that leaving investors are not paid at an uncertain value and new investors do not buy those assets at an arbitrary price."
   },
   {
    "id": "q-int-44",
@@ -1619,7 +1588,7 @@
     "Receive the carried interest"
    ],
    "answer": 0,
-   "explain": "Les **LP** apportent le capital avec une responsabilité limitée. Le **GP** gère, a une responsabilité illimitée et perçoit le carry."
+   "explain": "**LPs** provide capital with limited liability. The **GP** manages the fund, has unlimited liability and earns the carry."
   },
   {
    "id": "q-int-45",
@@ -1635,7 +1604,7 @@
     "13.5%"
    ],
    "answer": 0,
-   "explain": "$\\sigma^2 = 0{,}9^2 \\times 0{,}10^2 + 0{,}1^2 \\times 0{,}60^2 + 2 \\times 0{,}9 \\times 0{,}1 \\times 0{,}2 \\times 0{,}10 \\times 0{,}60 = 0{,}0081 + 0{,}0036 + 0{,}00216 = 0{,}01386$, donc $\\sigma = \\sqrt{0{,}01386} \\approx 11{,}8\\%$. Une petite poche très volatile mais peu corrélée n’augmente que modérément le risque total."
+   "explain": "$\\sigma^2 = 0.9^2 \\times 0.10^2 + 0.1^2 \\times 0.60^2 + 2 \\times 0.9 \\times 0.1 \\times 0.2 \\times 0.10 \\times 0.60 = 0.0081 + 0.0036 + 0.00216 = 0.01386$, so $\\sigma \\approx 11.8\\%$. A small, very volatile but weakly correlated sleeve raises total risk only moderately."
   }
  ]
 }

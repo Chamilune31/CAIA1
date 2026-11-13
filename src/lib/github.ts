@@ -25,7 +25,7 @@ const b64ToText = (b: string) => new TextDecoder().decode(Uint8Array.from(atob(b
 async function getFile(path: string): Promise<{ sha: string; text: string } | null> {
   const r = await fetch(url(path) + `?t=${Date.now()}`, { headers: headers(), cache: 'no-store' })
   if (r.status === 404) return null
-  if (!r.ok) throw new Error(`GitHub ${r.status} : ${await r.text()}`)
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${await r.text()}`)
   const j = await r.json()
   return { sha: j.sha, text: b64ToText(j.content ?? '') }
 }
@@ -36,25 +36,25 @@ async function putFile(path: string, contentB64: string, message: string, sha?: 
     headers: { ...headers(), 'Content-Type': 'application/json' },
     body: JSON.stringify({ message, content: contentB64, sha }),
   })
-  if (!r.ok) throw new Error(`GitHub ${r.status} : ${(await r.json().catch(() => ({}))).message ?? r.statusText}`)
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${(await r.json().catch(() => ({}))).message ?? r.statusText}`)
   return r.json()
 }
 
 export async function testConnection() {
   const r = await fetch(`${API}/repos/${getSettings().repo}`, { headers: headers() })
-  if (!r.ok) throw new Error(r.status === 404 ? 'Dépôt introuvable ou jeton sans accès.' : `Erreur ${r.status}`)
+  if (!r.ok) throw new Error(r.status === 404 ? 'Repository not found, or the token has no access to it.' : `GitHub error ${r.status}`)
   const j = await r.json()
-  if (!j.permissions?.push) throw new Error('Le jeton peut lire mais pas écrire (Contents: Read and write requis).')
+  if (!j.permissions?.push) throw new Error('The token can read but not write. Give it Contents: Read and write.')
   return j.full_name as string
 }
 
-/** Envoie un fichier (PDF, Word, notes) dans cours/ pour que Claude en fasse une leçon. */
+/** Uploads a file (PDF, Word, notes) to cours/ so Claude can turn it into a lesson. */
 export async function uploadCourse(file: File, folder = 'cours') {
   const safe = file.name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w.\-]+/g, '-')
   const path = `${folder}/${safe}`
   const existing = await getFile(path).catch(() => null)
   const bytes = new Uint8Array(await file.arrayBuffer())
-  await putFile(path, toB64(bytes), `Cours : ajout de ${safe}`, existing?.sha)
+  await putFile(path, toB64(bytes), `Course material: add ${safe}`, existing?.sha)
   return path
 }
 
@@ -63,7 +63,7 @@ export async function uploadText(path: string, text: string, message: string) {
   await putFile(path, textToB64(text), message, existing?.sha)
 }
 
-/* ---------- Synchronisation de la progression ---------- */
+/* ---------- Progress sync ---------- */
 type SyncState = { status: 'off' | 'idle' | 'syncing' | 'ok' | 'error'; at?: number; error?: string }
 let state: SyncState = { status: 'off' }
 const subs = new Set<(s: SyncState) => void>()
@@ -98,10 +98,10 @@ export function syncNow(): Promise<void> {
         const text = JSON.stringify(merged, null, 1)
         if (remote && remote.text.trim() === text.trim()) break
         try {
-          await putFile(PROGRESS_PATH, textToB64(text), 'Progression : synchronisation', remote?.sha)
+          await putFile(PROGRESS_PATH, textToB64(text), 'Progress: sync', remote?.sha)
           break
         } catch (e) {
-          // conflit (un autre appareil vient d'écrire) : on relit et on refusionne
+          // conflict (another device just wrote): re-read and merge again
           if (attempt === 2 || !String(e).includes('409')) throw e
         }
       }

@@ -1,3 +1,3 @@
-# Mes cours
+# My course material
 
-Dépose ici tes supports (PDF, Word, PowerPoint, notes). Claude les transforme en leçons dans `src/content/cours/` (tâche planifiée ou conversation). Les fichiers d’origine restent ici.
+Drop your own course material here (PDF, Word, PowerPoint, notes). Claude turns it into lessons in `src/content/cours/` (scheduled task or conversation). The repository is public: do not put copyrighted curriculum files here.

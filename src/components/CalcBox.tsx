@@ -5,9 +5,9 @@ import { TOPIC } from '../topics'
 import { Tex } from './Rich'
 import { TopicTag } from './ui'
 
-const unitLabel = { '%': 'en %', $: 'en $', x: 'multiple (x)', '': 'nombre' } as const
+const unitLabel = { '%': 'in %', $: 'in $', x: 'as a multiple', '': 'number' } as const
 
-export function CalcBox({ gen, onNext, nextLabel = 'Nouvel exercice' }: { gen: Generator; onNext?: () => void; nextLabel?: string }) {
+export function CalcBox({ gen, onNext, nextLabel = 'New numbers' }: { gen: Generator; onNext?: () => void; nextLabel?: string }) {
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 1e9))
   const e = useMemo(() => gen.make(new Rng(seed)), [gen, seed])
   const [val, setVal] = useState('')
@@ -37,15 +37,15 @@ export function CalcBox({ gen, onNext, nextLabel = 'Nouvel exercice' }: { gen: G
   return (
     <article className="card qcard calc" style={{ ['--tc' as string]: TOPIC[gen.topic].color }}>
       <div className="qmeta">
-        <TopicTag id={gen.topic} />
-        <span className="muted small">{gen.fr}</span>
+        <TopicTag id={gen.topic} long />
+        <span>{gen.title}</span>
       </div>
-      <p className="qtext" lang="en">
+      <p className="qtext">
         {e.prompt}
       </p>
       {!showFormula && res === null ? (
-        <button className="link small" onClick={() => setShowFormula(true)}>
-          Indice : afficher la formule
+        <button className="link small" style={{ alignSelf: 'flex-start' }} onClick={() => setShowFormula(true)}>
+          Show the formula
         </button>
       ) : (
         <Tex tex={gen.tex} block />
@@ -62,29 +62,29 @@ export function CalcBox({ gen, onNext, nextLabel = 'Nouvel exercice' }: { gen: G
           inputMode="decimal"
           value={val}
           onChange={(ev) => setVal(ev.target.value)}
-          placeholder={`Réponse (${unitLabel[e.unit]})`}
+          placeholder={`Your answer (${unitLabel[e.unit]})`}
           disabled={res !== null}
           autoFocus
-          aria-label="Réponse"
+          aria-label="Your answer"
         />
         {res === null ? (
           <>
             <button className="btn primary" type="submit" disabled={!val.trim()}>
-              Vérifier
+              Check
             </button>
             <button className="btn ghost" type="button" onClick={giveUp}>
-              Voir
+              Show answer
             </button>
           </>
         ) : (
           <button className="btn primary" type="submit" autoFocus>
-            {nextLabel} →
+            {nextLabel}
           </button>
         )}
       </form>
       {res !== null && (
-        <div className={`explain ${res ? 'ok' : 'ko'}`}>
-          <b>{res ? 'Juste' : 'Réponse attendue'} : {ans}</b>
+        <div className={`explain ${res ? 'ok' : 'ko'}`} role="status">
+          <b>{res ? 'Correct' : 'Answer'}: {ans}</b>
           <ol className="steps">
             {e.steps.map((s, i) => (
               <li key={i}>{s}</li>

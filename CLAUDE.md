@@ -1,46 +1,48 @@
-# CAIA1 — plateforme de révision du CAIA Level I
+# CAIA1 — CAIA Level I revision platform
 
-Site statique personnel (une seule utilisatrice, francophone) pour préparer le **CAIA Level I, programme 2027**. Projet jumeau de la plateforme d’allemand (`Chamilune31/Deutsch`) : même philosophie, identité visuelle différente.
+A personal static website (single learner) for preparing the **CAIA Level I exam, 2027 curriculum**. Sister project of the German-learning platform (`Chamilune31/Deutsch`): same philosophy, different visual identity.
 
-## Principes
+## Principles
 
-- **Pas de clé API** : Claude rédige le contenu (conversation ou tâche planifiée), le site corrige tout seul dans le navigateur.
-- Contenu d’examen **en anglais**, interface et explications **en français**.
-- Progression dans `localStorage` (`caia1.progress`), synchronisée dans `progres/progression.json` via l’API GitHub avec un jeton fine-grained (Contents read/write, dépôt CAIA1 seul) stocké dans le navigateur. Fusion sans perte entre appareils (`mergeProgress`).
-- Les leçons tirées des cours de l’utilisatrice (`src/content/cours/`) sont **permanentes**.
+- **No API key**: Claude writes the content (in conversation or via the scheduled task); the site marks everything itself in the browser.
+- The whole site is **in English** — interface, notes, questions, explanations, flashcards and calculation steps.
+- Progress lives in `localStorage` (`caia1.progress`) and is synced to `progres/progression.json` through the GitHub API using a fine-grained token (Contents read/write, CAIA1 repository only) stored in the browser. Merging across devices is lossless (`mergeProgress`).
+- Lessons built from the learner’s own material (`src/content/cours/`) are **permanent**.
+- The repository is **public** (GitHub Pages): never commit copyrighted curriculum files or anything private.
 
-## Stack et commandes
+## Stack and commands
 
-Vite + React + TypeScript, KaTeX pour les formules. Routage par hash (`#/qcm`), donc aucun réglage serveur.
+Vite + React + TypeScript, KaTeX for formulas. Hash routing (`#/quiz`), so no server configuration. Deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main` (pushes that only touch `progres/`, `cours/` or Markdown files are skipped).
 
 ```bash
 npm install
-npm run dev      # développement
-npm run check    # valide tout le contenu (schéma, ids, LaTeX, générateurs de calcul)
+npm run dev      # development server
+npm run check    # validates all content (schema, ids, LaTeX, calculation generators)
 npm run build    # check + tsc + build (dist/)
 ```
 
 ## Structure
 
-- `src/topics.ts` — les 7 topics 2027 et leurs poids.
-- `src/types.ts` — formats `Pack`, `Fiche`, `Question`, `Card`, `Formula`, `Lesson`, `Progress`.
-- `src/content/packs/*.json` — contenu chargé automatiquement (`import.meta.glob`). Un fichier par ajout ; `*-base.json` = socle initial.
-- `src/content/cours/*.json` — leçons issues des supports déposés dans `cours/`.
-- `src/lib/calc.ts` — générateurs d’exercices numériques (nouveaux chiffres à chaque fois, correction pas à pas). Un générateur dont l’`id` égale l’`id` d’une formule est relié au formulaire.
-- `src/lib/plan.ts` — statistiques, choix des questions (erreurs > jamais vues > à réviser), tirage pondéré des examens blancs, planning jusqu’à l’examen.
-- `src/lib/store.ts` — progression, répétition espacée (QCM et flashcards), réglages.
-- `src/lib/github.ts` — envoi de cours et synchro de la progression.
-- `scripts/check-content.ts` — validation lancée avant chaque build.
-- `GENERATION.md` — consignes de la tâche planifiée (nouveau contenu tous les 3 jours).
+- `src/topics.ts` — the 7 topics of the 2027 exam and their weights.
+- `src/types.ts` — `Pack`, `Fiche` (study note), `Question`, `Card`, `Formula`, `Lesson`, `Progress`.
+- `src/content/packs/*.json` — content loaded automatically (`import.meta.glob`). One file per addition; `*-base.json` is the core set.
+- `src/content/cours/*.json` — lessons built from material dropped into `cours/`.
+- `src/lib/calc.ts` — calculation drill generators (new numbers every time, worked solution). A generator whose `id` equals a formula `id` is linked from the formula sheet.
+- `src/lib/plan.ts` — statistics (topics and subtopics), question selection (misses > unseen > due), weighted mock-exam draw, study plan until the exam.
+- `src/lib/store.ts` — progress, spaced repetition (questions and flashcards), settings.
+- `src/lib/github.ts` — course uploads and progress sync.
+- `src/pages/` — Home (today), Notes, Topic hub, Formulas, Flashcards, Courses, Questions, Calc, MockExam, Session, Progress, Settings, Search.
+- `scripts/check-content.ts` — validation run before every build.
+- `GENERATION.md` — instructions for the scheduled task (new content every 3 days).
 
-## Conventions de contenu
+## Content conventions
 
-Voir `GENERATION.md` §4. En bref : 4 options par QCM (mélangées à l’affichage), explication en français, montants écrits `USD …` (le `$` ouvre une formule), calculs vérifiés en Python, contenu original (pas de copie du curriculum).
+See `GENERATION.md` §4. In short: everything in English; 4 options per question (shuffled on display); explanation says why the answer is right and why the main trap is wrong; amounts written `USD …` (a `$` opens a formula); every calculation verified in Python; original wording (never copy the curriculum). Study notes use block types `h`, `p`, `list`, `formula`, `tip` (key point), `trap` (exam trap), `recap` (in short), `table`, `example`.
 
-## Notes collées dans la conversation
+## Notes pasted into the conversation
 
-Quand l’utilisatrice colle des notes de cours ou joint un PDF/Word : en faire directement une ou plusieurs leçons dans `src/content/cours/` (découper par thème), avec une partie `fixes` pour les erreurs des notes et 5 à 10 QCM ; conserver le support d’origine dans `cours/`.
+When the learner pastes course notes or attaches a PDF/Word file: turn them directly into one or more lessons in `src/content/cours/` (split by theme), with a `fixes` list for errors in the notes and 5–10 questions; keep the original file in `cours/` only if it is the learner’s own material (the repository is public).
 
 ## Design
 
-Identité « carnet de marché » : papier crème `#F4F1E8`, encre `#12202B`, vert billet `#0E5E4B`, or `#E2B33C` ; Space Grotesk (titres), IBM Plex Sans (texte), IBM Plex Mono (chiffres). Une couleur par topic (`topics.ts`). Mode sombre, barre du bas sur mobile.
+“Banknote” identity: pale sage security paper `#EEF1EC`, intaglio green `#1F5B49`, ink `#172420`, a single gold accent `#B8862B` (countdown ring, focus, flags). Bricolage Grotesque for interface and figures, Source Serif 4 for everything you read (notes, questions, explanations). The memorable element is the home-page allocation strip: the exam drawn to scale by topic weight, each segment filled by mastery. One colour per topic (`topics.ts`). Dark mode, bottom bar on mobile, sentence-case labels, no monospace labels.

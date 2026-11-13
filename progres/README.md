@@ -1,3 +1,3 @@
-# Progression
+# Progress
 
-`progression.json` est écrit automatiquement par le site quand la synchronisation GitHub est activée. Ne pas modifier à la main.
+`progression.json` is written automatically by the site when GitHub sync is on. Do not edit it by hand.

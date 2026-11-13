@@ -13,7 +13,7 @@ export function Tex({ tex, block = false }: { tex: string; block?: boolean }) {
   return block ? <div className="tex-block" dangerouslySetInnerHTML={{ __html: html }} /> : <span dangerouslySetInnerHTML={{ __html: html }} />
 }
 
-/** Texte enrichi : **gras**, *italique*, `code`, $formule$ */
+/** Rich text: **bold**, *italic*, `code`, $formula$ */
 export function Rich({ text }: { text: string }) {
   const parts = text.split(/(\$[^$]+\$|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
   return (
@@ -36,7 +36,11 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
       {blocks.map((b, i) => {
         switch (b.t) {
           case 'h':
-            return <h3 key={i}>{b.text}</h3>
+            return (
+              <h3 key={i} id={slug(b.text)}>
+                {b.text}
+              </h3>
+            )
           case 'p':
             return (
               <p key={i}>
@@ -70,7 +74,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           case 'tip':
             return (
               <aside key={i} className="callout tip">
-                <b>À retenir</b>
+                <b>Key point</b>
                 <p>
                   <Rich text={b.text} />
                 </p>
@@ -79,16 +83,16 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           case 'trap':
             return (
               <aside key={i} className="callout trap">
-                <b>Piège d’examen</b>
+                <b>Exam trap</b>
                 <p>
                   <Rich text={b.text} />
                 </p>
               </aside>
             )
-          case 'fr':
+          case 'recap':
             return (
-              <aside key={i} className="callout fr">
-                <b>En français</b>
+              <aside key={i} className="callout recap">
+                <b>In short</b>
                 <p>
                   <Rich text={b.text} />
                 </p>
@@ -97,7 +101,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           case 'example':
             return (
               <aside key={i} className="callout example">
-                <b>{b.title ?? 'Exemple'}</b>
+                <b>{b.title ?? 'Example'}</b>
                 {b.lines.map((l, j) => (
                   <p key={j}>
                     <Rich text={l} />
@@ -137,3 +141,9 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
     </div>
   )
 }
+
+export const slug = (t: string) =>
+  t
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
