@@ -1,0 +1,355 @@
+{
+  "id": "2026-11-16-thin-subtopics",
+  "added": "2026-11-16",
+  "title": "Targeted review: thinly covered subtopics",
+  "questions": [
+    {
+      "id": "q-20261116-01",
+      "topic": "intro",
+      "tag": "Portfolio",
+      "level": 2,
+      "q": "A portfolio holds 60% equities (volatility 16%) and 40% hedge funds (volatility 8%). The correlation between them is 0.5. The portfolio volatility is closest to:",
+      "options": [
+        "11.5%",
+        "12.8%",
+        "10.1%",
+        "1.33%"
+      ],
+      "answer": 0,
+      "explain": "Variance = 0.6²×0.16² + 0.4²×0.08² + 2×0.6×0.4×0.5×0.16×0.08 = 0.009216 + 0.001024 + 0.003072 = 0.013312, so volatility = $\\sqrt{0.013312}$ ≈ **11.5%**. 12.8% is the weighted average of volatilities, which only holds with a correlation of 1; 1.33% is the variance, not the volatility.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-02",
+      "topic": "intro",
+      "tag": "Risk measures",
+      "level": 2,
+      "q": "A fund’s month-end NAVs are 100, 120, 90, 110, 84 and 130. Its maximum drawdown over the period is:",
+      "options": [
+        "30%",
+        "25%",
+        "23.6%",
+        "16%"
+      ],
+      "answer": 0,
+      "explain": "Maximum drawdown is the largest fall from a running peak to a later trough. The peak is 120 and the lowest later value is 84: 1 − 84/120 = **30%**. 25% (120 → 90) stops at the first trough; 23.6% (110 → 84) measures from a local high that is not the running peak.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-03",
+      "topic": "intro",
+      "tag": "Structures",
+      "level": 1,
+      "q": "Compared with investing through a commingled fund, the main advantage of a separately managed account (SMA) for a large investor is:",
+      "options": [
+        "Full position-level transparency and legal control of the assets",
+        "Lower operating costs because expenses are shared with other investors",
+        "Access to the same strategy with a smaller minimum investment",
+        "Protection from the manager’s investment decisions"
+      ],
+      "answer": 0,
+      "explain": "In an SMA the assets sit in an account owned by the investor, giving full transparency, control and often better liquidity. It is usually **more** costly and needs a large minimum, so ‘lower costs through sharing’ describes the commingled fund instead."
+    },
+    {
+      "id": "q-20261116-04",
+      "topic": "intro",
+      "tag": "Correlation",
+      "level": 2,
+      "q": "A fund has a volatility of 15%, the market has a volatility of 20%, and their correlation is 0.6. The fund’s beta to the market is:",
+      "options": [
+        "0.45",
+        "0.80",
+        "0.60",
+        "0.75"
+      ],
+      "answer": 0,
+      "explain": "$\\beta = \\rho \\times \\sigma_i/\\sigma_m$ = 0.6 × 15%/20% = **0.45**. 0.80 inverts the volatility ratio; 0.60 confuses beta with correlation, which equals beta only when both volatilities are the same.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-05",
+      "topic": "intro",
+      "tag": "Definition",
+      "level": 1,
+      "q": "Which of the following is an alternative **strategy** rather than an alternative **asset**?",
+      "options": [
+        "An equity market neutral hedge fund",
+        "Farmland",
+        "Timberland",
+        "Music royalties"
+      ],
+      "answer": 0,
+      "explain": "Alternative strategies (hedge funds, private equity structures) are defined by how traditional securities are traded or held, e.g. long and short listed equities. Farmland, timberland and royalties are alternative assets: the underlying asset itself differs from stocks and bonds."
+    },
+    {
+      "id": "q-20261116-06",
+      "topic": "real",
+      "tag": "Leverage",
+      "level": 2,
+      "q": "A property is expected to return 8% unlevered. It is financed with 60% debt costing 5%. Ignoring taxes and fees, the expected return on equity is:",
+      "options": [
+        "12.5%",
+        "9.8%",
+        "20%",
+        "8%"
+      ],
+      "answer": 0,
+      "explain": "$r_E = r_A + \\frac{D}{E}(r_A - r_D)$ = 8% + (60/40)×(8% − 5%) = 8% + 4.5% = **12.5%**. Equivalently (8% − 0.6×5%)/0.4. 9.8% uses D/V (0.6) instead of D/E (1.5); leverage magnifies the spread over the cost of debt by the debt-to-equity ratio.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-07",
+      "topic": "real",
+      "tag": "Roll yield",
+      "level": 2,
+      "q": "An investor buys a 3-month futures contract at USD 52 when spot is USD 50. At expiry, spot is still USD 50. Ignoring the return on collateral, the return on the futures position is closest to:",
+      "options": [
+        "−3.85%",
+        "0%",
+        "+3.85%",
+        "−4.00%"
+      ],
+      "answer": 0,
+      "explain": "The futures price converges to spot at expiry: (50 − 52)/52 = **−3.85%**. This is the negative roll yield of a market in contango. ‘0%’ is the trap: an unchanged spot price does not mean an unchanged futures price; −4.00% divides by spot instead of the entry price.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-08",
+      "topic": "real",
+      "tag": "Land",
+      "level": 2,
+      "q": "Undeveloped land can be viewed as a call option to build. Under this view, which change would most likely **increase** the value of the land today?",
+      "options": [
+        "Higher uncertainty about the future value of a completed building",
+        "Lower uncertainty about future construction costs and building values",
+        "A requirement to start construction immediately",
+        "A fall in the expected value of the completed building"
+      ],
+      "answer": 0,
+      "explain": "Like any option, the development option gains value when the underlying (the finished building’s value) becomes more volatile, because the owner can wait and build only if conditions are good. Lower uncertainty or being forced to build now removes that timing flexibility."
+    },
+    {
+      "id": "q-20261116-09",
+      "topic": "hf",
+      "tag": "Volatility",
+      "level": 2,
+      "q": "A fund systematically sells index options to earn the volatility risk premium. Its return distribution is best described as:",
+      "options": [
+        "Frequent small gains with occasional large losses (negative skew)",
+        "Frequent small losses with occasional large gains (positive skew)",
+        "Symmetric and close to normal",
+        "Uncorrelated with equity markets in crises"
+      ],
+      "answer": 0,
+      "explain": "Selling options collects premiums most of the time but suffers large losses when volatility spikes, typically during equity sell-offs: a short-volatility, negatively skewed profile. Positive skew describes a long-volatility strategy such as trend following."
+    },
+    {
+      "id": "q-20261116-10",
+      "topic": "hf",
+      "tag": "Fixed income arbitrage",
+      "level": 3,
+      "q": "A fund buys an off-the-run Treasury and shorts the more liquid on-the-run Treasury of similar maturity. In which scenario does this trade lose most?",
+      "options": [
+        "A flight to liquidity that widens the yield spread between the two bonds",
+        "A parallel rise in Treasury yields",
+        "A gradual convergence of the two bonds’ yields",
+        "A fall in short-term interest rates with no change in spreads"
+      ],
+      "answer": 0,
+      "explain": "The trade bets that the liquidity premium of the off-the-run bond will shrink. A parallel yield move is largely hedged because both bonds have similar duration. In a crisis, investors pay up for liquidity, so the spread widens and the position loses, often with leverage magnifying the loss."
+    },
+    {
+      "id": "q-20261116-11",
+      "topic": "hf",
+      "tag": "Multistrategy",
+      "level": 3,
+      "q": "A fund of funds invests equally in two managers that each charge a 20% incentive fee (no hurdle, ignore management fees and the fund of funds’ own fees). Manager A earns +20% and manager B earns −10% before fees. The investor’s net return is:",
+      "options": [
+        "3.0%",
+        "4.0%",
+        "5.0%",
+        "1.0%"
+      ],
+      "answer": 0,
+      "explain": "Gross return = 0.5×20% + 0.5×(−10%) = 5%. Only A pays an incentive fee: 0.5 × 20% × 20% = 2%. Net = 5% − 2% = **3.0%**. 4.0% is what a multistrategy fund charging 20% on the **net** 5% would deliver: the gap is netting risk.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-12",
+      "topic": "pd",
+      "tag": "CDS",
+      "level": 2,
+      "q": "A borrower has an annual default probability of 2% and an expected recovery rate of 40%. Using the credit triangle, the fair CDS spread is approximately:",
+      "options": [
+        "120 bps",
+        "200 bps",
+        "80 bps",
+        "60 bps"
+      ],
+      "answer": 0,
+      "explain": "Spread ≈ PD × (1 − R) = 2% × 60% = 1.2% = **120 bps**. 200 bps ignores recovery (assumes LGD of 100%); 80 bps multiplies by the recovery rate instead of the loss given default.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-13",
+      "topic": "pd",
+      "tag": "Loans vs bonds",
+      "level": 1,
+      "q": "Compared with a high-yield bond, a typical leveraged loan is:",
+      "options": [
+        "Floating-rate, secured and prepayable at or near par",
+        "Fixed-rate, unsecured and protected by long call protection",
+        "Floating-rate but subordinated to the issuer’s bonds",
+        "Fixed-rate and secured, with high interest rate duration"
+      ],
+      "answer": 0,
+      "explain": "Leveraged loans usually pay a floating spread over a reference rate, sit senior and secured in the capital structure and can be repaid early with little penalty, so their interest rate duration is very low. Fixed coupons, unsecured status and call protection describe high-yield bonds."
+    },
+    {
+      "id": "q-20261116-14",
+      "topic": "pe",
+      "tag": "Fees",
+      "level": 2,
+      "q": "A buyout fund has USD 500 million of commitments. It charges 2% per year on committed capital during a 5-year investment period, then 1.5% per year on USD 300 million of invested capital for the following 5 years. Total management fees over the 10 years are:",
+      "options": [
+        "USD 72.5 million",
+        "USD 100 million",
+        "USD 50 million",
+        "USD 87.5 million"
+      ],
+      "answer": 0,
+      "explain": "Investment period: 2% × 500 × 5 = USD 50 million. Harvest period: 1.5% × 300 × 5 = USD 22.5 million. Total **USD 72.5 million**. USD 87.5 million wrongly keeps committed capital as the fee base after the investment period; USD 100 million charges 2% on commitments for all 10 years.",
+      "calc": true
+    },
+    {
+      "id": "q-20261116-15",
+      "topic": "pe",
+      "tag": "Co-investments",
+      "level": 2,
+      "q": "What is the main reason LPs seek co-investments alongside a private equity fund?",
+      "options": [
+        "To lower their average fees, since co-investments often carry little or no management fee or carry",
+        "To diversify their portfolio more than the main fund does",
+        "To avoid any adverse-selection risk in the deals offered",
+        "To shorten the due diligence period they need"
+      ],
+      "answer": 0,
+      "explain": "Co-investments typically come with reduced or zero fees and carry, lowering the LP’s blended cost and allowing tactical sizing. They **increase** concentration rather than diversification, carry adverse-selection risk (the GP may offer the deals it least wants to hold) and require fast, deal-level diligence."
+    },
+    {
+      "id": "q-20261116-16",
+      "topic": "ethics",
+      "tag": "MNPI",
+      "level": 2,
+      "q": "A credit fund’s private lending team receives confidential financial projections from a borrower. The same firm’s public credit desk trades that borrower’s listed bonds. The most appropriate response is to:",
+      "options": [
+        "Keep the information behind an information barrier and restrict trading in the borrower’s public securities as needed",
+        "Share the projections with the public desk so all clients benefit equally",
+        "Let the public desk trade as long as the lending team does not place the orders",
+        "Disclose the projections publicly before any trade"
+      ],
+      "answer": 0,
+      "explain": "Confidential lender information can be material non-public information. Firms handle it with information barriers (‘ethical walls’) and restricted or watch lists. Letting another desk trade on it, or sharing it internally, is still misuse; publishing it would breach the confidentiality owed to the borrower."
+    },
+    {
+      "id": "q-20261116-17",
+      "topic": "ethics",
+      "tag": "Transparency",
+      "level": 2,
+      "q": "A private credit manager changes its valuation model for illiquid loans, which raises reported NAV by 3%. Which action best reflects ethical practice?",
+      "options": [
+        "Disclose the change, its rationale and its effect on NAV to investors",
+        "Apply the change silently because valuation is the manager’s responsibility",
+        "Apply the change only after the next fundraising closes",
+        "Keep both models and report whichever gives the higher NAV"
+      ],
+      "answer": 0,
+      "explain": "Transparency requires that investors understand material changes in how their assets are valued, especially when the change affects fees and performance figures. Silently changing models, timing them around fundraising or cherry-picking results misleads investors."
+    },
+    {
+      "id": "q-20261116-18",
+      "topic": "digital",
+      "tag": "Stablecoins",
+      "level": 2,
+      "q": "Which stablecoin design is most exposed to a self-reinforcing collapse (‘death spiral’) when confidence falls?",
+      "options": [
+        "An algorithmic stablecoin backed mainly by its own sister token",
+        "A fiat-backed stablecoin holding short-term government bills",
+        "A crypto-collateralized stablecoin with large over-collateralization",
+        "A tokenized bank deposit"
+      ],
+      "answer": 0,
+      "explain": "An algorithmic coin defends its peg by minting a sister token, so redemptions flood the market with that token, crushing its price and the peg’s backing at the same time. Fiat-backed and over-collateralized designs hold external collateral that does not depend on the coin’s own token."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-20261116-01",
+      "topic": "intro",
+      "front": "Separately managed account (SMA)",
+      "back": "An account owned by the investor and run by a manager, giving full transparency and control but at higher cost and minimum size than a commingled fund."
+    },
+    {
+      "id": "c-20261116-02",
+      "topic": "intro",
+      "front": "Calmar ratio",
+      "back": "Annualized return divided by maximum drawdown (usually over the last 36 months); a drawdown-based risk-adjusted measure.",
+      "hint": "Return per unit of worst pain."
+    },
+    {
+      "id": "c-20261116-03",
+      "topic": "real",
+      "front": "Real option value of land",
+      "back": "Undeveloped land treated as a call option to build: its value rises with uncertainty about future building values and with flexibility over timing."
+    },
+    {
+      "id": "c-20261116-04",
+      "topic": "pd",
+      "front": "Leveraged loan",
+      "back": "Senior secured, floating-rate loan to a below-investment-grade borrower, usually prepayable at or near par, hence low interest rate duration."
+    },
+    {
+      "id": "c-20261116-05",
+      "topic": "pd",
+      "front": "Credit triangle",
+      "back": "Approximation linking CDS spread, default probability and recovery: spread ≈ PD × (1 − R).",
+      "hint": "Any two give the third."
+    },
+    {
+      "id": "c-20261116-06",
+      "topic": "hf",
+      "front": "On-the-run vs. off-the-run",
+      "back": "On-the-run is the most recently issued, most liquid government bond of a maturity; older off-the-run issues trade at slightly higher yields because they are less liquid."
+    },
+    {
+      "id": "c-20261116-07",
+      "topic": "hf",
+      "front": "Capital structure arbitrage",
+      "back": "Trading mispricing between different securities of the same issuer, e.g. long its CDS protection and long its equity, or long senior debt and short junior debt."
+    },
+    {
+      "id": "c-20261116-08",
+      "topic": "hf",
+      "front": "Double layer of fees",
+      "back": "Funds of funds charge their own fees on top of the underlying managers’ fees, reducing net returns compared with direct investment."
+    },
+    {
+      "id": "c-20261116-09",
+      "topic": "pe",
+      "front": "Management fee offset",
+      "back": "Share of transaction, monitoring or other fees received by the GP from portfolio companies that is credited against the LPs’ management fee."
+    },
+    {
+      "id": "c-20261116-10",
+      "topic": "ethics",
+      "front": "Information barrier (ethical wall)",
+      "back": "Policies and physical or system separation that stop confidential or non-public information from passing between teams of the same firm."
+    },
+    {
+      "id": "c-20261116-11",
+      "topic": "digital",
+      "front": "Algorithmic stablecoin",
+      "back": "A stablecoin that targets its peg through supply rules and a sister token rather than external collateral; vulnerable to death spirals."
+    }
+  ]
+}
