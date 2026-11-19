@@ -1,0 +1,388 @@
+{
+  "id": "2026-11-19-weighted-review",
+  "added": "2026-11-19",
+  "title": "Weighted review: calculations across all topics",
+  "questions": [
+    {
+      "id": "q-20261119-01",
+      "topic": "intro",
+      "tag": "Sharpe ratio",
+      "level": 3,
+      "q": "A fund’s average monthly excess return is 0.5% and its monthly standard deviation is 2%. Assuming returns are independent over time, its annualized Sharpe ratio is closest to:",
+      "options": [
+        "0.87",
+        "0.25",
+        "3.00",
+        "0.07"
+      ],
+      "answer": 0,
+      "explain": "Monthly Sharpe = 0.5/2 = 0.25. The mean scales with 12 and the volatility with $\\sqrt{12}$, so the ratio scales with $\\sqrt{12}$: 0.25 × 3.464 ≈ **0.87**. 0.25 is the unannualized monthly figure; 3.00 wrongly multiplies the ratio by 12.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-02",
+      "topic": "intro",
+      "tag": "Correlation",
+      "level": 2,
+      "q": "The covariance between a hedge fund index and an equity index is 0.0036. Their volatilities are 12% and 10%. The correlation is:",
+      "options": [
+        "0.30",
+        "0.036",
+        "0.43",
+        "3.0"
+      ],
+      "answer": 0,
+      "explain": "$\\rho = \\text{Cov}/(\\sigma_1\\sigma_2)$ = 0.0036 / (0.12 × 0.10) = 0.0036 / 0.012 = **0.30**. 0.036 forgets to divide by the product of volatilities and simply rescales the covariance; a correlation can never be 3.0.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-03",
+      "topic": "intro",
+      "tag": "Alpha vs beta",
+      "level": 2,
+      "q": "A fund returned 9% with a beta of 0.6. The risk-free rate is 3% and the market returned 11%. Its ex post (Jensen’s) alpha is:",
+      "options": [
+        "1.2%",
+        "6.0%",
+        "4.2%",
+        "−2.0%"
+      ],
+      "answer": 0,
+      "explain": "Required return from CAPM = 3% + 0.6 × (11% − 3%) = 7.8%; alpha = 9% − 7.8% = **1.2%**. 6.0% is just the excess return over cash, ignoring market risk; 4.2% subtracts beta × market premium but forgets to add back the risk-free rate.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-04",
+      "topic": "intro",
+      "tag": "Distributions",
+      "level": 2,
+      "q": "A strategy’s monthly returns show strong negative skewness. Compared with the median monthly return, the mean monthly return is most likely:",
+      "options": [
+        "Lower, because rare large losses pull the mean down",
+        "Higher, because most months are small gains",
+        "Equal, because skewness only affects the tails",
+        "Undefined, because skewed distributions have no mean"
+      ],
+      "answer": 0,
+      "explain": "With negative skew the long tail is on the loss side: a few large losses drag the mean below the median, while the typical month (the median) is a modest gain. Thinking ‘most months are gains, so the mean is high’ is the trap—frequent small gains raise the median, not the mean."
+    },
+    {
+      "id": "q-20261119-05",
+      "topic": "intro",
+      "tag": "Liquidity terms",
+      "level": 2,
+      "q": "A hedge fund allows quarterly redemptions at calendar quarter-ends with 45 days’ written notice, and the investor’s lockup has expired. To redeem at 30 June, the investor must submit notice by about:",
+      "options": [
+        "16 May",
+        "30 June",
+        "15 August",
+        "31 March"
+      ],
+      "answer": 0,
+      "explain": "Notice must be given 45 days **before** the redemption date: 30 June minus 45 days ≈ 16 May. Submitting on 30 June itself would push the redemption to the next quarter-end (30 September); 15 August confuses notice with the payment delay after redemption."
+    },
+    {
+      "id": "q-20261119-06",
+      "topic": "real",
+      "tag": "Prepayment",
+      "level": 2,
+      "q": "A mortgage pool has a conditional prepayment rate (CPR) of 6% per year. The single monthly mortality (SMM) rate is closest to:",
+      "options": [
+        "0.514%",
+        "0.500%",
+        "6.000%",
+        "0.072%"
+      ],
+      "answer": 0,
+      "explain": "SMM = $1-(1-\\text{CPR})^{1/12}$ = 1 − 0.94^(1/12) ≈ **0.514%**. Dividing 6% by 12 (0.500%) ignores compounding: prepayments each month apply to the balance that survived earlier months.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-07",
+      "topic": "real",
+      "tag": "Valuation",
+      "level": 2,
+      "q": "A property generates stable NOI of USD 5 million. Market cap rates rise from 5.0% to 5.5% with no change in NOI. The property’s value changes by about:",
+      "options": [
+        "−9.1%",
+        "−0.5%",
+        "+10.0%",
+        "−10.0%"
+      ],
+      "answer": 0,
+      "explain": "Value = NOI / cap rate: USD 5m / 0.05 = USD 100m before, USD 5m / 0.055 = USD 90.9m after, a change of **−9.1%**. −10% treats the 10% relative rise in the cap rate as a one-for-one price fall; −0.5% just reads off the change in the cap rate.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-08",
+      "topic": "real",
+      "tag": "Futures pricing",
+      "level": 2,
+      "q": "A commodity trades at a spot price of 80. The risk-free rate is 4%, storage costs are 2% and the convenience yield is 3% (all continuously compounded, per year). The one-year futures price under the cost-of-carry model is closest to:",
+      "options": [
+        "82.44",
+        "84.95",
+        "87.53",
+        "77.64"
+      ],
+      "answer": 0,
+      "explain": "$F = S e^{(r + c - y)T}$ = 80 × e^(0.04 + 0.02 − 0.03) = 80 × e^(0.03) ≈ **82.44**. 84.95 ignores the convenience yield; 87.53 adds it instead of subtracting it—convenience yield is a benefit of holding the physical good, so it lowers the futures price.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-09",
+      "topic": "real",
+      "tag": "Intellectual property",
+      "level": 2,
+      "q": "An investor buys a portfolio of pharmaceutical patent royalties. Which risk is most specific to this asset compared with, say, a portfolio of office buildings?",
+      "options": [
+        "Legal challenge or obsolescence that can end the cash flows before expiry",
+        "Rising cap rates in the property market",
+        "Tenant default on long leases",
+        "Physical depreciation requiring capital expenditure"
+      ],
+      "answer": 0,
+      "explain": "IP cash flows depend on the right staying enforceable and the product staying relevant: a successful patent challenge or a better competing drug can cut royalties to zero long before the legal term ends. Cap rates, tenant default and physical depreciation are characteristic of real estate, not of royalty streams."
+    },
+    {
+      "id": "q-20261119-10",
+      "topic": "hf",
+      "tag": "Macro",
+      "level": 1,
+      "q": "What best distinguishes a discretionary global macro manager from a systematic one?",
+      "options": [
+        "Positions reflect the manager’s judgment on economic and policy themes rather than rules coded in a model",
+        "Discretionary managers only trade equities",
+        "Systematic managers never use leverage",
+        "Discretionary managers hold positions for less than a day"
+      ],
+      "answer": 0,
+      "explain": "Discretionary macro relies on human judgment about growth, inflation, central banks and politics; systematic macro applies predefined quantitative rules. Both trade across asset classes and use leverage, and neither is defined by intraday holding periods."
+    },
+    {
+      "id": "q-20261119-11",
+      "topic": "hf",
+      "tag": "Due diligence",
+      "level": 3,
+      "q": "During operational due diligence on a USD 2 billion hedge fund, which finding is the most serious red flag?",
+      "options": [
+        "The fund calculates its own NAV and uses a small, little-known auditor",
+        "The manager charges a 1.5% management fee",
+        "The fund has a one-year soft lockup",
+        "The portfolio manager previously worked at a large bank"
+      ],
+      "answer": 0,
+      "explain": "Self-administration removes the independent check on valuations, and an auditor too small for the fund’s size raises doubts about the audit’s quality—a combination seen in several frauds. Fees and lockups are commercial terms, not control weaknesses."
+    },
+    {
+      "id": "q-20261119-12",
+      "topic": "hf",
+      "tag": "Funds of funds",
+      "level": 3,
+      "q": "An underlying hedge fund earns 15% gross and charges 2% and 20% (incentive on returns after the management fee). A fund of funds holding it charges 1% and 10% on the same basis. The investor’s net return is closest to:",
+      "options": [
+        "8.46%",
+        "10.40%",
+        "9.40%",
+        "7.50%"
+      ],
+      "answer": 0,
+      "explain": "Underlying: 15% − 2% = 13%; incentive 20% × 13% = 2.6%, so 10.4%. Fund of funds: 10.4% − 1% = 9.4%; incentive 10% × 9.4% = 0.94%, so **8.46%**. 10.40% stops at the first layer; 9.40% forgets the fund of funds’ incentive fee.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-13",
+      "topic": "hf",
+      "tag": "Multistrategy",
+      "level": 3,
+      "q": "Compared with a fund of funds holding the same strategies through separate managers, a multistrategy fund mainly benefits investors because:",
+      "options": [
+        "Incentive fees are charged on the netted result of all strategies, avoiding fees paid on winners while losers lose",
+        "It gives access to many independent firms, diversifying operational risk",
+        "It always offers better liquidity than its underlying strategies",
+        "It removes the need for due diligence on the manager"
+      ],
+      "answer": 0,
+      "explain": "In a fund of funds each underlying manager charges an incentive fee on its own gains, so the investor can pay fees even when the total result is flat (netting risk). A multistrategy fund charges on the combined result. Operational diversification across firms is actually an advantage of the fund of funds, not the multistrategy fund."
+    },
+    {
+      "id": "q-20261119-14",
+      "topic": "pd",
+      "tag": "Credit risk",
+      "level": 2,
+      "q": "A loan trades at a credit spread of 3% over the risk-free rate, and the expected recovery rate is 40%. Using the credit triangle, the implied annual default probability is closest to:",
+      "options": [
+        "5.0%",
+        "7.5%",
+        "3.0%",
+        "1.8%"
+      ],
+      "answer": 0,
+      "explain": "Spread ≈ PD × LGD, so PD ≈ 3% / (1 − 0.40) = 3% / 0.60 = **5.0%**. 7.5% divides by the recovery rate instead of the loss rate; 1.8% multiplies the spread by LGD instead of dividing.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-15",
+      "topic": "pd",
+      "tag": "CLO",
+      "level": 2,
+      "q": "In a CLO, the overcollateralization test on a mezzanine tranche fails after several loan defaults. What typically happens to cash flows?",
+      "options": [
+        "Interest that would go to the equity tranche is diverted to pay down the senior notes until the test is restored",
+        "The equity tranche receives a larger distribution to compensate for losses",
+        "The CLO is immediately liquidated and all tranches are paid pro rata",
+        "The senior tranche stops receiving interest"
+      ],
+      "answer": 0,
+      "explain": "Coverage tests protect the senior notes: when one fails, cash is redirected down the waterfall away from junior holders—equity first—and used to repay the most senior notes. Pro-rata liquidation would destroy the seniority the structure is built on."
+    },
+    {
+      "id": "q-20261119-16",
+      "topic": "pe",
+      "tag": "Performance",
+      "level": 2,
+      "q": "A buyout fund has called USD 80 million, distributed USD 60 million and reports a NAV of USD 70 million. Its DPI, RVPI and TVPI are:",
+      "options": [
+        "0.75, 0.875 and 1.625",
+        "0.75, 0.875 and 0.875",
+        "0.86, 1.17 and 1.625",
+        "1.33, 1.14 and 2.47"
+      ],
+      "answer": 0,
+      "explain": "DPI = 60/80 = **0.75**; RVPI = 70/80 = **0.875**; TVPI = DPI + RVPI = 130/80 = **1.625**. The 0.86 / 1.17 set divides by the wrong base (distributions over NAV and NAV over distributions); all three multiples use paid-in capital as the denominator.",
+      "calc": true
+    },
+    {
+      "id": "q-20261119-17",
+      "topic": "pe",
+      "tag": "Secondaries",
+      "level": 2,
+      "q": "Why can buying an existing LP interest on the secondary market reduce the J-curve effect for the buyer?",
+      "options": [
+        "The portfolio is already partly invested, so early fees and write-downs have largely been borne by the seller",
+        "Secondary funds charge no management fees",
+        "Secondary buyers receive the GP’s carried interest",
+        "Secondary interests are always bought at NAV"
+      ],
+      "answer": 0,
+      "explain": "A mature LP interest skips the early years of fees on undrawn capital and conservative marks; cash comes back sooner, often bought at a discount to NAV. Secondary funds do charge fees, and prices can be at discounts or premiums to NAV."
+    },
+    {
+      "id": "q-20261119-18",
+      "topic": "ethics",
+      "tag": "Transparency",
+      "level": 2,
+      "q": "A private credit manager switches its valuation method for illiquid loans in a way that raises reported NAV by 3%. It does not tell investors because the new method is “within accounting standards”. Under the CAIA Ethical Principles, the main issue is:",
+      "options": [
+        "A lack of transparency: a material change affecting reported performance should be disclosed",
+        "No issue, because the method complies with accounting standards",
+        "A conflict only if the manager earns no fees on NAV",
+        "A breach of the duty of impartiality between asset classes"
+      ],
+      "answer": 0,
+      "explain": "Principles go beyond legal compliance: a methodology change that lifts NAV—and possibly fees—materially affects what investors are told, so it must be disclosed and explained. ‘It is within standards’ is the trap; being allowed is not the same as being transparent."
+    },
+    {
+      "id": "q-20261119-19",
+      "topic": "ethics",
+      "tag": "Conflicts of interest",
+      "level": 3,
+      "q": "A manager receives a limited co-investment allocation that several of its funds and separate accounts would like. The most appropriate approach is to:",
+      "options": [
+        "Allocate according to a written, pre-disclosed policy applied consistently across clients",
+        "Give it to the account paying the highest fees",
+        "Give it to the newest client to strengthen the relationship",
+        "Keep it for the firm’s own account to avoid choosing between clients"
+      ],
+      "answer": 0,
+      "explain": "Fair treatment requires an objective allocation rule set in advance, disclosed to clients and applied consistently. Favouring high-fee or new accounts puts the firm’s interest first, and taking the deal for the firm itself is a self-dealing conflict, not a solution."
+    },
+    {
+      "id": "q-20261119-20",
+      "topic": "digital",
+      "tag": "Consensus",
+      "level": 2,
+      "q": "In a proof-of-stake network, “slashing” refers to:",
+      "options": [
+        "Destroying part of a validator’s staked tokens as a penalty for dishonest or faulty behaviour",
+        "Halving the block reward every four years",
+        "Splitting a blockchain into two incompatible chains",
+        "Reducing transaction fees when the network is congested"
+      ],
+      "answer": 0,
+      "explain": "Slashing is the economic security mechanism of proof of stake: a validator that signs conflicting blocks or misbehaves loses part of its stake. Halving the reward describes Bitcoin’s proof-of-work issuance schedule, and a chain split is a fork."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-20261119-01",
+      "topic": "real",
+      "front": "Conditional prepayment rate (CPR) vs. single monthly mortality (SMM)",
+      "back": "CPR is the annualized share of a mortgage pool’s balance prepaid; SMM is the monthly equivalent: $\\text{SMM}=1-(1-\\text{CPR})^{1/12}$.",
+      "hint": "Not CPR/12: compounding."
+    },
+    {
+      "id": "c-20261119-02",
+      "topic": "real",
+      "front": "Cost-of-carry model",
+      "back": "Futures price = spot compounded at the risk-free rate plus storage costs minus convenience yield: $F=Se^{(r+c-y)T}$."
+    },
+    {
+      "id": "c-20261119-03",
+      "topic": "pe",
+      "front": "RVPI",
+      "back": "Residual value to paid-in: the fund’s remaining NAV divided by capital called. TVPI = DPI + RVPI.",
+      "hint": "What is still on the table."
+    },
+    {
+      "id": "c-20261119-04",
+      "topic": "pe",
+      "front": "Key person clause",
+      "back": "LPA provision that suspends new investments (or lets LPs act) if named senior investment professionals leave or stop devoting enough time to the fund."
+    },
+    {
+      "id": "c-20261119-05",
+      "topic": "pd",
+      "front": "Hazard rate",
+      "back": "In reduced-form credit models, the instantaneous probability of default given survival so far; roughly credit spread ÷ LGD."
+    },
+    {
+      "id": "c-20261119-06",
+      "topic": "pd",
+      "front": "Equity (first-loss) tranche",
+      "back": "The most junior CLO tranche: receives residual cash flows after all debt tranches and absorbs losses first."
+    },
+    {
+      "id": "c-20261119-07",
+      "topic": "pd",
+      "front": "Interest coverage ratio",
+      "back": "EBITDA (or EBIT) divided by interest expense; a common maintenance covenant in private loans.",
+      "hint": "Can profits pay the interest?"
+    },
+    {
+      "id": "c-20261119-08",
+      "topic": "hf",
+      "front": "Discretionary vs. systematic macro",
+      "back": "Discretionary macro trades on the manager’s judgment of economic and policy themes; systematic macro follows quantitative rules coded in models."
+    },
+    {
+      "id": "c-20261119-09",
+      "topic": "intro",
+      "front": "Jensen’s alpha",
+      "back": "Actual return minus the CAPM-required return: $\\alpha = R_p - [R_f + \\beta(R_m - R_f)]$."
+    },
+    {
+      "id": "c-20261119-10",
+      "topic": "digital",
+      "front": "Slashing",
+      "back": "Proof-of-stake penalty that destroys part of a validator’s stake for dishonest or faulty validation.",
+      "hint": "Stake at risk keeps validators honest."
+    },
+    {
+      "id": "c-20261119-11",
+      "topic": "ethics",
+      "front": "Allocation policy",
+      "back": "Written, pre-disclosed rules for sharing limited opportunities (trades, co-investments) fairly among clients and the firm."
+    }
+  ]
+}
