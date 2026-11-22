@@ -1,0 +1,361 @@
+{
+  "id": "2026-11-22-thin-subtopics-calc",
+  "added": "2026-11-22",
+  "title": "Targeted review: fees, leverage and thin subtopics",
+  "questions": [
+    {
+      "id": "q-20261122-01",
+      "topic": "intro",
+      "tag": "Fees",
+      "level": 3,
+      "q": "A hedge fund starts the year with NAV 100 per share and a high-water mark of 120. It charges a 2% management fee on beginning NAV and a 20% incentive fee on gains above the high-water mark, computed after the management fee. Gross of all fees the NAV ends the year at 130. The ending NAV net of fees is closest to:",
+      "options": [
+        "126.4",
+        "124.4",
+        "126.0",
+        "128.0"
+      ],
+      "answer": 0,
+      "explain": "Management fee = 2% × 100 = 2, so NAV after it = 128. Only the part above the high-water mark earns an incentive fee: 20% × (128 − 120) = 1.6. Net NAV = 128 − 1.6 = **126.4**. 124.4 charges the incentive fee on the whole gain from 100 (20% × 28 = 5.6), ignoring the high-water mark; 126.0 computes the incentive fee before deducting the management fee.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-02",
+      "topic": "intro",
+      "tag": "Returns",
+      "level": 2,
+      "q": "A fund returns +25% in year 1 and −20% in year 2. Which statement about its average annual return is correct?",
+      "options": [
+        "The arithmetic mean is 2.5% but the geometric mean is 0%",
+        "Both the arithmetic and geometric means are 2.5%",
+        "The arithmetic mean is 0% but the geometric mean is 2.5%",
+        "Both means are 0% because the investor ends where they started"
+      ],
+      "answer": 0,
+      "explain": "Arithmetic mean = (25% − 20%)/2 = 2.5%. Geometric mean = $\\sqrt{1.25 \\times 0.80} - 1 = \\sqrt{1.00} - 1$ = **0%**: USD 100 grows to USD 125 then falls back to USD 100. The geometric mean is never above the arithmetic mean, and the gap widens with volatility, so swapping the two figures is the classic trap.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-03",
+      "topic": "intro",
+      "tag": "Smoothing",
+      "level": 2,
+      "q": "A private real estate fund reports quarterly returns based on appraisals that lag market prices. If an analyst computes its Sharpe ratio from the reported returns, the ratio will most likely be:",
+      "options": [
+        "Overstated, because smoothing understates volatility",
+        "Understated, because appraisals understate the mean return",
+        "Unbiased, because smoothing affects timing but not risk",
+        "Overstated, because smoothing raises the average return"
+      ],
+      "answer": 0,
+      "explain": "Smoothing spreads price changes over several periods, so reported volatility is too low while the long-run mean return is roughly unchanged. A lower denominator inflates the Sharpe ratio. Smoothing does not systematically raise the average return, so the last option gives the wrong reason."
+    },
+    {
+      "id": "q-20261122-04",
+      "topic": "intro",
+      "tag": "Structures",
+      "level": 2,
+      "q": "For a strategy investing in illiquid private assets that take years to sell, which fund structure is generally most appropriate?",
+      "options": [
+        "A closed-end limited partnership with capital calls and a fixed life",
+        "An open-end fund offering monthly redemptions at NAV",
+        "An exchange-traded fund with daily creation and redemption",
+        "An open-end mutual fund with daily liquidity"
+      ],
+      "answer": 0,
+      "explain": "A closed-end vehicle matches the liability side to the assets: investors commit capital, it is drawn as deals arise, and it is returned as assets are sold over a fixed life. An open-end fund with frequent redemptions creates a liquidity mismatch — it may be forced to sell illiquid assets at a discount or impose gates."
+    },
+    {
+      "id": "q-20261122-05",
+      "topic": "real",
+      "tag": "Real estate",
+      "level": 2,
+      "q": "An office building has potential gross income of USD 10 million, an expected vacancy and collection loss of 8%, and operating expenses of USD 3.2 million. Using a cap rate of 6%, its estimated value is closest to:",
+      "options": [
+        "USD 100 million",
+        "USD 113 million",
+        "USD 153 million",
+        "USD 6 million"
+      ],
+      "answer": 0,
+      "explain": "Effective gross income = 10 × (1 − 0.08) = USD 9.2 million. NOI = 9.2 − 3.2 = USD 6.0 million. Value = NOI / cap rate = 6.0 / 0.06 = **USD 100 million**. USD 113 million forgets the vacancy loss (6.8 / 0.06); USD 153 million capitalizes effective gross income instead of NOI.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-06",
+      "topic": "real",
+      "tag": "Leverage",
+      "level": 3,
+      "q": "A property has an expected unlevered return of 4%. It is financed with 70% debt at an interest rate of 6%. Ignoring taxes and fees, the expected return on equity is closest to:",
+      "options": [
+        "−0.7%",
+        "2.6%",
+        "4.0%",
+        "13.3%"
+      ],
+      "answer": 0,
+      "explain": "$r_E = r_A + \\frac{D}{E}(r_A - r_D)$ = 4% + (0.70/0.30) × (4% − 6%) = 4% − 4.67% = **−0.67%**. When debt costs more than the asset earns, leverage is negative and lowers the equity return. 2.6% multiplies the spread by the debt share (0.70) instead of the debt-to-equity ratio (2.33); 13.3% ignores the interest cost.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-07",
+      "topic": "real",
+      "tag": "Real estate styles",
+      "level": 1,
+      "q": "Which real estate investment style typically derives the largest share of its expected return from property appreciation rather than income?",
+      "options": [
+        "Opportunistic",
+        "Core",
+        "Value-added",
+        "Core-plus"
+      ],
+      "answer": 0,
+      "explain": "Opportunistic real estate (development, repositioning, distressed assets, high leverage) relies mainly on capital gains. Core real estate holds stabilized, fully leased properties whose return comes mostly from rental income. Value-added sits in between: some income, some appreciation from improvements."
+    },
+    {
+      "id": "q-20261122-08",
+      "topic": "real",
+      "tag": "Natural resources",
+      "level": 2,
+      "q": "An investor buys farmland and leases it to farmers. Which pair best describes the two main components of the investment’s total return?",
+      "options": [
+        "Income from leases or crop sales, and changes in the value of the land",
+        "Roll yield and collateral yield",
+        "Biological growth of the trees and timber price changes",
+        "Coupon income and pull-to-par"
+      ],
+      "answer": 0,
+      "explain": "Farmland returns come from current income (cash rents or crop revenue) plus land appreciation, which is linked to crop prices, productivity and interest rates. Biological growth is the distinctive driver of **timberland**, not farmland; roll and collateral yield describe commodity futures."
+    },
+    {
+      "id": "q-20261122-09",
+      "topic": "hf",
+      "tag": "Market neutral",
+      "level": 2,
+      "q": "An equity market neutral manager buys USD 100 million of stock A (beta 1.2). To make the pair beta neutral, she shorts stock B (beta 0.8). The short position should be:",
+      "options": [
+        "USD 150 million",
+        "USD 100 million",
+        "USD 67 million",
+        "USD 120 million"
+      ],
+      "answer": 0,
+      "explain": "Beta neutrality requires equal beta-weighted exposures: 100 × 1.2 = short × 0.8, so short = 120 / 0.8 = **USD 150 million**. USD 100 million makes the pair dollar neutral but leaves a net beta exposure of 100 × (1.2 − 0.8) = USD 40 million; USD 67 million inverts the ratio.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-10",
+      "topic": "hf",
+      "tag": "Activism",
+      "level": 2,
+      "q": "Which of the following is most characteristic of an activist hedge fund’s approach?",
+      "options": [
+        "Taking a significant stake and pushing management for changes such as board seats, asset sales or capital returns",
+        "Holding many small passive positions to track a value index",
+        "Buying the target and shorting the acquirer after a merger is announced",
+        "Trading futures on interest rates based on macroeconomic forecasts"
+      ],
+      "answer": 0,
+      "explain": "Activists buy meaningful stakes and engage with — or pressure — management to unlock value, using letters, proxy contests or board nominations. Buying the target and shorting the acquirer after an announcement is merger arbitrage, which bets on deal completion rather than on changing the company."
+    },
+    {
+      "id": "q-20261122-11",
+      "topic": "hf",
+      "tag": "Due diligence",
+      "level": 3,
+      "q": "A manager marketed as a small-cap value fund shows rising correlation with a large-cap growth index over the last two years. In investment due diligence this is best described as evidence of:",
+      "options": [
+        "Style drift",
+        "Survivorship bias",
+        "Return smoothing",
+        "Backfill bias"
+      ],
+      "answer": 0,
+      "explain": "Style drift means the manager’s actual exposures have moved away from the stated mandate; returns-based style analysis reveals it through changing factor loadings. Survivorship and backfill bias affect **databases**, not one fund’s exposures, and smoothing would show up as autocorrelation, not a shift in style correlation."
+    },
+    {
+      "id": "q-20261122-12",
+      "topic": "pd",
+      "tag": "Credit models",
+      "level": 2,
+      "q": "A borrower has a constant annual default intensity (hazard rate) of 2.5% and an expected recovery rate of 40%. Using the credit triangle, its fair credit spread is closest to:",
+      "options": [
+        "150 bp",
+        "100 bp",
+        "250 bp",
+        "400 bp"
+      ],
+      "answer": 0,
+      "explain": "Spread ≈ hazard rate × (1 − recovery) = 2.5% × 0.60 = 1.5% = **150 bp**. 100 bp multiplies by the recovery rate instead of the loss given default; 250 bp ignores recovery altogether.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-13",
+      "topic": "pd",
+      "tag": "Market growth",
+      "level": 2,
+      "q": "Which factor is most often cited as a driver of the growth of private direct lending to middle-market companies since 2008?",
+      "options": [
+        "Stricter bank capital and regulatory rules that reduced bank lending to riskier mid-sized borrowers",
+        "The disappearance of floating-rate loans",
+        "A ban on high-yield bond issuance by small companies",
+        "Falling demand for leverage from private equity sponsors"
+      ],
+      "answer": 0,
+      "explain": "Post-crisis regulation raised the capital cost of holding risky, illiquid loans, so many banks retreated from middle-market lending and non-bank lenders filled the gap. Sponsor demand for leverage actually grew, which reinforced rather than reduced the trend."
+    },
+    {
+      "id": "q-20261122-14",
+      "topic": "pe",
+      "tag": "Fees",
+      "level": 3,
+      "q": "A PE fund has USD 500 million of commitments. It charges 2% a year on committed capital during a 5-year investment period, then 1.5% a year on net invested capital, which averages USD 300 million over the remaining 5 years. Total management fees over the 10-year life are closest to:",
+      "options": [
+        "USD 72.5 million",
+        "USD 100 million",
+        "USD 87.5 million",
+        "USD 60 million"
+      ],
+      "answer": 0,
+      "explain": "Investment period: 2% × 500 × 5 = USD 50 million. Harvest period: 1.5% × 300 × 5 = USD 22.5 million. Total = **USD 72.5 million**. USD 100 million keeps charging 2% on commitments for all 10 years; USD 87.5 million applies 1.5% to commitments rather than to invested capital in the second half.",
+      "calc": true
+    },
+    {
+      "id": "q-20261122-15",
+      "topic": "pe",
+      "tag": "Co-investments",
+      "level": 2,
+      "q": "From the LP’s perspective, the main risk of co-investing alongside a GP is:",
+      "options": [
+        "Adverse selection — the GP may offer co-investment mainly in deals it is less keen to hold at full size",
+        "Paying a double layer of management and incentive fees",
+        "Losing all governance rights in the main fund",
+        "Being unable to diversify across vintage years"
+      ],
+      "answer": 0,
+      "explain": "Co-investments usually carry low or no fees, which is their attraction; the double layer of fees is a fund-of-funds problem. The concern is selection: the LP may receive the deals that are too large or less attractive, and it must be able to evaluate deals quickly on its own."
+    },
+    {
+      "id": "q-20261122-16",
+      "topic": "ethics",
+      "tag": "Fiduciary duty",
+      "level": 2,
+      "q": "A portfolio manager buys a block of a thinly traded bond that is suitable for several client accounts. To respect the duty of impartiality, she should:",
+      "options": [
+        "Allocate the block across eligible accounts using a fair, pre-set method such as pro rata",
+        "Give the whole block to the account with the highest performance fee",
+        "Allocate it to her own personal account first, then clients",
+        "Give it to whichever client called most recently"
+      ],
+      "answer": 0,
+      "explain": "Impartiality requires treating clients with similar mandates fairly, so allocation should follow a documented, consistent rule. Steering scarce opportunities to the account that pays the manager most puts her interest ahead of clients’, a textbook conflict of interest."
+    },
+    {
+      "id": "q-20261122-17",
+      "topic": "ethics",
+      "tag": "Transparency",
+      "level": 2,
+      "q": "A GP grants one large LP a side letter with a lower management fee. Several other LPs have most-favored-nation (MFN) clauses. The ethically and contractually appropriate action is to:",
+      "options": [
+        "Disclose the relevant side-letter terms to the MFN holders so they can elect equivalent treatment",
+        "Keep the side letter confidential because it was negotiated privately",
+        "Cancel the side letter so no disclosure is needed",
+        "Disclose the terms only if an LP asks directly"
+      ],
+      "answer": 0,
+      "explain": "An MFN clause entitles an LP to the better terms granted to comparable investors, which can only work if those terms are disclosed. Waiting for LPs to ask, or hiding terms behind confidentiality, breaches both the contract and the principle of transparency toward clients."
+    },
+    {
+      "id": "q-20261122-18",
+      "topic": "digital",
+      "tag": "Bitcoin",
+      "level": 2,
+      "q": "After the 2024 halving, the Bitcoin block reward is 3.125 BTC and blocks arrive about every 10 minutes. Approximately how many new bitcoins will be issued per day after the next halving?",
+      "options": [
+        "225 BTC",
+        "450 BTC",
+        "900 BTC",
+        "144 BTC"
+      ],
+      "answer": 0,
+      "explain": "About 6 blocks per hour × 24 = 144 blocks per day. The next halving cuts the reward to 3.125 / 2 = 1.5625 BTC, so issuance ≈ 144 × 1.5625 = **225 BTC per day**. 450 BTC is the current (post-2024) rate; 900 BTC was the rate before the 2024 halving.",
+      "calc": true
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-20261122-01",
+      "topic": "intro",
+      "front": "Arithmetic vs. geometric mean return",
+      "back": "The arithmetic mean averages period returns; the geometric mean is the constant compounded rate that gives the same final wealth. Geometric ≤ arithmetic, roughly by half the variance.",
+      "hint": "Volatility drag is the gap."
+    },
+    {
+      "id": "c-20261122-02",
+      "topic": "intro",
+      "front": "Open-end vs. closed-end fund",
+      "back": "An open-end fund issues and redeems units at NAV, so its size changes with flows; a closed-end fund has fixed capital (or fixed commitments) and a set life, suited to illiquid assets."
+    },
+    {
+      "id": "c-20261122-03",
+      "topic": "real",
+      "front": "Effective gross income",
+      "back": "Potential gross rental income minus vacancy and collection losses (plus any other income). Subtracting operating expenses from it gives NOI."
+    },
+    {
+      "id": "c-20261122-04",
+      "topic": "real",
+      "front": "Negative leverage",
+      "back": "Borrowing when the cost of debt exceeds the unlevered return on the asset: each extra unit of debt lowers the expected return on equity while raising its risk.",
+      "hint": "Debt costs more than the property earns."
+    },
+    {
+      "id": "c-20261122-05",
+      "topic": "real",
+      "front": "Farmland return drivers",
+      "back": "Current income (cash rents or crop sales) plus land appreciation; values are linked to crop prices, yields, interest rates and the land’s alternative uses."
+    },
+    {
+      "id": "c-20261122-06",
+      "topic": "hf",
+      "front": "Style drift",
+      "back": "A gradual move of a manager’s actual holdings or factor exposures away from the stated strategy, detected through holdings or returns-based style analysis."
+    },
+    {
+      "id": "c-20261122-07",
+      "topic": "hf",
+      "front": "Proxy contest",
+      "back": "A campaign by a shareholder (often an activist) to win other shareholders’ votes, typically to elect its own nominees to the board."
+    },
+    {
+      "id": "c-20261122-08",
+      "topic": "pe",
+      "front": "Most-favored-nation (MFN) clause",
+      "back": "A side-letter right letting an LP obtain any more favorable terms the GP grants to other LPs of equal or smaller size."
+    },
+    {
+      "id": "c-20261122-09",
+      "topic": "pe",
+      "front": "Investment period",
+      "back": "The first years of a closed-end fund (often 4–6) during which the GP may call capital for new deals; afterward, calls are limited to follow-ons and expenses, and fees often step down."
+    },
+    {
+      "id": "c-20261122-10",
+      "topic": "pe",
+      "front": "Recallable distributions",
+      "back": "Distributions the GP may call back from LPs to reinvest, usually limited in amount and time; they raise LPs’ effective exposure beyond the nominal commitment."
+    },
+    {
+      "id": "c-20261122-11",
+      "topic": "pd",
+      "front": "Business development company (BDC)",
+      "back": "A US closed-end vehicle, often listed, that lends to and invests in middle-market companies and must distribute most of its income; it gives retail investors access to private credit."
+    },
+    {
+      "id": "c-20261122-12",
+      "topic": "digital",
+      "front": "Block reward",
+      "back": "New coins created and paid to the miner (or validator) who adds a block. In Bitcoin it halves about every four years (210,000 blocks), capping total supply at 21 million."
+    }
+  ]
+}
