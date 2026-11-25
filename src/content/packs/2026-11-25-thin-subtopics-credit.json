@@ -1,0 +1,370 @@
+{
+  "id": "2026-11-25-thin-subtopics-credit",
+  "added": "2026-11-25",
+  "title": "Targeted review: tranches, recovery and thin subtopics",
+  "questions": [
+    {
+      "id": "q-20261125-01",
+      "topic": "intro",
+      "tag": "Portfolio",
+      "level": 2,
+      "q": "A portfolio holds 60% in asset A (volatility 15%) and 40% in asset B (volatility 25%). The correlation between A and B is 0.2. The portfolio volatility is closest to:",
+      "options": [
+        "14.7%",
+        "19.0%",
+        "13.5%",
+        "16.2%"
+      ],
+      "answer": 0,
+      "explain": "$\\sigma_p^2 = 0.6^2(0.15)^2 + 0.4^2(0.25)^2 + 2(0.6)(0.4)(0.2)(0.15)(0.25) = 0.0081 + 0.0100 + 0.0036 = 0.0217$, so $\\sigma_p \\approx$ **14.7%**. 19.0% is the weighted average of volatilities, which is only correct when correlation is +1; 13.5% drops the covariance term (correlation of zero).",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-02",
+      "topic": "intro",
+      "tag": "Sharpe ratio",
+      "level": 2,
+      "q": "A fund's monthly Sharpe ratio, computed from monthly excess returns and monthly volatility, is 0.20. Assuming returns are independent over time, the annualized Sharpe ratio is closest to:",
+      "options": [
+        "0.69",
+        "2.40",
+        "0.20",
+        "0.06"
+      ],
+      "answer": 0,
+      "explain": "Mean excess return scales with time ($\\times 12$) while volatility scales with the square root of time ($\\times\\sqrt{12}$), so the Sharpe ratio scales by $\\sqrt{12}$: $0.20 \\times 3.464 \\approx$ **0.69**. 2.40 multiplies by 12, as if volatility also grew linearly with time.",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-03",
+      "topic": "intro",
+      "tag": "Smoothing",
+      "level": 3,
+      "q": "A private real estate fund reports a quarterly return of 2.0% this quarter and 1.0% last quarter. The analyst believes reported returns follow $r_t^{\\text{rep}} = (1-\\rho)\\,r_t + \\rho\\, r_{t-1}^{\\text{rep}}$ with $\\rho = 0.5$. The unsmoothed (true) return for this quarter is closest to:",
+      "options": [
+        "3.0%",
+        "1.5%",
+        "2.0%",
+        "2.5%"
+      ],
+      "answer": 0,
+      "explain": "Solve for the true return: $r_t = (r_t^{\\text{rep}} - \\rho\\, r_{t-1}^{\\text{rep}})/(1-\\rho) = (2.0\\% - 0.5 \\times 1.0\\%)/0.5 =$ **3.0%**. 1.5% forgets to divide by $(1-\\rho)$. Unsmoothing makes returns more extreme, which is why it raises estimated volatility.",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-04",
+      "topic": "intro",
+      "tag": "Definition",
+      "level": 1,
+      "q": "Which feature best distinguishes most alternative investments from traditional stocks and bonds?",
+      "options": [
+        "Illiquidity, appraisal-based or infrequent pricing and non-normal return distributions",
+        "Guaranteed positive returns in every market environment",
+        "Daily exchange trading with full price transparency",
+        "Lower fees than passive index funds"
+      ],
+      "answer": 0,
+      "explain": "Alternatives are typically less liquid, harder to value (appraisals, stale prices) and show skewness, fat tails and autocorrelation. Exchange trading with full transparency describes traditional public markets; no asset class guarantees positive returns."
+    },
+    {
+      "id": "q-20261125-05",
+      "topic": "real",
+      "tag": "Index returns",
+      "level": 2,
+      "q": "Over a year, a long-only commodity futures index earns a spot return of +4%, a roll return of −3% and a collateral return of +2%. Its total return is closest to:",
+      "options": [
+        "+3%",
+        "+1%",
+        "+6%",
+        "+9%"
+      ],
+      "answer": 0,
+      "explain": "Total return of a fully collateralized futures index ≈ spot return + roll return + collateral return = 4% − 3% + 2% = **+3%**. +1% (the excess return) ignores the interest earned on the collateral backing the futures; +9% adds the roll return as if it were positive.",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-06",
+      "topic": "real",
+      "tag": "Roll yield",
+      "level": 2,
+      "q": "A commodity futures curve is in steep contango and stays unchanged over the year. An investor holds a long position by rolling from the expiring contract to the next one. The roll yield is most likely:",
+      "options": [
+        "Negative, because each new contract is bought at a higher price than the one it replaces and converges down toward spot",
+        "Positive, because futures prices are above the spot price",
+        "Zero, because roll yield only exists when spot prices change",
+        "Positive, because the investor earns the convenience yield"
+      ],
+      "answer": 0,
+      "explain": "In contango, longer contracts trade above shorter ones. With an unchanged curve, each contract slides down toward spot as it ages, so a long roller repeatedly sells low and buys high: **negative roll yield**. The tempting trap is to think a futures price above spot is a gain for the long; it is the opposite."
+    },
+    {
+      "id": "q-20261125-07",
+      "topic": "real",
+      "tag": "Land",
+      "level": 2,
+      "q": "Why can undeveloped land trade at a value above the present value of its current cash flows (for example, its agricultural rent)?",
+      "options": [
+        "It carries a real option to develop the land later, when conditions are favourable",
+        "Land is exempt from all property taxes",
+        "Land values are guaranteed to rise with inflation",
+        "Appraisers are required to value land at replacement cost"
+      ],
+      "answer": 0,
+      "explain": "Vacant land embeds a **call option on development**: the owner can wait and build when demand, prices or zoning make it worthwhile. Higher uncertainty raises this option value. Inflation protection is a tendency, not a guarantee."
+    },
+    {
+      "id": "q-20261125-08",
+      "topic": "pd",
+      "tag": "Recovery",
+      "level": 2,
+      "q": "A lender has an exposure of USD 50 million to a borrower with a one-year probability of default of 3% and an expected recovery rate of 40%. The one-year expected loss is closest to:",
+      "options": [
+        "USD 0.9 million",
+        "USD 0.6 million",
+        "USD 1.5 million",
+        "USD 20 million"
+      ],
+      "answer": 0,
+      "explain": "Expected loss = PD × LGD × exposure, with LGD = 1 − recovery = 60%: $0.03 \\times 0.60 \\times 50 =$ **USD 0.9 million**. USD 0.6 million uses the recovery rate (40%) instead of the loss given default; USD 20 million is the loss given default without weighting by the probability of default.",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-09",
+      "topic": "pd",
+      "tag": "CDS",
+      "level": 2,
+      "q": "A five-year CDS on a company trades at a spread of 240 bps. Assuming a recovery rate of 40%, the market-implied annual default probability is closest to:",
+      "options": [
+        "4.0%",
+        "6.0%",
+        "2.4%",
+        "1.4%"
+      ],
+      "answer": 0,
+      "explain": "Credit triangle: spread ≈ PD × (1 − R), so PD ≈ 2.40% / 0.60 = **4.0%**. 6.0% divides by the recovery rate instead of $(1-R)$; 2.4% ignores recovery altogether (it assumes everything is lost on default).",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-10",
+      "topic": "pd",
+      "tag": "Structured credit",
+      "level": 3,
+      "q": "A CLO has a collateral pool of USD 500 million. Its mezzanine tranche attaches at 10% and detaches at 15% of the pool. If cumulative pool losses reach 12%, the percentage of the mezzanine tranche's principal that is lost is closest to:",
+      "options": [
+        "40%",
+        "12%",
+        "100%",
+        "20%"
+      ],
+      "answer": 0,
+      "explain": "The tranche absorbs losses between 10% and 15% of the pool, so its size is 5% of the pool (USD 25 million). Losses inside the tranche = 12% − 10% = 2% of the pool = USD 10 million, i.e. 10 / 25 = **40%** of the tranche. 12% applies the pool loss rate to the tranche, ignoring the subordination below it; 100% would require losses of at least 15%.",
+      "calc": true
+    },
+    {
+      "id": "q-20261125-11",
+      "topic": "hf",
+      "tag": "Volatility",
+      "level": 2,
+      "q": "A hedge fund systematically sells index options and delta-hedges, aiming to capture the volatility risk premium. Its return distribution is most likely to show:",
+      "options": [
+        "Frequent small gains with occasional large losses (negative skewness)",
+        "Frequent small losses with occasional large gains (positive skewness)",
+        "Normally distributed returns with no tail risk",
+        "Returns that are uncorrelated with equity market crashes"
+      ],
+      "answer": 0,
+      "explain": "Short volatility collects option premiums most of the time but loses heavily when realized volatility spikes, typically during equity crashes: **negative skewness** and fat left tails. Positive skewness describes long-volatility or trend-following strategies."
+    },
+    {
+      "id": "q-20261125-12",
+      "topic": "hf",
+      "tag": "Fixed income arbitrage",
+      "level": 2,
+      "q": "A fund buys an off-the-run Treasury bond and shorts the similar-maturity on-the-run bond, which trades at a slightly higher price. The main risk of this trade is that:",
+      "options": [
+        "The yield spread widens in a flight to liquidity, as investors pay even more for the on-the-run bond",
+        "Interest rates rise in parallel across the curve",
+        "The issuer of both bonds defaults",
+        "The off-the-run bond is called by the Treasury"
+      ],
+      "answer": 0,
+      "explain": "The position is roughly duration-neutral, so parallel rate moves matter little. It is a bet that the liquidity premium on the on-the-run bond shrinks; in a crisis, demand for liquidity **widens** the spread and the leveraged trade loses (the LTCM lesson). Default risk is negligible for Treasuries."
+    },
+    {
+      "id": "q-20261125-13",
+      "topic": "hf",
+      "tag": "Service providers",
+      "level": 1,
+      "q": "Which hedge fund service provider is primarily responsible for independently calculating the fund's NAV and maintaining investor records?",
+      "options": [
+        "The fund administrator",
+        "The prime broker",
+        "The auditor",
+        "The investment manager"
+      ],
+      "answer": 0,
+      "explain": "The **administrator** values the portfolio, computes NAV and handles subscriptions, redemptions and investor records, independently of the manager. The prime broker provides leverage, securities lending, clearing and custody; the auditor reviews annual financial statements rather than computing NAV."
+    },
+    {
+      "id": "q-20261125-14",
+      "topic": "pe",
+      "tag": "Growth equity",
+      "level": 2,
+      "q": "Compared with a typical leveraged buyout, a growth equity investment is most likely to involve:",
+      "options": [
+        "A minority stake in a fast-growing, often profitable company, with little or no debt",
+        "A controlling stake financed mainly with debt",
+        "An investment in a pre-revenue start-up with an unproven product",
+        "The purchase of distressed debt to gain control in bankruptcy"
+      ],
+      "answer": 0,
+      "explain": "Growth equity sits between venture capital and buyouts: proven business models expanding fast, usually **minority** positions and little leverage. Control plus heavy debt describes an LBO; pre-revenue start-ups are early-stage venture capital."
+    },
+    {
+      "id": "q-20261125-15",
+      "topic": "pe",
+      "tag": "Exits",
+      "level": 2,
+      "q": "A buyout fund takes a portfolio company public through an IPO. Compared with a trade sale to a strategic buyer, the IPO route typically:",
+      "options": [
+        "Provides only a partial exit at first, because the fund keeps shares subject to a lock-up period",
+        "Delivers all the proceeds in cash at closing",
+        "Removes all exposure to subsequent market price movements",
+        "Is the only exit route that allows a control premium"
+      ],
+      "answer": 0,
+      "explain": "At an IPO the fund usually sells only part of its stake and must wait out a **lock-up** before selling the rest, so it stays exposed to the share price. A trade sale typically delivers the whole stake for cash at closing, often with a control premium paid by the strategic buyer."
+    },
+    {
+      "id": "q-20261125-16",
+      "topic": "ethics",
+      "tag": "Principal–agent",
+      "level": 2,
+      "q": "A fund manager earns a large incentive fee on gains but bears no share of losses. Approaching year-end below the high-water mark, the manager sharply increases portfolio risk. This behaviour best illustrates:",
+      "options": [
+        "A principal–agent conflict created by the option-like incentive fee",
+        "A breach of the duty of impartiality between clients",
+        "Normal rebalancing to the fund's strategic allocation",
+        "Front-running of client orders"
+      ],
+      "answer": 0,
+      "explain": "The incentive fee works like a call option for the manager: more volatility raises its value while investors bear the downside. Raising risk to chase the fee puts the agent's interest ahead of the principals'. Impartiality concerns treating different clients fairly, which is not the issue here."
+    },
+    {
+      "id": "q-20261125-17",
+      "topic": "ethics",
+      "tag": "Risk management",
+      "level": 2,
+      "q": "An allocator discovers that a manager's actual leverage has been well above the limit in the fund documents for several months. Consistent with high standards of practice, the most appropriate first step is to:",
+      "options": [
+        "Document the breach, raise it with the manager and escalate according to the governance process",
+        "Ignore it if the fund has recently performed well",
+        "Redeem immediately without informing anyone",
+        "Quietly adjust internal reports so the limit appears respected"
+      ],
+      "answer": 0,
+      "explain": "Good practice means acting on risk-limit breaches through a documented, transparent process: record the issue, seek an explanation and escalate to the investment committee or board. Good returns do not excuse a breach, and altering reports would be a serious transparency failure."
+    },
+    {
+      "id": "q-20261125-18",
+      "topic": "ethics",
+      "tag": "MNPI",
+      "level": 2,
+      "q": "During due diligence on a private credit deal, an analyst learns that a listed borrower is about to announce a large unexpected loss. Her colleague on the public equity desk asks how the meeting went. She should:",
+      "options": [
+        "Decline to share the information and inform compliance so that the issuer can be added to the restricted list",
+        "Share it, since it was obtained legitimately during due diligence",
+        "Share it only if the colleague promises not to trade for a week",
+        "Sell her personal shares in the company before the announcement"
+      ],
+      "answer": 0,
+      "explain": "The information is material and non-public. Legitimate receipt does not allow passing it on or trading on it; it must stay behind the **information barrier** and compliance must be told. Selling personal shares would be insider trading."
+    },
+    {
+      "id": "q-20261125-19",
+      "topic": "digital",
+      "tag": "Networks",
+      "level": 2,
+      "q": "A layer-2 network built on top of a public blockchain is designed mainly to:",
+      "options": [
+        "Process transactions off the main chain to raise throughput and lower fees, while settling on the base layer for security",
+        "Replace the consensus mechanism of the base chain",
+        "Turn the public blockchain into a permissioned one",
+        "Issue a new stablecoin backed by fiat reserves"
+      ],
+      "answer": 0,
+      "explain": "Layer-2 solutions (such as rollups or payment channels) batch or net transactions off-chain and periodically settle on layer 1, inheriting its security while improving speed and cost. They do not change the base chain's consensus or make it permissioned."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-20261125-01",
+      "topic": "pe",
+      "front": "Trade sale",
+      "back": "Exit in which a portfolio company is sold to a strategic (corporate) buyer, usually for cash in full at closing and often with a control premium.",
+      "hint": "Strategic buyer, clean exit."
+    },
+    {
+      "id": "c-20261125-02",
+      "topic": "intro",
+      "front": "Unsmoothing (desmoothing)",
+      "back": "Statistical adjustment that recovers estimated true returns from smoothed, appraisal-based returns: $r_t = (r_t^{\\text{rep}} - \\rho\\, r_{t-1}^{\\text{rep}})/(1-\\rho)$. It raises estimated volatility and correlation."
+    },
+    {
+      "id": "c-20261125-03",
+      "topic": "pd",
+      "front": "Recovery rate",
+      "back": "Share of exposure recovered after a default (through collateral or bankruptcy). Loss given default = 1 − recovery rate.",
+      "hint": "LGD + R = 100%"
+    },
+    {
+      "id": "c-20261125-04",
+      "topic": "real",
+      "front": "Spot, roll and collateral return",
+      "back": "The three components of a fully collateralized commodity futures index's total return. Spot + roll = excess return; adding collateral interest gives total return."
+    },
+    {
+      "id": "c-20261125-05",
+      "topic": "pd",
+      "front": "Attachment and detachment points",
+      "back": "The pool loss levels at which a tranche starts (attachment) and stops (detachment) absorbing losses. Tranche loss % = (pool loss − attachment) / (detachment − attachment), capped between 0 and 100%."
+    },
+    {
+      "id": "c-20261125-06",
+      "topic": "hf",
+      "front": "Variance swap",
+      "back": "Contract paying the difference between realized variance and a fixed strike variance. A seller of variance swaps is short volatility and harvests the volatility risk premium."
+    },
+    {
+      "id": "c-20261125-07",
+      "topic": "hf",
+      "front": "Repo financing",
+      "back": "Borrowing cash by selling a security and agreeing to buy it back at a set price. The main source of leverage in fixed income arbitrage; haircuts limit how much can be borrowed.",
+      "hint": "Haircut = margin"
+    },
+    {
+      "id": "c-20261125-08",
+      "topic": "real",
+      "front": "Basis risk",
+      "back": "Risk that a hedge and the exposure it protects do not move together (for example, a futures contract on a different grade or location than the physical commodity)."
+    },
+    {
+      "id": "c-20261125-09",
+      "topic": "digital",
+      "front": "Layer-2 network",
+      "back": "Protocol built on top of a base blockchain that processes transactions off the main chain and settles on it, improving speed and cost while relying on layer-1 security."
+    },
+    {
+      "id": "c-20261125-10",
+      "topic": "intro",
+      "front": "Funding liquidity risk",
+      "back": "Risk that a leveraged investor cannot roll or maintain its financing (margin calls, higher haircuts), forcing asset sales at depressed prices. Distinct from market (asset) liquidity risk."
+    },
+    {
+      "id": "c-20261125-11",
+      "topic": "ethics",
+      "front": "Restricted list",
+      "back": "Compliance list of issuers in which trading is prohibited or limited, typically because the firm holds MNPI about them."
+    }
+  ]
+}
